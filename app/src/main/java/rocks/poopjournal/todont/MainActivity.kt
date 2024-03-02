@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment, fragment.javaClass.simpleName).commit()
 
+
         // Set toolbar text to "Today"
         binding.toolbartext.setText(R.string.today)
 
