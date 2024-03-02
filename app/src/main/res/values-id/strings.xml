@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LightMode">To Don\'t</string>
+    <string name="app_name">To Don\'t</string>
+    <string name="habitswillshowuphere">Kebiasaan akan muncul di sini</string>
+    <string name="puthabit">Untuk memulai, tuliskan kebiasaan buruk</string>
+    <string name="addnewlabel">Tambahkan label baru</string>
+    <string name="addlabel">Silakan tambahkan label terlebih dahulu</string>
+    <string name="leastav">Paling sedikit dihindari:</string>
+    <string name="mostav">Paling dihindari:</string>
+    <string name="settings">Pengaturan</string>
+    <string name="labels">Label</string>
+    <string name="about">Tentang</string>
+    <string name="log">Catatan</string>
+    <string name="today">Hari ini</string>
+    <string name="habits">Kebiasaan</string>
+    <string name="done">Selesai</string>
+    <string name="avoided">Dihindari</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="apachelicense">Lisensi Apache 2.0</string>
+    <string name="developer">Pengembang</string>
+    <string name="translate">Terjemah</string>
+    <string name="report">Laporkan masalah</string>
+    <string name="source">Lihat sumber</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="followsys">Ikuti Sistem</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse">Lisensi Publik Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="contribute">Kontribusi</string>
+    <string name="opensourcelicense">Lisensi open-source</string>
+    <string name="appearance">Tampilan</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="gnu">Lisensi Publik Umum GNU CE</string>
+    <string name="feather">Ikon Bulu</string>
+    <string name="mitlicence">Lisensi MIT</string>
+    <string name="save">Simpan</string>
+    <string name="contentDescription_FAB">Tambahkan item baru ke To Don\'t</string>
+    <string name="onboarding_freshlist">Pagi hari dimulai dengan daftar yang baru.</string>
+    <string name="toast_dark">To Don\'t sisi gelap.</string>
+    # Here are the non-translateable strings
+    <string name="onboarding_reverse">Daftar reverse to-do</string>
+    <string name="onboarding_bad">Catat kebiasaan buruk Anda. Setiap hari, coret</string>
+    <string name="onboarding_gavein">bagi anda yg menyerah. dan selanjutnya</string>
+    <string name="update">Perbarui</string>
+    <string name="light">Terang</string>
+    <string name="toast_light">To Don\'t sisi terang.</string>
+    <string name="onboarding_continue">Lanjutkan</string>
+    <string name="dark">Gelap</string>
+    <string name="addtask">Masukkan tugas</string>
+    <string name="note">Catatan</string>
+    <string name="toast_system">To Don\'t sekarang mengikuti sistem Anda.</string>
+</resources>

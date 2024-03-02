@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LightMode">Älä</string>
+    <string name="app_name">Älä</string>
+    <string name="settings">Asetukset</string>
+    <string name="about">Tietoja</string>
+    <string name="log">Loki</string>
+    <string name="today">Tänään</string>
+    <string name="avoided">Vältetty</string>
+    <string name="done">Valmis</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habitswillshowuphere">Gewoontes zullen hier getoond worden.</string>
+    <string name="puthabit">Om te beginnen, geef je een slechte gewoonte op</string>
+    <string name="addnewlabel">Nieuw label toevoegen</string>
+    <string name="addlabel">Gelieve eerst een label toe te voegen</string>
+    <string name="leastav">Minst vermeden:</string>
+    <string name="mostav">Meest vermeden:</string>
+    <string name="settings">Instellingen</string>
+    <string name="labels">Labels</string>
+    <string name="about">Over</string>
+    <string name="log">Log</string>
+    <string name="today">Vandaag</string>
+    <string name="habits">Gewoontes</string>
+    <string name="done">Gedaan</string>
+    <string name="avoided">Vermeden</string>
+    <string name="app_name">Wat je niet moet doen</string>
+</resources>

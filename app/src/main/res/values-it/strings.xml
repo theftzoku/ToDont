@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LightMode">Da non fare</string>
+    <string name="app_name">Da non fare</string>
+    <string name="avoided">Evitata</string>
+    <string name="habitswillshowuphere">Le abitudini verranno visualizzate qui</string>
+    <string name="puthabit">Per iniziare, metti una cattiva abitudine</string>
+    <string name="addnewlabel">Aggiungi una nuova etichetta</string>
+    <string name="addlabel">Si prega di aggiungere prima un’etichetta</string>
+    <string name="leastav">Le meno evitate:</string>
+    <string name="mostav">Le più evitate:</string>
+    <string name="settings">Impostazioni</string>
+    <string name="labels">Etichette</string>
+    <string name="about">Informazioni</string>
+    <string name="log">Registro</string>
+    <string name="today">Oggi</string>
+    <string name="habits">Abitudini</string>
+    <string name="done">Finito</string>
+    <string name="gnu">Licenza pubblica generale GNU CE</string>
+    <string name="java">Java</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="eclipse">Licenza pubblica Eclipse 1.0</string>
+    <string name="junit">JUnit</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="followsys">Secondo il sistema</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="mitlicence">Licenza MIT</string>
+    <string name="feather">Icone di piume</string>
+    <string name="appearance">Aspetto</string>
+    <string name="opensourcelicense">Licenze codice sorgente aperto</string>
+    <string name="source">Vedi il sorgente</string>
+    <string name="report">Segnala un problema</string>
+    <string name="translate">Traduci</string>
+    <string name="contribute">Contribuisci</string>
+    <string name="developer">Sviluppatore</string>
+    <string name="apachelicense">Licenza Apache 2.0</string>
+    <string name="onboarding_reverse">La lista delle cose da fare inversa</string>
+    <string name="onboarding_bad">Annota le tue cattive abitudini. Ogni giorno, segna</string>
+    <string name="onboarding_gavein">quelle a cui hai ceduto. E la prossima</string>
+    <string name="onboarding_freshlist">mattina inizia con la nuova lista.</string>
+    <string name="onboarding_continue">Continua</string>
+    <string name="addtask">Inserisci attività</string>
+    <string name="note">Nota</string>
+    <string name="save">Salva</string>
+    <string name="dark">Scuro</string>
+    <string name="light">Chiaro</string>
+    <string name="update">Aggiorna</string>
+    <string name="toast_system">To Don\'t ora segue il tuo sistema.</string>
+    <string name="toast_light">To Don\'t ora segue il tema chiaro.</string>
+    <string name="toast_dark">To Don\'t ora segue il tema scuro.</string>
+    # Here are the non-translateable strings
+    <string name="contentDescription_FAB">Aggiungi un nuovo oggetto To Don\'t</string>
+</resources>

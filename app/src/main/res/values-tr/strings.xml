@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log">Günlük</string>
+    <string name="java">Java</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="eclipse">Eclipse Kamu Lisansı 1.0</string>
+    <string name="junit">JUnit</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="gnu">GNU Genel Kamu Lisansı CE</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="followsys">Sistemi Takip Et</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="mitlicence">MIT Lisansı</string>
+    <string name="feather">Feather Simge Paketi</string>
+    <string name="appearance">Görünüm</string>
+    <string name="opensourcelicense">Açık kaynak lisanslar</string>
+    <string name="source">Kaynak kodunu görüntüle</string>
+    <string name="report">Sorun bildir</string>
+    <string name="translate">Çevir</string>
+    <string name="contribute">Katkıda bulun</string>
+    <string name="developer">Geliştirici</string>
+    <string name="apachelicense">Apache Lisansı 2.0</string>
+    <string name="habitswillshowuphere">Alışkanlıklar burada görünecek</string>
+    <string name="puthabit">Başlamak için bir kötü alışkanlık oluşturun</string>
+    <string name="addnewlabel">Yeni etiket ekle</string>
+    <string name="addlabel">Lütfen önce etiket ekleyin</string>
+    <string name="leastav">En az kaçınılan:</string>
+    <string name="mostav">En çok kaçınılan:</string>
+    <string name="settings">Ayarlar</string>
+    <string name="labels">Etiketler</string>
+    <string name="about">Hakkında</string>
+    <string name="today">Bugün</string>
+    <string name="habits">Alışkanlıklar</string>
+    <string name="done">Yapıldı</string>
+    <string name="avoided">Kaçınıldı</string>
+    <string name="LightMode">Yapılmayacaklar</string>
+    <string name="app_name">Yapılmayacaklar</string>
+    <string name="onboarding_freshlist">sabah yeni listeyle başlayın.</string>
+    <string name="addtask">Görev girin</string>
+    <string name="dark">Koyu</string>
+    <string name="onboarding_continue">Devam et</string>
+    <string name="save">Kaydet</string>
+    <string name="update">Güncelle</string>
+    <string name="note">Not</string>
+    <string name="light">Açık</string>
+    <string name="onboarding_reverse">Yapılacaklar listesinin tersi</string>
+    <string name="onboarding_bad">Kötü alışkanlıklarınızı not edin. Her gün, çarpı atın</string>
+    <string name="onboarding_gavein">teslim olduklarınıza. Ve bir sonraki</string>
+    <string name="toast_system">Yapılmayacaklar şimdi sisteminizi takip ediyor.</string>
+    <string name="toast_light">Yapılmayacaklar şimdi aydınlık tarafta.</string>
+    <string name="toast_dark">Yapılmayacaklar şimdi karanlık tarafta.</string>
+    # Here are the non-translateable strings
+    <string name="contentDescription_FAB">Yeni Yapılmayacaklar ögesi ekleyin</string>
+</resources>

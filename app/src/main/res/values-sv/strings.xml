@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log">Logg</string>
+    <string name="done">Klar</string>
+    <string name="avoided">Undvikta</string>
+    <string name="addlabel">Var god lägg till en etikett först</string>
+    <string name="habits">Vanor</string>
+    <string name="leastav">Minst undvikta:</string>
+    <string name="mostav">Mest undvikta:</string>
+    <string name="settings">Inställningar</string>
+    <string name="labels">Etiketter</string>
+    <string name="about">Om</string>
+    <string name="today">Idag</string>
+    <string name="habitswillshowuphere">Vanorna kommer att dyka upp här</string>
+    <string name="puthabit">För att börja, skriv ned en dålig vana</string>
+    <string name="addnewlabel">Lägg till ny etikett</string>
+    <string name="developer">Utvecklare</string>
+    <string name="report">Rapportera ett fel</string>
+    <string name="source">Läs källkoden</string>
+    <string name="opensourcelicense">Licenser för öppen källkod</string>
+    <string name="appearance">Utseende</string>
+    <string name="contribute">Bidra</string>
+    <string name="translate">Översätt</string>
+</resources>

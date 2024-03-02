@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LightMode">רשימת מכשלות</string>
+    <string name="app_name">רשימת מכשלות</string>
+    <string name="puthabit">כדי להתחיל, כדאי להוסיף כאן הרגל רע</string>
+    <string name="addnewlabel">הוספת תווית חדשה</string>
+    <string name="addlabel">נא להוסיף תווית תחילה</string>
+    <string name="leastav">הכי פחות נמנעת:</string>
+    <string name="mostav">הכי הרבה נמנעת:</string>
+    <string name="settings">הגדרות</string>
+    <string name="labels">תוויות</string>
+    <string name="about">על אודות</string>
+    <string name="log">תיעוד</string>
+    <string name="today">היום</string>
+    <string name="habits">הרגלים</string>
+    <string name="done">בוצעו</string>
+    <string name="avoided">נמנעו</string>
+    <string name="habitswillshowuphere">ההרגלים יופיעו כאן</string>
+    <string name="gnu">הרישיון הציבורי הכללי של גנו במהדורה הקהילתית</string>
+    <string name="java">Java</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="eclipse">רישיון ציבורי Eclipse 2.0</string>
+    <string name="junit">JUnit</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="followsys">כמו המערכת</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="mitlicence">רישיון MIT</string>
+    <string name="feather">סמלי נוצה</string>
+    <string name="appearance">מראה</string>
+    <string name="opensourcelicense">רישיונות קוד פתוח</string>
+    <string name="source">הצגת המקור</string>
+    <string name="report">דיווח על תקלה</string>
+    <string name="translate">תרגום</string>
+    <string name="contribute">תרומה</string>
+    <string name="developer">מפתח</string>
+    <string name="apachelicense">רישיון Apache 2.0</string>
+    <string name="light">בהיר</string>
+    <string name="dark">כהה</string>
+    <string name="update">עדכון</string>
+    <string name="toast_dark">רשימת המכשלות עברה לצד האפל כעת.</string>
+    # Here are the non-translateable strings
+    <string name="onboarding_reverse">רשימת המטלות ההפוכה</string>
+    <string name="onboarding_bad">מתעדים את ההרגלים הרעים. בכל יום מסמנים</string>
+    <string name="onboarding_gavein">את אלו שנכנעת אליהם. ובבוקר שלמחרת</string>
+    <string name="onboarding_freshlist">מתחילים מחדש עם רשימה רעננה.</string>
+    <string name="onboarding_continue">להמשיך</string>
+    <string name="addtask">הוספת משימה</string>
+    <string name="note">הערה</string>
+    <string name="save">שמירה</string>
+    <string name="toast_system">רשימת המכשלות תואמת לעיצוב המערכת שלך כעת.</string>
+    <string name="toast_light">רשימת המכשלות עברה לצד הבהיר כעת.</string>
+    <string name="contentDescription_FAB">הוספת פריט מכשלה חדש</string>
+</resources>

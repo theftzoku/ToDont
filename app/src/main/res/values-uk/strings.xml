@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habitswillshowuphere">Звички можна буде побачити тут</string>
+    <string name="puthabit">Для початку позбудьтеся від шкідливої звички</string>
+    <string name="addnewlabel">Додайте новий ярлик</string>
+    <string name="addlabel">Будь ласка, спочатку додайте ярлик</string>
+    <string name="leastav">Уникали найменше:</string>
+    <string name="mostav">Уникали найбільше:</string>
+    <string name="settings">Налаштування</string>
+    <string name="labels">Ярлики</string>
+    <string name="about">Про нас</string>
+    <string name="log">Журнал прогресу</string>
+    <string name="today">Сьогодні</string>
+    <string name="habits">Звички</string>
+    <string name="done">Виконано</string>
+    <string name="avoided">Варто уникати</string>
+    <string name="LightMode">Припини це</string>
+    <string name="app_name">Припини це</string>
+    <string name="gnu">GNU General Public License CE</string>
+    <string name="report">Повідомити про проблему</string>
+    <string name="contribute">Сприяють</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="apachelicense">Apache License 2.0</string>
+    <string name="source">Переглянути вихідний код</string>
+    <string name="translate">Перекласти</string>
+    <string name="opensourcelicense">Ліцензії з відкритим кодом</string>
+    <string name="mitlicence">Ліцензія MIT</string>
+    <string name="appearance">Вигляд</string>
+    <string name="developer">Розробник</string>
+    <string name="java">Java</string>
+    <string name="followsys">Стежити за системою</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="feather">Feather Icons</string>
+    <string name="light">Світлий</string>
+    <string name="toast_dark">To Don\'t тепер на темному боці.</string>
+    # Here are the non-translateable strings
+    <string name="onboarding_reverse">Обернений список справ</string>
+    <string name="onboarding_bad">Запишіть свої погані звички. Щодня, викреслюйте</string>
+    <string name="onboarding_gavein">ті, яким піддалися. А наступного</string>
+    <string name="onboarding_freshlist">ранку почніть з новим списком.</string>
+    <string name="onboarding_continue">Продовжити</string>
+    <string name="addtask">Додати задачу</string>
+    <string name="note">Нотатка</string>
+    <string name="save">Зберегти</string>
+    <string name="dark">Темний</string>
+    <string name="update">Оновити</string>
+    <string name="toast_system">To Don\'t тепер слідкує за вашою системою.</string>
+    <string name="toast_light">To Don\'t тепер на світлому боці.</string>
+    <string name="contentDescription_FAB">Додати новий пункт To Don\'t</string>
+</resources>
