@@ -33,10 +33,10 @@ public class FragmentLog extends Fragment {
         binding.day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.day.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-                binding.week.setBackgroundColor(Color.TRANSPARENT);
-                binding.month.setBackgroundColor(Color.TRANSPARENT);
-                binding.year.setBackgroundColor(Color.TRANSPARENT);
+                binding.day.setBackgroundResource(R.drawable.continuebutton2);
+                binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
                 Helper.SelectedButtonOfLogTab = 0;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogFragment, new DailyFragment());
@@ -46,10 +46,10 @@ public class FragmentLog extends Fragment {
         binding.week.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.day.setBackgroundColor(Color.TRANSPARENT);
-                binding.week.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-                binding.month.setBackgroundColor(Color.TRANSPARENT);
-                binding.year.setBackgroundColor(Color.TRANSPARENT);
+                binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.week.setBackgroundResource(R.drawable.continuebutton2);
+                binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
                 Helper.SelectedButtonOfLogTab = 1;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogFragment, new WeeklyFragment());
@@ -59,10 +59,10 @@ public class FragmentLog extends Fragment {
         binding.month.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.day.setBackgroundColor(Color.TRANSPARENT);
-                binding.week.setBackgroundColor(Color.TRANSPARENT);
-                binding.month.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-                binding.year.setBackgroundColor(Color.TRANSPARENT);
+                binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.month.setBackgroundResource(R.drawable.continuebutton2);
+                binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
                 Helper.SelectedButtonOfLogTab = 2;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogFragment, new MonthlyFragment());
@@ -72,10 +72,10 @@ public class FragmentLog extends Fragment {
         binding.year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.day.setBackgroundColor(Color.TRANSPARENT);
-                binding.week.setBackgroundColor(Color.TRANSPARENT);
-                binding.month.setBackgroundColor(Color.TRANSPARENT);
-                binding.year.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
+                binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.year.setBackgroundResource(R.drawable.continuebutton2);
                 Helper.SelectedButtonOfLogTab = 3;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogFragment, new YearlyFragment());
@@ -84,34 +84,34 @@ public class FragmentLog extends Fragment {
         });
 
         if (Helper.SelectedButtonOfLogTab == 0) {
-            binding.day.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-            binding.week.setBackgroundColor(Color.TRANSPARENT);
-            binding.month.setBackgroundColor(Color.TRANSPARENT);
-            binding.year.setBackgroundColor(Color.TRANSPARENT);
+            binding.day.setBackgroundResource(R.drawable.continuebutton2);
+            binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerLogFragment, new DailyFragment());
             ft.commit();
         } else if (Helper.SelectedButtonOfLogTab == 1) {
-            binding.day.setBackgroundColor(Color.TRANSPARENT);
-            binding.week.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-            binding.month.setBackgroundColor(Color.TRANSPARENT);
-            binding.year.setBackgroundColor(Color.TRANSPARENT);
+            binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.week.setBackgroundResource(R.drawable.continuebutton2);
+            binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerLogFragment, new WeeklyFragment());
             ft.commit();
         } else if (Helper.SelectedButtonOfLogTab == 2) {
-            binding.day.setBackgroundColor(Color.TRANSPARENT);
-            binding.week.setBackgroundColor(Color.TRANSPARENT);
-            binding.month.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-            binding.year.setBackgroundColor(Color.TRANSPARENT);
+            binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.month.setBackgroundResource(R.drawable.continuebutton2);
+            binding.year.setBackgroundResource(R.drawable.continuebuttontrans);
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerLogFragment, new MonthlyFragment());
             ft.commit();
         } else if (Helper.SelectedButtonOfLogTab == 3) {
-            binding.day.setBackgroundColor(Color.TRANSPARENT);
-            binding.week.setBackgroundColor(Color.TRANSPARENT);
-            binding.month.setBackgroundColor(Color.TRANSPARENT);
-            binding.year.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
+            binding.day.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.week.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.month.setBackgroundResource(R.drawable.continuebuttontrans);
+            binding.year.setBackgroundResource(R.drawable.continuebutton2);
         }
         return binding.getRoot();
 

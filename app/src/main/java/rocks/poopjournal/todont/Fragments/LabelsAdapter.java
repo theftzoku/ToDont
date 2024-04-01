@@ -32,8 +32,6 @@ public class LabelsAdapter extends RecyclerView.Adapter<LabelsAdapter.RecyclerVi
         this.con = con;
         this.db=db;
 
-
-
     }
 
     @NonNull

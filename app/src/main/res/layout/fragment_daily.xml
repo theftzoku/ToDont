@@ -56,7 +56,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/spinnercolor" />
+                    android:background="@color/innerfragmentsColor2" />
             </LinearLayout>
 
             <com.github.mikephil.charting.charts.PieChart
@@ -105,9 +105,8 @@
                         android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:gravity="center"
-                        android:background="@color/spinnercolor"
-
-
+                        android:layout_marginLeft="2dp"
+                        android:background="@drawable/continuebutton2"
                         android:text="@string/habits"
                         android:layout_weight="1"
                         android:textColor="@color/textcolor"
@@ -117,8 +116,7 @@
                         android:id="@+id/davoided"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:background="@android:color/transparent"
-
+                        android:background="@drawable/continuebuttontrans"
                         android:text="@string/avoided"
                         android:layout_weight="1"
                         android:textColor="@color/textcolor"
@@ -128,9 +126,10 @@
                         android:id="@+id/ddone"
                         android:layout_width="100dp"
                         android:layout_height="40dp"
-                        android:background="@android:color/transparent"
+                        android:background="@drawable/continuebuttontrans"
 
                         android:text="@string/done"
+                        android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:textColor="@color/textcolor"
                         android:textSize="12sp" />

@@ -32,7 +32,6 @@
                     android:id="@+id/day"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-
                     android:text="D"
                     android:layout_marginLeft="2dp"
                     android:layout_weight="1"
@@ -43,7 +42,6 @@
                     android:id="@+id/week"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-
                     android:text="W"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"
@@ -53,7 +51,6 @@
                     android:id="@+id/month"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-
                     android:text="M"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"
@@ -75,7 +72,7 @@
 
 
         <FrameLayout
-            android:id="@+id/containerLogFragment"
+                android:id="@+id/containerLogFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

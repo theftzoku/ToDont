@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -35,6 +37,9 @@ import java.util.ArrayList;
 import rocks.poopjournal.todont.Adapters.HabitsAdapter;
 import rocks.poopjournal.todont.Fragments.HabitsFragment;
 import rocks.poopjournal.todont.Fragments.LabelsAdapter;
+import rocks.poopjournal.todont.showcaseview.RippleBackground;
+import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder;
+import rocks.poopjournal.todont.utils.SharedPrefUtils;
 
 public class Labels extends AppCompatActivity {
     RecyclerView rv_labels;
@@ -43,15 +48,23 @@ public class Labels extends AppCompatActivity {
     LabelsAdapter adapter;
     ArrayList<String> gettinglabels = new ArrayList<>();
     FloatingActionButton labels_floatingbutton;
+    public ShowcaseViewBuilder showcaseViewBuilder;
+    private SharedPrefUtils prefUtils;
+
     SharedPreferences sharedPreferences;
+    private RippleBackground fabHighlighter, tvHighlighter, btnHighlighter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_labels);
         rv_labels = findViewById(R.id.rv_labels);
         tv_label = findViewById(R.id.tv_label);
+        prefUtils = new SharedPrefUtils(this);
 
         sharedPreferences=getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        showcaseViewBuilder = ShowcaseViewBuilder.init(this);
+        fabHighlighter = (RippleBackground) findViewById(R.id.fab_highlighter);
 
         db = new Db_Controller(getApplicationContext(), "", null, 2);
         db.show_labels();
@@ -70,7 +83,37 @@ public class Labels extends AppCompatActivity {
         labels_floatingbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog d = new Dialog(Labels.this);
+                if (!prefUtils.getBool("plus1")) {
+                    showcaseFab();
+                } else {
+
+                    final Dialog d = new Dialog(Labels.this);
+                    d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    d.setContentView(R.layout.dialogbox_labels);
+                    d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    Button btnsave = d.findViewById(R.id.saveLabelButton);
+                    final EditText editText = d.findViewById(R.id.label);
+                    WindowManager.LayoutParams lp = d.getWindow().getAttributes();
+                    lp.dimAmount = 0.9f;
+                    d.getWindow().setAttributes(lp);
+                    btnsave.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String entered_text = editText.getText().toString().replace("'", "''");
+                            db.insert_label(entered_text);
+                            Helper.labels_array.add(entered_text);
+                            db.show_labels();
+                            Intent i = new Intent(getApplicationContext(), Labels.class);
+                            startActivity(i);
+                            overridePendingTransition(0, 0);
+
+                        }
+                    });
+                    d.show();
+                }
+
+
+               /* final Dialog d = new Dialog(Labels.this);
                 d.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 d.setContentView(R.layout.dialogbox_labels);
                 d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -92,36 +135,36 @@ public class Labels extends AppCompatActivity {
                         overridePendingTransition(0, 0);
 
                     }
-                });d.show();
-//                View bottomsheetview=null;
-//                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(Labels.this,
-//                        R.style.BottomSheetDialogTheme);
-//                if(Helper.isnightmodeon.equals("no")){
-//                    bottomsheetview = LayoutInflater.from(getApplicationContext()).
-//                            inflate(R.layout.labels_bottom_sheet,
-//                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
-//                }
-//                else if(Helper.isnightmodeon.equals("yes")){
-//                    bottomsheetview = LayoutInflater.from(getApplicationContext()).
-//                            inflate(R.layout.labels_bottom_sheet_night,
-//                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
-//                }
-//                final EditText editText = bottomsheetview.findViewById(R.id.label);
-//                Button saveLabelButton = bottomsheetview.findViewById(R.id.saveLabelButton);
-//                saveLabelButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        db.insert_label(editText.getText().toString());
-//                        Helper.labels_array.add(editText.getText().toString());
-//                        db.show_labels();
-//                        Intent i = new Intent(getApplicationContext(), Labels.class);
-//                        startActivity(i);
-//                        overridePendingTransition(0, 0);
-//                        bottomSheetDialog.dismiss();
-//                    }
-//                });
-//                bottomSheetDialog.setContentView(bottomsheetview);
-//                bottomSheetDialog.show();
+                });d.show();*/
+/*                View bottomsheetview=null;
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(Labels.this,
+                        R.style.BottomSheetDialogTheme);
+                if(Helper.isnightmodeon.equals("no")){
+                    bottomsheetview = LayoutInflater.from(getApplicationContext()).
+                            inflate(R.layout.labels_bottom_sheet,
+                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
+                }
+                else if(Helper.isnightmodeon.equals("yes")){
+                    bottomsheetview = LayoutInflater.from(getApplicationContext()).
+                            inflate(R.layout.labels_bottom_sheet_night,
+                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
+                }
+                final EditText editText = bottomsheetview.findViewById(R.id.label);
+                Button saveLabelButton = bottomsheetview.findViewById(R.id.saveLabelButton);
+                saveLabelButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        db.insert_label(editText.getText().toString());
+                        Helper.labels_array.add(editText.getText().toString());
+                        db.show_labels();
+                        Intent i = new Intent(getApplicationContext(), Labels.class);
+                        startActivity(i);
+                        overridePendingTransition(0, 0);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+                bottomSheetDialog.setContentView(bottomsheetview);
+                bottomSheetDialog.show();*/
             }
 
         });
@@ -173,9 +216,61 @@ public class Labels extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+    private void showcaseFab() {
+        showcaseViewBuilder.setTargetView(labels_floatingbutton)
+                .setBackgroundOverlayColor(0xcc000000)
+                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
+                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_LEFT)
+                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics()))
+                .setRingColor(0xcc8e8e8e)
+                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE)
+                .setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()))
+                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
+                .addCustomView(R.layout.fab_label_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -160, getResources().getDisplayMetrics()) ,0);
+//                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+
+        showcaseViewBuilder.show();
+
+        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefUtils.setBool("plus1", true);
+
+                showcaseViewBuilder.hide();
+            }
+        });
+
+/*        if (!fabHighlighter.isRippleAnimationRunning()) {
+            fabHighlighter.startRippleAnimation();
+        } else {
+            fabHighlighter.stopRippleAnimation();
+            showcaseViewBuilder.setTargetView(labels_floatingbutton)
+                    .setBackgroundOverlayColor(0xcc000000)
+                    .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
+                    .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_LEFT)
+                    .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics()))
+                    .setRingColor(0xcc8e8e8e)
+                    .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE)
+                    .setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()))
+                    .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
+                    .addCustomView(R.layout.fab_label_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -160, getResources().getDisplayMetrics()) ,0);
+//                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+
+            showcaseViewBuilder.show();
+
+            showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showcaseViewBuilder.hide();
+                }
+            });
+        }*/
+    }
+
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }

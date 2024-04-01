@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
-import android.graphics.Color;
-import android.os.Build;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -36,7 +32,6 @@ import java.util.Locale;
 
 import rocks.poopjournal.todont.Db_Controller;
 import rocks.poopjournal.todont.Fragments.HabitsFragment;
-import rocks.poopjournal.todont.Fragments.HabitsLogFragment;
 import rocks.poopjournal.todont.Helper;
 import rocks.poopjournal.todont.MainActivity;
 import rocks.poopjournal.todont.R;
@@ -74,17 +69,14 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull final HabitsAdapter.RecyclerViewHolder holder, final int position) {
         String dTask = donotTask.get(position);
-        String dCatagory = donotCatagory.get(position).replace("''","'");
+        String dCatagory = donotCatagory.get(position).replace("''", "'");
         holder.task.setText(dTask);
         holder.catagoryoftask.setText(dCatagory);
         holder.task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con,
-                        R.style.BottomSheetDialogTheme);
-                final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).
-                        inflate(R.layout.update_layout_bottom_sheet,
-                                view.findViewById(R.id.bottomsheetContainer));
+                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con, R.style.BottomSheetDialogTheme);
+                final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).inflate(R.layout.update_layout_bottom_sheet, view.findViewById(R.id.bottomsheetContainer));
                 final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
                 Button saveTaskButton = bottomsheetview.findViewById(R.id.updateTaskButton);
                 final EditText habit = bottomsheetview.findViewById(R.id.updatehabit);
@@ -98,15 +90,14 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                     spinner.setVisibility(View.VISIBLE);
                 }
                 habit.setText("" + Helper.habitsdata.get(position)[2]);
-                detail.setText("" + Helper.habitsdata.get(position)[3].replace("''","'"));
+                detail.setText("" + Helper.habitsdata.get(position)[3].replace("''", "'"));
 
                 ArrayList<String> reformed_labels = new ArrayList<>();
-                for (int i=0;i<Helper.labels_array.size();i++){
-                    reformed_labels.add(Helper.labels_array.get(i).toString().replace("''","'"));
+                for (int i = 0; i < Helper.labels_array.size(); i++) {
+                    reformed_labels.add(Helper.labels_array.get(i).toString().replace("''", "'"));
                 }
 
-                final Adapter adapter = new ArrayAdapter<String>(con, android.R.layout.simple_list_item_1,
-                        reformed_labels) {
+                final Adapter adapter = new ArrayAdapter<String>(con, android.R.layout.simple_list_item_1, reformed_labels) {
                     @Override
                     public boolean isEnabled(int position) {
                         return position != 0;
@@ -116,7 +107,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        catagoryselected = adapterView.getItemAtPosition(i).toString().replace("'","''");
+                        catagoryselected = adapterView.getItemAtPosition(i).toString().replace("'", "''");
                         TextView selectedText = (TextView) adapterView.getChildAt(i);
                         if (selectedText != null) {
                             selectedText.setTextColor(ContextCompat.getColor(con, R.color.g2));
@@ -136,13 +127,12 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
 
                         } catch (SQLiteException e) {
                         }
-                        String str=habit.getText().toString();
-                        if(str.contains("'")){
-                            str=str.replace("'","geodhola");
-                            Log.d("kuttistring",""+str);
+                        String str = habit.getText().toString();
+                        if (str.contains("'")) {
+                            str = str.replace("'", "geodhola");
+                            Log.d("kuttistring", "" + str);
                         }
-                        db.update_habitsdata(position, formattedDate,str
-                                , detail.getText().toString().replace("'","''"), catagoryselected);
+                        db.update_habitsdata(position, formattedDate, str, detail.getText().toString().replace("'", "''"), catagoryselected);
                         db.show_habits_data();
                         Intent intent = new Intent(con, MainActivity.class);
                         con.startActivity(intent);
@@ -167,25 +157,39 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                     db.show_habits_data();
                     Log.d("asize", "" + Helper.data.size());
                     int count = 0;
+                    int countAll = 0;
+                    int ids = 0;
                     if (Helper.data.size() != 0) {
                         for (int i = 0; i < Helper.data.size(); i++) {
                             String getdate = Helper.data.get(i)[1];
                             String gethabit = Helper.data.get(i)[2];
-                            if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
+                       /*     if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
+//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
                                 count++;
                             }
 
+*/
+                            if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
+//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
+                                count++;
+                                ids = i;
+                                countAll = Integer.parseInt(Helper.data.get(position)[4]);
+                                Log.i("tariq", "onClick: " + Helper.data.get(position)[4]);
+                            }
                         }
                         if (count == 0) {
-                            db.insert_data(Helper.data.size(), df.format(c), Helper.habitsdata.get(position)[2],
-                                    Helper.habitsdata.get(position)[3], catagoryselected);
-                            Toast.makeText(con, "    Added To Avoided    ", Toast.LENGTH_SHORT).show();
+                            int res = count + countAll;
+                            db.insert_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                            Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
+                        } else {
+                            int res = count + countAll;
+                            db.update_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                            Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        db.insert_data(Helper.data.size(), df.format(c), Helper.habitsdata.get(position)[2],
-                                Helper.habitsdata.get(position)[3], catagoryselected);
-                        Toast.makeText(con, "    Added To Avoided    ", Toast.LENGTH_SHORT).show();
+                        int res = count + countAll;
+                        db.insert_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                        Toast.makeText(con, "    Added To Avoided out", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -197,28 +201,32 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                     db.show_done_data();
                     db.show_habits_data();
                     int count = 0;
+                    int countAll = 0;
+                    int ids = 0;
                     if (Helper.donedata.size() != 0) {
                         for (int i = 0; i < Helper.donedata.size(); i++) {
                             String getdate = Helper.donedata.get(i)[1];
                             String gethabit = Helper.donedata.get(i)[2];
                             if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-
+//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
                                 count++;
+                                ids = i;
+                                countAll = Integer.parseInt(Helper.donedata.get(position)[4]);
                             }
-
                         }
                         if (count == 0) {
-                            Log.d("id", "" + Helper.donedata.size());
-                            db.insert_done_data(Helper.donedata.size(), df.format(c), Helper.habitsdata.get(position)[2],
-                                    Helper.habitsdata.get(position)[3], catagoryselected);
-                            Toast.makeText(con, "    Added To Done    ", Toast.LENGTH_SHORT).show();
+                            int res = count + countAll;
+                            db.insert_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                            Toast.makeText(con, "Added To Done", Toast.LENGTH_SHORT).show();
+                        } else {
+                            int res = count + countAll;
+                            db.update_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                            Toast.makeText(con, "Added To Done ", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Log.d("id", "" + Helper.donedata.size());
-                        db.insert_done_data(Helper.donedata.size(), df.format(c), Helper.habitsdata.get(position)[2],
-                                Helper.habitsdata.get(position)[3], catagoryselected);
-                        Toast.makeText(con, "    Added To Done    ", Toast.LENGTH_SHORT).show();
+                        int res = count + countAll;
+                        db.insert_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
+                        Toast.makeText(con, "Added To Done out", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

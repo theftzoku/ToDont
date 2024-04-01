@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundcolor"
     android:orientation="vertical"
     tools:context=".Labels">
@@ -32,6 +33,7 @@
                 android:id="@+id/toolbartext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="@string/labels"
@@ -59,18 +61,36 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/label_floatingbtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_gravity="bottom|end"
+
+    <rocks.poopjournal.todont.showcaseview.RippleBackground
+        android:id="@+id/fab_highlighter"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/colorPrimary"
-        backgroundTint="@color/colorPrimary"
-        android:src="@drawable/ic_add"
-        android:contentDescription="@string/contentDescription_FAB" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="13dp"
+        android:layout_marginEnd="278dp"
+        android:layout_marginBottom="598dp"
+        app:rb_duration="1000"
+        app:rb_radius="10dp"
+        app:rb_rippleAmount="2"
+        app:rb_scale="5">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/label_floatingbtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:foreground="@drawable/gradient_fab"
+            android:contentDescription="@string/contentDescription_FAB"
+            android:src="@drawable/ic_add" />
+
+    </rocks.poopjournal.todont.showcaseview.RippleBackground>
+
 
 </RelativeLayout>

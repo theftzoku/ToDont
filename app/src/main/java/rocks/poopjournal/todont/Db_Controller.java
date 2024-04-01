@@ -3,6 +3,7 @@ package rocks.poopjournal.todont;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -17,9 +18,9 @@ public class Db_Controller extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        db.execSQL("CREATE TABLE HABITS(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,CATAGORY TEXT);");
-        db.execSQL("CREATE TABLE AVOIDED(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,CATAGORY TEXT);");
-        db.execSQL("CREATE TABLE DONE(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE HABITS(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE AVOIDED(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE DONE(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
         db.execSQL("CREATE TABLE LABELS(LABEL TEXT);");
         db.execSQL("CREATE TABLE CHECKNIGHTMODE(NIGHTMODE TEXT);");
     }
@@ -41,52 +42,60 @@ public class Db_Controller extends SQLiteOpenHelper {
         this.getWritableDatabase().insertOrThrow("LABELS", "", con);
 
     }
+
     public void setNightMode(String a) {
         ContentValues con = new ContentValues();
         con.put("NIGHTMODE", a);
         this.getWritableDatabase().insertOrThrow("CHECKNIGHTMODE", "", con);
     }
-    public void getNightMode(){
+
+    public void getNightMode() {
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM CHECKNIGHTMODE", null);
-        while (cursor.moveToNext()){
-            Helper.isnightmodeon=cursor.getString(0);
+        while (cursor.moveToNext()) {
+            Helper.isnightmodeon = cursor.getString(0);
         }
 
     }
+
     public void update_nightmode(String a) {
         this.getWritableDatabase().execSQL("UPDATE CHECKNIGHTMODE SET NIGHTMODE='" + a + "'");
-        Helper.isnightmodeon=a;
+        Helper.isnightmodeon = a;
     }
 
-    public void insert_data(int id, String date, String habit, String detail, String catagory) {
+    public void insert_data(int id, String date, String habit, String detail, int times, String catagory) {
         ContentValues con = new ContentValues();
         con.put("ID", id);
         con.put("DATE", date);
         con.put("HABIT", habit);
         con.put("DETAIL", detail);
+        con.put("TIMES", times);
         con.put("CATAGORY", catagory);
         this.getWritableDatabase().insertOrThrow("AVOIDED", "", con);
 
     }
 
-    public void insert_habits(int id, String date, String habit, String detail, String catagory) {
+
+    public void insert_habits(int id, String date, String habit, String detail, int times, String catagory) {
         ContentValues con = new ContentValues();
         con.put("ID", id);
         con.put("DATE", date);
         con.put("HABIT", habit);
         con.put("DETAIL", detail);
         con.put("CATAGORY", catagory);
+        con.put("TIMES", times);
         this.getWritableDatabase().insertOrThrow("HABITS", "", con);
 
     }
 
-    public void insert_done_data(int id, String date, String habit, String detail, String catagory) {
+    public void insert_done_data(int id, String date, String habit, String detail, int times, String catagory) {
         ContentValues con = new ContentValues();
         con.put("ID", id);
         con.put("DATE", date);
         con.put("HABIT", habit);
         con.put("DETAIL", detail);
         con.put("CATAGORY", catagory);
+        con.put("TIMES", times);
+
         this.getWritableDatabase().insertOrThrow("DONE", "", con);
     }
 
@@ -97,9 +106,9 @@ public class Db_Controller extends SQLiteOpenHelper {
             String[] temp = new String[5];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
-            String str=(cursor.getString(2));
-            if(str.contains("geodhola")){
-                str=str.replace("geodhola","'");
+            String str = (cursor.getString(2));
+            if (str.contains("geodhola")) {
+                str = str.replace("geodhola", "'");
             }
             temp[2] = str;
             temp[3] = (cursor.getString(3));
@@ -113,7 +122,6 @@ public class Db_Controller extends SQLiteOpenHelper {
 
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED", null);
         Helper.data = new ArrayList<>();
-
         while (cursor.moveToNext()) {
             String[] temp = new String[5];
             temp[0] = (cursor.getString(0));
@@ -121,6 +129,7 @@ public class Db_Controller extends SQLiteOpenHelper {
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
+//            temp[5] = (cursor.getString(5));
 
             Helper.data.add(temp);
         }
@@ -139,6 +148,8 @@ public class Db_Controller extends SQLiteOpenHelper {
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
+//            temp[5] = (cursor.getString(5));
+
 
             Helper.donedata.add(temp);
         }
@@ -153,36 +164,109 @@ public class Db_Controller extends SQLiteOpenHelper {
         }
     }
 
-    public void update_habitsdata(int id, String date, String habit, String detail, String catagory) {
+        public void update_habitsdata(int id, String date, String habit, String detail, String catagory) {
 
-        this.getWritableDatabase().execSQL("UPDATE HABITS SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
+            this.getWritableDatabase().execSQL("UPDATE HABITS SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
+
+        }
+/*    public void update_habitsdata(int id, String date, String habit, String detail, int times, String category) {
+        Log.i("UpdateData", "Updating data for ID: " + id);
+
+        String query = "UPDATE HABITS SET DATE=?, HABIT=?, DETAIL=?, TIMES=?, CATAGORY=? WHERE ID=?";
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL(query, new String[]{date, habit, detail, String.valueOf(times), category, String.valueOf(id)});
+            Log.i("tariq", "Update successful");
+        } catch (SQLException e) {
+            Log.e("tariq", "Error updating data: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+    }*/
+
+    /*   public void update_data(int id, String date, String habit, String detail,int times, String catagory) {
+           Log.i("tariq", "update_data: "+times);
+           this.getWritableDatabase().execSQL("UPDATE AVOIDED SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail +"',TIMES ='"+times+ "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
+
+       }*/
+    public void update_data(int id, String date, String habit, String detail, int times, String category) {
+        Log.i("UpdateData", "Updating data for ID: " + id);
+
+        String query = "UPDATE AVOIDED SET DATE=?, HABIT=?, DETAIL=?, TIMES=?, CATAGORY=? WHERE ID=?";
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL(query, new String[]{date, habit, detail, String.valueOf(times), category, String.valueOf(id)});
+            Log.i("tariq", "Update successful");
+        } catch (SQLException e) {
+            Log.e("tariq", "Error updating data: " + e.getMessage());
+        } finally {
+            db.close();
+        }
+    }
+
+    public void update_data_avoided(int id, String date, String habit, String detail, int times, String catagory) {
+
+        ContentValues values = new ContentValues();
+        values.put("DATE", date);
+        values.put("HABIT", habit);
+        values.put("DETAIL", detail);
+        values.put("TIMES", times);
+        values.put("CATAGORY", catagory);
+// Add more columns and values as needed
+
+        String selection = "ID = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+
+        int rowsAffected = this.getWritableDatabase().update("AVOIDED", values, selection, selectionArgs);
+
+// Check if update was successful
+        if (rowsAffected > 0) {
+            Log.d("SQLiteUpdate", "Table updated successfully");
+        } else {
+            Log.d("SQLiteUpdate", "No rows updated");
+        }
+
+        this.getWritableDatabase().close();
+
+
+        /*Log.i("tariq", "update_data: "+times);
+        this.getWritableDatabase().execSQL("UPDATE AVOIDED SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail +"',TIMES ='"+times+ "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");*/
 
     }
 
-    public void update_data(int id, String date, String habit, String detail, String catagory) {
 
-        this.getWritableDatabase().execSQL("UPDATE AVOIDED SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
-
-    }
-
-    public void update_done_data(int id, String date, String habit, String detail, String catagory) {
+/*    public void update_done_data(int id, String date, String habit, String detail, String catagory) {
 
         this.getWritableDatabase().execSQL("UPDATE DONE SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
 
+    }*/
+    public void update_done_data(int id, String date, String habit, String detail, int times, String category) {
+        Log.i("tariq", "Updating data for ID: " + id);
+        String query = "UPDATE DONE SET DATE=?, HABIT=?, DETAIL=?, TIMES=?, CATAGORY=? WHERE ID=?";
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            db.execSQL(query, new String[]{date, habit, detail, String.valueOf(times), category, String.valueOf(id)});
+            Log.i("tariq", "Update successful");
+        } catch (SQLException e) {
+            Log.e("tariq", "Error updating data: " + e.getMessage());
+        } finally {
+            db.close();
+        }
     }
-
     public void delete_habits(int id) {
         Log.d("dfadelete", "" + id);
 
-        String getHabitName="";
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM HABITS WHERE id ='"+id+"'", null);
+        String getHabitName = "";
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM HABITS WHERE id ='" + id + "'", null);
         if (cursor.moveToFirst()) {
-            getHabitName=(cursor.getString(2));
+            getHabitName = (cursor.getString(2));
         }
-        Log.d("dfaaaaaaaadelete", "hi"+getHabitName);
+        Log.d("dfaaaaaaaadelete", "hi" + getHabitName);
         this.getWritableDatabase().delete("HABITS", "ID='" + id + "'", null);
         this.getWritableDatabase().delete("AVOIDED", "HABIT='" + getHabitName + "'", null);
-        this.getWritableDatabase().delete("DONE", "HABIT='" + getHabitName+ "'", null);
+        this.getWritableDatabase().delete("DONE", "HABIT='" + getHabitName + "'", null);
 
     }
 
@@ -229,97 +313,102 @@ public class Db_Controller extends SQLiteOpenHelper {
     }
 
     public void getDailyDoneRecord(String date) {
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE ='"+date+"'", null);
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE ='" + date + "'", null);
         Helper.donelogdata = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            String[] temp = new String[5];
+            String[] temp = new String[6];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
+            temp[5] = (cursor.getString(5));
+
 
             Helper.donelogdata.add(temp);
         }
     }
+
     public void getDailyAvoidedRecord(String date) {
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE ='"+date+"'", null);
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE ='" + date + "'", null);
         Helper.avoidedlogdata = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            String[] temp = new String[5];
+            String[] temp = new String[6];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
+            temp[5] = (cursor.getString(5));
+
 
             Helper.avoidedlogdata.add(temp);
         }
     }
 
 
-    public String getWeeklyAvoidedRecord(String date,String date2) {
+    public String getWeeklyAvoidedRecord(String date, String date2) {
         Helper.avoidedweeklydata = new ArrayList<>();
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE BETWEEN '"+date+"' AND '"+date2+"'", null);
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
         while (cursor.moveToNext()) {
             Helper.avoidedweeklydata.add(cursor.getString(2));
         }
-        int mostFre=0,val=0;
-        for(int i=0;i<Helper.avoidedweeklydata.size();i++){
-                    int count=0;
-                    for(int j=i+1;j<Helper.avoidedweeklydata.size();j++){
-                        if((Helper.avoidedweeklydata.get(i)).equals(Helper.avoidedweeklydata.get(j))){
-                            count++;
-                            if(count>mostFre){
-                                mostFre=count;
-                                val=j;
-                            }
-                            Log.d("aaaCount: ",""+count+ " i:"+i+" j:"+j);
-                        }
-                    }
-                }
-        if(Helper.avoidedweeklydata.size()==0){
-            return "";
-        }
-        else{
-            return Helper.avoidedweeklydata.get(val);
-        }
-    }
-    public String getWeeklyDoneRecord(String date,String date2) {
-        Helper.doneweeklydata = new ArrayList<>();
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE BETWEEN '"+date+"' AND '"+date2+"'", null);
-        while (cursor.moveToNext()) {
-            Helper.doneweeklydata.add(cursor.getString(2));
-        }
-        int mostFre=0,val=0;
-        for(int i=0;i<Helper.doneweeklydata.size();i++){
-            int count=0;
-            for(int j=i+1;j<Helper.doneweeklydata.size();j++){
-                if((Helper.doneweeklydata.get(i)).equals(Helper.doneweeklydata.get(j))){
+        int mostFre = 0, val = 0;
+        for (int i = 0; i < Helper.avoidedweeklydata.size(); i++) {
+            int count = 0;
+            for (int j = i + 1; j < Helper.avoidedweeklydata.size(); j++) {
+                if ((Helper.avoidedweeklydata.get(i)).equals(Helper.avoidedweeklydata.get(j))) {
                     count++;
-                    if(count>mostFre){
-                        mostFre=count;
-                        val=j;
+                    if (count > mostFre) {
+                        mostFre = count;
+                        val = j;
                     }
-                    Log.d("aaaCount: ",""+count+ " i:"+i+" j:"+j);
+                    Log.d("aaaCount: ", "" + count + " i:" + i + " j:" + j);
                 }
             }
         }
-        if(Helper.doneweeklydata.size()==0){
+        if (Helper.avoidedweeklydata.size() == 0) {
             return "";
+        } else {
+            return Helper.avoidedweeklydata.get(val);
         }
-        else{
+    }
+
+    public String getWeeklyDoneRecord(String date, String date2) {
+        Helper.doneweeklydata = new ArrayList<>();
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
+        while (cursor.moveToNext()) {
+            Helper.doneweeklydata.add(cursor.getString(2));
+        }
+        int mostFre = 0, val = 0;
+        for (int i = 0; i < Helper.doneweeklydata.size(); i++) {
+            int count = 0;
+            for (int j = i + 1; j < Helper.doneweeklydata.size(); j++) {
+                if ((Helper.doneweeklydata.get(i)).equals(Helper.doneweeklydata.get(j))) {
+                    count++;
+                    if (count > mostFre) {
+                        mostFre = count;
+                        val = j;
+                    }
+                    Log.d("aaaCount: ", "" + count + " i:" + i + " j:" + j);
+                }
+            }
+        }
+        if (Helper.doneweeklydata.size() == 0) {
+            return "";
+        } else {
             return Helper.doneweeklydata.get(val);
         }
     }
+
     public String getMonthlyAvoidedData(String date, String date2) {
-        Log.d("splitteddate444 ",""+date+" * "+date2);
+        Log.d("splitteddate444 ", "" + date + " * " + date2);
         Helper.avoidedmonthlydata = new ArrayList<>();
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
         while (cursor.moveToNext()) {
-            Log.d("date",""+cursor.getString(2));
+            Log.d("date", "" + cursor.getString(2));
             Helper.avoidedmonthlydata.add(cursor.getString(2));
         }
         Log.d("split", "" + Helper.avoidedmonthlydata.size());
@@ -345,12 +434,13 @@ public class Db_Controller extends SQLiteOpenHelper {
             return Helper.avoidedmonthlydata.get(val);
         }
     }
+
     public String getMonthlyDoneData(String date, String date2) {
-        Log.d("splitteddate444 ",""+date+" * "+date2);
+        Log.d("splitteddate444 ", "" + date + " * " + date2);
         Helper.donemonthlydata = new ArrayList<>();
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
         while (cursor.moveToNext()) {
-            Log.d("date",""+cursor.getString(2));
+            Log.d("date", "" + cursor.getString(2));
             Helper.donemonthlydata.add(cursor.getString(2));
         }
         Log.d("split", "" + Helper.donemonthlydata.size());
@@ -378,11 +468,11 @@ public class Db_Controller extends SQLiteOpenHelper {
     }
 
     public String getYearlyAvoidedData(String date, String date2) {
-        Log.d("splitteddate444 ",""+date+" * "+date2);
+        Log.d("splitteddate444 ", "" + date + " * " + date2);
         Helper.avoidedyearlydata = new ArrayList<>();
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
         while (cursor.moveToNext()) {
-            Log.d("date",""+cursor.getString(2));
+            Log.d("date", "" + cursor.getString(2));
             Helper.avoidedyearlydata.add(cursor.getString(2));
         }
         Log.d("split", "" + Helper.avoidedyearlydata.size());
@@ -410,11 +500,11 @@ public class Db_Controller extends SQLiteOpenHelper {
     }
 
     public String getYearlyDoneData(String date, String date2) {
-        Log.d("splitteddate444 ",""+date+" * "+date2);
+        Log.d("splitteddate444 ", "" + date + " * " + date2);
         Helper.doneyearlydata = new ArrayList<>();
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE WHERE DATE BETWEEN '" + date + "' AND '" + date2 + "'", null);
         while (cursor.moveToNext()) {
-            Log.d("date",""+cursor.getString(2));
+            Log.d("date", "" + cursor.getString(2));
             Helper.doneyearlydata.add(cursor.getString(2));
         }
         Log.d("split", "" + Helper.doneyearlydata.size());
@@ -441,11 +531,11 @@ public class Db_Controller extends SQLiteOpenHelper {
         }
     }
 
-    public int countLabels(String catagory){
-        int count=0;
+    public int countLabels(String catagory) {
+        int count = 0;
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM HABITS WHERE CATAGORY='" + catagory + "'", null);
-        count= cursor.getCount();
+        count = cursor.getCount();
         cursor.close();
-        return  count;
+        return count;
     }
 }

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@drawable/rounded_corners"
+    android:orientation="vertical"
 
     >
 
@@ -19,6 +19,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+
             android:layout_marginLeft="20dp"
             android:layout_marginTop="8dp"
             android:gravity="left"
@@ -36,8 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.13"
-                android:checked="false"
                 android:buttonTint="@color/radio"
+
+                android:checked="false"
                 android:onClick="onRadioButtonClicked"
                 android:text="@string/followsys"
                 android:textColor="@color/textcolor"
@@ -48,8 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.13"
-                android:checked="false"
                 android:buttonTint="@color/radio"
+                android:checked="false"
+
                 android:onClick="onRadioButtonClicked"
                 android:text="@string/light"
                 android:textColor="@color/textcolor"
@@ -60,10 +63,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.13"
-                android:checked="false"
+
                 android:buttonTint="@color/radio"
+                android:checked="false"
                 android:onClick="onRadioButtonClicked"
                 android:text="@string/dark"
+                android:textColor="@color/textcolor"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/dracula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_weight="0.13"
+                android:buttonTint="@color/radio"
+                android:checked="false"
+                android:onClick="onRadioButtonClicked"
+                android:text="Dracula"
+
                 android:textColor="@color/textcolor"
                 android:textSize="16sp" />
         </RadioGroup>
@@ -76,8 +94,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="25dp"
             android:layout_marginBottom="5dp"
-            android:text="@string/done"
             android:background="@drawable/roundbutton"
+            android:text="@string/done"
             android:textColor="@color/textcolor"
 
             />

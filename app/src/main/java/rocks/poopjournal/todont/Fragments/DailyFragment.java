@@ -47,15 +47,14 @@ public class DailyFragment extends Fragment {
     String checkDate;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentDailyBinding.inflate(inflater, container, false);
         prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         checkDate = prefs.getString("InitialDate", "");
         Helper.SelectedButtonOfLogTab = 1;
         db = new Db_Controller(getActivity(), "", null, 2);
         db.show_habits_data();
-        final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        final SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
         binding.date.setText("" + df.format(c.getTime()));
         formattedDate = df.format(c.getTime());
         Helper.getSelecteddate = formattedDate;
@@ -69,8 +68,7 @@ public class DailyFragment extends Fragment {
         Log.d("qqqqqq", "" + avoidedPercentage);
         if (avoidedPercentage == 100) {
             binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided");
-        }
-        else {
+        } else {
             binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided, way to go!");
         }
         binding.percentage.setText(avoidedPercentage + "% Avoided");
@@ -136,8 +134,7 @@ public class DailyFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 binding.after.setBackgroundResource(R.drawable.ic_nextpressed);
-                new
-                        Handler().postDelayed(new Runnable() {
+                new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         binding.after.setBackgroundResource(R.drawable.ic_nextarrow);
@@ -184,9 +181,11 @@ public class DailyFragment extends Fragment {
         binding.dhabits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.dhabits.setBackgroundColor(getResources().getColor(R.color.spinnercolor));
-                binding.davoided.setBackgroundColor(Color.TRANSPARENT);
-                binding.ddone.setBackgroundColor(Color.TRANSPARENT);
+
+                binding.ddone.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.davoided.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.dhabits.setBackgroundResource(R.drawable.continuebutton2);
+
                 Helper.SelectedButtonOfLogDailyTab = 0;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogDailyFragment, new HabitsLogFragment());
@@ -196,9 +195,11 @@ public class DailyFragment extends Fragment {
         binding.davoided.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.dhabits.setBackgroundColor(Color.TRANSPARENT);
-                binding.davoided.setBackgroundColor(getResources().getColor(R.color.spinnercolor));
-                binding.ddone.setBackgroundColor(Color.TRANSPARENT);
+
+
+                binding.dhabits.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.ddone.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.davoided.setBackgroundResource(R.drawable.continuebutton2);
                 Helper.SelectedButtonOfLogDailyTab = 1;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogDailyFragment, new AvoidedLogFragment());
@@ -208,9 +209,9 @@ public class DailyFragment extends Fragment {
         binding.ddone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.dhabits.setBackgroundColor(Color.TRANSPARENT);
-                binding.davoided.setBackgroundColor(Color.TRANSPARENT);
-                binding.ddone.setBackgroundColor(getResources().getColor(R.color.spinnercolor));
+                binding.dhabits.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.davoided.setBackgroundResource(R.drawable.continuebuttontrans);
+                binding.ddone.setBackgroundResource(R.drawable.continuebutton2);
                 Helper.SelectedButtonOfLogDailyTab = 2;
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerLogDailyFragment, new DoneLogFragment());
