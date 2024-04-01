@@ -128,7 +128,7 @@ public class DoneLogAdapter extends RecyclerView.Adapter<DoneLogAdapter.Recycler
 
                         } catch (SQLiteException e) {
                         }
-                        db.update_done_data(position,formattedDate, habit_text, detail_text, catagoryselected);
+                        db.update_done_data(position,formattedDate, habit_text, detail_text,Integer.parseInt( Helper.donedata.get(position)[4]), catagoryselected);
                         db.show_data();
                         Intent intent = new Intent(con, MainActivity.class);
                         con.startActivity(intent);

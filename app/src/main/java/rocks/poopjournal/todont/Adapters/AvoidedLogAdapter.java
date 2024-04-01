@@ -75,6 +75,7 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
         String date = Helper.data.get(position)[1];
         holder.task.setText(dTask);
         holder.dateoftask.setText(date);
+        holder.times.setText(dTask);
         holder.task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,7 +133,7 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                         } catch (SQLiteException e) {
                         }
                         Log.d("checkingz",""+habit.getText().toString());
-                        db.update_data(position, formattedDate,habit.getText().toString(), detail.getText().toString(), catagoryselected);
+                        db.update_data(position, formattedDate, habit.getText().toString(), detail.getText().toString() , Integer.parseInt( Helper.data.get(position)[4]), catagoryselected);
                         db.show_data();
                         Helper.SelectedButtonOfTodayTab = 1;
                         Intent intent = new Intent(con, MainActivity.class);
@@ -157,13 +158,14 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         Button rbtn;
-        TextView task;
+        TextView task,times;
         TextView dateoftask;
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             rbtn = itemView.findViewById(R.id.addToAvoided);
             task = itemView.findViewById(R.id.task);
+            times = itemView.findViewById(R.id.times);
             dateoftask = itemView.findViewById(R.id.dateoftask);
             dateoftask.setVisibility(View.INVISIBLE);
             rbtn.setBackgroundResource(R.drawable.ic_avoided);

@@ -4,19 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:layout_gravity="center"
-    android:background="@color/backgroundcolor">
+    android:layout_margin="10dp"
+    android:elevation="5dp"
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="3"
+        android:padding="5dp"
         android:orientation="horizontal"
         android:layout_marginLeft="15dp"
         >
 
         <Button
-            android:layout_width="35dp"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_weight="0"
+            android:layout_weight="1.36"
             android:layout_gravity="top"
             android:layout_marginTop="5dp"
             android:id="@+id/addToAvoided"
@@ -24,6 +28,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_weight=".34"
+
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginLeft="10dp">
@@ -36,7 +42,7 @@
                 android:gravity="center"
                 android:textAlignment="textStart"
                 android:textColor="@color/textcolor"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 tools:ignore="RtlCompat" />
 
             <TextView
@@ -51,6 +57,17 @@
                 android:layout_height="1dp"
                 android:background="@color/bottom_sheet_background"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_weight="1.3"
+            android:id="@+id/times"
+            android:text="sdasdas"
+            android:textColor="@color/textcolor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+
+            android:layout_height="wrap_content">
+
+        </TextView>
     </LinearLayout>
 
 </LinearLayout>

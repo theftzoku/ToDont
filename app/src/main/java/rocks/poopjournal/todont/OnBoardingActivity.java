@@ -1,10 +1,13 @@
 package rocks.poopjournal.todont;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +28,12 @@ SharedPreferences sharedPreferences;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_boarding);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int backgroundColor = ContextCompat.getColor(this, R.color.backgroundcolor);
+
+            getWindow().setStatusBarColor(backgroundColor);
+        }
         db_controller = new Db_Controller(getApplicationContext(), "", null, 2);
         df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         sharedPreferences=getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

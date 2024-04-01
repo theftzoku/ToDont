@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">To Don\'t</string>
+    <string-array name="languages">
+        <item>Select Language</item>
+        <item>Czech</item>
+        <item>Danish</item>
+        <item>German</item>
+        <item>English</item>
+        <item>Spanish</item>
+        <item>Italian</item>
+        <item>French</item>
+    </string-array>
     <string name="LightMode">To Don\'t</string>
     <string name="onboarding_reverse">The reverse to-do list</string>
     <string name="onboarding_bad">Jot down your bad habits. Every day, cross</string>

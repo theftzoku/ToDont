@@ -47,6 +47,31 @@ public class About extends AppCompatActivity {
 
         }
     }
+    public void contact_codeaquariatar(View view) {
+        switch(view.getId()){
+            case R.id.btnmail_codeaquariatar:
+                String mailto = "mailto:imamtariq7@gmail.com";
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse(mailto));
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btngit_codeaquariatar:
+                Uri uri = Uri.parse("https://github.com/theftzoku"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                break;
+            case R.id.btntwitter_codeaquariatar:
+                Uri ui = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326"); // missing 'http://' will cause crashed
+                Intent it = new Intent(Intent.ACTION_VIEW, ui);
+                startActivity(it);
+                break;
+
+        }
+    }
     public void contact_marvin(View view) {
         switch(view.getId()){
             case R.id.btnmail_crazymarvin:

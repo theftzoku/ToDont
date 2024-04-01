@@ -1,33 +1,70 @@
 package rocks.poopjournal.todont;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.Dialog;
+import android.app.LocaleManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.audiofx.EnvironmentalReverb;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 public class Settings extends AppCompatActivity {
     Db_Controller db;
     TextView modetitle;
+
+    LinearLayout language;
+    Spinner lang;
+
+    View view;
+    private List<String> localeList = Arrays.asList("cs", "da", "de", "en", "es", "it", "fr");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         db = new Db_Controller(getApplicationContext(), "", null, 2);
+        language = findViewById(R.id.language);
+        view = findViewById(R.id.viww);
+        lang = findViewById(R.id.spLanguagePicker);
+ /*       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            language.setVisibility(View.VISIBLE);
+            view.setVisibility(View.VISIBLE);
+        }
+            lang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> p0, View p1, int p2, long p3) {
+                System.out.println("Selected locale = " + localeList.get(p2));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    setAppLocale(Locale.forLanguageTag(localeList.get(p2)));
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> p0) {
+
+            }
+        });*/
         modetitle=findViewById(R.id.modetitle);
         Log.d("heyyyymode",""+Helper.isnightmodeon);
         switch(Helper.isnightmodeon){
@@ -50,9 +87,10 @@ public class Settings extends AppCompatActivity {
         d.setContentView(R.layout.dialogbox);
         d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Button btndone=d.findViewById(R.id.btndone);
-        RadioButton light,dark,fsys;
+        RadioButton light,dark,fsys,dracula;
         light=d.findViewById(R.id.light);
         dark=d.findViewById(R.id.dark);
+        dracula=d.findViewById(R.id.dracula);
         fsys=d.findViewById(R.id.followsys);
         String getmodetitle= modetitle.getText().toString();
         if(getmodetitle.equals("Follow System")){
@@ -63,6 +101,9 @@ public class Settings extends AppCompatActivity {
         }
         if(getmodetitle.equals("Dark")){
             dark.setChecked(true);
+        }
+        if(getmodetitle.equals("Dracula")){
+            dracula.setChecked(true);
         }
 
         WindowManager.LayoutParams lp = d.getWindow().getAttributes();
@@ -94,9 +135,17 @@ public class Settings extends AppCompatActivity {
                     modetitle.setText(R.string.light);
                     d.dismiss();
                 }
+                if(Helper.isnightmodeon.equals("Dracula")){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                    setTheme(R.style.DraculaTheme);
 
+                    Toast.makeText(getApplicationContext(), R.string.toast_dark, Toast.LENGTH_SHORT).show();
+                    modetitle.setText(R.string.light);
+                    d.dismiss();
+                }
             }
         });d.show();
+
 //                db.getNightMode();
 //        Log.d("qqq","infunc : "+Helper.isnightmodeon );
 //        if (Helper.isnightmodeon.equals("no")) {
@@ -156,6 +205,14 @@ public class Settings extends AppCompatActivity {
                     Log.d("modeisd:",""+Helper.isnightmodeon);
                     break;
                 }
+            case R.id.dracula:
+                if (checked)
+                {
+                    modetitle.setText("Dracula");
+                    db.update_nightmode("Dracula");
+                    Log.d("modei    sd:",""+Helper.isnightmodeon);
+                    break;
+                }
         }
     }
     public void backbtn(View view) {
@@ -179,5 +236,10 @@ public class Settings extends AppCompatActivity {
         finishAffinity();
         startActivity(i);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+    private void setAppLocale(Locale locale) {
+        LocaleManager localeManager = getSystemService(LocaleManager.class);
+        localeManager.setApplicationLocales(new LocaleList(locale));
     }
 }

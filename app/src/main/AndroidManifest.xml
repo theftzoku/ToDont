@@ -10,9 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:label="@string/app_name"
         android:dataExtractionRules="@xml/data_extraction_rules"
         tools:ignore="ExtraText"
-        tools:targetApi="s"
+        android:localeConfig="@xml/locales_config"
+        tools:targetApi="tiramisu"
         android:fullBackupContent="@xml/backup_rules">
         <activity android:name=".About" />
         <activity android:name=".Settings" />

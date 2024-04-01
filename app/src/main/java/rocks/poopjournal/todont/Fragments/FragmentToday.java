@@ -29,25 +29,25 @@ public class FragmentToday extends Fragment {
         done=view.findViewById(R.id.done);
         habits=view.findViewById(R.id.habits);
         if(Helper.SelectedButtonOfTodayTab==0){
-            habits.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-            avoided.setBackgroundColor(Color.TRANSPARENT);
-            done.setBackgroundColor(Color.TRANSPARENT);
+            habits.setBackgroundResource(R.drawable.continuebutton2);
+            avoided.setBackgroundResource(R.drawable.continuebuttontrans);
+            done.setBackgroundResource(R.drawable.continuebuttontrans);
             FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerTodayFragment,new HabitsFragment());
             ft.commit();
         }
         else if(Helper.SelectedButtonOfTodayTab==1){
-            habits.setBackgroundColor(Color.TRANSPARENT);
-            avoided.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-            done.setBackgroundColor(Color.TRANSPARENT);
+            habits.setBackgroundResource(R.drawable.continuebuttontrans);
+            avoided.setBackgroundResource(R.drawable.continuebutton2);
+            done.setBackgroundResource(R.drawable.continuebuttontrans);
             FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerTodayFragment,new AvoidedFragment());
             ft.commit();
         }
         else if(Helper.SelectedButtonOfTodayTab==2){
-            habits.setBackgroundColor(Color.TRANSPARENT);
-            avoided.setBackgroundColor(Color.TRANSPARENT);
-            done.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
+            habits.setBackgroundResource(R.drawable.continuebuttontrans);
+            avoided.setBackgroundResource(R.drawable.continuebuttontrans);
+            done.setBackgroundResource(R.drawable.continuebutton2);
             FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.containerTodayFragment,new DoneFragment());
             ft.commit();
@@ -57,9 +57,9 @@ public class FragmentToday extends Fragment {
         habits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                habits.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-                avoided.setBackgroundColor(Color.TRANSPARENT);
-                done.setBackgroundColor(Color.TRANSPARENT);
+                habits.setBackgroundResource(R.drawable.continuebutton2);
+                avoided.setBackgroundResource(R.drawable.continuebuttontrans);
+                done.setBackgroundResource(R.drawable.continuebuttontrans);
                 FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerTodayFragment,new HabitsFragment());
                 ft.commit();
@@ -70,9 +70,9 @@ public class FragmentToday extends Fragment {
         avoided.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                habits.setBackgroundColor(Color.TRANSPARENT);
-                avoided.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
-                done.setBackgroundColor(Color.TRANSPARENT);
+                habits.setBackgroundResource(R.drawable.continuebuttontrans);
+                avoided.setBackgroundResource(R.drawable.continuebutton2);
+                done.setBackgroundResource(R.drawable.continuebuttontrans);
                 FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerTodayFragment,new AvoidedFragment());
                 ft.commit();
@@ -83,9 +83,9 @@ public class FragmentToday extends Fragment {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                habits.setBackgroundColor(Color.TRANSPARENT);
-                avoided.setBackgroundColor(Color.TRANSPARENT);
-                done.setBackgroundColor(getResources().getColor(R.color.bottom_sheet_background));
+                habits.setBackgroundResource(R.drawable.continuebuttontrans);
+                avoided.setBackgroundResource(R.drawable.continuebuttontrans);
+                done.setBackgroundResource(R.drawable.continuebutton2);
                 FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.containerTodayFragment,new DoneFragment());
                 ft.commit();
