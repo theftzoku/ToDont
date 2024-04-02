@@ -67,9 +67,9 @@ public class DailyFragment extends Fragment {
         binding.percentage.setText(avoidedPercentage + "% Avoided");
         Log.d("qqqqqq", "" + avoidedPercentage);
         if (avoidedPercentage == 100) {
-            binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided");
+            binding.progressText.setText((int) avoidedSize + getString(R.string.out_of) + (int) habitsSize + getString(R.string.habits_are_avoided));
         } else {
-            binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided, way to go!");
+            binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize + getString(R.string.habits_are_avoided_way_to_go));
         }
         binding.percentage.setText(avoidedPercentage + "% Avoided");
         binding.before.setBackgroundResource(R.drawable.ic_backarrow);
@@ -108,9 +108,9 @@ public class DailyFragment extends Fragment {
                     avoidedSize = Helper.avoidedlogdata.size();
                     avoidedPercentage = (int) ((avoidedSize / habitsSize) * 100);
                     if (avoidedPercentage == 100) {
-                        binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided");
+                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of)  + (int) habitsSize +getString(R.string.habits_are_avoided) );
                     } else {
-                        binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided, way to go!");
+                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of)  + (int) habitsSize +  getString(R.string.habits_are_avoided_way_to_go));
                     }
                     binding.percentage.setText(avoidedPercentage + "% Avoided");
                     funcPieChart(avoidedPercentage);
@@ -156,9 +156,9 @@ public class DailyFragment extends Fragment {
                     avoidedPercentage = (int) ((avoidedSize / habitsSize) * 100);
                     Log.d("qqqqqq", "" + avoidedPercentage);
                     if (avoidedPercentage == 100) {
-                        binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided");
+                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize +getString(R.string.habits_are_avoided));
                     } else {
-                        binding.progressText.setText((int) avoidedSize + " out of " + (int) habitsSize + " habits are avoided, way to go!");
+                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize +  getString(R.string.habits_are_avoided_way_to_go));
                     }
                     binding.percentage.setText(avoidedPercentage + "% Avoided");
                     funcPieChart(avoidedPercentage);
@@ -225,8 +225,8 @@ public class DailyFragment extends Fragment {
     public void funcPieChart(int avoidedPer) {
         binding.pieChart.setUsePercentValues(true);
         List<PieEntry> value = new ArrayList<>();
-        value.add(new PieEntry((float) avoidedPer, "Avoided"));
-        value.add(new PieEntry((float) (100.0 - avoidedPer), "Habits"));
+        value.add(new PieEntry((float) avoidedPer, getString(R.string.avoided_)));
+        value.add(new PieEntry((float) (100.0 - avoidedPer), getString(R.string.habits_)));
         PieDataSet pieDataSet = new PieDataSet(value, "");
         pieDataSet.setValueTextColor(Color.WHITE);
         PieData pieData = new PieData(pieDataSet);

@@ -170,8 +170,8 @@ public class YearlyFragment extends Fragment {
     public void funcPieChart(int avoidedPer) {
         pieChart.setUsePercentValues(true);
         List<PieEntry> value = new ArrayList<>();
-        value.add(new PieEntry((float) avoidedPer, "Avoided"));
-        value.add(new PieEntry((float) (100.0 - avoidedPer), "Habits"));
+        value.add(new PieEntry((float) avoidedPer, R.string.avoided));
+        value.add(new PieEntry((float) (100.0 - avoidedPer), R.string.habits));
         PieDataSet pieDataSet = new PieDataSet(value, "");
         pieDataSet.setValueTextColor(Color.WHITE);
         PieData pieData = new PieData(pieDataSet);
