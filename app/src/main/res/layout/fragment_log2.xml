@@ -32,7 +32,7 @@
                     android:id="@+id/day"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:text="D"
+                    android:text="@string/d"
                     android:layout_marginLeft="2dp"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"
@@ -42,7 +42,7 @@
                     android:id="@+id/week"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:text="W"
+                    android:text="@string/w"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"
                     android:textSize="12sp" />
@@ -51,7 +51,7 @@
                     android:id="@+id/month"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:text="M"
+                    android:text="@string/m"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"
                     android:textSize="12sp" />
@@ -61,7 +61,7 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"
 
-                    android:text="Y"
+                    android:text="@string/y"
                     android:layout_marginRight="2dp"
                     android:layout_weight="1"
                     android:textColor="@color/textcolor"

@@ -91,7 +91,7 @@ public class HabitsFragment extends Fragment {
                     showcaseFab();
                 } else {
                     if (Helper.labels_array.size() == 0) {
-                        Toast.makeText(getActivity(), "Please Add a Label First", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), R.string.please_add_a_label_first, Toast.LENGTH_LONG).show();
                     } else {
                         final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                         final String formattedDate = df.format(c);
@@ -105,6 +105,7 @@ public class HabitsFragment extends Fragment {
                         Window window = d.getWindow();
                         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
                         d.getWindow().setAttributes(lp);
+
 
                         final Spinner spinner = d.findViewById(R.id.spinner);
                         final TextView txt = d.findViewById(R.id.txt);
@@ -316,10 +317,10 @@ public class HabitsFragment extends Fragment {
         public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
             if (direction == 8) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                builder1.setMessage("Do you really want to delete this?");
+                builder1.setMessage(R.string.do_you_really_want_to_delete_this);
                 builder1.setCancelable(true);
 
-                builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder1.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         int i = viewHolder.getAdapterPosition();
                         db.delete_habits(i);
@@ -334,7 +335,7 @@ public class HabitsFragment extends Fragment {
                     }
                 });
 
-                builder1.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder1.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Helper.SelectedButtonOfTodayTab = 0;
                         Intent i = new Intent(getActivity(), MainActivity.class);

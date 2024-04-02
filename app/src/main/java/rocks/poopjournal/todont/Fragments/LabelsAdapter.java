@@ -49,10 +49,10 @@ public class LabelsAdapter extends RecyclerView.Adapter<LabelsAdapter.RecyclerVi
         db.getNightMode();
         int count=db.countLabels(dTask);
         if(count>1){
-            holder.tv_sum.setText(""+count+ " habits");
+            holder.tv_sum.setText(""+count+ R.string.habits);
         }
         else{
-            holder.tv_sum.setText(""+count+ " habit");
+            holder.tv_sum.setText(""+count+ R.string.habits);
         }
 //        if(Helper.isnightmodeon.equals("no")){
             holder.btnlabel.setBackgroundResource(R.drawable.ic_label_light_labels);

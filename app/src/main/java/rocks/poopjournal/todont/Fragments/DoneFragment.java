@@ -156,11 +156,11 @@ public class DoneFragment extends Fragment {
         public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
             if (direction == 8) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                builder1.setMessage("Do you really want to delete this?");
+                builder1.setMessage(R.string.deletes);
                 builder1.setCancelable(true);
 
                 builder1.setPositiveButton(
-                        "Yes",
+                        R.string.yes,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 int i = viewHolder.getAdapterPosition();
