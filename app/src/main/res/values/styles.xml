@@ -10,7 +10,28 @@
         <item name="toolbarStyle">@style/Widget.Toolbar</item>
         <item name="android:statusBarColor">#00000000</item>
     </style>
+    <style name="Small.Text" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
 
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="Medium.Text" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="Large.Text" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">32sp</item>
+        <item name="fontFamily">@font/comfortaa_regular</item>
+
+        <item name="android:textStyle">normal</item>
+        <item name="android:typeface">sans</item>
+    </style>
     <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
@@ -20,10 +41,12 @@
         <item name="android:textColor">#717379</item>
 
     </style>
+
     <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">#FFAF01</item>
     </style>
+
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@color/backgroundcolor</item>
     </style>
@@ -41,4 +64,5 @@
     <style name="NightSpinnerTextColor">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
 </resources>

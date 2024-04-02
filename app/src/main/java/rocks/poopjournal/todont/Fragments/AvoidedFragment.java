@@ -75,7 +75,7 @@ public class AvoidedFragment extends Fragment {
         public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
             if (direction == 8) {
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                builder1.setMessage("Do you really want to delete this?");
+                builder1.setMessage(R.string.delete);
                 builder1.setCancelable(true);
 
                 builder1.setPositiveButton(
@@ -98,7 +98,7 @@ public class AvoidedFragment extends Fragment {
                         });
 
                 builder1.setNegativeButton(
-                        "No",
+                        R.string.no,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Intent i = new Intent(getActivity(), MainActivity.class);

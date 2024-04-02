@@ -7,11 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +22,6 @@ public class About extends AppCompatActivity {
         version.setText( BuildConfig.VERSION_NAME +" Beta ");
         //tabdeeli aa gai hai
 }
-
     public void contact_codeaquaria(View view) {
         switch(view.getId()){
             case R.id.btnmail_codeaquaria:
@@ -52,7 +47,31 @@ public class About extends AppCompatActivity {
 
         }
     }
+    public void contact_codeaquariatar(View view) {
+        switch(view.getId()){
+            case R.id.btnmail_codeaquariatar:
+                String mailto = "mailto:imamtariq7@gmail.com";
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse(mailto));
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btngit_codeaquariatar:
+                Uri uri = Uri.parse("https://github.com/theftzoku"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                break;
+            case R.id.btntwitter_codeaquariatar:
+                Uri ui = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326"); // missing 'http://' will cause crashed
+                Intent it = new Intent(Intent.ACTION_VIEW, ui);
+                startActivity(it);
+                break;
 
+        }
+    }
     public void contact_marvin(View view) {
         switch(view.getId()){
             case R.id.btnmail_crazymarvin:
@@ -169,6 +188,7 @@ public class About extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         Intent i = new Intent(About.this, Settings.class);
         finishAffinity();
         startActivity(i);

@@ -70,6 +70,10 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.RecyclerViewHo
         db.show_done_data();
         String dTask=donotTask.get(position);
         String date= Helper.donedata.get(position)[1];
+        String time= Helper.donedata.get(position)[4];
+//        holder.times.setText(time);
+        holder.times.setText(time+ "-Times");
+
         holder.task.setText(dTask);
         holder.dateoftask.setText(date);
         holder.task.setOnClickListener(new View.OnClickListener() {
@@ -160,11 +164,12 @@ public class DoneAdapter extends RecyclerView.Adapter<DoneAdapter.RecyclerViewHo
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         Button rbtn;
         TextView task;
-        TextView dateoftask;
+        TextView dateoftask,times;
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             rbtn =  itemView.findViewById(R.id.addToAvoided);
             task = itemView.findViewById(R.id.task);
+            times = itemView.findViewById(R.id.times);
             dateoftask = itemView.findViewById(R.id.dateoftask);
             rbtn.setBackgroundResource(R.drawable.ic_done);
         }

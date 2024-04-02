@@ -16,7 +16,7 @@
             android:layout_height="300dp"
             android:elevation="6dp"
             android:layout_gravity="center"
-            android:src="@drawable/onboarding"
+            android:src="@drawable/onboard"
             tools:ignore="ContentDescription" />
         <TextView
             android:layout_marginTop="40dp"
@@ -25,6 +25,7 @@
             android:layout_gravity="center"
             android:text="@string/onboarding_reverse"
             android:textColor="@color/textcolor"
+
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -40,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+
             android:text="@string/onboarding_gavein"
             android:textColor="@color/spinr"
             android:textSize="14sp" />

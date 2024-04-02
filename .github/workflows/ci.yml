@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "📥 Check-out"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
      # - name: "🧪 Gradle Wrapper Validation"
      #   uses: gradle/wrapper-validation-action@v1
       - name: "🧰 Install JDK"
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: 'adopt'
           java-version: 8
           java-package: jdk
       - name: "🧰 Setup Android SDK"
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v3
       - name: "🦸 Make gradlew executable"
         run: chmod +x ./gradlew
       - name: "🏗 Build"
@@ -23,7 +23,7 @@ jobs:
       - name: "🧪 Code coverage"
         run: ./gradlew test
       - name: "📤 Upload code coverage"
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: "🧪 Android LINT"

@@ -194,40 +194,40 @@ public class MonthlyFragment extends Fragment {
     public void setMonth(String s) {
         switch (s) {
             case "01":
-                curmonth = "January";
+                curmonth = getString(R.string.january);
                 break;
             case "02":
-                curmonth = "February";
+                curmonth = getString(R.string.february);
                 break;
             case "03":
-                curmonth = "March";
+                curmonth = getString(R.string.march);
                 break;
             case "04":
-                curmonth = "April";
+                curmonth = getString(R.string.april);
                 break;
             case "05":
-                curmonth = "May";
+                curmonth = getString(R.string.may);
                 break;
             case "06":
-                curmonth = "June";
+                curmonth = getString(R.string.june);
                 break;
             case "07":
-                curmonth = "July";
+                curmonth = getString(R.string.july);
                 break;
             case "08":
-                curmonth = "August";
+                curmonth = getString(R.string.august);
                 break;
             case "09":
-                curmonth = "September";
+                curmonth = getString(R.string.september);
                 break;
             case "10":
-                curmonth = "October";
+                curmonth = getString(R.string.october);
                 break;
             case "11":
-                curmonth = "November";
+                curmonth = getString(R.string.november);
                 break;
             case "12":
-                curmonth = "December";
+                curmonth = getString(R.string.december);
                 break;
             default:
                 curmonth = "";

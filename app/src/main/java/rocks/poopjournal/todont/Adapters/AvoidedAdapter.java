@@ -72,6 +72,8 @@ public class AvoidedAdapter extends RecyclerView.Adapter<AvoidedAdapter.Recycler
         db.show_data();
         String dTask = donotTask.get(position);
         String date = Helper.data.get(position)[1];
+        String tim = Helper.data.get(position)[4];
+        holder.tim.setText(tim+ "-Times");
         holder.task.setText(dTask);
         holder.dateoftask.setText(date);
         holder.task.setOnClickListener(new View.OnClickListener() {
@@ -163,13 +165,14 @@ public class AvoidedAdapter extends RecyclerView.Adapter<AvoidedAdapter.Recycler
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         Button rbtn;
-        TextView task;
+        TextView task,tim;
         TextView dateoftask;
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             rbtn = itemView.findViewById(R.id.addToAvoided);
             task = itemView.findViewById(R.id.task);
+            tim = itemView.findViewById(R.id.times);
             dateoftask = itemView.findViewById(R.id.dateoftask);
             rbtn.setBackgroundResource(R.drawable.ic_avoided);
 
