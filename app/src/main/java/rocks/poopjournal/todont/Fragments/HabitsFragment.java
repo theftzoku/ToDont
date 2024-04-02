@@ -106,6 +106,7 @@ public class HabitsFragment extends Fragment {
                         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
                         d.getWindow().setAttributes(lp);
 
+
                         final Spinner spinner = d.findViewById(R.id.spinner);
                         final TextView txt = d.findViewById(R.id.txt);
                         if (Helper.labels_array.size() == 0) {
