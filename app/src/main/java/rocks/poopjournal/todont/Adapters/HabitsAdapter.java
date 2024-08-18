@@ -69,6 +69,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull final HabitsAdapter.RecyclerViewHolder holder, final int position) {
         String dTask = donotTask.get(position);
+//        String dCatagory = donotCatagory.get(position).replace("''", "'");
         String dCatagory = donotCatagory.get(position).replace("''", "'");
         holder.task.setText(dTask);
         holder.catagoryoftask.setText(dCatagory);
@@ -249,8 +250,8 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
             btn2 = itemView.findViewById(R.id.addToDone);
             task = itemView.findViewById(R.id.task);
             catagoryoftask = itemView.findViewById(R.id.catagoryoftask);
-            btn1.setBackgroundResource(R.drawable.ic_avoided);
-            btn2.setBackgroundResource(R.drawable.ic_done);
+            btn1.setBackgroundResource(R.drawable._cross);
+            btn2.setBackgroundResource(R.drawable._tick);
         }
     }
 }

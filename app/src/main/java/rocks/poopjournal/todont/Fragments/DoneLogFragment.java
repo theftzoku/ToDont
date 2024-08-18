@@ -39,7 +39,6 @@ public class DoneLogFragment extends Fragment {
                 + " done "+Helper.donelogdata.size());
         setDataInList();
         return view;
-
     }
 
     public void setDataInList() {

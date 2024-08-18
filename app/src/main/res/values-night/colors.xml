@@ -5,6 +5,8 @@
     <color name="colorAccent">#FFAF01</color>
 
 
+    <color name="g1s">#000000</color>
+    <color name="g2s">#000000</color>
     <color name="g1">#26272c</color>
     <color name="g2">#26272c</color>
     <color name="radio">#fac401</color>

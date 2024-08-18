@@ -288,7 +288,7 @@ public class HabitsFragment extends Fragment {
         showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    prefUtils.setBool("plus", true);
+                prefUtils.setBool("plus", true);
                 showcaseViewBuilder.hide();
             }
         });
