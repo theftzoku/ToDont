@@ -60,13 +60,13 @@
     <string name="out_of">" out of "</string>
     <string name="habits_are_avoided">" habits are avoided"</string>
     <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
+    <string name="avoided_">Kaçınıldı</string>
+    <string name="habits_">Alışkanlıklar</string>
     <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
+    <string name="deletes">Bunu gerçekten silmek istiyor musunuz?</string>
+    <string name="yes">Evet</string>
+    <string name="please_add_a_label_first">Lütfen Önce Etiket Ekleyin</string>
+    <string name="do_you_really_want_to_delete_this">Bunu gerçekten silmek istiyor musunuz?</string>
     <string name="january">January</string>
     <string name="february">February</string>
     <string name="march">March</string>
@@ -79,4 +79,5 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="delete">Bunu gerçekten silmek istiyor musunuz?</string>
 </resources>
