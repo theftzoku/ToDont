@@ -1,0 +1,8 @@
+- Android 14 hedeflendi 🤖
+- Uygulama Başına Dil Tercihleri Desteği 🗺
+- Harici kütüphanedeki dizgeler çevrilebilir hale getirildi 🗺
+- Çeviri Güncellemeleri 🗺
+- Kullanıcı Arayüzü İyileştirmesi 🎨
+
+Katkıda bulunan herkese ve çevirenlere çok teşekkür ederiz. 😘
+Sorunları bildirmekten ve https://github.com/Crazy-Marvin/ToDont/ adresinde düzeltmeler veya https://hosted.weblate.org/engage/todont/ adresinde çeviriler göndermekten çekinmeyin. 🚀
