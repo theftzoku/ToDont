@@ -5,10 +5,12 @@
     <color name="colorAccent">#FFAF01</color>
 
 
+    <color name="g1s">#fac401</color>
     <color name="g1">#fac401</color>
     <color name="radio">#fac401</color>
 
     <!--    <color name="floatingbutton">#fac401</color>-->
+    <color name="g2s">#ff9101</color>
     <color name="g2">#ff9101</color>
     <color name="innerg1">#f2be00</color>
     <color name="innerg2">#ed8709</color>
