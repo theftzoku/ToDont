@@ -26,6 +26,7 @@
     <color name="fragmentsColor">#000000</color>
     <color name="fragmentsColor2">#000000</color>
     <color name="innerfragmentsColor1">#26272c</color>
+    <color name="innerfragmentsColor1s">#131316</color>
     <color name="innerfragmentsColor2">#26272c</color>
     <color name="newhabitsheet">#26272c</color>
     <color name="spinnercolor">#3A3B40</color>
