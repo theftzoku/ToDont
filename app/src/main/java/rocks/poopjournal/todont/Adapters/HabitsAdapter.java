@@ -77,7 +77,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
             @Override
             public void onClick(View view) {
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con, R.style.BottomSheetDialogTheme);
-                final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).inflate(R.layout.update_layout_bottom_sheet, view.findViewById(R.id.bottomsheetContainer));
+                final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).inflate(R.layout.update_layout_bottom_sheet_test, view.findViewById(R.id.bottomsheetContainer));
                 final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
                 Button saveTaskButton = bottomsheetview.findViewById(R.id.updateTaskButton);
                 final EditText habit = bottomsheetview.findViewById(R.id.updatehabit);

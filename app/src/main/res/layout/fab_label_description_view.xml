@@ -33,7 +33,7 @@
             android:layout_below="@+id/textView"
             android:text="This button is to add label which would be use later to add task.."
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn"

@@ -280,7 +280,14 @@ public class HabitsFragment extends Fragment {
     }
 
     private void showcaseFab() {
-        showcaseViewBuilder.setTargetView(floatingActionButton).setBackgroundOverlayColor(0xcc000000).setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT).setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_RIGHT).setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics())).setRingColor(0xcc8e8e8e).setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE).setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, getResources().getDisplayMetrics())).setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT).addCustomView(R.layout.fab_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -220, getResources().getDisplayMetrics()), 0);
+        showcaseViewBuilder.setTargetView(floatingActionButton).setBackgroundOverlayColor(0xcc000000)
+                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
+                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_RIGHT)
+                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics())).setRingColor(0xcc8e8e8e)
+                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE).setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, getResources().getDisplayMetrics()))
+                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
+                .addCustomView(R.layout.fab_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources()
+                        .getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()), -300);
 //                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
 
         showcaseViewBuilder.show();

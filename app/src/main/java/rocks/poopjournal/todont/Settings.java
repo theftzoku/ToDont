@@ -105,7 +105,6 @@ public class Settings extends AppCompatActivity {
         if(getmodetitle.equals("Dracula")){
             dracula.setChecked(true);
         }
-
         WindowManager.LayoutParams lp = d.getWindow().getAttributes();
         lp.dimAmount=0.9f;
         d.getWindow().setAttributes(lp);

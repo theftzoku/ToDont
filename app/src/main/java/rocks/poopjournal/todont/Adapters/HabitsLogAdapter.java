@@ -79,9 +79,9 @@ public class HabitsLogAdapter extends RecyclerView.Adapter<HabitsLogAdapter.Recy
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con,
                         R.style.BottomSheetDialogTheme);
                 final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).
-                        inflate(R.layout.update_layout_bottom_sheet,
+                        inflate(R.layout.update_layout_bottom_sheet_test,
                                 view.findViewById(R.id.bottomsheetContainer));
-                final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
+             /*   final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
                 Button saveTaskButton = bottomsheetview.findViewById(R.id.updateTaskButton);
                 final EditText habit = bottomsheetview.findViewById(R.id.updatehabit);
                 final EditText detail = bottomsheetview.findViewById(R.id.updatedetail);
@@ -94,7 +94,7 @@ public class HabitsLogAdapter extends RecyclerView.Adapter<HabitsLogAdapter.Recy
                     spinner.setVisibility(View.VISIBLE);
                 }
                 habit.setText("" + Helper.habitsdata.get(position)[2]);
-                detail.setText("" + Helper.habitsdata.get(position)[3]);
+                detail.setText("" + Helper.habitsdata.get(position)[3]);*/
                 final Adapter adapter = new ArrayAdapter<String>(con, android.R.layout.simple_list_item_1,
                         Helper.labels_array) {
                     @Override
@@ -103,41 +103,41 @@ public class HabitsLogAdapter extends RecyclerView.Adapter<HabitsLogAdapter.Recy
                     }
 
                 };
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        catagoryselected = adapterView.getItemAtPosition(i).toString();
-                        TextView selectedText = (TextView) adapterView.getChildAt(i);
-                        if (selectedText != null) {
-                            selectedText.setTextColor(ContextCompat.getColor(con, R.color.g2));
-                        }
-                    }
+//                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                        catagoryselected = adapterView.getItemAtPosition(i).toString();
+//                        TextView selectedText = (TextView) adapterView.getChildAt(i);
+//                        if (selectedText != null) {
+//                            selectedText.setTextColor(ContextCompat.getColor(con, R.color.g2));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                    }
+//                });
+//                saveTaskButton.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        String formattedDate = df.format(c);
+//                        try {
+//
+//                        } catch (SQLiteException e) {
+//                        }
+//                        db.update_habitsdata(position, formattedDate, habit.getText().toString()
+//                                , detail.getText().toString(), catagoryselected);
+//                        db.show_habits_data();
+//                        Intent intent = new Intent(con, MainActivity.class);
+//                        con.startActivity(intent);
+//                        ((Activity) con).overridePendingTransition(0, 0);
+//                        bottomSheetDialog.dismiss();
+//                    }
+//
+//                });
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-                saveTaskButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String formattedDate = df.format(c);
-                        try {
-
-                        } catch (SQLiteException e) {
-                        }
-                        db.update_habitsdata(position, formattedDate, habit.getText().toString()
-                                , detail.getText().toString(), catagoryselected);
-                        db.show_habits_data();
-                        Intent intent = new Intent(con, MainActivity.class);
-                        con.startActivity(intent);
-                        ((Activity) con).overridePendingTransition(0, 0);
-                        bottomSheetDialog.dismiss();
-                    }
-
-                });
-
-                spinner.setAdapter((SpinnerAdapter) adapter);
+//                spinner.setAdapter((SpinnerAdapter) adapter);
                 bottomSheetDialog.setContentView(bottomsheetview);
                 bottomSheetDialog.show();
             }

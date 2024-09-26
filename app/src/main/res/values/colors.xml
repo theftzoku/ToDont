@@ -16,6 +16,8 @@
     <color name="innerg2">#ed8709</color>
     <color name="backgroundcolor">#FFFFFF</color>
     <color name="dialogcolor">#FFFFFF</color>
+    <color name="bottomdia">#FFFFFF</color>
+
     <color name="bottomnavigationline">#FFFFFF</color>
         <color name="bottom_sheet_background">#F8F8F8</color>
     <color name="textcolor">#000000</color>
@@ -31,6 +33,8 @@
     <color name="iconcolor">#D226272C</color>
     <color name="newhabitsheet">#ffffff</color>
     <color name="spinr">#7C7A72</color>
+    <color name="red">#FF6701</color>
+
 
 
 </resources>

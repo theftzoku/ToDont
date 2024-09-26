@@ -82,7 +82,7 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                 final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con,
                         R.style.BottomSheetDialogTheme);
                 final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).
-                        inflate(R.layout.update_layout_bottom_sheet,
+                        inflate(R.layout.update_layout_bottom_sheet_test,
                                 view.findViewById(R.id.bottomsheetContainer));
                 final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
                 Button saveTaskButton = bottomsheetview.findViewById(R.id.updateTaskButton);
