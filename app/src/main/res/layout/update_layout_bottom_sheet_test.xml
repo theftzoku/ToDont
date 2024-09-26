@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:padding="15dp">
+
+    <!-- Title "Text my ex" -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/iconButtons"
+        android:text="Text my ex"
+        android:paddingLeft="10dp"
+        android:textColor="@color/textcolor"
+        android:textSize="15sp" />
+
+    <!-- Icon buttons (Tag and Delete) -->
+    <LinearLayout
+        android:id="@+id/iconButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <!-- Tag Icon -->
+        <ImageButton
+            android:id="@+id/tagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/frame__6_" />
+
+        <!-- Delete Icon -->
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/trash"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Avoided / Done Counters -->
+    <LinearLayout
+        android:id="@+id/counterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/titleText"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Avoided Counter -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avoided"
+                android:textSize="16sp"
+                android:textColor="@color/textcolor"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/avoidedMinusButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="-"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:textColor="@color/textcolor"
+                    />
+
+                <TextView
+                    android:id="@+id/avoidedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:textColor="@color/textcolor"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/avoidedPlusButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textColor="@color/textcolor"
+                    android:text="+"
+                    android:backgroundTint="@android:color/darker_gray"
+                   />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Vertical Divider Line -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/innerfragmentsColor2" />
+
+        <!-- Done Counter -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:textSize="16sp"
+                android:textColor="@color/textcolor"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/doneMinusButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="-"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:textColor="@color/textcolor"
+                    />
+
+                <TextView
+                    android:id="@+id/doneCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/textcolor"
+
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/donePlusButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:textColor="@color/textcolor"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Placeholder Text (Lorem ipsum) -->
+    <TextView
+        android:id="@+id/placeholderText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi arcu libero, congue id rhoncus vel, ultricies ac diam."
+        android:textSize="14sp"
+        android:textColor="@color/textcolor"
+        android:layout_below="@+id/counterLayout"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+    <!-- Social Button -->
+    <Button
+        android:id="@+id/socialButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/placeholderText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_button"
+        android:paddingLeft="32dp"
+        android:layout_marginBottom="3dp"
+        android:paddingRight="32dp"
+        android:text="Social"
+        android:textColor="@color/fragmentsColor2"
+        android:textSize="12sp" />
+</RelativeLayout>

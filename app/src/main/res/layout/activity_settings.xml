@@ -39,19 +39,16 @@
             android:textColor="@color/textcolor"
             />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:elevation="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="6dp"
             android:background="@drawable/dis"
             android:elevation="6dp"
             android:gravity="bottom"
@@ -88,6 +85,36 @@
 
                 />
         </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:elevation="6dp"
+
+            android:gravity="bottom"
+            android:onClick="changeMode"
+            android:text="Data"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/innerfragmentsColor2" />
+
+
+
 
     </LinearLayout>
 
@@ -154,12 +181,124 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="64dp"
-        android:background="@color/innerfragmentsColor2" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:elevation="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/frame__4_"
+                android:elevation="6dp"
+                android:gravity="bottom"
+                android:onClick="aboutus" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:elevation="6dp"
+                android:gravity="center_vertical"
+                android:onClick="aboutus"
+                android:text="Back up"
+                android:textColor="@color/textcolor"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/innerfragmentsColor2" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:elevation="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/frame__5_"
+                android:elevation="6dp"
+                android:gravity="bottom"
+                android:onClick="aboutus" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:elevation="6dp"
+                android:gravity="center_vertical"
+                android:onClick="aboutus"
+                android:text="Restore"
+                android:textColor="@color/textcolor"
+                android:textSize="16sp"
+
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="64dp"
+            android:visibility="gone"
+            android:background="@color/innerfragmentsColor2" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:elevation="6dp"
+
+            android:gravity="bottom"
+            android:onClick="changeMode"
+            android:text="About"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/innerfragmentsColor2" />
+
+
+
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -194,9 +333,16 @@
 
                 />
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            android:layout_marginLeft="64dp"
+            android:background="@color/innerfragmentsColor2" />
 
 
 
     </LinearLayout>
+
 
 </LinearLayout>

@@ -19,6 +19,7 @@
     <color name="backgroundcolor">#000000</color>
     <color name="dialogcolor">#26272c</color>
     <color name="textcolor">#FFFFFF</color>
+    <color name="bottomdia">#26272c</color>
     <color name="bottomnavigationline">#26272c</color>
     <color name="catagoriescolor">#26272c</color>
     <color name="a">#26272c</color>
