@@ -1,5 +1,6 @@
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Crazy-Marvin/ToDont/CI/development)](https://github.com/Crazy-Marvin/ToDont/actions)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/ToDont.svg)](https://github.com/Crazy-Marvin/ToDont/blob/development/LICENSE)
+[![Figma Mockups](https://img.shields.io/badge/Figma-black?logo=figma)](https://www.figma.com/file/RoX4IQYdduFH1TxXV3fxla/To-Don%E2%80%99t?node-id=0%3A1)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/ToDont.svg?style=flat)](https://github.com/Crazy-Marvin/ToDont/commits)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/ToDont/total.svg?style=flat)](https://github.com/Crazy-Marvin/ToDont/releases)
 [![Latest tag](https://img.shields.io/github/tag/Crazy-Marvin/ToDont.svg?style=flat)](https://github.com/Crazy-Marvin/ToDont/tags)
