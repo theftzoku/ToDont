@@ -64,4 +64,20 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
-</resources>
+    <string name="delete">Вы точно хотите это удалить?</string>
+    <string name="toast_system">To Don\'t теперь следует вашей системе.</string>
+    <string name="onboarding_bad">Запишите свои вредные привычки. Каждый день вычёркивайте</string>
+    <string name="onboarding_gavein">те, которым вы поддались. А следующей</string>
+    <string name="onboarding_freshlist">Утро начните с нового списка.</string>
+    <string name="contentDescription_FAB">Добавьте новый пункт To Don\'t</string>
+    <string name="onboarding_continue">Продолжить</string>
+    <string name="addtask">Введите задание</string>
+    <string name="note">Заметка</string>
+    <string name="save">Сохранить</string>
+    <string name="dark">Темная</string>
+    <string name="light">Светлая</string>
+    <string name="update">Обновление</string>
+    <string name="toast_light">To Don\'t теперь на светлой стороне.</string>
+    <string name="toast_dark">To Don\'t теперь на темной стороне.</string>
+    # Here are the non-translateable strings
+    </resources>
