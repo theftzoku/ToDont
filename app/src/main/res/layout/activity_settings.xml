@@ -16,11 +16,12 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnBack"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
 
+            android:layout_marginLeft="20dp"
             android:background="@drawable/ic_back"
             android:elevation="6dp"
             android:gravity="bottom"
@@ -39,10 +40,12 @@
             android:textColor="@color/textcolor"
             />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/appearanceView"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="24dp"
@@ -192,6 +195,8 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:onClick="backbtn"
+
             android:layout_height="wrap_content">
             <Button
                 android:layout_width="24dp"
@@ -201,7 +206,7 @@
                 android:background="@drawable/frame__4_"
                 android:elevation="6dp"
                 android:gravity="bottom"
-                android:onClick="aboutus" />
+          />
 
             <TextView
                 android:layout_width="match_parent"
@@ -209,7 +214,6 @@
                 android:layout_marginLeft="20dp"
                 android:elevation="6dp"
                 android:gravity="center_vertical"
-                android:onClick="aboutus"
                 android:text="Back up"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp"
@@ -236,6 +240,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:onClick="restore"
             android:layout_height="wrap_content">
             <Button
                 android:layout_width="24dp"
@@ -245,7 +250,7 @@
                 android:background="@drawable/frame__5_"
                 android:elevation="6dp"
                 android:gravity="bottom"
-                android:onClick="aboutus" />
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -253,7 +258,6 @@
                 android:layout_marginLeft="20dp"
                 android:elevation="6dp"
                 android:gravity="center_vertical"
-                android:onClick="aboutus"
                 android:text="Restore"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp"

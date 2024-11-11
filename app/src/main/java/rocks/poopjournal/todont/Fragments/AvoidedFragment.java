@@ -45,16 +45,16 @@ public class AvoidedFragment extends Fragment {
         rv = view.findViewById(R.id.rv);
         db = new Db_Controller(getActivity(), "", null, 2);
         db.show_labels();
-        db.show_data();
+        db.show_avoided_data();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         setDataInList();
         return view;
     }
 
     public void setDataInList() {
-        for (int i = 0; i < Helper.data.size(); i++) {
-            gettingtasks.add(Helper.data.get(i)[2]);
-            gettingcatagory.add(Helper.data.get(i)[4]);
+        for (int i = 0; i < Helper.avoidedData.size(); i++) {
+            gettingtasks.add(Helper.avoidedData.get(i)[2]);
+            gettingcatagory.add(Helper.avoidedData.get(i)[4]);
         }
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         new ItemTouchHelper(itemtouchhelper).attachToRecyclerView(rv);
@@ -83,11 +83,11 @@ public class AvoidedFragment extends Fragment {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 int i = viewHolder.getAdapterPosition();
-                                Log.d("aaaasize",""+Helper.data.size());
+                                Log.d("aaaasize",""+Helper.avoidedData.size());
                                 db.delete_avoided(i);
-                                for (int j = i + 1; j < Helper.data.size(); j++) {
-                                    Log.d("aaaaforloop",""+Integer.parseInt(Helper.data.get(j)[0]));
-                                    db.updateIdsAfterDeletion(Integer.parseInt(Helper.data.get(j)[0]));
+                                for (int j = i + 1; j < Helper.avoidedData.size(); j++) {
+                                    Log.d("aaaaforloop",""+Integer.parseInt(Helper.avoidedData.get(j)[0]));
+                                    db.updateIdsAfterDeletion(Integer.parseInt(Helper.avoidedData.get(j)[0]));
                                 }
                                 Helper.SelectedButtonOfTodayTab = 1;
                                 Intent intent = new Intent(getActivity(), MainActivity.class);

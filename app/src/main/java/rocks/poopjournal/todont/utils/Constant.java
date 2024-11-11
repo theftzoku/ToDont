@@ -1,7 +1,6 @@
 package rocks.poopjournal.todont.utils;
 
 
-import java.util.ArrayList;
 public class Constant {
 
     // ********************************** Main Shared Pref Constants ********************************

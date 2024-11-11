@@ -29,20 +29,7 @@
         android:text="@string/habitswillshowuphere"
         android:layout_gravity="center"
         />
-    <TextView
-        android:id="@+id/a"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_weight="1"
 
-        android:textColor="@color/textcolor"
-        android:textSize="14sp"
-        android:visibility="gone"
-
-        android:text="@string/puthabit"
-        android:layout_marginBottom="105dp"
-        android:layout_gravity="bottom|center"
-        />
     <rocks.poopjournal.todont.showcaseview.RippleBackground
         android:id="@+id/fab_highlighter"
         android:layout_width="120dp"

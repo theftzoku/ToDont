@@ -1,25 +1,62 @@
 package rocks.poopjournal.todont;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import rocks.poopjournal.todont.utils.SharedPrefUtils;
+import smartdevelop.ir.eram.showcaseviewlib.GuideView;
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType;
+import smartdevelop.ir.eram.showcaseviewlib.listener.GuideListener;
+
 public class About extends AppCompatActivity {
     TextView version;
+    private LinearLayout contributionView;
+    private SharedPrefUtils prefUtils;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        contributionView=findViewById(R.id.contributionView);
         version=findViewById(R.id.versiontext);
         version.setText( BuildConfig.VERSION_NAME +" Beta ");
+
+        prefUtils=new SharedPrefUtils(this);
+        contributionView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(!prefUtils.getBool(SharedPrefUtils.KEY_CONTRIBUTION_VIEW)){
+                    GuideView.Builder guideView = new GuideView.Builder(About.this)
+                                .setContentText("Help make \"To Don't\" better.")
+                            .setTargetView(contributionView)
+                            .setDismissType(DismissType.anywhere)
+                            .setPointerType(PointerType.arrow)
+                            .setGravity(Gravity.center)
+                            .setGuideListener(new GuideListener() {
+                                @Override
+                                public void onDismiss(View view) {
+                                    prefUtils.setBool(SharedPrefUtils.KEY_CONTRIBUTION_VIEW, true);
+                                }
+                            });
+                    guideView.build().show();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         //tabdeeli aa gai hai
 }
     public void contact_codeaquaria(View view) {

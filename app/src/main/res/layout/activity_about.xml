@@ -550,120 +550,128 @@
 <!--                </LinearLayout>-->
 <!--            </androidx.cardview.widget.CardView>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
+        <LinearLayout
+            android:id="@+id/contributionView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
 
-                android:text="@string/contribute"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+        android:text="@string/contribute"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="13dp"
-                android:background="@color/innerfragmentsColor2" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/innerfragmentsColor2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btntranslate"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/translate"
-                    android:onClick="translate"/>
+        <Button
+            android:id="@+id/btntranslate"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/translate"
+            android:onClick="translate"/>
 
-                <TextView
-                    android:id="@+id/texttranslate"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/translate"
-                    android:onClick="translate"
-                    android:gravity = "center_vertical"
-                    android:textColor="@color/textcolor" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/texttranslate"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/translate"
+            android:onClick="translate"
+            android:gravity = "center_vertical"
+            android:textColor="@color/textcolor" />
+    </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="67dp"
-                android:background="@color/innerfragmentsColor2" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="67dp"
+        android:background="@color/innerfragmentsColor2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnreport"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/reportproblem"
-                    android:onClick="report"
-                    />
+        <Button
+            android:id="@+id/btnreport"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/reportproblem"
+            android:onClick="report"
+            />
 
-                <TextView
-                    android:id="@+id/textreport"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/report"
-                    android:gravity = "center_vertical"
-                    android:textColor="@color/textcolor"
-                    android:onClick="report"
-                    />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/textreport"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/report"
+            android:gravity = "center_vertical"
+            android:textColor="@color/textcolor"
+            android:onClick="report"
+            />
+    </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="67dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="67dp"
 
-                android:layout_marginTop="13dp"
-                android:background="@color/innerfragmentsColor2" />
+        android:layout_marginTop="13dp"
+        android:background="@color/innerfragmentsColor2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnsource"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/viewsrc"
-                    android:onClick="viewsource"
-                    />
+        <Button
+            android:id="@+id/btnsource"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/viewsrc"
+            android:onClick="viewsource"
+            />
 
-                <TextView
-                    android:id="@+id/textsource"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/source"
-                    android:gravity = "center_vertical"
-                    android:onClick="viewsource"
-                    android:textColor="@color/textcolor"/>
-            </LinearLayout>
+        <TextView
+            android:id="@+id/textsource"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/source"
+            android:gravity = "center_vertical"
+            android:onClick="viewsource"
+            android:textColor="@color/textcolor"/>
+    </LinearLayout>
+        </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"

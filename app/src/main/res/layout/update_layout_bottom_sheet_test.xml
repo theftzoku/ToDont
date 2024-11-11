@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:background="@drawable/bottom_sheet"
     android:orientation="vertical"
-    android:layout_margin="10dp"
     android:padding="15dp">
 
-    <!-- Title "Text my ex" -->
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -16,8 +16,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/iconButtons"
-        android:text="Text my ex"
         android:paddingLeft="10dp"
+        android:text="Text my ex"
         android:textColor="@color/textcolor"
         android:textSize="15sp" />
 
@@ -26,26 +26,20 @@
         android:id="@+id/iconButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:orientation="horizontal">
 
         <!-- Tag Icon -->
-        <ImageButton
-            android:id="@+id/tagButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/frame__6_" />
 
         <!-- Delete Icon -->
         <ImageButton
             android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/trash"
-            android:layout_marginStart="16dp" />
+            android:src="@drawable/trash" />
     </LinearLayout>
 
     <!-- Avoided / Done Counters -->
@@ -53,62 +47,60 @@
         android:id="@+id/counterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_below="@+id/titleText"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <!-- Avoided Counter -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Avoided"
-                android:textSize="16sp"
                 android:textColor="@color/textcolor"
-                android:layout_gravity="center" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:layout_marginTop="8dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/avoidedMinusButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:text="-"
                     android:backgroundTint="@android:color/darker_gray"
-                    android:textColor="@color/textcolor"
-                    />
+                    android:text="-"
+                    android:textColor="@color/textcolor" />
 
                 <TextView
                     android:id="@+id/avoidedCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="18sp"
-                    android:textColor="@color/textcolor"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp" />
+                    android:layout_marginEnd="16dp"
+                    android:text="0"
+                    android:textColor="@color/textcolor"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/avoidedPlusButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:textColor="@color/textcolor"
-                    android:text="+"
                     android:backgroundTint="@android:color/darker_gray"
-                   />
+                    android:text="+"
+                    android:textColor="@color/textcolor" />
             </LinearLayout>
         </LinearLayout>
 
@@ -123,81 +115,124 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Done"
-                android:textSize="16sp"
                 android:textColor="@color/textcolor"
-                android:layout_gravity="center" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:layout_marginTop="8dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/doneMinusButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:text="-"
                     android:backgroundTint="@android:color/darker_gray"
-                    android:textColor="@color/textcolor"
-                    />
+                    android:text="-"
+                    android:textColor="@color/textcolor" />
 
                 <TextView
                     android:id="@+id/doneCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+
                     android:text="0"
                     android:textColor="@color/textcolor"
-
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp" />
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/donePlusButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:text="+"
                     android:backgroundTint="@android:color/darker_gray"
-                    android:textColor="@color/textcolor"
-                    />
+                    android:text="+"
+                    android:textColor="@color/textcolor" />
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <!-- Placeholder Text (Lorem ipsum) -->
     <TextView
-        android:id="@+id/placeholderText"
+        android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi arcu libero, congue id rhoncus vel, ultricies ac diam."
-        android:textSize="14sp"
-        android:textColor="@color/textcolor"
         android:layout_below="@+id/counterLayout"
         android:layout_marginTop="16dp"
-        android:gravity="center" />
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi arcu libero, congue id rhoncus vel, ultricies ac diam."
+        android:textColor="@color/textcolor"
+        android:textSize="14sp" />
 
     <!-- Social Button -->
-    <Button
-        android:id="@+id/socialButton"
+    <ImageButton
+        android:id="@+id/tagButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/placeholderText"
+        android:layout_alignTop="@+id/cvTag"
+        android:layout_alignBottom="@id/cvTag"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_button"
-        android:paddingLeft="32dp"
-        android:layout_marginBottom="3dp"
-        android:paddingRight="32dp"
-        android:text="Social"
-        android:textColor="@color/fragmentsColor2"
-        android:textSize="12sp" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/frame__6_" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/tagButton"
+        app:cardBackgroundColor="#1fff6701"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp">
+
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:text="Tag"
+            android:textColor="#FF6701"
+            android:textSize="14sp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/notificationButton"
+        android:layout_alignBottom="@id/notificationButton"
+        android:layout_toEndOf="@id/tagButton"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textColor="@color/textcolor"
+        android:text="Add daily notification"
+        />
+    <ImageButton
+        android:id="@+id/notificationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cvTag"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:src="@drawable/bell" />
+
 </RelativeLayout>

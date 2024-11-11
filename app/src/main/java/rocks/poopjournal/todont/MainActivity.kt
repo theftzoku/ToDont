@@ -9,22 +9,28 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import rocks.poopjournal.todont.Fragments.FragmentLog
 import rocks.poopjournal.todont.Fragments.FragmentToday
 import rocks.poopjournal.todont.databinding.ActivityMainBinding
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType
 
 class MainActivity : AppCompatActivity() {
     // Database controller instance
     var db: Db_Controller? = null
     lateinit var binding: ActivityMainBinding
+    var  prefUtils: SharedPrefUtils?=null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         // Initialize the database controller
         val fragment = FragmentToday()
+        prefUtils = SharedPrefUtils(this);
         db = Db_Controller(applicationContext, "", null, 2)
 
-        // Replace the current fragment with the 'FragmentToday'
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment, fragment.javaClass.simpleName).commit()
+
+
 
 
         // Set toolbar text to "Today"
@@ -67,17 +73,29 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     R.id.navigation_log -> {
-                        // Switch to the 'FragmentLog' when "Log" is selected
-                        val fragment = FragmentLog()
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.container, fragment, fragment.javaClass.simpleName)
-                            .commit()
-                        // Update the toolbar text
-                        binding.toolbartext.setText(R.string.log)
-                        // Hide the label and settings views
-                        binding.label.visibility = View.INVISIBLE
-                        binding.settings.visibility = View.INVISIBLE
-                        return@OnNavigationItemSelectedListener true
+                        if(!(prefUtils!!.getBool(SharedPrefUtils.KEY_LOG))&&!intent.getBooleanExtra("openLog",false)){
+
+                            val guideView = GuideView.Builder(this@MainActivity)
+                                .setContentText("View your stats.")
+                                .setTargetView(binding.navigationView.findViewById(R.id.navigation_log))
+                                .setDismissType(DismissType.anywhere)
+                                .setPointerType(PointerType.arrow)
+                                .setGravity(Gravity.center)
+                                .setGuideListener { prefUtils!!.setBool(SharedPrefUtils.KEY_LOG, true) }
+                            guideView.build().show()
+                        }else{
+                            // Switch to the 'FragmentLog' when "Log" is selected
+                            val fragment = FragmentLog()
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment, fragment.javaClass.simpleName)
+                                .commit()
+                            // Update the toolbar text
+                            binding.toolbartext.setText(R.string.log)
+                            // Hide the label and settings views
+                            binding.label.visibility = View.INVISIBLE
+                            binding.settings.visibility = View.INVISIBLE
+                            return@OnNavigationItemSelectedListener true
+                        }
                     }
                 }
                 false
@@ -91,6 +109,23 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Labels::class.java)
             startActivity(intent)
             finish()
+        }
+        if(intent.getBooleanExtra("openLog",false)){
+//            // Switch to the 'FragmentLog' when "Log" is selected
+//            val frag = FragmentLog()
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.container, frag, frag.javaClass.simpleName)
+//                .commit()
+//            // Update the toolbar text
+//            binding.toolbartext.setText(R.string.log)
+//            // Hide the label and settings views
+//            binding.label.visibility = View.INVISIBLE
+//            binding.settings.visibility = View.INVISIBLE
+            binding.navigationView.selectedItemId = R.id.navigation_log
+        }else{
+            // Replace the current fragment with the 'FragmentToday'
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, fragment, fragment.javaClass.simpleName).commit()
         }
     }
 

@@ -9,20 +9,31 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Db_Controller extends SQLiteOpenHelper {
+
+    private static final String TABLE_ALARMS = "alarms";
+    private static final String COLUMN_TASK_ID = "task_id";
+    private static final String COLUMN_ALARM_TIME = "alarm_time";
+    private static final String COLUMN_FREQUENCY = "frequency";
+    private static final String CREATE_TABLE_ALARMS = "CREATE TABLE " + TABLE_ALARMS + " (" +
+            COLUMN_TASK_ID + " INTEGER PRIMARY KEY, " +
+            COLUMN_ALARM_TIME + " INTEGER, " + // store alarm time as Unix timestamp
+            COLUMN_FREQUENCY + " TEXT)";
     public Db_Controller(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, "e.db", factory, version);
+        super(context, "todont.sqlite", factory, 3);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         //ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-        db.execSQL("CREATE TABLE HABITS(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
-        db.execSQL("CREATE TABLE AVOIDED(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
-        db.execSQL("CREATE TABLE DONE(ID INTEGER,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE HABITS(ID INTEGER Primary key ,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE AVOIDED(ID INTEGER Primary key ,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
+        db.execSQL("CREATE TABLE DONE(ID INTEGER Primary key ,DATE TEXT,HABIT TEXT,DETAIL TEXT,TIMES INTEGER,CATAGORY TEXT);");
         db.execSQL("CREATE TABLE LABELS(LABEL TEXT);");
         db.execSQL("CREATE TABLE CHECKNIGHTMODE(NIGHTMODE TEXT);");
+        db.execSQL(CREATE_TABLE_ALARMS);
     }
 
     @Override
@@ -32,8 +43,64 @@ public class Db_Controller extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS DONE;");
         db.execSQL("DROP TABLE IF EXISTS LABELS;");
         db.execSQL("DROP TABLE IF EXISTS CHECKNIGHTMODE;");
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_ALARMS+";");
         onCreate(db);
     }
+
+    // Insert or Update alarm
+    public void insertOrUpdateAlarm(Alarm alarm) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TASK_ID, alarm.getTaskId());
+        values.put(COLUMN_ALARM_TIME, alarm.getAlarmTime());
+        values.put(COLUMN_FREQUENCY, alarm.getFrequency());
+
+        db.replace(TABLE_ALARMS, null, values); // Use replace to update if task_id exists
+        db.close();
+    }
+    // Delete alarm by task ID
+    public void deleteAlarm(int taskId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_ALARMS, COLUMN_TASK_ID + " = ?", new String[]{String.valueOf(taskId)});
+        db.close();
+    }
+    // Get alarm details by task ID
+    public Alarm getAlarm(int taskId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_ALARMS, null, COLUMN_TASK_ID + " = ?", new String[]{String.valueOf(taskId)}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            long alarmTime = cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ALARM_TIME));
+            String frequency = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FREQUENCY));
+            cursor.close();
+            db.close();
+            return new Alarm(taskId, alarmTime, frequency);
+        } else {
+            if (cursor != null) cursor.close();
+            db.close();
+            return null; // Alarm not found
+        }
+    }
+    // Get all alarms
+    public List<Alarm> getAllAlarms() {
+        List<Alarm> alarmList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_ALARMS, null, null, null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int taskId = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_TASK_ID));
+                long alarmTime = cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ALARM_TIME));
+                String frequency = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FREQUENCY));
+                alarmList.add(new Alarm(taskId, alarmTime, frequency));
+            } while (cursor.moveToNext());
+        }
+
+        if (cursor != null) cursor.close();
+        db.close();
+        return alarmList;
+    }
+
 
     public void insert_label(String label) {
         Log.d("insert_label...", "" + label);
@@ -103,7 +170,7 @@ public class Db_Controller extends SQLiteOpenHelper {
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM HABITS", null);
         Helper.habitsdata = new ArrayList<>();
         while (cursor.moveToNext()) {
-            String[] temp = new String[5];
+            String[] temp = new String[6];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
             String str = (cursor.getString(2));
@@ -113,25 +180,26 @@ public class Db_Controller extends SQLiteOpenHelper {
             temp[2] = str;
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
+            temp[5] = (cursor.getString(5));
             Helper.habitsdata.add(temp);
         }
 
     }
 
-    public void show_data() {
+    public void show_avoided_data() {
 
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED", null);
-        Helper.data = new ArrayList<>();
+        Helper.avoidedData = new ArrayList<>();
         while (cursor.moveToNext()) {
-            String[] temp = new String[5];
+            String[] temp = new String[6];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
-//            temp[5] = (cursor.getString(5));
+            temp[5] = (cursor.getString(5));
 
-            Helper.data.add(temp);
+            Helper.avoidedData.add(temp);
         }
 
     }
@@ -142,13 +210,13 @@ public class Db_Controller extends SQLiteOpenHelper {
         Helper.donedata = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            String[] temp = new String[5];
+            String[] temp = new String[6];
             temp[0] = (cursor.getString(0));
             temp[1] = (cursor.getString(1));
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
             temp[4] = (cursor.getString(4));
-//            temp[5] = (cursor.getString(5));
+            temp[5] = (cursor.getString(5));
 
 
             Helper.donedata.add(temp);
@@ -164,9 +232,8 @@ public class Db_Controller extends SQLiteOpenHelper {
         }
     }
 
-        public void update_habitsdata(int id, String date, String habit, String detail, String catagory) {
-
-            this.getWritableDatabase().execSQL("UPDATE HABITS SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
+        public void update_habitsdata(int id, String date, String habit, String detail,int count, String catagory) {
+            this.getWritableDatabase().execSQL("UPDATE HABITS SET DATE='" + date + "',HABIT='" + habit + "',DETAIL='" + detail + "',TIMES='" + count + "',CATAGORY='" + catagory + "' WHERE ID='" + id + "'");
 
         }
 /*    public void update_habitsdata(int id, String date, String habit, String detail, int times, String category) {
@@ -538,4 +605,5 @@ public class Db_Controller extends SQLiteOpenHelper {
         cursor.close();
         return count;
     }
+
 }

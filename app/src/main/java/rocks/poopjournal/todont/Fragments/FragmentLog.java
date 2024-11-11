@@ -1,6 +1,5 @@
 package rocks.poopjournal.todont.Fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
