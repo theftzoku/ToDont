@@ -8,38 +8,33 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import rocks.poopjournal.todont.Adapters.HabitsAdapter;
-import rocks.poopjournal.todont.Fragments.HabitsFragment;
 import rocks.poopjournal.todont.Fragments.LabelsAdapter;
 import rocks.poopjournal.todont.showcaseview.RippleBackground;
 import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder;
 import rocks.poopjournal.todont.utils.SharedPrefUtils;
+import smartdevelop.ir.eram.showcaseviewlib.GuideView;
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType;
+import smartdevelop.ir.eram.showcaseviewlib.listener.GuideListener;
 
 public class Labels extends AppCompatActivity {
     RecyclerView rv_labels;
@@ -217,28 +212,44 @@ public class Labels extends AppCompatActivity {
         startActivity(i);
     }
     private void showcaseFab() {
-        showcaseViewBuilder.setTargetView(labels_floatingbutton)
-                .setBackgroundOverlayColor(0xcc000000)
-                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
-                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_LEFT)
-                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics()))
-                .setRingColor(0xcc8e8e8e)
-                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE)
-                .setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()))
-                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
-                .addCustomView(R.layout.fab_label_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -160, getResources().getDisplayMetrics()) ,0);
-//                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+//        showcaseViewBuilder.setTargetView(labels_floatingbutton)
+//                .setBackgroundOverlayColor(0xcc000000)
+//                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
+//                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_LEFT)
+//                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics()))
+//                .setRingColor(0xcc8e8e8e)
+//                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE)
+//                .setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()))
+//                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
+//                .addCustomView(R.layout.fab_label_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -160, getResources().getDisplayMetrics()) ,0);
+////                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+//
+//        showcaseViewBuilder.show();
+//
+//        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                prefUtils.setBool("plus1", true);
+//
+//                showcaseViewBuilder.hide();
+//            }
+//        });
 
-        showcaseViewBuilder.show();
 
-        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefUtils.setBool("plus1", true);
+        GuideView.Builder guideView = new GuideView.Builder(Labels.this)
+                                .setContentText("Add Label.")
+                .setTargetView(labels_floatingbutton)
+                .setDismissType(DismissType.anywhere)
+                .setPointerType(PointerType.arrow)
+                .setGravity(Gravity.center)
+                .setGuideListener(new GuideListener() {
+                    @Override
+                    public void onDismiss(View view) {
+                        prefUtils.setBool("plus1", true);
+                    }
+                });
+        guideView.build().show();
 
-                showcaseViewBuilder.hide();
-            }
-        });
 
 /*        if (!fabHighlighter.isRippleAnimationRunning()) {
             fabHighlighter.startRippleAnimation();

@@ -14,8 +14,15 @@ import java.util.Map;
 
 public class SharedPrefUtils {
     public static final String MY_PREFS_NAME = "MiApp";
+    public static final String KEY_ADD_OR_AVOIDED="AddOrAvoided";
+    public static final String KEY_LOG="Log";
+    public static final String KEY_CONTRIBUTION_VIEW="CONTRIBUTION_VIEW";
+    public static final String KEY_APPEAR_VIEW="APPEAR_VIEW";
+
 
     private final Context activity;
+
+
 
     public SharedPrefUtils(Context activity) {
         this.activity = activity;
@@ -91,5 +98,8 @@ public class SharedPrefUtils {
         }
         return outputMap;
     }
+
+
+
 
 }

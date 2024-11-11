@@ -1,28 +1,14 @@
 package rocks.poopjournal.todont.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteException;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,10 +16,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import rocks.poopjournal.todont.Fragments.AvoidedFragment;
 import rocks.poopjournal.todont.Db_Controller;
+import rocks.poopjournal.todont.Fragments.AvoidedFragment;
 import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.MainActivity;
 import rocks.poopjournal.todont.R;
 
 
@@ -47,7 +32,7 @@ public class AvoidedAdapter extends RecyclerView.Adapter<AvoidedAdapter.Recycler
     String[] catagories;
     String catagoryselected = "";
     Db_Controller db;
-    final SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+    final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     String formattedDate = df.format(c);
 
     public AvoidedAdapter(Context con, AvoidedFragment ft, Db_Controller db, ArrayList<String> donotTask, ArrayList<String> donotCatagory) {
@@ -61,100 +46,22 @@ public class AvoidedAdapter extends RecyclerView.Adapter<AvoidedAdapter.Recycler
 
     @NonNull
     @Override
-    public AvoidedAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.recyclerview_layout, viewGroup, false);
         return new RecyclerViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AvoidedAdapter.RecyclerViewHolder holder, final int position) {
-        db.show_data();
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, final int position) {
+        db.show_avoided_data();
         String dTask = donotTask.get(position);
-        String date = Helper.data.get(position)[1];
-        String tim = Helper.data.get(position)[4];
+        String date = Helper.avoidedData.get(position)[1];
+        String tim = Helper.avoidedData.get(position)[4];
         holder.tim.setText(tim+ "-Times");
         holder.task.setText(dTask);
         holder.dateoftask.setText(date);
-        holder.task.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con,
-                        R.style.BottomSheetDialogTheme);
-                final View bottomsheetview = LayoutInflater.from(con.getApplicationContext()).
-                        inflate(R.layout.update_layout_bottom_sheet_test,
-                                view.findViewById(R.id.bottomsheetContainer));
-                final Spinner spinner = bottomsheetview.findViewById(R.id.updatespinner);
-                Button saveTaskButton = bottomsheetview.findViewById(R.id.updateTaskButton);
-                final EditText habit = bottomsheetview.findViewById(R.id.updatehabit);
-                final EditText detail = bottomsheetview.findViewById(R.id.updatedetail);
-                TextView txt=bottomsheetview.findViewById(R.id.txt);
-                if (Helper.labels_array.size() == 0) {
-                    txt.setVisibility(View.VISIBLE);
-                    spinner.setVisibility(View.INVISIBLE);
-                } else {
-                    txt.setVisibility(View.INVISIBLE);
-                    spinner.setVisibility(View.VISIBLE);
-                }
-                habit.setText("" + Helper.data.get(position)[2]);
-                detail.setText("" + Helper.habitsdata.get(position)[3].replace("''","'"));
 
-                ArrayList<String> reformed_labels = new ArrayList<>();
-                for (int i=0;i<Helper.labels_array.size();i++){
-                    reformed_labels.add(Helper.labels_array.get(i).toString().replace("''","'"));
-                }
-
-                final Adapter adapter = new ArrayAdapter<String>(con, android.R.layout.simple_list_item_1,
-                      reformed_labels) {
-                    @Override
-                    public boolean isEnabled(int position) {
-                        return position != 0;
-                    }
-                };
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        catagoryselected = adapterView.getItemAtPosition(i).toString().replace("'","''");
-                        TextView selectedText = (TextView) adapterView.getChildAt(i);
-                        if (selectedText != null) {
-                            selectedText.setTextColor(ContextCompat.getColor(con,R.color.g2));
-                        }
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
-
-
-                saveTaskButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String habit_text = Helper.data.get(position)[2];
-                        String detail_text = detail.getText().toString();
-                        String formattedDate = df.format(c);
-                        try {
-
-                        } catch (SQLiteException e) {
-                        }
-                        Log.d("checkingz",""+habit.getText().toString());
-                        db.update_habitsdata(position, formattedDate,habit_text
-                                , detail.getText().toString().replace("'","''"), catagoryselected);
-                        db.show_data();
-                        Helper.SelectedButtonOfTodayTab = 1;
-                        Intent intent = new Intent(con, MainActivity.class);
-                        con.startActivity(intent);
-                        ((Activity) con).overridePendingTransition(0, 0);
-                        bottomSheetDialog.dismiss();
-                    }
-
-                });
-                spinner.setAdapter((SpinnerAdapter) adapter);
-                bottomSheetDialog.setContentView(bottomsheetview);
-                bottomSheetDialog.show();
-            }
-        });
 
     }
 

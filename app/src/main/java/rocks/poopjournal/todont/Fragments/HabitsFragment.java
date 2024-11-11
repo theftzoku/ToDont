@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +42,11 @@ import rocks.poopjournal.todont.MainActivity;
 import rocks.poopjournal.todont.R;
 import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder;
 import rocks.poopjournal.todont.utils.SharedPrefUtils;
+import smartdevelop.ir.eram.showcaseviewlib.GuideView;
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType;
+import smartdevelop.ir.eram.showcaseviewlib.listener.GuideListener;
 
 
 public class HabitsFragment extends Fragment {
@@ -55,7 +58,7 @@ public class HabitsFragment extends Fragment {
     String catagoryselected;
     Db_Controller db;
     HabitsAdapter adapter;
-    TextView tv1, tv2;
+    TextView  tv2;
     public ShowcaseViewBuilder showcaseViewBuilder;
     private SharedPrefUtils prefUtils;
 
@@ -68,19 +71,20 @@ public class HabitsFragment extends Fragment {
         db = new Db_Controller(getActivity(), "", null, 2);
         db.show_labels();
         db.show_habits_data();
+
         showcaseViewBuilder = ShowcaseViewBuilder.init(requireActivity());
         prefUtils = new SharedPrefUtils(requireActivity());
         db.getNightMode();
-        tv1 = view.findViewById(R.id.a);
+      //  tv1 = view.findViewById(R.id.a);
         tv2 = view.findViewById(R.id.b);
         floatingActionButton = view.findViewById(R.id.floatingbtn);
         floatingActionButton.bringToFront();
         floatingActionButton.setVisibility(View.VISIBLE);
         if (Helper.habitsdata.size() != 0) {
-            tv1.setVisibility(View.INVISIBLE);
+           // tv1.setVisibility(View.INVISIBLE);
             tv2.setVisibility(View.INVISIBLE);
         } else if (Helper.habitsdata.size() == 0) {
-            tv1.setVisibility(View.VISIBLE);
+           // tv1.setVisibility(View.VISIBLE);
             tv2.setVisibility(View.VISIBLE);
         }
 
@@ -280,38 +284,56 @@ public class HabitsFragment extends Fragment {
     }
 
     private void showcaseFab() {
-        showcaseViewBuilder.setTargetView(floatingActionButton).setBackgroundOverlayColor(0xcc000000)
-                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
-                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_RIGHT)
-                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics())).setRingColor(0xcc8e8e8e)
-                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE).setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, getResources().getDisplayMetrics()))
-                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
-                .addCustomView(R.layout.fab_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources()
-                        .getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()), -300);
-//                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+//        showcaseViewBuilder.setTargetView(floatingActionButton).setBackgroundOverlayColor(0xcc000000)
+//                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
+//                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_RIGHT)
+//                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics())).setRingColor(0xcc8e8e8e)
+//                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE).setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, getResources().getDisplayMetrics()))
+//                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
+//                .addCustomView(R.layout.fab_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources()
+//                        .getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()), -300);
+////                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
+//
+//        showcaseViewBuilder.show();
+//
+//        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                prefUtils.setBool("plus", true);
+//                showcaseViewBuilder.hide();
+//            }
+//        });
+        GuideView.Builder guideView=new GuideView.Builder(requireContext())
+                .setContentText("To Start Off, put down a bad habit.")
+                .setTargetView(floatingActionButton)
+                .setDismissType(DismissType.anywhere)
+                .setPointerType(PointerType.arrow)
+                .setGravity(Gravity.center)
+                .setGuideListener(new GuideListener() {
+                    @Override
+                    public void onDismiss(View view) {
+                        prefUtils.setBool("plus", true);
+                    }
+                });
 
-        showcaseViewBuilder.show();
 
-        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                prefUtils.setBool("plus", true);
-                showcaseViewBuilder.hide();
-            }
-        });
+        guideView.build().show();
+
 
     }
 
     public void setDataInList() {
         for (int i = 0; i < Helper.habitsdata.size(); i++) {
             gettingtasks.add(Helper.habitsdata.get(i)[2]);
-            gettingcatagory.add(Helper.habitsdata.get(i)[4]);
+            gettingcatagory.add(Helper.habitsdata.get(i)[5]);
         }
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        new ItemTouchHelper(itemtouchhelper).attachToRecyclerView(rv);
-        adapter = new HabitsAdapter(getActivity(), HabitsFragment.this, db, gettingtasks, gettingcatagory);
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+      if(!Helper.habitsdata.isEmpty()){
+          rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+          new ItemTouchHelper(itemtouchhelper).attachToRecyclerView(rv);
+          adapter = new HabitsAdapter(getActivity(), HabitsFragment.this, db, gettingtasks, gettingcatagory);
+          rv.setAdapter(adapter);
+          rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+      }
     }
 
     ItemTouchHelper.SimpleCallback itemtouchhelper = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {

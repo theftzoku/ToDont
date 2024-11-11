@@ -1,10 +1,6 @@
 package rocks.poopjournal.todont.Fragments;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import rocks.poopjournal.todont.Db_Controller;
-import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.Labels;
 import rocks.poopjournal.todont.R;
 
 
@@ -36,14 +30,14 @@ public class LabelsAdapter extends RecyclerView.Adapter<LabelsAdapter.RecyclerVi
 
     @NonNull
     @Override
-    public LabelsAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.labels_recyclerview_layout, viewGroup, false);
         return new RecyclerViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LabelsAdapter.RecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, final int position) {
         final String dTask=labels_list.get(position);
         holder.tv_label.setText(dTask.replace("''","'"));
         db.getNightMode();

@@ -1,5 +1,7 @@
 package rocks.poopjournal.todont.Fragments;
 
+import static java.util.Calendar.getInstance;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -29,8 +32,6 @@ import java.util.Locale;
 import rocks.poopjournal.todont.Db_Controller;
 import rocks.poopjournal.todont.Helper;
 import rocks.poopjournal.todont.R;
-
-import static java.util.Calendar.getInstance;
 
 public class MonthlyFragment extends Fragment {
     Calendar c = getInstance();

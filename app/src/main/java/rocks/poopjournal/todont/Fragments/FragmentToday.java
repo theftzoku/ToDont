@@ -1,6 +1,5 @@
 package rocks.poopjournal.todont.Fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,6 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-
-import java.util.Collection;
 
 import rocks.poopjournal.todont.Helper;
 import rocks.poopjournal.todont.R;

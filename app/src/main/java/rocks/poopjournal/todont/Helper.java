@@ -1,12 +1,10 @@
 package rocks.poopjournal.todont;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 
 public class Helper {
     public static ArrayList<String> labels_array = new ArrayList<String>();
-    public static ArrayList<String[]> data=new ArrayList<>();
+    public static ArrayList<String[]> avoidedData =new ArrayList<>();
     public static ArrayList<String[]> avoidedlogdata=new ArrayList<>();
     public static ArrayList<String[]> donedata=new ArrayList<>();
     public static ArrayList<String[]> donelogdata=new ArrayList<>();
