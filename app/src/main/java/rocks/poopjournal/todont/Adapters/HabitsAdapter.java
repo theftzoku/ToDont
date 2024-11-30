@@ -38,6 +38,7 @@ import rocks.poopjournal.todont.Helper;
 import rocks.poopjournal.todont.NotificationReceiver;
 import rocks.poopjournal.todont.R;
 import rocks.poopjournal.todont.databinding.UpdateLayoutBottomSheetTestBinding;
+import rocks.poopjournal.todont.utils.CommonBottomSheetManager;
 import rocks.poopjournal.todont.utils.SharedPrefUtils;
 import smartdevelop.ir.eram.showcaseviewlib.GuideView;
 import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
@@ -93,243 +94,56 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
         holder.task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con, R.style.BottomSheetDialogTheme);
-                final UpdateLayoutBottomSheetTestBinding bottomsheetview = UpdateLayoutBottomSheetTestBinding.inflate(LayoutInflater.from(con));
 
-//                if (Helper.labels_array.size() == 0) {
-//                    txt.setVisibility(View.VISIBLE);
-//                } else {
-//                    txt.setVisibility(View.INVISIBLE);
-//                }
 
-                bottomsheetview.titleText.setText(dTask);
-                bottomsheetview.details.setText(Helper.habitsdata.get(position)[3]);
-                bottomsheetview.tvTag.setText(Helper.habitsdata.get(position)[5]);
-                bottomSheetDialog.setContentView(bottomsheetview.getRoot());
-                bottomSheetDialog.show();
-                db.show_done_data();
-                db.show_avoided_data();
-                if (Helper.avoidedData.size() == 0) {
-                    bottomsheetview.avoidedCount.setText("0");
-                } else {
-                    bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                }
-                if (Helper.donedata.size() == 0) {
-                    bottomsheetview.doneCount.setText("0");
-                } else {
-                    bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
-                }
-                bottomsheetview.avoidedPlusButton.setOnClickListener(new View.OnClickListener() {
+                CommonBottomSheetManager bottomSheetManager =
+                        new CommonBottomSheetManager(con, dTask, dCatagory, position);
+
+
+                bottomSheetManager.setAvoidedPlusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        db.show_done_data();
-                        db.show_avoided_data();
-                        Log.d("asize", "" + Helper.avoidedData.size());
-                        int count = 0;
-                        int countAll = 0;
-                        int ids = Integer.parseInt(Helper.habitsdata.get(position)[0]);
-                        if (Helper.avoidedData.size() != 0) {
-                            for (int i = 0; i < Helper.avoidedData.size(); i++) {
-                                String getdate = Helper.avoidedData.get(i)[1];
-                                String gethabit = Helper.avoidedData.get(i)[2];
-                       /*     if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                count++;
-                            }
-
-*/
-                                if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                    count++;
-                                    countAll = Integer.parseInt(Helper.avoidedData.get(i)[4]);
-                                    Log.i("tariq", "onClick: " + Helper.avoidedData.get(i)[4]);
-                                }
-                            }
-                            if (count == 0) {
-                                int res = count + countAll;
-                                db.insert_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
-                            } else {
-                                int res = count + countAll;
-                                db.update_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            int res = 1;
-                            db.insert_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                            Toast.makeText(con, "    Added To Avoided out", Toast.LENGTH_SHORT).show();
-                        }
-
-                        db.show_avoided_data();
-                        db.show_done_data();
-                        if (Helper.avoidedData.size() == 0) {
-                            bottomsheetview.avoidedCount.setText("0");
-                        } else {
-                            bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        }
-                        holder.tvAvoided.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        holder.tvDone.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                     }
                 });
 
-                bottomsheetview.avoidedMinusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setAvoidedMinusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        db.show_avoided_data();
-                        db.show_habits_data();
-                        Log.d("asize", "" + Helper.avoidedData.size());
-                        int count = 0;
-                        int countAll = 0;
-                        int ids = Integer.parseInt(Helper.habitsdata.get(position)[0]);
-                        if (Helper.avoidedData.size() != 0) {
-                            for (int i = 0; i < Helper.avoidedData.size(); i++) {
-                                String getdate = Helper.avoidedData.get(i)[1];
-                                String gethabit = Helper.avoidedData.get(i)[2];
-                       /*     if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                count++;
-                            }
-
-*/
-                                if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                    count--;
-                                    countAll = Integer.parseInt(Helper.avoidedData.get(position)[4]);
-                                    Log.i("tariq", "onClick: " + Helper.avoidedData.get(position)[4]);
-                                }
-                            }
-                            if ((count + countAll) >= 0 && count == 0) {
-                                int res = count + countAll;
-                                db.insert_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
-                            } else if ((count + countAll) >= 0) {
-                                int res = count + countAll;
-                                db.update_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "    Added To Avoided", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        db.show_avoided_data();
-                        db.show_done_data();
-                        if (Helper.avoidedData.size() == 0) {
-                            bottomsheetview.avoidedCount.setText("0");
-                        } else {
-                            bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        }
-                        holder.tvAvoided.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        holder.tvDone.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                     }
                 });
-                bottomsheetview.donePlusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setDonePlusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        db.show_done_data();
-                        db.show_habits_data();
-                        int count = 0;
-                        int countAll = 0;
-                        int ids = Integer.parseInt(Helper.habitsdata.get(position)[0]);
-                        if (Helper.donedata.size() != 0) {
-                            for (int i = 0; i < Helper.donedata.size(); i++) {
-                                String getdate = Helper.donedata.get(i)[1];
-                                String gethabit = Helper.donedata.get(i)[2];
-                                if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                    count++;
-                                    countAll = Integer.parseInt(Helper.donedata.get(position)[4]);
-                                }
-                            }
-                            if (count == 0) {
-                                int res = count + countAll;
-                                db.insert_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "Added To Done", Toast.LENGTH_SHORT).show();
-                            } else {
-                                int res = count + countAll;
-                                db.update_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                Toast.makeText(con, "Added To Done ", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            int res = 1;
-                            db.insert_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                            Toast.makeText(con, "Added To Done out", Toast.LENGTH_SHORT).show();
-                        }
-
-                        db.show_avoided_data();
-                        db.show_done_data();
-                        if (Helper.donedata.size() == 0) {
-                            bottomsheetview.doneCount.setText("0");
-                        } else {
-                            bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
-                        }
-                        holder.tvAvoided.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        holder.tvDone.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                     }
 
                 });
-                bottomsheetview.doneMinusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setDoneMinusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        db.show_done_data();
-                        db.show_habits_data();
-                        int count = 0;
-                        int countAll = 0;
-                        int ids = Integer.parseInt(Helper.habitsdata.get(position)[0]);
-                        if (Helper.donedata.size() != 0) {
-                            for (int i = 0; i < Helper.donedata.size(); i++) {
-                                String getdate = Helper.donedata.get(i)[1];
-                                String gethabit = Helper.donedata.get(i)[2];
-                                if ((Helper.habitsdata.get(position)[2].equals(gethabit)) && (getdate.equals(df.format(c)))) {
-//                                Toast.makeText(con, "    Already Added    ", Toast.LENGTH_SHORT).show();
-                                    count--;
-                                    countAll = Integer.parseInt(Helper.donedata.get(position)[4]);
-                                }
-                            }
-                            if ((count + countAll) >= 0) {
-                                if (count == 0) {
-                                    int res = count + countAll;
-                                    db.insert_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                    Toast.makeText(con, "Added To Done", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    int res = count + countAll;
-                                    db.update_done_data(ids, df.format(c), Helper.habitsdata.get(position)[2], Helper.habitsdata.get(position)[3], res, catagoryselected);
-                                    Toast.makeText(con, "Added To Done ", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-
-                        db.show_avoided_data();
-                        db.show_done_data();
-                        if (Helper.donedata.size() == 0) {
-                            bottomsheetview.doneCount.setText("0");
-                        } else {
-                            bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
-                        }
-                        holder.tvAvoided.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                        holder.tvDone.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                     }
                 });
-                bottomsheetview.tvNotification.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setNotificationButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
                         // check if the user has the permission to post notificaiton
                         // else ask for the permission
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                            NotificationManager notificationManager = ( NotificationManager) con.getSystemService(Context.NOTIFICATION_SERVICE);
+                            NotificationManager notificationManager = (NotificationManager) con.getSystemService(Context.NOTIFICATION_SERVICE);
                             if (!notificationManager.areNotificationsEnabled()) {
                                 // Request notification permission
                                 Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                                         .putExtra(Settings.EXTRA_APP_PACKAGE, con.getPackageName());
                                 con.startActivity(intent);
-                            }else{
+                            } else {
                                 showDialog();
                             }
-                        }else{
+                        } else {
                             showDialog();
                         }
                     }
 
-                    private void showDialog(){
+                    private void showDialog() {
                         // Get current time
                         final Calendar calendar = Calendar.getInstance();
                         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -371,7 +185,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
 
                                 // Update tvNotification with selected time and frequency
                                 String notificationText = String.format("Time: %02d:%02d, Frequency: %s", hourOfDay, minute, frequency);
-                                bottomsheetview.tvNotification.setText(notificationText);
+                                bottomSheetManager.getBottomSheetView().tvNotification.setText(notificationText);
 
                                 // Schedule notification based on selected time and frequency
                                 scheduleNotification(Integer.parseInt(Helper.habitsdata.get(position)[0]), calendar, frequency);
@@ -386,7 +200,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
 
                         Intent intent = new Intent(context, NotificationReceiver.class);
                         intent.putExtra("task_id", taskId); // Pass task ID in intent
-                        intent.putExtra("task",Helper.habitsdata.get(position)[2]);
+                        intent.putExtra("task", Helper.habitsdata.get(position)[2]);
                         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, taskId, intent, PendingIntent.FLAG_IMMUTABLE);
 
                         long triggerTime = calendar.getTimeInMillis();
@@ -459,7 +273,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                     guideView.build().show();
                 } else if (Helper.isTodaySelected == true) {
                     db.show_done_data();
-                     db.show_avoided_data();
+                    db.show_avoided_data();
                     Log.d("asize", "" + Helper.avoidedData.size());
                     int count = 0;
                     int countAll = 0;
@@ -522,7 +336,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                     guideView.build().show();
                 } else if (Helper.isTodaySelected == true) {
                     db.show_done_data();
-                     db.show_avoided_data();
+                    db.show_avoided_data();
 
                     int count = 0;
                     int countAll = 0;
@@ -552,7 +366,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.RecyclerVi
                         Toast.makeText(con, "Added To Done out", Toast.LENGTH_SHORT).show();
                     }
                     db.show_done_data();
-                     db.show_avoided_data();
+                    db.show_avoided_data();
 
                     holder.tvAvoided.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
                     holder.tvDone.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
