@@ -1,14 +1,25 @@
 package rocks.poopjournal.todont;
 
+import static rocks.poopjournal.todont.utils.FileUtils.copyFile;
+import static rocks.poopjournal.todont.utils.FileUtils.saveFileToDownloadsUsingMediaStore;
+
 import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/*
+refactor: Pull-up Variable/Method:
+ Both classes have similar methods dealing with database file operations
+ (e.g., copying, restoring). We can centralize those methods in the DatabaseManager.
+
+ */
 public class DatabaseManager {
     private Context context;
     private static final String DATABASE_NAME = "todont.sqlite";
@@ -69,5 +80,40 @@ public class DatabaseManager {
         fos.flush();
         fos.close();
         fis.close();
+    }
+
+    public static void copyDatabaseToDownloads(Context context, String dbName) {
+        try {
+            // Get the database file from the app's private directory
+            File dbFile = context.getDatabasePath(dbName);
+
+            // For Android 10 (API 29) and above, use the MediaStore API to write to Downloads folder
+            /*
+            refactor: Introduce Explaining Variable: For below changes like isAndroidQOrAbove and other name variables added in this file for better understanding.
+             */
+            boolean isAndroidQOrAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
+
+            if (isAndroidQOrAbove) {
+                /*
+                refactor: Move method Or Extract Class
+                 As file operations should be part of the fileUtils class Not the DatabaseUtils
+                 Removed 2 methods saveFileToDownloadsUsingMediaStore() and copyFile() to a newly created class named FileUtils.
+                 */
+                saveFileToDownloadsUsingMediaStore(context, dbFile);
+            } else {
+                // For Android 9 (API 28) and below, use traditional file writing with WRITE_EXTERNAL_STORAGE permission
+                File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                File destFile = new File(downloadsDir, dbFile.getName());
+
+                copyFile(dbFile, destFile);
+                String successMessage = "Database copied to: " + destFile.getAbsolutePath();
+                Toast.makeText(context, successMessage, Toast.LENGTH_LONG).show();
+            }
+
+        } catch (Exception e) {
+            String errorMessage = "Failed to copy database: " + e.getMessage();
+            e.printStackTrace();
+            Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -37,6 +37,7 @@ import rocks.poopjournal.todont.Helper;
 import rocks.poopjournal.todont.NotificationReceiver;
 import rocks.poopjournal.todont.R;
 import rocks.poopjournal.todont.databinding.UpdateLayoutBottomSheetTestBinding;
+import rocks.poopjournal.todont.utils.CommonBottomSheetManager;
 
 
 public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.RecyclerViewHolder> {
@@ -80,32 +81,11 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
         holder.task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(con, R.style.BottomSheetDialogTheme);
-                final UpdateLayoutBottomSheetTestBinding bottomsheetview = UpdateLayoutBottomSheetTestBinding.inflate(LayoutInflater.from(con));
 
-//                if (Helper.labels_array.size() == 0) {
-//                    txt.setVisibility(View.VISIBLE);
-//                } else {
-//                    txt.setVisibility(View.INVISIBLE);
-//                }
 
-                bottomsheetview.titleText.setText(dTask);
-                bottomsheetview.details.setText(Helper.habitsdata.get(position)[3]);
-                bottomSheetDialog.setContentView(bottomsheetview.getRoot());
-                bottomSheetDialog.show();
-                db.show_avoided_data();
-                db.show_done_data();
-                if (Helper.avoidedData.size() == 0) {
-                    bottomsheetview.avoidedCount.setText("0");
-                } else {
-                    bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
-                }
-                if (Helper.donedata.size() == 0) {
-                    bottomsheetview.doneCount.setText("0");
-                } else {
-                    bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
-                }
-                bottomsheetview.avoidedPlusButton.setOnClickListener(new View.OnClickListener() {
+                CommonBottomSheetManager bottomSheetManager =
+                        new CommonBottomSheetManager(con, dTask, date, position);
+                bottomSheetManager.setAvoidedPlusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         db.show_avoided_data();
@@ -149,15 +129,14 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                         db.show_avoided_data();
                         db.show_done_data();
                         if (Helper.avoidedData.size() == 0) {
-                            bottomsheetview.avoidedCount.setText("0");
+                            bottomSheetManager.getBottomSheetView().avoidedCount.setText("0");
                         } else {
-                            bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
+                            bottomSheetManager.getBottomSheetView().avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
                         }
                         //holder.catagoryoftask.setText(String.valueOf(getCount(position)));
                     }
                 });
-
-                bottomsheetview.avoidedMinusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setAvoidedMinusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
@@ -198,14 +177,14 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                         db.show_avoided_data();
                         db.show_done_data();
                         if (Helper.avoidedData.size() == 0) {
-                            bottomsheetview.avoidedCount.setText("0");
+                            bottomSheetManager.getBottomSheetView().avoidedCount.setText("0");
                         } else {
-                            bottomsheetview.avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
+                            bottomSheetManager.getBottomSheetView().avoidedCount.setText(getAvoidedCount(Helper.habitsdata.get(position)[2]));
                         }
                         //holder.catagoryoftask.setText(String.valueOf(getCount(position)));
                     }
                 });
-                bottomsheetview.donePlusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setDonePlusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         db.show_done_data();
@@ -241,16 +220,16 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                         db.show_avoided_data();
                         db.show_done_data();
                         if (Helper.donedata.size() == 0) {
-                            bottomsheetview.doneCount.setText("0");
+                            bottomSheetManager.getBottomSheetView().doneCount.setText("0");
                         } else {
-                            bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
+                            bottomSheetManager.getBottomSheetView().doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                         }
                         // holder.catagoryoftask.setText(String.valueOf(getCount(position)));
 
                     }
 
                 });
-                bottomsheetview.doneMinusButton.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setDoneMinusButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         db.show_done_data();
@@ -284,14 +263,14 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
                         db.show_avoided_data();
                         db.show_done_data();
                         if (Helper.donedata.size() == 0) {
-                            bottomsheetview.doneCount.setText("0");
+                            bottomSheetManager.getBottomSheetView().doneCount.setText("0");
                         } else {
-                            bottomsheetview.doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
+                            bottomSheetManager.getBottomSheetView().doneCount.setText(getDoneCount(Helper.habitsdata.get(position)[2]));
                         }
                         // holder.catagoryoftask.setText(String.valueOf(getCount(position)));
                     }
                 });
-                bottomsheetview.tvNotification.setOnClickListener(new View.OnClickListener() {
+                bottomSheetManager.setNotificationButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
@@ -354,7 +333,7 @@ public class AvoidedLogAdapter extends RecyclerView.Adapter<AvoidedLogAdapter.Re
 
                                 // Update tvNotification with selected time and frequency
                                 String notificationText = String.format("Time: %02d:%02d, Frequency: %s", hourOfDay, minute, frequency);
-                                bottomsheetview.tvNotification.setText(notificationText);
+                                bottomSheetManager.getBottomSheetView().tvNotification.setText(notificationText);
 
                                 // Schedule notification based on selected time and frequency
                                 scheduleNotification(Integer.parseInt(Helper.habitsdata.get(position)[0]), calendar, frequency);
