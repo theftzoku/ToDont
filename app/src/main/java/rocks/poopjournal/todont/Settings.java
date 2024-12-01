@@ -441,7 +441,7 @@ public class Settings extends AppCompatActivity {
 
     // Method to copy the database
     private void copyDatabase() {
-        DatabaseUtils.copyDatabaseToDownloads(this, "todont.sqlite");  // Replace with actual DB name
+        DatabaseManager.copyDatabaseToDownloads(this, "todont.sqlite");  // Replace with actual DB name
     }
 
 

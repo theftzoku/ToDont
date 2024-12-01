@@ -36,8 +36,11 @@ public class Db_Controller extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_ALARMS);
     }
 
+    /*
+        refactor: Rename method/variable
+     */
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS AVOIDED;");
         db.execSQL("DROP TABLE IF EXISTS HABITS;");
         db.execSQL("DROP TABLE IF EXISTS DONE;");
@@ -166,61 +169,55 @@ public class Db_Controller extends SQLiteOpenHelper {
         this.getWritableDatabase().insertOrThrow("DONE", "", con);
     }
 
+    /*
+        refactor: Extract Method
+    //    Helper method to extract habit data New method added for reduce the redundancy in the 3 methods named as
+    //    show_habits_data(), show_avoided_data(), show_done_data()
+     */
+    private List<String[]> extractHabitData(Cursor cursor) {
+        List<String[]> habitList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            String[] habitData = new String[6];
+            habitData[0] = cursor.getString(0); // ID
+            habitData[1] = cursor.getString(1); // DATE
+            habitData[2] = cursor.getString(2); // HABIT
+            habitData[3] = cursor.getString(3); // DETAIL
+            habitData[4] = cursor.getString(4); // TIMES
+            habitData[5] = cursor.getString(5); // CATEGORY
+            habitList.add(habitData);
+        }
+        return habitList;
+    }
+
+
+    // Load Habits Data
     public void show_habits_data() {
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM HABITS", null);
-        Helper.habitsdata = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            String[] temp = new String[6];
-            temp[0] = (cursor.getString(0));
-            temp[1] = (cursor.getString(1));
-            String str = (cursor.getString(2));
-            if (str.contains("geodhola")) {
-                str = str.replace("geodhola", "'");
-            }
-            temp[2] = str;
-            temp[3] = (cursor.getString(3));
-            temp[4] = (cursor.getString(4));
-            temp[5] = (cursor.getString(5));
-            Helper.habitsdata.add(temp);
-        }
-
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM HABITS", null);
+        Helper.habitsdata.clear();
+        Helper.habitsdata.addAll(extractHabitData(cursor));
+        cursor.close();
+        db.close();
     }
 
+    // Load Avoided Data
     public void show_avoided_data() {
-
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM AVOIDED", null);
-        Helper.avoidedData = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            String[] temp = new String[6];
-            temp[0] = (cursor.getString(0));
-            temp[1] = (cursor.getString(1));
-            temp[2] = (cursor.getString(2));
-            temp[3] = (cursor.getString(3));
-            temp[4] = (cursor.getString(4));
-            temp[5] = (cursor.getString(5));
-
-            Helper.avoidedData.add(temp);
-        }
-
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM AVOIDED", null);
+        Helper.avoidedData.clear();
+        Helper.avoidedData.addAll(extractHabitData(cursor));
+        cursor.close();
+        db.close();
     }
 
+    // Load Done Data
     public void show_done_data() {
-
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM DONE", null);
-        Helper.donedata = new ArrayList<>();
-
-        while (cursor.moveToNext()) {
-            String[] temp = new String[6];
-            temp[0] = (cursor.getString(0));
-            temp[1] = (cursor.getString(1));
-            temp[2] = (cursor.getString(2));
-            temp[3] = (cursor.getString(3));
-            temp[4] = (cursor.getString(4));
-            temp[5] = (cursor.getString(5));
-
-
-            Helper.donedata.add(temp);
-        }
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM DONE", null);
+        Helper.donedata.clear();
+        Helper.donedata.addAll(extractHabitData(cursor));
+        cursor.close();
+        db.close();
     }
 
 
