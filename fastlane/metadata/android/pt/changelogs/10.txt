@@ -1,1 +1,0 @@
-- 🐛 Impedir que os utilizadores criem maus hábitos sem um rótulo para evitar falhas de apps (#187)

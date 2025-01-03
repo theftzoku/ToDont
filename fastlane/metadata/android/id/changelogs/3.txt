@@ -1,2 +1,0 @@
-Sedikit perbaikan
-Perbaiki penyiapan fastlane

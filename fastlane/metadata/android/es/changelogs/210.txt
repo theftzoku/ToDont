@@ -1,8 +1,0 @@
-- Objetivo Android 14 🤖
-- Soporte de preferencias de idioma por aplicación 🗺
-- Hacer traducibles las cadenas de una librería externa 🗺
-- Actualizaciones de traducción 🗺
-- Refinar la interfaz de usuario 🎨
-
-Un enorme agradecimiento a todos los colaboradores y traductores. 😘
-Siéntase bienvenido a reportar problemas y enviar correcciones en https://github.com/Crazy-Marvin/ToDont/ o traducciones en https://hosted.weblate.org/engage/todont/. 🚀

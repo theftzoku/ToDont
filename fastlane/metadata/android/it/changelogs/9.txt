@@ -1,4 +1,0 @@
-- Molti bug risolti grazie a subeep 🐛
-- Passare alla grafica vettoriale per una visione più nitida grazie a karthikayya 🎨
-- Aggiornamenti delle dipendenze ⚙️
-- Aggiornamenti delle traduzioni 🗺️

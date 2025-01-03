@@ -1,1 +1,0 @@
-- 🐛 Mencegah pengguna membuat kebiasaan buruk tanpa label untuk mencegah aplikasi macet (#187)

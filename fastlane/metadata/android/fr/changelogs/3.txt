@@ -1,2 +1,0 @@
-Petites améliorations sous le capot
-Correction de la configuration

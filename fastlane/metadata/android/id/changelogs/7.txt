@@ -1,5 +1,0 @@
-- Perbaikan UX 🦋 
-- Perbaikan bug kecil 🐛 
-- Pembaruan terjemahan 🗺️
-
-Silakan kirimkan umpan balik melalui email, buka issue di GitHub, atau bantu menerjemahkan. 💓

@@ -1,2 +1,0 @@
-Pequenas melhorias sob o capô
-Corrigir configuração do fastlane
