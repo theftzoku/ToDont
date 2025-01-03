@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Agħżel Lingwa</item>
+        <item>Ċek</item>
+        <item>Daniż</item>
+        <item>Ġermaniż</item>
+        <item>Ingliż</item>
+        <item>Spanjol</item>
+        <item>Taljan</item>
+        <item>Franċiż</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Jannar</item>
+            <item>Frar</item>
+            <item>Marzu</item>
+            <item>April</item>
+            <item>Mejju</item>
+            <item>Ġunju</item>
+            <item>Lulju</item>
+            <item>Awwissu</item>
+            <item>Settembru</item>
+            <item>Ottubru</item>
+            <item>Novembru</item>
+            <item>Diċembru</item>
+        </string-array>
+
+
+    <string name="delete_habit">Int Żgur Li Trid Tħassar Din Il-Vizzju?</string>
+    <string name="LightMode">Biex Ma \'T</string>
+    <string name="onboarding_reverse">Il-Lista Ta \'Wara Li Tagħmel</string>
+    <string name="onboarding_bad">Jot L-Isfel Tad-Drawwiet Ħżiena Tiegħek.Kuljum, Salib</string>
+    <string name="onboarding_gavein">Minn Dawk Li Ċedew Għalihom.U Dak Li Jmiss</string>
+    <string name="onboarding_freshlist">Filgħodu Ibda Bil-Lista Friska.</string>
+    <string name="onboarding_continue">Kompli</string>
+    <string name="avoided">Evitat</string>
+    <string name="done">Magħmul</string>
+    <string name="habits">Drawwiet</string>
+    <string name="today">Illum</string>
+    <string name="log">Log</string>
+    <string name="about">Madwar</string>
+    <string name="labels">Tikketti</string>
+    <string name="settings">Settings</string>
+    <string name="mostav">Ħafna Evitati:</string>
+    <string name="leastav">L-Inqas Evitat:</string>
+    <string name="addlabel">Jekk Jogħġbok Żid Tikketta L-Ewwel</string>
+    <string name="addnewlabel">Żid Tikketta Ġdida</string>
+    <string name="addtask">Daħħal Il-Vizzju Ħażin</string>
+    <string name="note">Deskrizzjoni</string>
+    <string name="save">Ħlief</string>
+    <string name="puthabit">Biex Tibda, Poġġi Drawwa Ħażina</string>
+    <string name="habitswillshowuphere">Id-Drawwiet Se Jidhru Hawn</string>
+    <string name="apachelicense">Liċenzja Apache 2.0</string>
+    <string name="developer">Żviluppatur</string>
+    <string name="contribute">Tikkontribwixxi</string>
+    <string name="translate">Tittraduċi</string>
+    <string name="report">Irrapporta Problema</string>
+    <string name="source">View Sors</string>
+    <string name="opensourcelicense">Liċenzji Ta \'Sors Miftuħ</string>
+    <string name="appearance">Dehra</string>
+    <string name="dark">Dlam</string>
+    <string name="light">Dawl</string>
+    <string name="update">Aġġornament</string>
+    <string name="feather">Ikoni Tar-Rix</string>
+    <string name="mitlicence">Liċenzja Mit</string>
+    <string name="jetpack">Jetpack Android</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Segwi S-Sistema</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu Liċenzja Pubblika Ġenerali Ce</string>
+    <string-array name="spinner_array">
+        <item>Soċjali</item>
+        <item>Ikel U Xorb</item>
+        <item>Studji</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Biex Ma Ssegwix Is-Sistema Tiegħek.</string>
+    <string name="toast_light">Biex Ma Tinsabx Fuq In-Naħa Tad-Dawl Issa.</string>
+    <string name="toast_dark">Biex Ma Tinsabx Fuq In-Naħa Mudlama Issa.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Żid Ġodda Ma \'L-Oġġett</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Barra"</string>
+    <string name="habits_are_avoided">"Id-Drawwiet Huma Evitati"</string>
+    <string name="habits_are_avoided_way_to_go">"Id-Drawwiet Huma Evitati, Mod Kif Tmur!"</string>
+    <string name="avoided_">Evitat</string>
+    <string name="habits_">Drawwiet</string>
+    <string name="delete">Int Verament Trid Tħassar Dan?</string>
+    <string name="no">Le</string>
+    <string name="deletes">Int Verament Trid Tħassar Dan?</string>
+    <string name="yes">Iva</string>
+    <string name="please_add_a_label_first">Jekk Jogħġbok Żid Tikketta L-Ewwel</string>
+    <string name="do_you_really_want_to_delete_this">Int Verament Trid Tħassar Dan?</string>
+    <string name="january">Jannar</string>
+    <string name="february">Frar</string>
+    <string name="march">Marzu</string>
+    <string name="april">April</string>
+    <string name="may">Mejju</string>
+    <string name="june">Ġunju</string>
+    <string name="july">Lulju</string>
+    <string name="august">Awwissu</string>
+    <string name="september">Settembru</string>
+    <string name="october">Ottubru</string>
+    <string name="november">Novembru</string>
+    <string name="december">Diċembru</string>
+    <string name="mark_as_done_or_avoided">Marka Kif Sar Jew Evitat.</string>
+    <string name="help_make_to_don_t_better">Tgħin Tagħmel \ "Biex Ma \'T \" Aħjar.</string>
+    <string name="todon_t_reminder">Todon \'T Tfakkira</string>
+    <string name="mark_your_todon_t_task">"Immarka L-Kompitu Tiegħek"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Biex Tibda, Poġġi Drawwa Ħażina.</string>
+    <string name="view_your_stats">Ara L-Istatistiċi Tiegħek.</string>
+    <string name="add_label">Żid It-Tikketta.</string>
+    <string name="permission_required">Permess Meħtieġ</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Din L-App Teħtieġ Aċċess Għall-Ħażna Esterna Tiegħek Biex Terġa\'Tinkiseb Id-Database.Jekk Jogħġbok Ħalli Dan Il-Permess Fl-Issettjar Tal-App.</string>
+    <string name="open_settings">Settings Miftuħa</string>
+    <string name="select_repetition_frequency">Agħżel Il-Frekwenza Tar-Ripetizzjoni</string>
+    <string name="once">Darba</string>
+    <string name="daily">Kuljum</string>
+    <string name="weekly">Kull Ġimgħa</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Int Verament Trid Tħassar Dan? Nthis Se Tħassar Ukoll Id-Drawwiet Kollha Relatati Ma \'Din It-Tikketta.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Żid Notifika Ta \'Kuljum</string>
+    <string name="back_up">Back Up</string>
+    <string name="restore">Irrestawra</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

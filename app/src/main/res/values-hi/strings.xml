@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>भाषा चुने</item>
+        <item>चेक</item>
+        <item>डेनिश</item>
+        <item>जर्मन</item>
+        <item>अंग्रेज़ी</item>
+        <item>स्पैनिश</item>
+        <item>इतालवी</item>
+        <item>फ्रांसीसी</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>जनवरी</item>
+            <item>फ़रवरी</item>
+            <item>मार्च</item>
+            <item>अप्रैल</item>
+            <item>मई</item>
+            <item>जून</item>
+            <item>जुलाई</item>
+            <item>अगस्त</item>
+            <item>सितम्बर</item>
+            <item>अक्टूबर</item>
+            <item>नवंबर</item>
+            <item>दिसंबर</item>
+        </string-array>
+
+
+    <string name="delete_habit">क्या आप सुनिश्चित हैं कि आप इस आदत को हटाना चाहते हैं?</string>
+    <string name="LightMode">करने के लिए</string>
+    <string name="onboarding_reverse">रिवर्स टू-डू सूची</string>
+    <string name="onboarding_bad">अपनी बुरी आदतों को कम करें।हर दिन, क्रॉस</string>
+    <string name="onboarding_gavein">उन लोगों को जो आपने दिया था।और अगला</string>
+    <string name="onboarding_freshlist">सुबह की शुरुआत ताजा सूची से हुई।</string>
+    <string name="onboarding_continue">जारी रखना</string>
+    <string name="avoided">बचा</string>
+    <string name="done">हो गया</string>
+    <string name="habits">आदतें</string>
+    <string name="today">आज</string>
+    <string name="log">लकड़ी का लट्ठा</string>
+    <string name="about">के बारे में</string>
+    <string name="labels">लेबल</string>
+    <string name="settings">सेटिंग</string>
+    <string name="mostav">सबसे अधिक टाल दिया:</string>
+    <string name="leastav">कम से कम परहेज:</string>
+    <string name="addlabel">कृपया पहले एक लेबल जोड़ें</string>
+    <string name="addnewlabel">नया लेबल जोड़ें</string>
+    <string name="addtask">बुरी आदत दर्ज करें</string>
+    <string name="note">विवरण</string>
+    <string name="save">बचाना</string>
+    <string name="puthabit">शुरू करने के लिए, एक बुरी आदत डालें</string>
+    <string name="habitswillshowuphere">आदतें यहाँ दिखाई देंगी</string>
+    <string name="apachelicense">अपाचे लाइसेंस 2.0</string>
+    <string name="developer">डेवलपर</string>
+    <string name="contribute">योगदान देना</string>
+    <string name="translate">अनुवाद</string>
+    <string name="report">एक समस्या का आख्या</string>
+    <string name="source">स्रोत देखें</string>
+    <string name="opensourcelicense">ओपन-सोर्स लाइसेंस</string>
+    <string name="appearance">उपस्थिति</string>
+    <string name="dark">अँधेरा</string>
+    <string name="light">रोशनी</string>
+    <string name="update">अद्यतन</string>
+    <string name="feather">पंखों का प्रतीक</string>
+    <string name="mitlicence">एमआईटी लाइसेंस</string>
+    <string name="jetpack">एंड्रॉइड जेटपैक</string>
+    <string name="materialspinner">Materalspinner</string>
+    <string name="followsys">प्रणाली का पालन करें</string>
+    <string name="nobobutton">नोबोबटन</string>
+    <string name="circleimg">सर्किलिमेजव्यू</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">ग्रहण सार्वजनिक लाइसेंस 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">जावा</string>
+    <string name="gnu">Gnu सामान्य सार्वजनिक लाइसेंस सी।</string>
+    <string-array name="spinner_array">
+        <item>सामाजिक</item>
+        <item>खाद्य पदार्थ और पेय</item>
+        <item>अध्ययन करते हैं</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">अब आपके सिस्टम का अनुसरण करने के लिए नहीं है।</string>
+    <string name="toast_light">To Don\'t is on the light side now.</string>
+    <string name="toast_dark">डॉन के लिए अब अंधेरे की तरफ है।</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">नए में नए जोड़ें टी आइटम</string>
+    <string name="d">डी</string>
+    <string name="w">W</string>
+    <string name="m">एम</string>
+    <string name="y">Y</string>
+    <string name="out_of">"से बाहर"</string>
+    <string name="habits_are_avoided">"आदतों से बचा जाता है"</string>
+    <string name="habits_are_avoided_way_to_go">"आदतों से बचा जाता है, जाने का रास्ता!"</string>
+    <string name="avoided_">बचा</string>
+    <string name="habits_">आदतें</string>
+    <string name="delete">क्या आप वास्तव में इसे हटाना चाहते हैं?</string>
+    <string name="no">नहीं</string>
+    <string name="deletes">क्या आप वास्तव में इसे हटाना चाहते हैं?</string>
+    <string name="yes">हाँ</string>
+    <string name="please_add_a_label_first">कृपया पहले एक लेबल जोड़ें</string>
+    <string name="do_you_really_want_to_delete_this">क्या आप वास्तव में इसे हटाना चाहते हैं?</string>
+    <string name="january">जनवरी</string>
+    <string name="february">फ़रवरी</string>
+    <string name="march">मार्च</string>
+    <string name="april">अप्रैल</string>
+    <string name="may">मई</string>
+    <string name="june">जून</string>
+    <string name="july">जुलाई</string>
+    <string name="august">अगस्त</string>
+    <string name="september">सितम्बर</string>
+    <string name="october">अक्टूबर</string>
+    <string name="november">नवंबर</string>
+    <string name="december">दिसंबर</string>
+    <string name="mark_as_done_or_avoided">के रूप में किया गया या परहेज किया गया।</string>
+    <string name="help_make_to_don_t_better">बेहतर बनाने में मदद करें \ "To'T \" बेहतर है।</string>
+    <string name="todon_t_reminder">Todon \'T अनुस्मारक</string>
+    <string name="mark_your_todon_t_task">"अपने काम को चिह्नित नहीं करते हैं"</string>
+    <string name="to_start_off_put_down_a_bad_habit">शुरू करने के लिए, एक बुरी आदत डाल दी।</string>
+    <string name="view_your_stats">अपने आँकड़े देखें।</string>
+    <string name="add_label">लेबल जोड़ें।</string>
+    <string name="permission_required">अनुमति आवश्यक है</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">इस ऐप को डेटाबेस को पुनर्स्थापित करने के लिए आपके बाहरी संग्रहण तक पहुंच की आवश्यकता होती है।कृपया ऐप सेटिंग्स में इस अनुमति को सक्षम करें।</string>
+    <string name="open_settings">खुली सेटिंग</string>
+    <string name="select_repetition_frequency">पुनरावृत्ति आवृत्ति का चयन करें</string>
+    <string name="once">एक बार</string>
+    <string name="daily">दैनिक</string>
+    <string name="weekly">साप्ताहिक</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">क्या आप वास्तव में इसे हटाना चाहते हैं? \ Nthis भी इस लेबल से संबंधित सभी आदतों को हटा देगा।</string>
+    <string name="data">डेटा</string>
+    <string name="add_daily_notification">दैनिक अधिसूचना जोड़ें</string>
+    <string name="back_up">वापस करना</string>
+    <string name="restore">पुनर्स्थापित करना</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

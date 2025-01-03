@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="languages">
+        <item>حدد اللغة</item>
+        <item>التشيكية</item>
+        <item>دانماركي</item>
+        <item>الألمانية</item>
+        <item>إنجليزي</item>
+        <item>الأسبانية</item>
+        <item>إيطالي</item>
+        <item>فرنسي</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>يناير</item>
+            <item>فبراير</item>
+            <item>يمشي</item>
+            <item>أبريل</item>
+            <item>يمكن</item>
+            <item>يونيو</item>
+            <item>يوليو</item>
+            <item>أغسطس</item>
+            <item>سبتمبر</item>
+            <item>أكتوبر</item>
+            <item>نوفمبر</item>
+            <item>ديسمبر</item>
+        </string-array>
+
+
+    <string name="delete_habit">هل أنت متأكد من أنك تريد حذف هذه العادة؟</string>
+    <string name="LightMode">إلى لا</string>
+    <string name="onboarding_reverse">قائمة المهام العكسية</string>
+    <string name="onboarding_bad">تدوين عاداتك السيئة.كل يوم ، عبور</string>
+    <string name="onboarding_gavein">من أولئك الذين استسلمتهم ل.واليسبته</string>
+    <string name="onboarding_freshlist">يبدأ الصباح مع القائمة الجديدة.</string>
+    <string name="onboarding_continue">يكمل</string>
+    <string name="avoided">تجنب</string>
+    <string name="done">منتهي</string>
+    <string name="habits">العادات</string>
+    <string name="today">اليوم</string>
+    <string name="log">سجل</string>
+    <string name="about">عن</string>
+    <string name="labels">تسميات</string>
+    <string name="settings">إعدادات</string>
+    <string name="mostav">تجنبها الأكثر:</string>
+    <string name="leastav">على الأقل تجنب:</string>
+    <string name="addlabel">الرجاء إضافة ملصق أولا</string>
+    <string name="addnewlabel">أضف تسمية جديدة</string>
+    <string name="addtask">أدخل عادة سيئة</string>
+    <string name="note">وصف</string>
+    <string name="save">يحفظ</string>
+    <string name="puthabit">لتبدأ ، وضع عادة سيئة</string>
+    <string name="habitswillshowuphere">ستظهر العادات هنا</string>
+    <string name="apachelicense">ترخيص Apache 2.0</string>
+    <string name="developer">المطور</string>
+    <string name="contribute">يساهم</string>
+    <string name="translate">يترجم</string>
+    <string name="report">الإبلاغ عن مشكلة</string>
+    <string name="source">عرض المصدر</string>
+    <string name="opensourcelicense">تراخيص مفتوحة المصدر</string>
+    <string name="appearance">مظهر</string>
+    <string name="dark">مظلم</string>
+    <string name="light">ضوء</string>
+    <string name="update">تحديث</string>
+    <string name="feather">أيقونات الريش</string>
+    <string name="mitlicence">رخصة معهد ماساتشوستس للتكنولوجيا</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">اتبع النظام</string>
+    <string name="nobobutton">نوبوتون</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">كوتلين</string>
+    <string name="java">جافا</string>
+    <string name="gnu">رخصة Gnu العامة Ce</string>
+    <string-array name="spinner_array">
+        <item>اجتماعي</item>
+        <item>الأطعمة والمشروبات</item>
+        <item>دراسات</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">لا تتبع الآن نظامك.</string>
+    <string name="toast_light">حتى لا يكون على الجانب الخفيف الآن.</string>
+    <string name="toast_dark">حتى لا يكون على الجانب المظلم الآن.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">أضف جديدًا إلى عنصر Don \'T</string>
+    <string name="d">د</string>
+    <string name="w">ث</string>
+    <string name="m">م</string>
+    <string name="y">ذ</string>
+    <string name="out_of">"خارج"</string>
+    <string name="habits_are_avoided">"العادات يتم تجنبها"</string>
+    <string name="habits_are_avoided_way_to_go">"العادات يتم تجنبها ، وسيلة للذهاب!"</string>
+    <string name="avoided_">تجنب</string>
+    <string name="habits_">العادات</string>
+    <string name="delete">هل تريد حقا حذف هذا؟</string>
+    <string name="no">لا</string>
+    <string name="deletes">هل تريد حقا حذف هذا؟</string>
+    <string name="yes">نعم</string>
+    <string name="please_add_a_label_first">الرجاء إضافة ملصق أولا</string>
+    <string name="do_you_really_want_to_delete_this">هل تريد حقا حذف هذا؟</string>
+    <string name="january">يناير</string>
+    <string name="february">فبراير</string>
+    <string name="march">يمشي</string>
+    <string name="april">أبريل</string>
+    <string name="may">يمكن</string>
+    <string name="june">يونيو</string>
+    <string name="july">يوليو</string>
+    <string name="august">أغسطس</string>
+    <string name="september">سبتمبر</string>
+    <string name="october">أكتوبر</string>
+    <string name="november">نوفمبر</string>
+    <string name="december">ديسمبر</string>
+    <string name="mark_as_done_or_avoided">علامة كما فعلت أو تجنب.</string>
+    <string name="help_make_to_don_t_better">ساعد في جعل \ "للاضطراب أفضل.</string>
+    <string name="todon_t_reminder">تذكير Toodon</string>
+    <string name="mark_your_todon_t_task">"حدد مهمة Todon الخاصة بك"</string>
+    <string name="to_start_off_put_down_a_bad_habit">للبدء ، وضع عادة سيئة.</string>
+    <string name="view_your_stats">عرض إحصائياتك.</string>
+    <string name="add_label">إضافة التسمية.</string>
+    <string name="permission_required">إذن مطلوب</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">يتطلب هذا التطبيق الوصول إلى التخزين الخارجي الخاص بك لاستعادة قاعدة البيانات.يرجى تمكين هذا الإذن في إعدادات التطبيق.</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="select_repetition_frequency">حدد تردد التكرار</string>
+    <string name="once">مرة واحدة</string>
+    <string name="daily">يوميًا</string>
+    <string name="weekly">أسبوعي</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">هل تريد حقًا حذف هذا؟ \ Nthis ستحذف أيضًا جميع العادات المتعلقة بهذه التسمية.</string>
+    <string name="data">بيانات</string>
+    <string name="add_daily_notification">أضف إشعارًا يوميًا</string>
+    <string name="back_up">احتياطي</string>
+    <string name="restore">يعيد</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

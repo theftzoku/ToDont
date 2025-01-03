@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>Vyberte jazyk</item>
+        <item>Čeština</item>
+        <item>Dánština</item>
+        <item>Němčina</item>
+        <item>Angličtina</item>
+        <item>Španělština</item>
+        <item>Italština</item>
+        <item>Francouzština</item>
+    </string-array>
+
+    <string-array name="month_names">
+        <item>Leden</item>
+        <item>Únor</item>
+        <item>Březen</item>
+        <item>Duben</item>
+        <item>Květen</item>
+        <item>Červen</item>
+        <item>Červenec</item>
+        <item>Srpen</item>
+        <item>Září</item>
+        <item>Říjen</item>
+        <item>Listopad</item>
+        <item>Prosinec</item>
+    </string-array>
+
+    <string name="delete_habit">Opravu chcete smazat tuto návyk?</string>
+    <string name="LightMode">To Don\'t</string>
+    <string name="onboarding_reverse">Obrácený seznam úkolů</string>
+    <string name="onboarding_bad">Zapište své špatné návyky. Každý den je přeškrtněte</string>
+    <string name="onboarding_gavein">a další ráno začněte s novým seznamem.</string>
+    <string name="onboarding_freshlist">Pokračujte</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="avoided">Vyhnuto</string>
+    <string name="done">Hotovo</string>
+    <string name="habits">Návyky</string>
+    <string name="today">Dnes</string>
+    <string name="log">Záznam</string>
+    <string name="about">O aplikaci</string>
+    <string name="labels">Štítky</string>
+    <string name="settings">Nastavení</string>
+    <string name="mostav">Nejvíce vyhnuto:</string>
+    <string name="leastav">Nejméně vyhnuto:</string>
+    <string name="addlabel">Nejprve přidejte štítek</string>
+    <string name="addnewlabel">Přidat nový štítek</string>
+    <string name="addtask">Zadejte špatný návyk</string>
+    <string name="note">Popis</string>
+    <string name="save">Uložit</string>
+    <string name="puthabit">Začněte tím, že si zapíšete špatný návyk</string>
+    <string name="habitswillshowuphere">Návyky se zde zobrazí</string>
+    <string name="apachelicense">Licence Apache 2.0</string>
+    <string name="developer">Vývojář</string>
+    <string name="contribute">Přispět</string>
+    <string name="translate">Přeložit</string>
+    <string name="report">Nahlásit problém</string>
+    <string name="source">Zobrazit zdroj</string>
+    <string name="opensourcelicense">Open-source licence</string>
+    <string name="appearance">Vzhled</string>
+    <string name="dark">Tmavý</string>
+    <string name="light">Světlo</string>
+    <string name="update">Aktualizace</string>
+    <string name="feather">Feather Icons</string>
+    <string name="mitlicence">MIT Licence</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="followsys">Sledovat systém</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse">Eclipse Public Licence 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU General Public License CE</string>
+    <string-array name="spinner_array">
+        <item>Sociální</item>
+        <item>Jídlo a nápoje</item>
+        <item>Studium</item>
+    </string-array>
+
+    <!-- Toasts -->
+    <string name="toast_system">To Don\'t nyní sleduje váš systém.</string>
+    <string name="toast_light">To Don\'t je nyní na světlé straně.</string>
+    <string name="toast_dark">To Don\'t je nyní na tmavé straně.</string>
+
+    <!-- Here are the non-translateable strings -->
+
+    <!-- Here are the contentDescription strings (for impaired users) starting with "contentDescription_" -->
+    <string name="contentDescription_FAB">Přidat nový To Don\'t úkol</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">" z "</string>
+    <string name="habits_are_avoided">" návyky jsou vyhnuty"</string>
+    <string name="habits_are_avoided_way_to_go">" návyky jsou vyhnuty, výborně!"</string>
+    <string name="avoided_">Vyhnuto</string>
+    <string name="habits_">Návyky</string>
+    <string name="delete">Opravdu chcete tuto položku smazat?</string>
+    <string name="no">Ne</string>
+    <string name="deletes">Opravdu chcete tuto položku smazat?</string>
+    <string name="yes">Ano</string>
+    <string name="please_add_a_label_first">Nejprve přidejte štítek</string>
+    <string name="do_you_really_want_to_delete_this">Opravdu chcete tuto položku smazat?</string>
+    <string name="january">Leden</string>
+    <string name="february">Únor</string>
+    <string name="march">Březen</string>
+    <string name="april">Duben</string>
+    <string name="may">Květen</string>
+    <string name="june">Červen</string>
+    <string name="july">Červenec</string>
+    <string name="august">Srpen</string>
+    <string name="september">Září</string>
+    <string name="october">Říjen</string>
+    <string name="november">Listopad</string>
+    <string name="december">Prosinec</string>
+    <string name="mark_as_done_or_avoided">Označte jako hotové nebo vyhnuté.</string>
+    <string name="help_make_to_don_t_better">Pomozte vylepšit "To Don\'t".</string>
+    <string name="todon_t_reminder">ToDon\'t připomínka</string>
+    <string name="mark_your_todon_t_task">"Označte svůj úkol ToDon\'t "</string>
+    <string name="to_start_off_put_down_a_bad_habit">Začněte tím, že si zapíšete špatný návyk.</string>
+    <string name="view_your_stats">Zobrazit své statistiky.</string>
+    <string name="add_label">Přidat štítek.</string>
+    <string name="permission_required">Vyžaduje se povolení</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Tato aplikace vyžaduje přístup k vašemu externímu úložišti pro obnovení databáze. Prosím povolte toto oprávnění v nastavení aplikace.</string>
+    <string name="open_settings">Otevřít nastavení</string>
+    <string name="select_repetition_frequency">Vyberte frekvenci opakování</string>
+    <string name="once">Jednou</string>
+    <string name="daily">Denně</string>
+    <string name="weekly">Týdně</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Opravdu chcete tuto položku smazat?\nToto také smaže všechny návyky spojené s tímto štítkem.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Přidat denní notifikaci</string>
+    <string name="back_up">Zálohování</string>
+    <string name="restore">Obnovit</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

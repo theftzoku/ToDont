@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Välj Språk</item>
+        <item>Tjeckisk</item>
+        <item>Dansk</item>
+        <item>Tysk</item>
+        <item>Engelska</item>
+        <item>Spansk</item>
+        <item>Italienare</item>
+        <item>Franska</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Januari</item>
+            <item>Februari</item>
+            <item>Marsch</item>
+            <item>April</item>
+            <item>Kan</item>
+            <item>Juni</item>
+            <item>Juli</item>
+            <item>Augusti</item>
+            <item>September</item>
+            <item>Oktober</item>
+            <item>November</item>
+            <item>December</item>
+        </string-array>
+
+
+    <string name="delete_habit">Är Du Säker På Att Du Vill Ta Bort Den Här Vanan?</string>
+    <string name="LightMode">Till Don \'T</string>
+    <string name="onboarding_reverse">Den Omvända Att Göra-Listan</string>
+    <string name="onboarding_bad">Skriv Ner Dina Dåliga Vanor.Varje Dag, Korsa</string>
+    <string name="onboarding_gavein">Ut De Du Gav Efter.Och Nästa</string>
+    <string name="onboarding_freshlist">Morgon Börjar Med Den Nya Listan.</string>
+    <string name="onboarding_continue">Fortsätta</string>
+    <string name="avoided">Undvikande</string>
+    <string name="done">Gjort</string>
+    <string name="habits">Vanor</string>
+    <string name="today">I Dag</string>
+    <string name="log">Logga</string>
+    <string name="about">Om</string>
+    <string name="labels">Etiketter</string>
+    <string name="settings">Inställningar</string>
+    <string name="mostav">Mest Undvikande:</string>
+    <string name="leastav">Minst Undviks:</string>
+    <string name="addlabel">Lägg Till En Etikett Först</string>
+    <string name="addnewlabel">Lägg Till En Ny Etikett</string>
+    <string name="addtask">Ange Dålig Vana</string>
+    <string name="note">Beskrivning</string>
+    <string name="save">Spara</string>
+    <string name="puthabit">För Att Börja, Lägg Ner En Dålig Vana</string>
+    <string name="habitswillshowuphere">Vanor Kommer Att Dyka Upp Här</string>
+    <string name="apachelicense">Apache -Licens 2.0</string>
+    <string name="developer">Framkallare</string>
+    <string name="contribute">Medverka</string>
+    <string name="translate">Översätta</string>
+    <string name="report">Rapportera Ett Problem</string>
+    <string name="source">Visa Källa</string>
+    <string name="opensourcelicense">Open Source-Licenser</string>
+    <string name="appearance">Utseende</string>
+    <string name="dark">Mörk</string>
+    <string name="light">Ljus</string>
+    <string name="update">Uppdatera</string>
+    <string name="feather">Fjäderikoner</string>
+    <string name="mitlicence">Mit -Licens</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinnare</string>
+    <string name="followsys">Följ Systemet</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circlemagageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Borger</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Public License Ce</string>
+    <string-array name="spinner_array">
+        <item>Social</item>
+        <item>Mat Och Dryck</item>
+        <item>Studier</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">För Att Nu Inte Följer Ditt System.</string>
+    <string name="toast_light">Att Inte Vara På Den Lätta Sidan Nu.</string>
+    <string name="toast_dark">Att Inte Vara På Den Mörka Sidan Nu.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Lägg Till Nytt Till Don \'T -Objektet</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Ur"</string>
+    <string name="habits_are_avoided">"Vanor Undviks"</string>
+    <string name="habits_are_avoided_way_to_go">"Vanor Undviks, Vägen Att Gå!"</string>
+    <string name="avoided_">Undvikande</string>
+    <string name="habits_">Vanor</string>
+    <string name="delete">Vill Du Verkligen Ta Bort Det Här?</string>
+    <string name="no">Inga</string>
+    <string name="deletes">Vill Du Verkligen Ta Bort Det Här?</string>
+    <string name="yes">Ja</string>
+    <string name="please_add_a_label_first">Lägg Till En Etikett Först</string>
+    <string name="do_you_really_want_to_delete_this">Vill Du Verkligen Ta Bort Det Här?</string>
+    <string name="january">Januari</string>
+    <string name="february">Februari</string>
+    <string name="march">Marsch</string>
+    <string name="april">April</string>
+    <string name="may">Kan</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">Augusti</string>
+    <string name="september">September</string>
+    <string name="october">Oktober</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Markera Som Gjort Eller Undviks.</string>
+    <string name="help_make_to_don_t_better">Hjälp Till Att Göra \ "Att Don \'T \" Bättre.</string>
+    <string name="todon_t_reminder">Todon \'T Påminnelse</string>
+    <string name="mark_your_todon_t_task">"Markera Din Todon'T -Uppgift"</string>
+    <string name="to_start_off_put_down_a_bad_habit">För Att Börja, Lägg Ner En Dålig Vana.</string>
+    <string name="view_your_stats">Visa Din Statistik.</string>
+    <string name="add_label">Lägg Till Etikett.</string>
+    <string name="permission_required">Tillstånd Krävs</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Den Här Appen Kräver Åtkomst Till Din Externa Lagring För Att Återställa Databasen.Vänligen Aktivera Detta Tillstånd I Appinställningarna.</string>
+    <string name="open_settings">Öppna Inställningar</string>
+    <string name="select_repetition_frequency">Välj Repetitionsfrekvens</string>
+    <string name="once">En Gång</string>
+    <string name="daily">Dagligen</string>
+    <string name="weekly">Varje Vecka</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Vill Du Verkligen Ta Bort Detta? \ Det Här Kommer Också Att Ta Bort Alla Vanor Relaterade Till Den Här Etiketten.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Lägg Till Daglig Anmälan</string>
+    <string name="back_up">Backa Upp</string>
+    <string name="restore">Återställa</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

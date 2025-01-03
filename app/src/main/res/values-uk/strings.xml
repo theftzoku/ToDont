@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Виберіть Мову</item>
+        <item>Чеський</item>
+        <item>Датський</item>
+        <item>Німецький</item>
+        <item>Англійська Мова</item>
+        <item>Іспанська Мова</item>
+        <item>Італійський</item>
+        <item>Французький</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Січень</item>
+            <item>Лютий</item>
+            <item>Марш</item>
+            <item>Квітень</item>
+            <item>Травень</item>
+            <item>Червень</item>
+            <item>Липень</item>
+            <item>Серпень</item>
+            <item>Вересень</item>
+            <item>Жовтень</item>
+            <item>Листопад</item>
+            <item>Грудень</item>
+        </string-array>
+
+
+    <string name="delete_habit">Ви Впевнені, Що Хочете Видалити Цю Звичку?</string>
+    <string name="LightMode">Щоб Не</string>
+    <string name="onboarding_reverse">Зворотний Список Справ</string>
+    <string name="onboarding_bad">Jot down your bad habits. Every day, cross</string>
+    <string name="onboarding_gavein">З Тих, Кого Ви Поступилися.А Наступний</string>
+    <string name="onboarding_freshlist">Ранок Почніть Із Свіжого Списку.</string>
+    <string name="onboarding_continue">Продовжувати</string>
+    <string name="avoided">Avoided</string>
+    <string name="done">Зроблений</string>
+    <string name="habits">Звички</string>
+    <string name="today">Сьогодні</string>
+    <string name="log">Журнал</string>
+    <string name="about">Про</string>
+    <string name="labels">Етикетки</string>
+    <string name="settings">Налаштування</string>
+    <string name="mostav">Найбільш Уникати:</string>
+    <string name="leastav">Найменше Уникати:</string>
+    <string name="addlabel">Будь Ласка, Спочатку Додайте Етикетку</string>
+    <string name="addnewlabel">Додайте Нову Етикетку</string>
+    <string name="addtask">Введіть Погану Звичку</string>
+    <string name="note">Опис</string>
+    <string name="save">Заощадити</string>
+    <string name="puthabit">Для Початку Відкладіть Погану Звичку</string>
+    <string name="habitswillshowuphere">Звички З’Являться Тут</string>
+    <string name="apachelicense">Ліцензія Apache 2.0</string>
+    <string name="developer">Розробник</string>
+    <string name="contribute">Сприяти</string>
+    <string name="translate">Перекладати</string>
+    <string name="report">Повідомте Про Проблему</string>
+    <string name="source">Переглянути Джерело</string>
+    <string name="opensourcelicense">Ліцензії На Відкрите Код</string>
+    <string name="appearance">Зовнішність</string>
+    <string name="dark">Темний</string>
+    <string name="light">Світлий</string>
+    <string name="update">Оновити</string>
+    <string name="feather">Перо Ікони</string>
+    <string name="mitlicence">Ліцензія Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Матеріал</string>
+    <string name="followsys">Дотримуйтесь Системи</string>
+    <string name="nobobutton">Нобобіттон</string>
+    <string name="circleimg">Circuimeview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Публічна Ліцензія Eclipse 1.0</string>
+    <string name="kotlin">Котлін</string>
+    <string name="java">Ява</string>
+    <string name="gnu">Gnu Загальна Публічна Ліцензія Ce</string>
+    <string-array name="spinner_array">
+        <item>Соціальний</item>
+        <item>Їжа Та Напої</item>
+        <item>Вивчення</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Щоб Тепер Не Слідкувати За Вашою Системою.</string>
+    <string name="toast_light">Щоб Зараз Не Було На Легкій Стороні.</string>
+    <string name="toast_dark">Щоб Зараз Не Було На Темній Стороні.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Додайте Нове До Не Дочірки</string>
+    <string name="d">Р.</string>
+    <string name="w">Ш</string>
+    <string name="m">М</string>
+    <string name="y">У</string>
+    <string name="out_of">"Поза"</string>
+    <string name="habits_are_avoided">"Звички Уникають"</string>
+    <string name="habits_are_avoided_way_to_go">"Звички Уникають, Шлях!"</string>
+    <string name="avoided_">Уникнути</string>
+    <string name="habits_">Звички</string>
+    <string name="delete">Ви Справді Хочете Видалити Це?</string>
+    <string name="no">Ні</string>
+    <string name="deletes">Ви Справді Хочете Видалити Це?</string>
+    <string name="yes">Так</string>
+    <string name="please_add_a_label_first">Будь Ласка, Спочатку Додайте Етикетку</string>
+    <string name="do_you_really_want_to_delete_this">Ви Справді Хочете Видалити Це?</string>
+    <string name="january">Січень</string>
+    <string name="february">Лютий</string>
+    <string name="march">Марш</string>
+    <string name="april">Квітень</string>
+    <string name="may">Травень</string>
+    <string name="june">Червень</string>
+    <string name="july">Липень</string>
+    <string name="august">Серпень</string>
+    <string name="september">Вересень</string>
+    <string name="october">Жовтень</string>
+    <string name="november">Листопад</string>
+    <string name="december">Грудень</string>
+    <string name="mark_as_done_or_avoided">Позначте, Як Це Робиться Або Уникнути.</string>
+    <string name="help_make_to_don_t_better">Допоможіть Зробити \ "Для Того, Щоб Краще \'T \".</string>
+    <string name="todon_t_reminder">Todon \'T Нагадування</string>
+    <string name="mark_your_todon_t_task">"Позначте Своє Завдання Не Завдання"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Щоб Почати, Відкладіть Погану Звичку.</string>
+    <string name="view_your_stats">Перегляньте Свою Статистику.</string>
+    <string name="add_label">Додати Мітку.</string>
+    <string name="permission_required">Необхідний Дозвіл</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Цей Додаток Вимагає Доступу До Вашого Зовнішнього Сховища Для Відновлення Бази Даних.Увімкніть Цей Дозвіл У Налаштуваннях Програми.</string>
+    <string name="open_settings">Відкриті Налаштування</string>
+    <string name="select_repetition_frequency">Виберіть Частоту Повторення</string>
+    <string name="once">Раз</string>
+    <string name="daily">Щоденний</string>
+    <string name="weekly">Щотижня</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Ви Дійсно Хочете Видалити Це?</string>
+    <string name="data">Дані</string>
+    <string name="add_daily_notification">Додайте Щоденне Повідомлення</string>
+    <string name="back_up">Резервувати</string>
+    <string name="restore">Відновити</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Lego Language</item>
+        <item>Bohemica</item>
+        <item>Daniculus</item>
+        <item>Germanus</item>
+        <item>Anglicus</item>
+        <item>Spanish</item>
+        <item>Italiae</item>
+        <item>Gallus</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>January</item>
+            <item>Februarii</item>
+            <item>Appellum</item>
+            <item>Aprilis</item>
+            <item>Ut</item>
+            <item>Junio</item>
+            <item>July</item>
+            <item>Augusto</item>
+            <item>September</item>
+            <item>Octobris</item>
+            <item>November</item>
+            <item>Deceptio</item>
+        </string-array>
+
+
+    <string name="delete_habit">Tu Es Certus Vis Delere Hoc Habitum?</string>
+    <string name="LightMode">Ut Don \'T</string>
+    <string name="onboarding_reverse">Et Converso Ad-Do List</string>
+    <string name="onboarding_bad">Jot In Vestri Mala Habitum.Quotidie Crucem</string>
+    <string name="onboarding_gavein">Et Dedisti In.Et Altera</string>
+    <string name="onboarding_freshlist">Mane Satus Off Cum Recens Album.</string>
+    <string name="onboarding_continue">Permaneo</string>
+    <string name="avoided">Advenus</string>
+    <string name="done">Factum</string>
+    <string name="habits">Habitum</string>
+    <string name="today">Hodie</string>
+    <string name="log">Logus</string>
+    <string name="about">De</string>
+    <string name="labels">Labels</string>
+    <string name="settings">Occasus</string>
+    <string name="mostav">Maxime Avoided:</string>
+    <string name="leastav">Certe Vitandum:</string>
+    <string name="addlabel">Please Add A Pittacium Primo</string>
+    <string name="addnewlabel">Addere Novi Label</string>
+    <string name="addtask">Intra Mali Habitus</string>
+    <string name="note">Descriptio</string>
+    <string name="save">Salve</string>
+    <string name="puthabit">Satus Off, Imposuit Malus Habitus</string>
+    <string name="habitswillshowuphere">Habitus Et Ostendam Usque Huc</string>
+    <string name="apachelicense">Apache License 2.0</string>
+    <string name="developer">Developer</string>
+    <string name="contribute">Confero</string>
+    <string name="translate">Transfero</string>
+    <string name="report">Report A Forsit</string>
+    <string name="source">Source</string>
+    <string name="opensourcelicense">Aperto-Fonte Licenciis</string>
+    <string name="appearance">Species</string>
+    <string name="dark">Tenebrosus</string>
+    <string name="light">Lentus</string>
+    <string name="update">Renovatio</string>
+    <string name="feather">Pluma Icons</string>
+    <string name="mitlicence">Mit License</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialsspinner</string>
+    <string name="followsys">Sequitur Systema</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circus Circulum</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Public License Ce</string>
+    <string-array name="spinner_array">
+        <item>Socialis</item>
+        <item>Victus Et Bibit</item>
+        <item>Studiis</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Ad Don \'T Nunc Sequitur Vestri Ratio.</string>
+    <string name="toast_light">Don \ T In Lumine Parte.</string>
+    <string name="toast_dark">Ad Don \'T In Tenebris Parte Nunc.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Addere Novi Ad Don \ T Item</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"De"</string>
+    <string name="habits_are_avoided">"Habitum Vitandum"</string>
+    <string name="habits_are_avoided_way_to_go">"Habitum Vitanda, Ita Ut"</string>
+    <string name="avoided_">Advenus</string>
+    <string name="habits_">Habitum</string>
+    <string name="delete">Tu Vere Volo Ut Delere Hoc?</string>
+    <string name="no">Non</string>
+    <string name="deletes">Tu Vere Volo Ut Delere Hoc?</string>
+    <string name="yes">Sic</string>
+    <string name="please_add_a_label_first">Please Add A Pittacium Primo</string>
+    <string name="do_you_really_want_to_delete_this">Tu Vere Volo Ut Delere Hoc?</string>
+    <string name="january">January</string>
+    <string name="february">Februarii</string>
+    <string name="march">Appellum</string>
+    <string name="april">Aprilis</string>
+    <string name="may">Ut</string>
+    <string name="june">Junio</string>
+    <string name="july">July</string>
+    <string name="august">Augusto</string>
+    <string name="september">September</string>
+    <string name="october">Octobris</string>
+    <string name="november">November</string>
+    <string name="december">Deceptio</string>
+    <string name="mark_as_done_or_avoided">Marcam Fit Vel Vitandum.</string>
+    <string name="help_make_to_don_t_better">Auxilium Faciunt \ "Ad Don \'T \" Melius.</string>
+    <string name="todon_t_reminder">Todon \'T Monitum</string>
+    <string name="mark_your_todon_t_task">"Mark Vestri Todon'T Negotium"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Satus Off, Imposuit Malus Habitus.</string>
+    <string name="view_your_stats">View Your Civitas.</string>
+    <string name="add_label">Addere Label.</string>
+    <string name="permission_required">Requiratur Permission</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Hoc App Postulat Obvius Ad Externum Repono Ut Restituat Database.Placere Enable Hoc Permission In App Occasus.</string>
+    <string name="open_settings">Aperta Occasus</string>
+    <string name="select_repetition_frequency">Eligere Repetitio Frequency</string>
+    <string name="once">Semel</string>
+    <string name="daily">Cottidie</string>
+    <string name="weekly">Septimanis</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Tu Vere Volo Delere Hoc? \ Nthis Etiam Delere Omnes Habitus Ad Hunc Label.</string>
+    <string name="data">Notitia</string>
+    <string name="add_daily_notification">Addere Daily Notification</string>
+    <string name="back_up">Tergum Sursum</string>
+    <string name="restore">Restituo</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

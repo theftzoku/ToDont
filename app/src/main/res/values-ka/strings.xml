@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>შეარჩიეთ ენა</item>
+        <item>ჩეხური</item>
+        <item>დანიური</item>
+        <item>გერმანული</item>
+        <item>ინგლისური</item>
+        <item>ესპანური</item>
+        <item>იტალიური</item>
+        <item>ფრანგული</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>იანვარი</item>
+            <item>თებერვალი</item>
+            <item>მარტი</item>
+            <item>აპრილი</item>
+            <item>მაისი</item>
+            <item>ივნისი</item>
+            <item>ივლისი</item>
+            <item>აგვისტო</item>
+            <item>September</item>
+            <item>October</item>
+            <item>November</item>
+            <item>დეკემბერი</item>
+        </string-array>
+
+
+    <string name="delete_habit">დარწმუნებული ხართ, რომ გსურთ ამ ჩვევის წაშლა?</string>
+    <string name="LightMode">არ</string>
+    <string name="onboarding_reverse">საპირისპირო სამუშაოების სია</string>
+    <string name="onboarding_bad">ჩამოაგდე შენი ცუდი ჩვევები.ყოველდღე, ჯვარი</string>
+    <string name="onboarding_gavein">ის, ვინც თქვენ მიეცით.და შემდეგი</string>
+    <string name="onboarding_freshlist">დილის დაწყება ახალი სიით.</string>
+    <string name="onboarding_continue">გაგრძელება</string>
+    <string name="avoided">თავიდან აცილება</string>
+    <string name="done">გაკეთებული</string>
+    <string name="habits">ჩვევები</string>
+    <string name="today">დღეს</string>
+    <string name="log">ჟურნალი</string>
+    <string name="about">გარშემო</string>
+    <string name="labels">ეტიკეტები</string>
+    <string name="settings">პარამეტრები</string>
+    <string name="mostav">ყველაზე მეტად თავიდან აიცილეს:</string>
+    <string name="leastav">ნაკლებად თავიდან აიცილეს:</string>
+    <string name="addlabel">პირველ რიგში დაამატეთ ეტიკეტი</string>
+    <string name="addnewlabel">დაამატეთ ახალი ეტიკეტი</string>
+    <string name="addtask">შეიყვანეთ ცუდი ჩვევა</string>
+    <string name="note">აღწერილობა</string>
+    <string name="save">გადარჩენა</string>
+    <string name="puthabit">დასაწყებად, ცუდი ჩვევა ჩამოაგდე</string>
+    <string name="habitswillshowuphere">ჩვევები აქ გამოჩნდება</string>
+    <string name="apachelicense">Apache ლიცენზია 2.0</string>
+    <string name="developer">დეველოპერი ქალი</string>
+    <string name="contribute">დახმარება</string>
+    <string name="translate">თარგმნა</string>
+    <string name="report">შეატყობინეთ პრობლემას</string>
+    <string name="source">იხილეთ წყარო</string>
+    <string name="opensourcelicense">ღია კოდის ლიცენზიები</string>
+    <string name="appearance">გარეგნობა</string>
+    <string name="dark">ბნელი</string>
+    <string name="light">სინათლე</string>
+    <string name="update">განახლება</string>
+    <string name="feather">ბუმბულის ხატები</string>
+    <string name="mitlicence">Mit ლიცენზია</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">მასალები</string>
+    <string name="followsys">მიჰყევით სისტემას</string>
+    <string name="nobobutton">ნობობუტტონი</string>
+    <string name="circleimg">Circistimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">ჯუნიტი</string>
+    <string name="eclipse">Eclipse საზოგადოებრივი ლიცენზია 1.0</string>
+    <string name="kotlin">კოტლინი</string>
+    <string name="java">ჯავა</string>
+    <string name="gnu">Gnu ზოგადი საჯარო ლიცენზია Ce</string>
+    <string-array name="spinner_array">
+        <item>სოციალური</item>
+        <item>საკვები და სასმელები</item>
+        <item>კვლევები</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">ახლა არ მიჰყვება თქვენს სისტემას.</string>
+    <string name="toast_light">რომ არ იყოს ახლა სინათლის მხარეზე.</string>
+    <string name="toast_dark">რომ არ იყოს ახლა ბნელ მხარეზე.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">დაამატეთ ახალი არ</string>
+    <string name="d">დ</string>
+    <string name="w">W</string>
+    <string name="m">მ</string>
+    <string name="y">Y</string>
+    <string name="out_of">"გარეთ"</string>
+    <string name="habits_are_avoided">"ჩვევების თავიდან აცილებაა"</string>
+    <string name="habits_are_avoided_way_to_go">"ჩვევები თავიდან აიცილეთ, გასავლელი გზა!"</string>
+    <string name="avoided_">თავიდან აცილება</string>
+    <string name="habits_">ჩვევები</string>
+    <string name="delete">ნამდვილად გინდა ამის წაშლა?</string>
+    <string name="no">არა</string>
+    <string name="deletes">ნამდვილად გინდა ამის წაშლა?</string>
+    <string name="yes">დიახ</string>
+    <string name="please_add_a_label_first">პირველ რიგში დაამატეთ ეტიკეტი</string>
+    <string name="do_you_really_want_to_delete_this">ნამდვილად გინდა ამის წაშლა?</string>
+    <string name="january">იანვარი</string>
+    <string name="february">თებერვალი</string>
+    <string name="march">მარტი</string>
+    <string name="april">აპრილი</string>
+    <string name="may">მაისი</string>
+    <string name="june">ივნისი</string>
+    <string name="july">ივლისი</string>
+    <string name="august">აგვისტო</string>
+    <string name="september">სექტემბერი</string>
+    <string name="october">ოქტომბერი</string>
+    <string name="november">ნოემბერი</string>
+    <string name="december">დეკემბერი</string>
+    <string name="mark_as_done_or_avoided">მონიშნეთ, როგორც გაკეთებულია ან თავიდან აიცილეთ.</string>
+    <string name="help_make_to_don_t_better">დაეხმარეთ გააკეთოთ \ "Don \'T \" უკეთესი.</string>
+    <string name="todon_t_reminder">Todon \'T შეხსენება</string>
+    <string name="mark_your_todon_t_task">"მონიშნე შენი Todon არ დავალება"</string>
+    <string name="to_start_off_put_down_a_bad_habit">დასაწყებად, ცუდი ჩვევა ჩამოაგდეს.</string>
+    <string name="view_your_stats">ნახეთ თქვენი სტატისტიკა.</string>
+    <string name="add_label">ეტიკეტის დამატება.</string>
+    <string name="permission_required">საჭიროა ნებართვა</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">ეს აპლიკაცია მოითხოვს თქვენს გარე საცავში წვდომას მონაცემთა ბაზის აღსადგენად.გთხოვთ, ჩართოთ ეს ნებართვა პროგრამის პარამეტრებში.</string>
+    <string name="open_settings">ღია პარამეტრები</string>
+    <string name="select_repetition_frequency">აირჩიეთ განმეორების სიხშირე</string>
+    <string name="once">ერთხელ</string>
+    <string name="daily">ყოველდღიური</string>
+    <string name="weekly">ყოველკვირეული</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">ნამდვილად გსურთ ამის წაშლა? \ Nthis ასევე წაშლის ამ ეტიკეტთან დაკავშირებულ ყველა ჩვევას.</string>
+    <string name="data">მონაცემი</string>
+    <string name="add_daily_notification">ყოველდღიური შეტყობინების დამატება</string>
+    <string name="back_up">სარეზერვო ასვლა</string>
+    <string name="restore">აღდგენა</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

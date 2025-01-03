@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
+    tools:context=".OnBoardingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_marginTop="60dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:elevation="6dp"
+            android:layout_gravity="center"
+            android:src="@drawable/onboard"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/onboarding_reverse"
+            android:textColor="@color/textcolor"
+
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/onboarding_bad"
+            android:textColor="@color/spinr"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="@string/onboarding_gavein"
+            android:textColor="@color/spinr"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/onboarding_freshlist"
+            android:textColor="@color/spinr"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btncontinue"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:text="@string/onboarding_continue"
+        android:layout_centerInParent="true"
+        android:background="@drawable/continuebutton"
+        android:textAllCaps="false"/>
+</RelativeLayout>

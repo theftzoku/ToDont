@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Válassza Ki A Nyelvet</item>
+        <item>Cseh</item>
+        <item>Dán</item>
+        <item>Német</item>
+        <item>Angol</item>
+        <item>Spanyol</item>
+        <item>Olasz</item>
+        <item>Francia</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Január</item>
+            <item>Február</item>
+            <item>Március</item>
+            <item>Április</item>
+            <item>Május</item>
+            <item>Június</item>
+            <item>Július</item>
+            <item>Augusztus</item>
+            <item>Szeptember</item>
+            <item>Október</item>
+            <item>November</item>
+            <item>December</item>
+        </string-array>
+
+
+    <string name="delete_habit">Biztos Benne, Hogy Törölni Akarja Ezt A Szokást?</string>
+    <string name="LightMode">Hogy Ne Adjunk</string>
+    <string name="onboarding_reverse">A Fordított To-Listát</string>
+    <string name="onboarding_bad">Írja Le A Rossz Szokásait.Minden Nap, Kereszt</string>
+    <string name="onboarding_gavein">Kitöltse Azokat, Akiknek Adtál.És A Következő</string>
+    <string name="onboarding_freshlist">Reggel Kezdje El A Friss Listával.</string>
+    <string name="onboarding_continue">Folytatódik</string>
+    <string name="avoided">Elkerült</string>
+    <string name="done">Kész</string>
+    <string name="habits">Szokások</string>
+    <string name="today">Ma</string>
+    <string name="log">Fatörzs</string>
+    <string name="about">Körülbelül</string>
+    <string name="labels">Címkék</string>
+    <string name="settings">Beállítások</string>
+    <string name="mostav">A Legtöbbet Elkerülik:</string>
+    <string name="leastav">A Legkevésbé Kerüljük El:</string>
+    <string name="addlabel">Kérjük, Először Adjon Hozzá Egy Címkét</string>
+    <string name="addnewlabel">Új Címkét Adjon Hozzá</string>
+    <string name="addtask">Lépjen Be A Rossz Szokásba</string>
+    <string name="note">Leírás</string>
+    <string name="save">Megtakarítás</string>
+    <string name="puthabit">Az Induláshoz Tegyen Egy Rossz Szokást</string>
+    <string name="habitswillshowuphere">A Szokások Itt Jelennek Meg</string>
+    <string name="apachelicense">Apache Licenc 2.0</string>
+    <string name="developer">Fejlesztő</string>
+    <string name="contribute">Hozzájárul</string>
+    <string name="translate">Lefordít</string>
+    <string name="report">Jelentést Tesz Egy Problémáról</string>
+    <string name="source">Forrás Megtekintése</string>
+    <string name="opensourcelicense">Nyílt Forráskódú Engedélyek</string>
+    <string name="appearance">Megjelenés</string>
+    <string name="dark">Sötét</string>
+    <string name="light">Fény</string>
+    <string name="update">Frissít</string>
+    <string name="feather">Tollas Ikonok</string>
+    <string name="mitlicence">MIT License</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="followsys">Kövesse A Rendszert</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Körcörbén</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Nyilvános Engedély 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Jáva</string>
+    <string name="gnu">Gnu Általános Nyilvános Engedély Ce</string>
+    <string-array name="spinner_array">
+        <item>Szociális</item>
+        <item>Ételek És Italok</item>
+        <item>Studies</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Hogy Ne Kövesse A Rendszerét.</string>
+    <string name="toast_light">Hogy Ne Ne Legyen A Könnyű Oldalon.</string>
+    <string name="toast_dark">Hogy Ne Ne Legyen A Sötét Oldalon.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Adjon Hozzá Újat A Nem Tételhez</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Kifelé"</string>
+    <string name="habits_are_avoided">"A Szokások Elkerülhetők"</string>
+    <string name="habits_are_avoided_way_to_go">"A Szokások Elkerülhetők, Módja Annak, Hogy Menjenek!"</string>
+    <string name="avoided_">Avoided</string>
+    <string name="habits_">Szokások</string>
+    <string name="delete">Tényleg Meg Akarja Törölni Ezt?</string>
+    <string name="no">Nem</string>
+    <string name="deletes">Tényleg Meg Akarja Törölni Ezt?</string>
+    <string name="yes">Yes</string>
+    <string name="please_add_a_label_first">Please Add a Label First</string>
+    <string name="do_you_really_want_to_delete_this">Tényleg Meg Akarja Törölni Ezt?</string>
+    <string name="january">January</string>
+    <string name="february">Február</string>
+    <string name="march">Március</string>
+    <string name="april">Április</string>
+    <string name="may">Május</string>
+    <string name="june">Június</string>
+    <string name="july">Július</string>
+    <string name="august">Augusztus</string>
+    <string name="september">Szeptember</string>
+    <string name="october">Október</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Jelölje Meg, Ha Kész Vagy Kerülje El.</string>
+    <string name="help_make_to_don_t_better">Segítsen Jobbá Tenni A \ "To \'T \" -T.</string>
+    <string name="todon_t_reminder">Todon Nem Emlékeztető</string>
+    <string name="mark_your_todon_t_task">"Jelölje Meg A Todon -Feladatot"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Az Induláshoz Tegyen Egy Rossz Szokást.</string>
+    <string name="view_your_stats">Tekintse Meg Statisztikáját.</string>
+    <string name="add_label">Hozzáadja A Címkét.</string>
+    <string name="permission_required">Szükséges Engedély</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Ehhez Az Alkalmazáshoz Az Adatbázis Visszaállításához Hozzáférést Igényel A Külső Tárolóhoz.Kérjük, Engedélyezze Ezt Az Engedélyt Az Alkalmazásbeállításokban.</string>
+    <string name="open_settings">Nyissa Meg A Beállításokat</string>
+    <string name="select_repetition_frequency">Válassza Az Ismétlődés Frekvencia Lehetőséget</string>
+    <string name="once">Egyszer</string>
+    <string name="daily">Napi</string>
+    <string name="weekly">Heti</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Tényleg Ezt Törölni Szeretné?</string>
+    <string name="data">Adat</string>
+    <string name="add_daily_notification">Adja Hozzá A Napi Értesítést</string>
+    <string name="back_up">Visszaállít</string>
+    <string name="restore">Visszaállít</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Izberite Jezik</item>
+        <item>Češki</item>
+        <item>Dansko</item>
+        <item>Nemško</item>
+        <item>Angleščina</item>
+        <item>Španščina</item>
+        <item>Italijan</item>
+        <item>Francoz</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Januar</item>
+            <item>Februar</item>
+            <item>Pohod</item>
+            <item>April</item>
+            <item>Maj</item>
+            <item>Junij</item>
+            <item>Julij</item>
+            <item>Avgust</item>
+            <item>September</item>
+            <item>Oktober</item>
+            <item>November</item>
+            <item>December</item>
+        </string-array>
+
+
+    <string name="delete_habit">Ali Ste Prepričani, Da Želite Izbrisati To Navado?</string>
+    <string name="LightMode">Da Ne Bi</string>
+    <string name="onboarding_reverse">Seznam Obratnega Opravila</string>
+    <string name="onboarding_bad">Zapišite Svoje Slabe Navade.Vsak Dan, Križa</string>
+    <string name="onboarding_gavein">Zunaj Tistih, Ki Ste Jih Dali.In Naslednje</string>
+    <string name="onboarding_freshlist">Jutro Začnite S Svežem Seznamu.</string>
+    <string name="onboarding_continue">Nadaljujte</string>
+    <string name="avoided">Izognjeno</string>
+    <string name="done">Končano</string>
+    <string name="habits">Navade</string>
+    <string name="today">Danes</string>
+    <string name="log">Dnevnik</string>
+    <string name="about">Približno</string>
+    <string name="labels">Nalepke</string>
+    <string name="settings">Nastavitve</string>
+    <string name="mostav">Najbolj Se Izognemo:</string>
+    <string name="leastav">Najmanj Izognjeno:</string>
+    <string name="addlabel">Najprej Dodajte Nalepko</string>
+    <string name="addnewlabel">Dodajte Novo Etiketo</string>
+    <string name="addtask">Vnesite Slabo Navado</string>
+    <string name="note">Opis</string>
+    <string name="save">Shrani</string>
+    <string name="puthabit">Za Začetek Odložite Slabo Navado</string>
+    <string name="habitswillshowuphere">Tu Se Bodo Prikazale Navade</string>
+    <string name="apachelicense">Apache Licenca 2.0</string>
+    <string name="developer">Razvijalec</string>
+    <string name="contribute">Prispevati</string>
+    <string name="translate">Prevajanje</string>
+    <string name="report">Prijavite Težavo</string>
+    <string name="source">Vir Vir</string>
+    <string name="opensourcelicense">Open-Source Licence</string>
+    <string name="appearance">Videz</string>
+    <string name="dark">Temno</string>
+    <string name="light">Svetloba</string>
+    <string name="update">Posodobitev</string>
+    <string name="feather">Ikone Perja</string>
+    <string name="mitlicence">Licenca Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Sledite Sistemu</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Javna Licenca 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu Splošna Javna Licenca Ce</string>
+    <string-array name="spinner_array">
+        <item>Socialni</item>
+        <item>Hrana In Pijača</item>
+        <item>Študije</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Da Zdaj Ne Sledi Vašemu Sistemu.</string>
+    <string name="toast_light">Zdaj Je Na Lahki Strani.</string>
+    <string name="toast_dark">Zdaj Je Na Temni Strani.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Dodajte Novo V Element Don \'T</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Izven"</string>
+    <string name="habits_are_avoided">"Navadam Se Izogibajo"</string>
+    <string name="habits_are_avoided_way_to_go">"Navadam Se Izogibamo, Pot!"</string>
+    <string name="avoided_">Izognjeno</string>
+    <string name="habits_">Navade</string>
+    <string name="delete">Ali Res Želite To Izbrisati?</string>
+    <string name="no">Ne</string>
+    <string name="deletes">Ali Res Želite To Izbrisati?</string>
+    <string name="yes">Da</string>
+    <string name="please_add_a_label_first">Najprej Dodajte Nalepko</string>
+    <string name="do_you_really_want_to_delete_this">Ali Res Želite To Izbrisati?</string>
+    <string name="january">Januar</string>
+    <string name="february">Februar</string>
+    <string name="march">Pohod</string>
+    <string name="april">April</string>
+    <string name="may">Maj</string>
+    <string name="june">Junij</string>
+    <string name="july">Julij</string>
+    <string name="august">Avgust</string>
+    <string name="september">September</string>
+    <string name="october">Oktober</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Označite, Kot Je Bilo Storjeno Ali Se Izognemo.</string>
+    <string name="help_make_to_don_t_better">Pomagajte Narediti \ ", Da Ne Bi Izboljšali.</string>
+    <string name="todon_t_reminder">Todon \'T Opomnik</string>
+    <string name="mark_your_todon_t_task">"Označite Svojo Nalogo"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Za Začetek Odložite Slabo Navado.</string>
+    <string name="view_your_stats">Oglejte Si Svojo Statistiko.</string>
+    <string name="add_label">Dodaj Nalepko.</string>
+    <string name="permission_required">Dovoljenje</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Ta Aplikacija Zahteva Dostop Do Vašega Zunanjega Pomnilnika, Da Obnovite Bazo Podatkov.Prosimo, Omogočite To Dovoljenje V Nastavitvah Aplikacije.</string>
+    <string name="open_settings">Odprite Nastavitve</string>
+    <string name="select_repetition_frequency">Izberite Frekvenco Ponovitve</string>
+    <string name="once">Enkrat</string>
+    <string name="daily">Vsak Dan</string>
+    <string name="weekly">Tedensko</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Ali Res Želite To Izbrisati? \ Nto Boste Tudi Izbrisali Vse Navade, Povezane S To Etiketo.</string>
+    <string name="data">Podatki</string>
+    <string name="add_daily_notification">Dodajte Dnevno Obvestilo</string>
+    <string name="back_up">Varnostno Kopiranje</string>
+    <string name="restore">Obnoviti</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

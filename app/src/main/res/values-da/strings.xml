@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>Vælg Sprog</item>
+        <item>Tjekkisk</item>
+        <item>Dansk</item>
+        <item>Tysk</item>
+        <item>Engelsk</item>
+        <item>Spansk</item>
+        <item>Italiensk</item>
+        <item>Fransk</item>
+    </string-array>
+
+    <string-array name="month_names">
+        <item>Januar</item>
+        <item>Februar</item>
+        <item>Marts</item>
+        <item>April</item>
+        <item>Maj</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>August</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string name="delete_habit">Er du sikker på, at du vil slette denne vane?</string>
+    <string name="LightMode">To Don\'t</string>
+    <string name="onboarding_reverse">Den omvendte to-do liste</string>
+    <string name="onboarding_bad">Skriv dine dårlige vaner ned. Kryds dem af</string>
+    <string name="onboarding_gavein">ud, dem du gav efter for. Og den næste</string>
+    <string name="onboarding_freshlist">morgen starter du med den friske liste.</string>
+    <string name="onboarding_continue">Fortsæt</string>
+    <string name="avoided">Undgået</string>
+    <string name="done">Udført</string>
+    <string name="habits">Vaner</string>
+    <string name="today">I dag</string>
+    <string name="log">Log</string>
+    <string name="about">Om</string>
+    <string name="labels">Etiketter</string>
+    <string name="settings">Indstillinger</string>
+    <string name="mostav">Mest undgået:</string>
+    <string name="leastav">Mindst undgået:</string>
+    <string name="addlabel">Tilføj etiket først</string>
+    <string name="addnewlabel">Tilføj ny etiket</string>
+    <string name="addtask">Indtast dårlig vane</string>
+    <string name="note">Beskrivelse</string>
+    <string name="save">Gem</string>
+    <string name="puthabit">For at starte, skriv en dårlig vane ned</string>
+    <string name="habitswillshowuphere">Vaner vil vises her</string>
+    <string name="apachelicense">Apache License 2.0</string>
+    <string name="developer">Udvikler</string>
+    <string name="contribute">Bidrag</string>
+    <string name="translate">Oversæt</string>
+    <string name="report">Rapporter et problem</string>
+    <string name="source">Vis kilde</string>
+    <string name="opensourcelicense">Open-source licenser</string>
+    <string name="appearance">Udseende</string>
+    <string name="dark">Mørk</string>
+    <string name="light">Lys</string>
+    <string name="update">Opdater</string>
+    <string name="feather">Feather Icons</string>
+    <string name="mitlicence">MIT License</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">MaterialSpinner</string>
+    <string name="followsys">Følg systemet</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="mpandroidchart">MPAndroidChart</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU General Public License CE</string>
+    <string-array name="spinner_array">
+        <item>Social</item>
+        <item>Mad og drikke</item>
+        <item>Studier</item>
+    </string-array>
+
+    <!-- Toasts -->
+    <string name="toast_system">To Don\'t følger nu dit system.</string>
+    <string name="toast_light">To Don\'t er nu på den lyse side.</string>
+    <string name="toast_dark">To Don\'t er nu på den mørke side.</string>
+
+    <!-- Here are the non-translateable strings -->
+
+    <!-- Here are the contentDescription strings -->
+    <string name="contentDescription_FAB">Tilføj ny To Don\'t opgave</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">" ud af "</string>
+    <string name="habits_are_avoided">" vaner er undgået"</string>
+    <string name="habits_are_avoided_way_to_go">" vaner er undgået, godt klaret!"</string>
+    <string name="avoided_">Undgået</string>
+    <string name="habits_">Vaner</string>
+    <string name="delete">Vil du virkelig slette dette?</string>
+    <string name="no">Nej</string>
+    <string name="deletes">Vil du virkelig slette dette?</string>
+    <string name="yes">Ja</string>
+    <string name="please_add_a_label_first">Tilføj venligst en etiket først</string>
+    <string name="do_you_really_want_to_delete_this">Vil du virkelig slette dette?</string>
+    <string name="january">Januar</string>
+    <string name="february">Februar</string>
+    <string name="march">Marts</string>
+    <string name="april">April</string>
+    <string name="may">Maj</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">August</string>
+    <string name="september">September</string>
+    <string name="october">Oktober</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Marker som udført eller undgået.</string>
+    <string name="help_make_to_don_t_better">Hjælp med at gøre "To Don\'t" bedre.</string>
+    <string name="todon_t_reminder">ToDon\'t Påmindelse</string>
+    <string name="mark_your_todon_t_task">"Marker din ToDon\'t opgave "</string>
+    <string name="to_start_off_put_down_a_bad_habit">For at starte, skriv en dårlig vane ned.</string>
+    <string name="view_your_stats">Se dine statistikker.</string>
+    <string name="add_label">Tilføj etiket.</string>
+    <string name="permission_required">Tilladelse kræves</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Denne app kræver adgang til din eksterne opbevaring for at gendanne databasen. Aktiver venligst denne tilladelse i appens indstillinger.</string>
+    <string name="open_settings">Åbn indstillinger</string>
+    <string name="select_repetition_frequency">Vælg gentagelsesfrekvens</string>
+    <string name="once">Én gang</string>
+    <string name="daily">Dagligt</string>
+    <string name="weekly">Ugentligt</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Vil du virkelig slette dette?\nDette vil også slette alle vaner relateret til denne etiket.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Tilføj daglig notifikation</string>
+    <string name="back_up">Backup</string>
+    <string name="restore">Gendan</string>
+    <string name="dracula">Dracula</string>
+</resources>

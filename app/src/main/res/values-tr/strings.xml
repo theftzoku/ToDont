@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Dili Seçin</item>
+        <item>Çek</item>
+        <item>Danimarkalı</item>
+        <item>Almanca</item>
+        <item>İngilizce</item>
+        <item>İspanyol</item>
+        <item>İtalyan</item>
+        <item>Fransızca</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Ocak</item>
+            <item>Şubat</item>
+            <item>Mart</item>
+            <item>Nisan</item>
+            <item>Mayıs</item>
+            <item>Haziran</item>
+            <item>Temmuz</item>
+            <item>Ağustos</item>
+            <item>Eylül</item>
+            <item>Ekim</item>
+            <item>Kasım</item>
+            <item>Aralık</item>
+        </string-array>
+
+
+    <string name="delete_habit">Bu Alışkanlığı Silmek Istediğinden Emin Misiniz?</string>
+    <string name="LightMode">Doğrulmak</string>
+    <string name="onboarding_reverse">Ters Yapılacaklar Listesi</string>
+    <string name="onboarding_bad">Kötü Alışkanlıklarınızı Not Edin.Her Gün Çapraz</string>
+    <string name="onboarding_gavein">Verdiğin Kişilerden.Ve Bir Sonraki</string>
+    <string name="onboarding_freshlist">Sabah Yeni Listeyle Başlayın.</string>
+    <string name="onboarding_continue">Devam Etmek</string>
+    <string name="avoided">Kaçınılmış</string>
+    <string name="done">Tamamlamak</string>
+    <string name="habits">Alışkanlıklar</string>
+    <string name="today">Bugün</string>
+    <string name="log">Kayıt</string>
+    <string name="about">Hakkında</string>
+    <string name="labels">Etiketler</string>
+    <string name="settings">Ayarlar</string>
+    <string name="mostav">En Çok Kaçınıldı:</string>
+    <string name="leastav">En Az Kaçınıldı:</string>
+    <string name="addlabel">Lütfen Önce Bir Etiket Ekleyin</string>
+    <string name="addnewlabel">Yeni Etiket Ekle</string>
+    <string name="addtask">Kötü Alışkanlık Girin</string>
+    <string name="note">Tanım</string>
+    <string name="save">Kaydetmek</string>
+    <string name="puthabit">Başlamak Için Kötü Bir Alışkanlık</string>
+    <string name="habitswillshowuphere">Alışkanlıklar Burada Görünecek</string>
+    <string name="apachelicense">Apache Lisans 2.0</string>
+    <string name="developer">Geliştirici</string>
+    <string name="contribute">Katkı Yapmak</string>
+    <string name="translate">Tercüme Etmek</string>
+    <string name="report">Bir Sorun Bildirin</string>
+    <string name="source">Görünüm Kaynağı</string>
+    <string name="opensourcelicense">Açık Kaynaklı Lisanslar</string>
+    <string name="appearance">Dış Görünüş</string>
+    <string name="dark">Karanlık</string>
+    <string name="light">Işık</string>
+    <string name="update">Güncelleme</string>
+    <string name="feather">Tüy Simgeleri</string>
+    <string name="mitlicence">Mit Lisansı</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Malzeme</string>
+    <string name="followsys">Sistemi Takip Edin</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Halka Açık Lisans 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu Genel Kamu Lisansı Ce</string>
+    <string-array name="spinner_array">
+        <item>Sosyal</item>
+        <item>Yiyecekler Ve İçecekler</item>
+        <item>Çalışmalar</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Şimdi Sisteminizi Takip Etmiyor.</string>
+    <string name="toast_light">Şimdi Işık Tarafında Değil.</string>
+    <string name="toast_dark">Şimdi Karanlık Tarafta Değil.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Donm \'T Öğesine Yeni Ekle</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Out"</string>
+    <string name="habits_are_avoided">"Alışkanlıklardan Kaçınılır"</string>
+    <string name="habits_are_avoided_way_to_go">"Alışkanlıklardan Kaçınılıyor, Gitmek Için!"</string>
+    <string name="avoided_">Kaçınılmış</string>
+    <string name="habits_">Alışkanlıklar</string>
+    <string name="delete">Bunu Gerçekten Silmek Istiyor Musunuz?</string>
+    <string name="no">Hayir</string>
+    <string name="deletes">Bunu Gerçekten Silmek Istiyor Musunuz?</string>
+    <string name="yes">Evet</string>
+    <string name="please_add_a_label_first">Lütfen Önce Bir Etiket Ekleyin</string>
+    <string name="do_you_really_want_to_delete_this">Bunu Gerçekten Silmek Istiyor Musunuz?</string>
+    <string name="january">Ocak</string>
+    <string name="february">Şubat</string>
+    <string name="march">March</string>
+    <string name="april">Nisan</string>
+    <string name="may">Mayıs</string>
+    <string name="june">Haziran</string>
+    <string name="july">Temmuz</string>
+    <string name="august">Ağustos</string>
+    <string name="september">Eylül</string>
+    <string name="october">Ekim</string>
+    <string name="november">Kasım</string>
+    <string name="december">Aralık</string>
+    <string name="mark_as_done_or_avoided">Yapıldığı Veya Kaçınıldığı Gibi Işaretleyin.</string>
+    <string name="help_make_to_don_t_better">Daha Iyi Yapmaya Yardım Edin \'T \ "Daha Iyi.</string>
+    <string name="todon_t_reminder">Todon \'T Hatırlatma</string>
+    <string name="mark_your_todon_t_task">"Todon'T Görevini Işaretleyin"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Başlamak Için Kötü Bir Alışkanlık Bırakın.</string>
+    <string name="view_your_stats">İstatistiklerinizi Görüntüleyin.</string>
+    <string name="add_label">Etiket Ekleyin.</string>
+    <string name="permission_required">İzin Gerekli</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Bu Uygulama, Veritabanını Geri Yüklemek Için Harici Depolamanıza Erişim Gerektirir.Lütfen Bu Izni Uygulama Ayarlarında Etkinleştirin.</string>
+    <string name="open_settings">Ayarlar Aç</string>
+    <string name="select_repetition_frequency">Tekrarlama Frekansını Seçin</string>
+    <string name="once">Bir Kere</string>
+    <string name="daily">Günlük</string>
+    <string name="weekly">Haftalık</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Bunu Gerçekten Silmek Istiyor Musunuz?</string>
+    <string name="data">Veri</string>
+    <string name="add_daily_notification">Günlük Bildirim Ekle</string>
+    <string name="back_up">Yedeklemek</string>
+    <string name="restore">Eski Haline Getirmek</string>
+    <string name="dracula">Dracula</string>
+
+</resources>
