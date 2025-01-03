@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="languages">
+        <item>भाषा चयन गर्नुहोस्</item>
+        <item>चेक</item>
+        <item>मर्मत</item>
+        <item>जर्मन</item>
+        <item>अंग्रेजी</item>
+        <item>स्पेनिश</item>
+        <item>इटालियन</item>
+        <item>फ्रेन्च</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>जनवरी</item>
+            <item>फरवरी</item>
+            <item>मार्च</item>
+            <item>अप्रिल</item>
+            <item>मे</item>
+            <item>जून</item>
+            <item>जुलाई</item>
+            <item>अगस्त महिना</item>
+            <item>सेप्टेम्बर</item>
+            <item>अक्टोबर</item>
+            <item>नभेम्बर</item>
+            <item>दिसम्बर</item>
+        </string-array>
+
+
+    <string name="delete_habit">के तपाईं पक्का यो बानी मेट्न निश्चित हुनुहुन्छ?</string>
+    <string name="LightMode">गर्न सक्दैन</string>
+    <string name="onboarding_reverse">उल्टो सूची</string>
+    <string name="onboarding_bad">तपाईंको खराब बानीहरू तल झुकाउनुहोस्।हरेक दिन, क्रस</string>
+    <string name="onboarding_gavein">तपाईंले दिएकाहरू बाहिर।र अर्को</string>
+    <string name="onboarding_freshlist">बिहान ताजा सूचीको साथ सुरू गर्नुहोस्।</string>
+    <string name="onboarding_continue">जारी राख्नु</string>
+    <string name="avoided">बेवास्ता</string>
+    <string name="done">पूरा</string>
+    <string name="habits">बानी</string>
+    <string name="today">आज</string>
+    <string name="log">मुडो</string>
+    <string name="about">प्राय</string>
+    <string name="labels">लेबलहरु</string>
+    <string name="settings">बतंग</string>
+    <string name="mostav">धेरैले बेवास्ता गरे:</string>
+    <string name="leastav">कमसेकम वेवास्ता गरियो:</string>
+    <string name="addlabel">कृपया पहिले लेबल थप्नुहोस्</string>
+    <string name="addnewlabel">नयाँ लेबल थप्नुहोस्</string>
+    <string name="addtask">खराब बानी प्रविष्ट गर्नुहोस्</string>
+    <string name="note">वर्णन</string>
+    <string name="save">बचाउनु</string>
+    <string name="puthabit">सुरु गर्न सुरू गर्न, खराब बानी तल राख्नुहोस्</string>
+    <string name="habitswillshowuphere">बानीले यहाँ देखा पर्नेछ</string>
+    <string name="apachelicense">अपाचे इजाजत पत्र 2.0</string>
+    <string name="developer">विकासकर्ता</string>
+    <string name="contribute">चन्दा दिनु</string>
+    <string name="translate">अनुवाद गर्नु</string>
+    <string name="report">एउटा समस्या रिपोर्ट गर्नुहोस्</string>
+    <string name="source">स्रोत हेर्नुहोस्</string>
+    <string name="opensourcelicense">खुला स्रोत इजाजतपत्रहरू</string>
+    <string name="appearance">प्रकटन</string>
+    <string name="dark">अध्यारो</string>
+    <string name="light">हलुका</string>
+    <string name="update">अद्यावधिक गर्नुहोस्</string>
+    <string name="feather">फेदर आइकन</string>
+    <string name="mitlicence">Mit इजाजत पत्र</string>
+    <string name="jetpack">एन्ड्रोइड जेटप्याक</string>
+    <string name="materialspinner">भौतिक भाग्नर</string>
+    <string name="followsys">प्रणाली अनुसरण गर्नुहोस्</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">चट्टेमलाइज दृश्य</string>
+    <string name="mpandroidchart">Mpandroidchabt</string>
+    <string name="junit">जन्की</string>
+    <string name="eclipse">Excipipse सार्वजनिक इजाजतपत्र 1.0</string>
+    <string name="kotlin">कोटलिन</string>
+    <string name="java">जावास</string>
+    <string name="gnu">Gnu सामान्य सार्वजनिक इन्सेक सी।</string>
+    <string-array name="spinner_array">
+        <item>सामाजिक</item>
+        <item>खाना र पेय पदार्थहरू</item>
+        <item>अध्ययन</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">अब तपाईंको प्रणाली अनुसरण गर्न छैन।</string>
+    <string name="toast_light">अहिलेको प्रकाश पक्षमा छ।</string>
+    <string name="toast_dark">अब अँध्यारो पक्षमा छ।</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">No Itet मा नयाँ थप्नुहोस्</string>
+    <string name="d">D</string>
+    <string name="w">ड हुनुहुन्छ</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"बाहिर"</string>
+    <string name="habits_are_avoided">"बानीहरूलाई वेवास्ता गरियो"</string>
+    <string name="habits_are_avoided_way_to_go">"बानीहरूबाट बच्न सकिन्छ, जाने बाटो!"</string>
+    <string name="avoided_">बेवास्ता</string>
+    <string name="habits_">बानी</string>
+    <string name="delete">के तपाईं वास्तवमै यसलाई मेट्न चाहानुहुन्छ?</string>
+    <string name="no">छैन</string>
+    <string name="deletes">के तपाईं वास्तवमै यसलाई मेट्न चाहानुहुन्छ?</string>
+    <string name="yes">हुन्छ</string>
+    <string name="please_add_a_label_first">कृपया पहिले लेबल थप्नुहोस्</string>
+    <string name="do_you_really_want_to_delete_this">के तपाईं वास्तवमै यसलाई मेट्न चाहानुहुन्छ?</string>
+    <string name="january">जनवरी</string>
+    <string name="february">फरवरी</string>
+    <string name="march">मार्च</string>
+    <string name="april">अप्रिल</string>
+    <string name="may">मे</string>
+    <string name="june">जून</string>
+    <string name="july">जुलाई</string>
+    <string name="august">अगस्त महिना</string>
+    <string name="september">सेप्टेम्बर</string>
+    <string name="october">अक्टोबर</string>
+    <string name="november">नभेम्बर</string>
+    <string name="december">दिसम्बर</string>
+    <string name="mark_as_done_or_avoided">मार्कको रूपमा मार्क गर्नुहोस् वा बेवास्ता गरियो।</string>
+    <string name="help_make_to_don_t_better">मद्दत मद्दत गर्न मद्दत गर्न मद्दत गर्न मद्दत गर्नुहोस्। "</string>
+    <string name="todon_t_reminder">तोडन \'T रिमाइन्डर</string>
+    <string name="mark_your_todon_t_task">"तपाईंको फोटेटेन काम चिन्ह लगाउनुहोस्"</string>
+    <string name="to_start_off_put_down_a_bad_habit">सुरु गर्न, खराब बानी तल राख्नुहोस्।</string>
+    <string name="view_your_stats">तपाईंको तथ्या .्कहरू हेर्नुहोस्।</string>
+    <string name="add_label">लेबल थप्नुहोस्।</string>
+    <string name="permission_required">अनुमति आवश्यक छ</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">यस अनुप्रयोगलाई डाटाबेस पुन: भण्डारण गर्न तपाईंको बाह्य स्टोरमा पहुँच आवश्यक पर्दछ।कृपया अनुप्रयोग सेटिंग्समा यो अनुमति सक्षम गर्नुहोस्।</string>
+    <string name="open_settings">खुला सेटिंग्स</string>
+    <string name="select_repetition_frequency">दोहोर्याउने आवृत्ति चयन गर्नुहोस्</string>
+    <string name="once">एक पल्ट</string>
+    <string name="daily">दैनिक</string>
+    <string name="weekly">साप्ताहिक</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">के तपाईं वास्तवमै यो मेट्न चाहानुहुन्छ? \ Nthis पनि यो लेबल सम्बन्धित सबै बानीहरू मेटाउनेछ।</string>
+    <string name="data">तथ्याड़क</string>
+    <string name="add_daily_notification">दैनिक सूचना थप्नुहोस्</string>
+    <string name="back_up">पूर्ति</string>
+    <string name="restore">मरम्मत गर्नु</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

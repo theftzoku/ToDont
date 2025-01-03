@@ -1,155 +1,157 @@
-package rocks.poopjournal.todont.showcaseview;
+package rocks.poopjournal.todont.showcaseview
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.RelativeLayout;
+import android.animation.Animator
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.annotation.TargetApi
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.os.Build
+import android.util.AttributeSet
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.RelativeLayout
+import rocks.poopjournal.todont.R
+import kotlin.math.min
 
-import java.util.ArrayList;
+class RippleBackground : RelativeLayout {
+    private var rippleColor = 0
+    private var rippleStrokeWidth = 0f
+    private var rippleRadius = 0f
+    private var rippleDurationTime = 0
+    private var rippleAmount = 0
+    private var rippleDelay = 0
+    private var rippleScale = 0f
+    private var rippleType = 0
+    private var paint: Paint? = null
+    var isRippleAnimationRunning: Boolean = false
+        private set
+    private var animatorSet: AnimatorSet? = null
+    private var animatorList: ArrayList<Animator>? = null
+    private var rippleParams: LayoutParams? = null
+    private val rippleViewList = ArrayList<RippleView>()
 
-import rocks.poopjournal.todont.R;
+    constructor(context: Context?) : super(context)
 
-public class RippleBackground extends RelativeLayout {
-
-    private static final int DEFAULT_RIPPLE_COUNT = 6;
-    private static final int DEFAULT_DURATION_TIME = 3000;
-    private static final float DEFAULT_SCALE = 6.0f;
-    private static final int DEFAULT_FILL_TYPE = 0;
-
-    private int rippleColor;
-    private float rippleStrokeWidth;
-    private float rippleRadius;
-    private int rippleDurationTime;
-    private int rippleAmount;
-    private int rippleDelay;
-    private float rippleScale;
-    private int rippleType;
-    private Paint paint;
-    private boolean animationRunning = false;
-    private AnimatorSet animatorSet;
-    private ArrayList<Animator> animatorList;
-    private LayoutParams rippleParams;
-    private ArrayList<RippleView> rippleViewList = new ArrayList<RippleView>();
-
-    public RippleBackground(Context context) {
-        super(context);
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        init(context, attrs)
     }
 
-    public RippleBackground(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
-    }
-
-    public RippleBackground(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context, attrs);
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        init(context, attrs)
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    private void init(final Context context, final AttributeSet attrs) {
-        if (isInEditMode())
-            return;
+    private fun init(context: Context, attrs: AttributeSet) {
+        if (isInEditMode) return
 
-        if (null == attrs) {
-            throw new IllegalArgumentException("Attributes should be provided to this view,");
-        }
+        requireNotNull(attrs) { "Attributes should be provided to this view," }
 
-        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleBackground);
-        rippleColor = typedArray.getColor(R.styleable.RippleBackground_rb_color, getResources().getColor(android.R.color.holo_red_light));
-        rippleStrokeWidth = typedArray.getDimension(R.styleable.RippleBackground_rb_strokeWidth, 4);
-        rippleRadius = typedArray.getDimension(R.styleable.RippleBackground_rb_radius, 4);
-        rippleDurationTime = typedArray.getInt(R.styleable.RippleBackground_rb_duration, DEFAULT_DURATION_TIME);
-        rippleAmount = typedArray.getInt(R.styleable.RippleBackground_rb_rippleAmount, DEFAULT_RIPPLE_COUNT);
-        rippleScale = typedArray.getFloat(R.styleable.RippleBackground_rb_scale, DEFAULT_SCALE);
-        rippleType = typedArray.getInt(R.styleable.RippleBackground_rb_type, DEFAULT_FILL_TYPE);
-        typedArray.recycle();
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleBackground)
+        rippleColor = typedArray.getColor(
+            R.styleable.RippleBackground_rb_color,
+            resources.getColor(android.R.color.holo_red_light)
+        )
+        rippleStrokeWidth = typedArray.getDimension(R.styleable.RippleBackground_rb_strokeWidth, 4f)
+        rippleRadius = typedArray.getDimension(R.styleable.RippleBackground_rb_radius, 4f)
+        rippleDurationTime =
+            typedArray.getInt(R.styleable.RippleBackground_rb_duration, DEFAULT_DURATION_TIME)
+        rippleAmount =
+            typedArray.getInt(R.styleable.RippleBackground_rb_rippleAmount, DEFAULT_RIPPLE_COUNT)
+        rippleScale = typedArray.getFloat(R.styleable.RippleBackground_rb_scale, DEFAULT_SCALE)
+        rippleType = typedArray.getInt(R.styleable.RippleBackground_rb_type, DEFAULT_FILL_TYPE)
+        typedArray.recycle()
 
-        rippleDelay = rippleDurationTime / rippleAmount;
+        rippleDelay = rippleDurationTime / rippleAmount
 
-        paint = new Paint();
-        paint.setAntiAlias(true);
+        paint = Paint()
+        paint!!.isAntiAlias = true
         if (rippleType == DEFAULT_FILL_TYPE) {
-            rippleStrokeWidth = 0;
-            paint.setStyle(Paint.Style.FILL);
-        } else
-            paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(rippleColor);
+            rippleStrokeWidth = 0f
+            paint!!.style = Paint.Style.FILL
+        } else paint!!.style = Paint.Style.STROKE
+        paint!!.color = rippleColor
 
-        rippleParams = new LayoutParams((int) (2 * (rippleRadius + rippleStrokeWidth)), (int) (2 * (rippleRadius + rippleStrokeWidth)));
-        rippleParams.addRule(CENTER_IN_PARENT, TRUE);
+        rippleParams = LayoutParams(
+            (2 * (rippleRadius + rippleStrokeWidth)).toInt(),
+            (2 * (rippleRadius + rippleStrokeWidth)).toInt()
+        )
+        rippleParams!!.addRule(CENTER_IN_PARENT, TRUE)
 
-        animatorSet = new AnimatorSet();
-        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        animatorList = new ArrayList<Animator>();
+        animatorSet = AnimatorSet()
+        animatorSet!!.interpolator = AccelerateDecelerateInterpolator()
+        animatorList = ArrayList()
 
-        for (int i = 0; i < rippleAmount; i++) {
-            RippleView rippleView = new RippleView(getContext());
-            addView(rippleView, rippleParams);
-            rippleViewList.add(rippleView);
-            final ObjectAnimator scaleXAnimator = ObjectAnimator.ofFloat(rippleView, "ScaleX", 1.0f, rippleScale);
-            scaleXAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-            scaleXAnimator.setRepeatMode(ObjectAnimator.RESTART);
-            scaleXAnimator.setStartDelay(i * rippleDelay);
-            scaleXAnimator.setDuration(rippleDurationTime);
-            animatorList.add(scaleXAnimator);
-            final ObjectAnimator scaleYAnimator = ObjectAnimator.ofFloat(rippleView, "ScaleY", 1.0f, rippleScale);
-            scaleYAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-            scaleYAnimator.setRepeatMode(ObjectAnimator.RESTART);
-            scaleYAnimator.setStartDelay(i * rippleDelay);
-            scaleYAnimator.setDuration(rippleDurationTime);
-            animatorList.add(scaleYAnimator);
-            final ObjectAnimator alphaAnimator = ObjectAnimator.ofFloat(rippleView, "Alpha", 1.0f, 0f);
-            alphaAnimator.setRepeatCount(ObjectAnimator.INFINITE);
-            alphaAnimator.setRepeatMode(ObjectAnimator.RESTART);
-            alphaAnimator.setStartDelay(i * rippleDelay);
-            alphaAnimator.setDuration(rippleDurationTime);
-            animatorList.add(alphaAnimator);
+        for (i in 0 until rippleAmount) {
+            val rippleView = RippleView(getContext())
+            addView(rippleView, rippleParams)
+            rippleViewList.add(rippleView)
+            val scaleXAnimator = ObjectAnimator.ofFloat(rippleView, "ScaleX", 1.0f, rippleScale)
+            scaleXAnimator.repeatCount = ObjectAnimator.INFINITE
+            scaleXAnimator.repeatMode = ObjectAnimator.RESTART
+            scaleXAnimator.startDelay = (i * rippleDelay).toLong()
+            scaleXAnimator.setDuration(rippleDurationTime.toLong())
+            animatorList!!.add(scaleXAnimator)
+            val scaleYAnimator = ObjectAnimator.ofFloat(rippleView, "ScaleY", 1.0f, rippleScale)
+            scaleYAnimator.repeatCount = ObjectAnimator.INFINITE
+            scaleYAnimator.repeatMode = ObjectAnimator.RESTART
+            scaleYAnimator.startDelay = (i * rippleDelay).toLong()
+            scaleYAnimator.setDuration(rippleDurationTime.toLong())
+            animatorList!!.add(scaleYAnimator)
+            val alphaAnimator = ObjectAnimator.ofFloat(rippleView, "Alpha", 1.0f, 0f)
+            alphaAnimator.repeatCount = ObjectAnimator.INFINITE
+            alphaAnimator.repeatMode = ObjectAnimator.RESTART
+            alphaAnimator.startDelay = (i * rippleDelay).toLong()
+            alphaAnimator.setDuration(rippleDurationTime.toLong())
+            animatorList!!.add(alphaAnimator)
         }
 
-        animatorSet.playTogether(animatorList);
+        animatorSet!!.playTogether(animatorList)
     }
 
-    private class RippleView extends View {
-
-        public RippleView(Context context) {
-            super(context);
-            this.setVisibility(View.INVISIBLE);
+    private inner class RippleView(context: Context?) : View(context) {
+        init {
+            this.visibility = INVISIBLE
         }
 
-        @Override
-        protected void onDraw(Canvas canvas) {
-            int radius = (Math.min(getWidth(), getHeight())) / 2;
-            canvas.drawCircle(radius, radius, radius - rippleStrokeWidth, paint);
+        override fun onDraw(canvas: Canvas) {
+            val radius = ((min(
+                width.toDouble(),
+                height.toDouble()
+            )) / 2).toInt()
+            canvas.drawCircle(
+                radius.toFloat(), radius.toFloat(), radius - rippleStrokeWidth,
+                paint!!
+            )
         }
     }
 
-    public void startRippleAnimation() {
-        if (!isRippleAnimationRunning()) {
-            for (RippleView rippleView : rippleViewList) {
-                rippleView.setVisibility(VISIBLE);
+    fun startRippleAnimation() {
+        if (!isRippleAnimationRunning) {
+            for (rippleView in rippleViewList) {
+                rippleView.visibility = VISIBLE
             }
-            animatorSet.start();
-            animationRunning = true;
+            animatorSet!!.start()
+            isRippleAnimationRunning = true
         }
     }
 
-    public void stopRippleAnimation() {
-        if (isRippleAnimationRunning()) {
-            animatorSet.end();
-            animationRunning = false;
+    fun stopRippleAnimation() {
+        if (isRippleAnimationRunning) {
+            animatorSet!!.end()
+            isRippleAnimationRunning = false
         }
     }
 
-    public boolean isRippleAnimationRunning() {
-        return animationRunning;
+    companion object {
+        private const val DEFAULT_RIPPLE_COUNT = 6
+        private const val DEFAULT_DURATION_TIME = 3000
+        private const val DEFAULT_SCALE = 6.0f
+        private const val DEFAULT_FILL_TYPE = 0
     }
 }

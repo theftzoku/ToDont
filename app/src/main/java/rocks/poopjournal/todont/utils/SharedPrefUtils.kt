@@ -1,105 +1,80 @@
-package rocks.poopjournal.todont.utils;
+package rocks.poopjournal.todont.utils
 
-import static android.content.Context.MODE_PRIVATE;
+import android.content.Context
+import android.content.SharedPreferences
 
-import android.content.Context;
-import android.content.SharedPreferences;
+class SharedPrefUtils(private val context: Context) {
 
-import org.json.JSONException;
-import org.json.JSONObject;
+    private val sharedPreferences: SharedPreferences =
+        context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-public class SharedPrefUtils {
-    public static final String MY_PREFS_NAME = "MiApp";
-    public static final String KEY_ADD_OR_AVOIDED="AddOrAvoided";
-    public static final String KEY_LOG="Log";
-    public static final String KEY_CONTRIBUTION_VIEW="CONTRIBUTION_VIEW";
-    public static final String KEY_APPEAR_VIEW="APPEAR_VIEW";
-
-
-    private final Context activity;
-
-
-
-    public SharedPrefUtils(Context activity) {
-        this.activity = activity;
+    fun save(key: String?, name: String?) {
+        val editor = sharedPreferences.edit()
+        editor.putString(key, name)
+        editor.apply()
     }
 
-    public void save(String key, String name) {
-        SharedPreferences.Editor editor = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString(key, name);
-        editor.apply();
+    fun get(key: String?): String? {
+        return sharedPreferences.getString(key, null)
     }
 
-    public String get(String key) {
-        SharedPreferences prefs = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        return prefs.getString(key, null);
+    fun setBool(key: String?, name: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(key, name)
+        editor.apply()
     }
 
-    public void setBool(String key, boolean name) {
-        SharedPreferences.Editor editor = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putBoolean(key, name);
-        editor.apply();
+    fun getBool(key: String?): Boolean {
+        return sharedPreferences.getBoolean(key, false)
+    }
+    fun getString(key: String, defaultValue: String): String {
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
 
-    public boolean getBool(String key) {
-        SharedPreferences prefs = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        return prefs.getBoolean(key, false);
+    fun putString(key: String, value: String) {
+        sharedPreferences.edit().putString(key, value).apply()
     }
 
-    public void setInt(String key, int value) {
-        SharedPreferences.Editor editor = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putInt(key, value);
-        editor.apply();
+    fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+        return sharedPreferences.getBoolean(key, defaultValue)
     }
 
-    public int getInt(String key, int defVal) {
-        SharedPreferences prefs = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        return prefs.getInt(key, defVal);
+    fun putBoolean(key: String, value: Boolean) {
+        sharedPreferences.edit().putBoolean(key, value).apply()
     }
 
-    public void setString(String key, String value) {
-        SharedPreferences.Editor editor = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString(key, value);
-        editor.apply();
+    fun getInt(key: String, defaultValue: Int): Int {
+        return sharedPreferences.getInt(key, defaultValue)
     }
 
-    public String getString(String key, String defVal) {
-        SharedPreferences prefs = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        return prefs.getString(key, defVal);
+    fun putInt(key: String, value: Int) {
+        sharedPreferences.edit().putInt(key, value).apply()
     }
 
-    public void setMap(String key, Map<String, Object> value){
-        JSONObject jsonObject = new JSONObject(value);
-        String jsonString = jsonObject.toString();
-        SharedPreferences.Editor editor = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
-        editor.putString(key, jsonString);
-        editor.apply();
+    fun getLong(key: String, defaultValue: Long): Long {
+        return sharedPreferences.getLong(key, defaultValue)
     }
 
-    public Map<String, Object> getMap(String key){
-        Map<String, Object> outputMap = new HashMap<>();
-        SharedPreferences prefs = activity.getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        String map = prefs.getString(key, (new JSONObject()).toString());
-        JSONObject jsonObject = null;
-        try {
-            assert map != null;
-            jsonObject = new JSONObject(map);
-            Iterator<String> keysItr = jsonObject.keys();
-            while (keysItr.hasNext()) {
-                String mKey = keysItr.next();
-                outputMap.put(mKey, jsonObject.get(mKey));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return outputMap;
+    fun putLong(key: String, value: Long) {
+        sharedPreferences.edit().putLong(key, value).apply()
+    }
+
+    fun getThemeMode():String{
+        return sharedPreferences.getString(KEY_NIGHT_MODE,"1").toString()
+    }
+
+    fun setThemeMode(mode:String){
+        sharedPreferences.edit().putString(KEY_NIGHT_MODE,mode).apply()
     }
 
 
-
-
+    companion object {
+        const val PREF_NAME = "MyPrefs"
+        const val KEY_ADD_OR_AVOIDED: String = "AddOrAvoided"
+        const val KEY_LOG: String = "Log"
+        const val KEY_CONTRIBUTION_VIEW: String = "CONTRIBUTION_VIEW"
+        const val KEY_APPEAR_VIEW: String = "APPEAR_VIEW"
+        const val KEY_FIRST_TIME = "FirstTime"
+        const val KEY_NIGHT_MODE = "NightMode"
+    }
 }

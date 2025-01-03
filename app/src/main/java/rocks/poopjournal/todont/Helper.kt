@@ -1,25 +1,37 @@
-package rocks.poopjournal.todont;
+package rocks.poopjournal.todont
 
-import java.util.ArrayList;
+object Helper {
+    //@JvmField
+    //var labels_array: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var avoidedData: ArrayList<Array<String>> = ArrayList()
+//    @JvmField
+//    var avoidedlogdata: ArrayList<Array<String>> = ArrayList()
+//    @JvmField
+//    var donedata: ArrayList<Array<String>> = ArrayList()
+//    @JvmField
+//    var donelogdata: ArrayList<Array<String>> = ArrayList()
 
-public class Helper {
-    public static ArrayList<String> labels_array = new ArrayList<String>();
-    public static ArrayList<String[]> avoidedData =new ArrayList<>();
-    public static ArrayList<String[]> avoidedlogdata=new ArrayList<>();
-    public static ArrayList<String[]> donedata=new ArrayList<>();
-    public static ArrayList<String[]> donelogdata=new ArrayList<>();
-    public static ArrayList<String[]> habitsdata=new ArrayList<>();
-    public static ArrayList<String> avoidedweeklydata=new ArrayList<String>();
-    public static ArrayList<String> avoidedmonthlydata=new ArrayList<String>();
-    public static ArrayList<String> donemonthlydata=new ArrayList<String>();
-    public static ArrayList<String> doneweeklydata=new ArrayList<String>();
-    public static ArrayList<String> doneyearlydata=new ArrayList<String>();
-    public static ArrayList<String> avoidedyearlydata=new ArrayList<String>();
-    public static int SelectedButtonOfTodayTab=0;
-    public static int SelectedButtonOfLogTab=0;
-    public static int SelectedButtonOfLogDailyTab=0;
-    public static Boolean isTodaySelected=true;
-    public static String isnightmodeon="light";
-    public static String getSelecteddate="";
-
+//    @JvmField
+//    var avoidedweeklydata: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var avoidedmonthlydata: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var donemonthlydata: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var doneweeklydata: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var doneyearlydata: ArrayList<String> = ArrayList()
+//    @JvmField
+//    var avoidedyearlydata: ArrayList<String> = ArrayList()
+    @JvmField
+    var SelectedButtonOfTodayTab: Int = 0
+    @JvmField
+    var SelectedButtonOfLogTab: Int = 0
+    @JvmField
+    var SelectedButtonOfLogDailyTab: Int = 0
+    @JvmField
+    var isTodaySelected: Boolean = true
+//    @JvmField
+//    var getSelecteddate: String = ""
 }

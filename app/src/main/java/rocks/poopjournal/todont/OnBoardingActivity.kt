@@ -1,54 +1,63 @@
-package rocks.poopjournal.todont;
+package rocks.poopjournal.todont
 
-import static java.util.Calendar.getInstance;
+import android.content.Intent
+import android.os.Build
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import rocks.poopjournal.todont.databinding.ActivityOnBoardingBinding
+import rocks.poopjournal.todont.utils.Constants
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import rocks.poopjournal.todont.utils.ThemeMode
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+class OnBoardingActivity : AppCompatActivity() {
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+    private lateinit var binding: ActivityOnBoardingBinding
+    private lateinit var sharedPrefUtils: SharedPrefUtils
+    private val calendar: Calendar = Calendar.getInstance()
+    private val dateFormat = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Use ViewBinding to inflate the layout
+        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-public class OnBoardingActivity extends AppCompatActivity {
-Button btn;
-SharedPreferences sharedPreferences;
-    Calendar c = getInstance();
-    SimpleDateFormat df;
-    Db_Controller db_controller;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_boarding);
-
+        // Change the status bar color for devices with Lollipop or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            int backgroundColor = ContextCompat.getColor(this, R.color.backgroundcolor);
-
-            getWindow().setStatusBarColor(backgroundColor);
+            val backgroundColor = ContextCompat.getColor(this, R.color.backgroundcolor)
+            window.statusBarColor = backgroundColor
         }
-        db_controller = new Db_Controller(getApplicationContext(), "", null, 2);
-        df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        sharedPreferences=getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        btn=findViewById(R.id.btncontinue);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                db_controller.setNightMode("light");
-                db_controller.getNightMode();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("FirstTime","no");
-                editor.putString("InitialDate",df.format(c.getTime()));
-                editor.apply();
-                Intent i=new Intent(OnBoardingActivity.this,MainActivity.class);
-                startActivity(i);
+
+        // Initialize SharedPrefUtils
+        sharedPrefUtils = SharedPrefUtils(this)
+
+        // Set the button click listener using coroutines for better handling of async tasks
+        binding.btncontinue.setOnClickListener {
+            MainScope().launch {
+                handleOnBoardingCompletion()
             }
-        });
+        }
+    }
+
+    /**
+     * Handle the on-boarding completion, save necessary data to SharedPreferences and navigate to MainActivity.
+     */
+    private  fun handleOnBoardingCompletion() {
+        // Save settings in SharedPreferences
+        sharedPrefUtils.apply {
+            putString(SharedPrefUtils.KEY_NIGHT_MODE, ThemeMode.LIGHT_MODE.value)
+            putString(SharedPrefUtils.KEY_FIRST_TIME, Constants.NO)
+            putString(Constants.INITIAL_DATE_KEY, dateFormat.format(calendar.time))
+        }
+
+        // Start MainActivity
+        val intent = Intent(this@OnBoardingActivity, MainActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -1,51 +1,53 @@
-package rocks.poopjournal.todont.Fragments;
+package rocks.poopjournal.todont.fragments
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import rocks.poopjournal.todont.adapters.HabitsLogAdapter
+import rocks.poopjournal.todont.R
+import rocks.poopjournal.todont.model.Habit
+import rocks.poopjournal.todont.utils.DatabaseUtils
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-
-import rocks.poopjournal.todont.Adapters.HabitsLogAdapter;
-import rocks.poopjournal.todont.Db_Controller;
-import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.R;
-
-
-public class HabitsLogFragment extends Fragment {
-    RecyclerView rv;
-    ArrayList<String> gettingtasks = new ArrayList<>();
-    ArrayList<String> gettingcatagory = new ArrayList<>();
-    Db_Controller db;
-    HabitsLogAdapter adapter;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+class HabitsLogFragment : Fragment() {
+    var rv: RecyclerView? = null
+    var habitsList = ArrayList<Habit>()
+    private var dbHelper: DatabaseUtils? = null
+    private var adapter: HabitsLogAdapter? = null
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_log_habits, container, false);
-        rv = view.findViewById(R.id.rv);
-        db = new Db_Controller(getActivity(), "", null, 2);
-        db.show_labels();
-        db.show_habits_data();
-        setDataInList();
-        return view;
+        val view = inflater.inflate(R.layout.fragment_log_habits, container, false)
+        rv = view.findViewById(R.id.rv)
+        dbHelper = DatabaseUtils(requireContext())
 
+        setDataInList()
+        return view
     }
-    public void setDataInList() {
-        for (int i = 0; i < Helper.habitsdata.size(); i++) {
-            gettingtasks.add(Helper.habitsdata.get(i)[2]);
-            gettingcatagory.add(Helper.habitsdata.get(i)[4]);
+
+    private fun setDataInList() {
+        dbHelper?.getAllHabits()?.let {
+            habitsList = it
+            if (habitsList.isNotEmpty()) {
+
+                rv?.layoutManager = LinearLayoutManager(activity)
+                adapter =
+                    HabitsLogAdapter(
+                        requireContext(),
+                        dbHelper!!, habitsList
+                    )
+
+                rv!!.adapter = adapter
+                rv!!.layoutManager = LinearLayoutManager(activity)
+
+            }
+
         }
-       rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Log.d("catttt",""+gettingcatagory);
-        adapter= new HabitsLogAdapter(getActivity(), HabitsLogFragment.this,db,gettingtasks,gettingcatagory);
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
     }
 }

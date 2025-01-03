@@ -1,25 +1,21 @@
-package rocks.poopjournal.todont.Fragments;
+package rocks.poopjournal.todont.fragments
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import rocks.poopjournal.todont.R
 
-import androidx.fragment.app.Fragment;
+class menuFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.menu_fragment, container, false)
 
-import rocks.poopjournal.todont.R;
-
-public class menuFragment extends Fragment {
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.menu_fragment, container, false);
-
-        return view;
+        return view
     }
-
-
 }
 
 

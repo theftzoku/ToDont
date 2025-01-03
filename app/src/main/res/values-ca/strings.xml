@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string-array name="languages">
+        <item>Seleccioneu El Llenguatge</item>
+        <item>Txec</item>
+        <item>Danès</item>
+        <item>Alemany</item>
+        <item>Anglès</item>
+        <item>Espanyol</item>
+        <item>Italià</item>
+        <item>Francès</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Gener</item>
+            <item>Febrer</item>
+            <item>Marxar</item>
+            <item>Abril</item>
+            <item>Maig</item>
+            <item>Juny</item>
+            <item>Juliol</item>
+            <item>Agost</item>
+            <item>Setembre</item>
+            <item>Octubre</item>
+            <item>Novembre</item>
+            <item>Desembre</item>
+        </string-array>
+
+
+    <string name="delete_habit">Esteu Segur Que Voleu Suprimir Aquest Hàbit?</string>
+    <string name="LightMode">Per Donar \'T</string>
+    <string name="onboarding_reverse">La Llista Inversa De Tasques</string>
+    <string name="onboarding_bad">Anoteu Els Vostres Mals Hàbits.Cada Dia, Creu</string>
+    <string name="onboarding_gavein">Fora Dels Que Vau Cedir.I El Següent</string>
+    <string name="onboarding_freshlist">Comença Al Matí Amb La Llista Fresca.</string>
+    <string name="onboarding_continue">Continuar</string>
+    <string name="avoided">Evitat</string>
+    <string name="done">Fer</string>
+    <string name="habits">Hàbits</string>
+    <string name="today">Avui</string>
+    <string name="log">Tronc</string>
+    <string name="about">Al Voltant De</string>
+    <string name="labels">Etiquetes</string>
+    <string name="settings">Configuració</string>
+    <string name="mostav">Més Evitat:</string>
+    <string name="leastav">Menys Evitat:</string>
+    <string name="addlabel">Afegiu Primer Una Etiqueta</string>
+    <string name="addnewlabel">Afegiu Una Nova Etiqueta</string>
+    <string name="addtask">Entra Al Mal Hàbit</string>
+    <string name="note">Descripció</string>
+    <string name="save">Estalviar</string>
+    <string name="puthabit">Per Començar, Poseu Un Mal Hàbit</string>
+    <string name="habitswillshowuphere">Els Hàbits Apareixeran Aquí</string>
+    <string name="apachelicense">Llicència Apache 2.0</string>
+    <string name="developer">Desenvolupador</string>
+    <string name="contribute">Contribuir</string>
+    <string name="translate">Traduir</string>
+    <string name="report">Informeu D’Un Problema</string>
+    <string name="source">Veure Font</string>
+    <string name="opensourcelicense">Llicències De Codi Obert</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark">Fosc</string>
+    <string name="light">Llum</string>
+    <string name="update">Actualitzar</string>
+    <string name="feather">Icones De Ploma</string>
+    <string name="mitlicence">Llicència Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materials</string>
+    <string name="followsys">Segueix El Sistema</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Juny</string>
+    <string name="eclipse">Llicència Pública Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Llicència Pública General Gnu Ce</string>
+    <string-array name="spinner_array">
+        <item>Social</item>
+        <item>Aliments I Begudes</item>
+        <item>Estudis</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Per A No Seguir El Vostre Sistema.</string>
+    <string name="toast_light">Ara No Es Troba Al Costat Llum.</string>
+    <string name="toast_dark">Ara No És Al Costat Fosc Ara.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Afegiu Nou A L\'Article De Don \'T</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">I</string>
+    <string name="out_of">"Fora"</string>
+    <string name="habits_are_avoided">"S'Eviten Els Hàbits"</string>
+    <string name="habits_are_avoided_way_to_go">"S'Eviten Els Hàbits, Camí A Seguir!"</string>
+    <string name="avoided_">Evitat</string>
+    <string name="habits_">Hàbits</string>
+    <string name="delete">De Debò Voleu Suprimir -Ho?</string>
+    <string name="no">No</string>
+    <string name="deletes">De Debò Voleu Suprimir -Ho?</string>
+    <string name="yes">Sí</string>
+    <string name="please_add_a_label_first">Afegiu Primer Una Etiqueta</string>
+    <string name="do_you_really_want_to_delete_this">De Debò Voleu Suprimir -Ho?</string>
+    <string name="january">Gener</string>
+    <string name="february">Febrer</string>
+    <string name="march">Marxar</string>
+    <string name="april">Abril</string>
+    <string name="may">Maig</string>
+    <string name="june">Juny</string>
+    <string name="july">Juliol</string>
+    <string name="august">Agost</string>
+    <string name="september">Setembre</string>
+    <string name="october">Octubre</string>
+    <string name="november">Novembre</string>
+    <string name="december">Desembre</string>
+    <string name="mark_as_done_or_avoided">Marca Com Es Fa O S’Evita.</string>
+    <string name="help_make_to_don_t_better">Ajudeu A Fer \ "A Donar \'T \" Millor.</string>
+    <string name="todon_t_reminder">Recordatori Todon \'T</string>
+    <string name="mark_your_todon_t_task">"Marca La Teva Tasca Todon'T"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Per Començar, Poseu Un Mal Hàbit.</string>
+    <string name="view_your_stats">Consulteu Les Vostres Estadístiques.</string>
+    <string name="add_label">Afegiu Una Etiqueta.</string>
+    <string name="permission_required">Permís Necessari</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Aquesta Aplicació Requereix Accés Al Vostre Emmagatzematge Extern Per Restaurar La Base De Dades.Activeu Aquest Permís A La Configuració De L\'Aplicació.</string>
+    <string name="open_settings">Configuració Oberta</string>
+    <string name="select_repetition_frequency">Seleccioneu La Freqüència De Repetició</string>
+    <string name="once">Avans</string>
+    <string name="daily">Cada Dia</string>
+    <string name="weekly">Semanalment</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">De Debò Voleu Suprimir -Ho?</string>
+    <string name="data">Dades</string>
+    <string name="add_daily_notification">Afegiu Una Notificació Diària</string>
+    <string name="back_up">De Nou</string>
+    <string name="restore">Retornar</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

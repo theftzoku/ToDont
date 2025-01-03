@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>زبان را انتخاب کنید</item>
+        <item>وابسته به چک</item>
+        <item>وابسته به دانمارکی</item>
+        <item>آلمانی</item>
+        <item>انگلیسی</item>
+        <item>اسپانیایی</item>
+        <item>ایتالیایی</item>
+        <item>فرانسوی</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>ژانویه</item>
+            <item>فوریه</item>
+            <item>راهپیمایی</item>
+            <item>ماه آوریل</item>
+            <item>ماه مه</item>
+            <item>ژوئن</item>
+            <item>ژوئیه</item>
+            <item>اوت</item>
+            <item>سپتامبر</item>
+            <item>اکتبر</item>
+            <item>ماه نوامبر</item>
+            <item>دسامبر</item>
+        </string-array>
+
+
+    <string name="delete_habit">آیا مطمئن هستید که می خواهید این عادت را حذف کنید؟</string>
+    <string name="LightMode">به</string>
+    <string name="onboarding_reverse">لیست معکوس به انجام کارهای</string>
+    <string name="onboarding_bad">عادت های بد خود را پایین بیاورید.هر روز ، صلیب</string>
+    <string name="onboarding_gavein">از کسانی که به آنها وارد شده اید.و بعدی</string>
+    <string name="onboarding_freshlist">صبح با لیست تازه شروع کنید.</string>
+    <string name="onboarding_continue">ادامه دادن</string>
+    <string name="avoided">اجتناب شده</string>
+    <string name="done">انجام شده</string>
+    <string name="habits">عادات</string>
+    <string name="today">امروز</string>
+    <string name="log">ورود به سیستم</string>
+    <string name="about">در مورد</string>
+    <string name="labels">برچسب</string>
+    <string name="settings">تنظیمات</string>
+    <string name="mostav">بیشترین اجتناب از آن:</string>
+    <string name="leastav">حداقل اجتناب شده:</string>
+    <string name="addlabel">لطفاً ابتدا یک برچسب اضافه کنید</string>
+    <string name="addnewlabel">برچسب جدید اضافه کنید</string>
+    <string name="addtask">وارد عادت بد شوید</string>
+    <string name="note">شرح</string>
+    <string name="save">پس انداز کردن</string>
+    <string name="puthabit">برای شروع ، یک عادت بد را کنار بگذارید</string>
+    <string name="habitswillshowuphere">عادت ها در اینجا نشان داده می شوند</string>
+    <string name="apachelicense">مجوز آپاچی 2.0</string>
+    <string name="developer">توسعه دهنده</string>
+    <string name="contribute">مشارکت کردن</string>
+    <string name="translate">ترجمه کردن</string>
+    <string name="report">گزارش یک مشکل</string>
+    <string name="source">منبع مشاهده</string>
+    <string name="opensourcelicense">مجوزهای منبع باز</string>
+    <string name="appearance">ظاهر</string>
+    <string name="dark">تاریک</string>
+    <string name="light">سبک</string>
+    <string name="update">بروزرسانی</string>
+    <string name="feather">نمادهای پر</string>
+    <string name="mitlicence">مجوز Mit</string>
+    <string name="jetpack">جت پک اندرویدی</string>
+    <string name="materialspinner">سرپرست</string>
+    <string name="followsys">سیستم را دنبال کنید</string>
+    <string name="nobobutton">غول</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">مباحث</string>
+    <string name="junit">جنجال</string>
+    <string name="eclipse">مجوز عمومی Eclipse 1.0</string>
+    <string name="kotlin">کلاتلین</string>
+    <string name="java">جاوا</string>
+    <string name="gnu">مجوز عمومی عمومی Gnu</string>
+    <string-array name="spinner_array">
+        <item>وابسته به اجتماعی</item>
+        <item>غذاها و نوشیدنی ها</item>
+        <item>مطالعه</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">برای این که اکنون سیستم شما را دنبال نمی کند.</string>
+    <string name="toast_light">اکنون در کنار نور نیست.</string>
+    <string name="toast_dark">اکنون در کنار تاریک نیست.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">مورد جدید را به مورد اضافه کنید</string>
+    <string name="d">د</string>
+    <string name="w">حرف</string>
+    <string name="m">مگس</string>
+    <string name="y">حرف</string>
+    <string name="out_of">"خارج از"</string>
+    <string name="habits_are_avoided">"از عادت ها جلوگیری می شود"</string>
+    <string name="habits_are_avoided_way_to_go">"از عادت ها جلوگیری می شود ، راهی برای رفتن!"</string>
+    <string name="avoided_">اجتناب شده</string>
+    <string name="habits_">عادات</string>
+    <string name="delete">آیا واقعاً می خواهید این را حذف کنید؟</string>
+    <string name="no">هیچ</string>
+    <string name="deletes">آیا واقعاً می خواهید این را حذف کنید؟</string>
+    <string name="yes">بله</string>
+    <string name="please_add_a_label_first">لطفاً ابتدا یک برچسب اضافه کنید</string>
+    <string name="do_you_really_want_to_delete_this">آیا واقعاً می خواهید این را حذف کنید؟</string>
+    <string name="january">ژانویه</string>
+    <string name="february">فوریه</string>
+    <string name="march">راهپیمایی</string>
+    <string name="april">ماه آوریل</string>
+    <string name="may">ماه مه</string>
+    <string name="june">ژوئن</string>
+    <string name="july">ژوئیه</string>
+    <string name="august">اوت</string>
+    <string name="september">سپتامبر</string>
+    <string name="october">اکتبر</string>
+    <string name="november">ماه نوامبر</string>
+    <string name="december">دسامبر</string>
+    <string name="mark_as_done_or_avoided">علامت گذاری شده را انجام دهید یا اجتناب کنید.</string>
+    <string name="help_make_to_don_t_better">به بهتر کردن \ "برای بهتر کردن" کمک کنید.</string>
+    <string name="todon_t_reminder">یادآوری تودون</string>
+    <string name="mark_your_todon_t_task">"وظیفه خود را علامت گذاری نکنید"</string>
+    <string name="to_start_off_put_down_a_bad_habit">برای شروع ، یک عادت بد را کنار بگذارید.</string>
+    <string name="view_your_stats">آمار خود را مشاهده کنید</string>
+    <string name="add_label">برچسب اضافه کنید.</string>
+    <string name="permission_required">مجوز لازم است</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">این برنامه برای بازگرداندن بانک اطلاعاتی نیاز به دسترسی به فضای خارجی شما دارد.لطفاً این مجوز را در تنظیمات برنامه فعال کنید.</string>
+    <string name="open_settings">تنظیمات باز</string>
+    <string name="select_repetition_frequency">فرکانس تکرار را انتخاب کنید</string>
+    <string name="once">یک بار</string>
+    <string name="daily">روزمره</string>
+    <string name="weekly">هفتگی</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">آیا واقعاً می خواهید این را حذف کنید؟ \ Nthis همچنین تمام عادت های مربوط به این برچسب را حذف می کند.</string>
+    <string name="data">داده</string>
+    <string name="add_daily_notification">اعلان روزانه را اضافه کنید</string>
+    <string name="back_up">از پس دادن</string>
+    <string name="restore">بازگرداندن</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

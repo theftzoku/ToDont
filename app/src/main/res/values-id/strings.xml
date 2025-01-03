@@ -1,82 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">To Don\'t</string>
-    <string name="app_name">To Don\'t</string>
-    <string name="habitswillshowuphere">Kebiasaan akan muncul di sini</string>
-    <string name="puthabit">Untuk memulai, tuliskan kebiasaan buruk</string>
-    <string name="addnewlabel">Tambahkan label baru</string>
-    <string name="addlabel">Silakan tambahkan label terlebih dahulu</string>
-    <string name="leastav">Paling sedikit dihindari:</string>
-    <string name="mostav">Paling dihindari:</string>
-    <string name="settings">Pengaturan</string>
-    <string name="labels">Label</string>
-    <string name="about">Tentang</string>
-    <string name="log">Catatan</string>
-    <string name="today">Hari ini</string>
-    <string name="habits">Kebiasaan</string>
-    <string name="done">Selesai</string>
+
+    <string-array name="languages">
+        <item>Pilih Bahasa</item>
+        <item>Ceko</item>
+        <item>Denmark</item>
+        <item>Jerman</item>
+        <item>Bahasa Inggris</item>
+        <item>Spanyol</item>
+        <item>Italia</item>
+        <item>Perancis</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Januari</item>
+            <item>Februari</item>
+            <item>Berbaris</item>
+            <item>April</item>
+            <item>Mungkin</item>
+            <item>Juni</item>
+            <item>Juli</item>
+            <item>Agustus</item>
+            <item>September</item>
+            <item>Oktober</item>
+            <item>November</item>
+            <item>Desember</item>
+        </string-array>
+
+
+    <string name="delete_habit">Apakah Anda Yakin Ingin Menghapus Kebiasaan Ini?</string>
+    <string name="LightMode">Untuk Tidak</string>
+    <string name="onboarding_reverse">Daftar Yang Harus Dilakukan Terbalik</string>
+    <string name="onboarding_bad">Mencatat Kebiasaan Buruk Anda.Setiap Hari, Silang</string>
+    <string name="onboarding_gavein">Di Luar Yang Anda Berikan.Dan Berikutnya</string>
+    <string name="onboarding_freshlist">Mulailah Pagi Dengan Daftar Baru.</string>
+    <string name="onboarding_continue">Melanjutkan</string>
     <string name="avoided">Dihindari</string>
-    <string name="nobobutton">NoboButton</string>
-    <string name="circleimg">CircleImageView</string>
+    <string name="done">Selesai</string>
+    <string name="habits">Kebiasaan</string>
+    <string name="today">Hari Ini</string>
+    <string name="log">Log</string>
+    <string name="about">Tentang</string>
+    <string name="labels">Label</string>
+    <string name="settings">Pengaturan</string>
+    <string name="mostav">Kebanyakan Dihindari:</string>
+    <string name="leastav">Paling Tidak Dihindari:</string>
+    <string name="addlabel">Tolong Tambahkan Label Terlebih Dahulu</string>
+    <string name="addnewlabel">Tambahkan Label Baru</string>
+    <string name="addtask">Masukkan Kebiasaan Buruk</string>
+    <string name="note">Keterangan</string>
+    <string name="save">Menyimpan</string>
+    <string name="puthabit">Untuk Memulai, Hancurkan Kebiasaan Buruk</string>
+    <string name="habitswillshowuphere">Kebiasaan Akan Muncul Di Sini</string>
     <string name="apachelicense">Lisensi Apache 2.0</string>
     <string name="developer">Pengembang</string>
-    <string name="translate">Terjemah</string>
-    <string name="report">Laporkan masalah</string>
-    <string name="source">Lihat sumber</string>
-    <string name="jetpack">Android Jetpack</string>
-    <string name="followsys">Ikuti Sistem</string>
-    <string name="mpandroidchart">MPAndroidChart</string>
-    <string name="junit">JUnit</string>
-    <string name="eclipse">Lisensi Publik Eclipse 1.0</string>
-    <string name="kotlin">Kotlin</string>
-    <string name="java">Java</string>
-    <string name="contribute">Kontribusi</string>
-    <string name="opensourcelicense">Lisensi open-source</string>
-    <string name="appearance">Tampilan</string>
-    <string name="materialspinner">MaterialSpinner</string>
-    <string name="gnu">Lisensi Publik Umum GNU CE</string>
-    <string name="feather">Ikon Bulu</string>
-    <string name="mitlicence">Lisensi MIT</string>
-    <string name="save">Simpan</string>
-    <string name="contentDescription_FAB">Tambahkan item baru ke To Don\'t</string>
-    <string name="onboarding_freshlist">Pagi hari dimulai dengan daftar yang baru.</string>
-    <string name="toast_dark">To Don\'t sisi gelap.</string>
-    # Here are the non-translateable strings
-    <string name="onboarding_reverse">Daftar reverse to-do</string>
-    <string name="onboarding_bad">Catat kebiasaan buruk Anda. Setiap hari, coret</string>
-    <string name="onboarding_gavein">bagi anda yg menyerah. dan selanjutnya</string>
-    <string name="update">Perbarui</string>
-    <string name="light">Terang</string>
-    <string name="toast_light">To Don\'t sisi terang.</string>
-    <string name="onboarding_continue">Lanjutkan</string>
+    <string name="contribute">Menyumbang</string>
+    <string name="translate">Menerjemahkan</string>
+    <string name="report">Melaporkan Masalah</string>
+    <string name="source">Sumber Lihat</string>
+    <string name="opensourcelicense">Lisensi Open-Source</string>
+    <string name="appearance">Penampilan</string>
     <string name="dark">Gelap</string>
-    <string name="addtask">Masukkan tugas</string>
-    <string name="note">Catatan</string>
-    <string name="toast_system">To Don\'t sekarang mengikuti sistem Anda.</string>
+    <string name="light">Lampu</string>
+    <string name="update">Memperbarui</string>
+    <string name="feather">Ikon Bulu</string>
+    <string name="mitlicence">Lisensi Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Ikuti Sistem</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circlemageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Jawa</string>
+    <string name="gnu">Ce Lisensi Publik Umum Gnu</string>
+    <string-array name="spinner_array">
+        <item>Sosial</item>
+        <item>Makanan Dan Minuman</item>
+        <item>Studi</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Untuk Tidak Mengikuti Sistem Anda.</string>
+    <string name="toast_light">Untuk Tidak Ada Di Sisi Cahaya Sekarang.</string>
+    <string name="toast_dark">Untuk Tidak Ada Di Sisi Gelap Sekarang.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Tambahkan Baru Ke Item Tidak</string>
     <string name="d">D</string>
     <string name="w">W</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
+    <string name="out_of">"Keluar"</string>
+    <string name="habits_are_avoided">"Kebiasaan Dihindari"</string>
+    <string name="habits_are_avoided_way_to_go">"Kebiasaan Dihindari, Cara Untuk Pergi!"</string>
+    <string name="avoided_">Dihindari</string>
+    <string name="habits_">Kebiasaan</string>
+    <string name="delete">Apakah Anda Benar -Benar Ingin Menghapus Ini?</string>
+    <string name="no">Tidak</string>
+    <string name="deletes">Apakah Anda Benar -Benar Ingin Menghapus Ini?</string>
+    <string name="yes">Ya</string>
+    <string name="please_add_a_label_first">Tolong Tambahkan Label Terlebih Dahulu</string>
+    <string name="do_you_really_want_to_delete_this">Apakah Anda Benar -Benar Ingin Menghapus Ini?</string>
+    <string name="january">Januari</string>
+    <string name="february">Februari</string>
+    <string name="march">Berbaris</string>
     <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
+    <string name="may">Mungkin</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">Agustus</string>
     <string name="september">September</string>
-    <string name="october">October</string>
+    <string name="october">Oktober</string>
     <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="december">Desember</string>
+    <string name="mark_as_done_or_avoided">Tandai Seperti Yang Dilakukan Atau Dihindari.</string>
+    <string name="help_make_to_don_t_better">Membantu Membuat \ "Untuk Tidak Lebih Baik.</string>
+    <string name="todon_t_reminder">Pengingat Todon</string>
+    <string name="mark_your_todon_t_task">"Tandai Tugas Todon Anda"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Untuk Memulai, Hancurkan Kebiasaan Buruk.</string>
+    <string name="view_your_stats">Lihat Statistik Anda.</string>
+    <string name="add_label">Tambahkan Label.</string>
+    <string name="permission_required">Izin Diperlukan</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Aplikasi Ini Membutuhkan Akses Ke Penyimpanan Eksternal Anda Untuk Memulihkan Database.Harap Aktifkan Izin Ini Di Pengaturan Aplikasi.</string>
+    <string name="open_settings">Buka Pengaturan</string>
+    <string name="select_repetition_frequency">Pilih Frekuensi Pengulangan</string>
+    <string name="once">Sekali</string>
+    <string name="daily">Sehari-Hari</string>
+    <string name="weekly">Mingguan</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Apakah Anda Benar -Benar Ingin Menghapus Ini? Ini Juga Akan Menghapus Semua Kebiasaan Yang Terkait Dengan Label Ini.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Tambahkan Pemberitahuan Harian</string>
+    <string name="back_up">Cadangan</string>
+    <string name="restore">Memulihkan</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

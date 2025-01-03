@@ -1,385 +1,275 @@
-package rocks.poopjournal.todont.Fragments;
+package rocks.poopjournal.todont.fragments
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.sqlite.SQLiteException;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import rocks.poopjournal.todont.adapters.HabitsAdapter
+import rocks.poopjournal.todont.Helper
+import rocks.poopjournal.todont.MainActivity
+import rocks.poopjournal.todont.R
+import rocks.poopjournal.todont.databinding.DialogboxFloatingbuttonBinding
+import rocks.poopjournal.todont.model.Habit
+import rocks.poopjournal.todont.model.Label
+import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder
+import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder.Companion.init
+import rocks.poopjournal.todont.utils.Constants
+import rocks.poopjournal.todont.utils.DatabaseUtils
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+class HabitsFragment : Fragment() {
+    private var rv: RecyclerView? = null
+    private var habitsList = ArrayList<Habit>()
+    private var floatingActionButton: FloatingActionButton? = null
+    private var date: Date = Calendar.getInstance().time
+    private var selectedLabel: Label? = null
+    private var dbHelper: DatabaseUtils? = null
+    private var adapter: HabitsAdapter? = null
+    private var tvNoHabits: TextView? = null
+    private var showcaseViewBuilder: ShowcaseViewBuilder? = null
+    private var prefUtils: SharedPrefUtils? = null
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
-import rocks.poopjournal.todont.Adapters.HabitsAdapter;
-import rocks.poopjournal.todont.Db_Controller;
-import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.MainActivity;
-import rocks.poopjournal.todont.R;
-import rocks.poopjournal.todont.showcaseview.ShowcaseViewBuilder;
-import rocks.poopjournal.todont.utils.SharedPrefUtils;
-import smartdevelop.ir.eram.showcaseviewlib.GuideView;
-import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
-import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
-import smartdevelop.ir.eram.showcaseviewlib.config.PointerType;
-import smartdevelop.ir.eram.showcaseviewlib.listener.GuideListener;
-
-
-public class HabitsFragment extends Fragment {
-    RecyclerView rv;
-    ArrayList<String> gettingtasks = new ArrayList<>();
-    ArrayList<String> gettingcatagory = new ArrayList<>();
-    FloatingActionButton floatingActionButton;
-    Date c = Calendar.getInstance().getTime();
-    String catagoryselected;
-    Db_Controller db;
-    HabitsAdapter adapter;
-    TextView  tv2;
-    public ShowcaseViewBuilder showcaseViewBuilder;
-    private SharedPrefUtils prefUtils;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_habits, container, false);
-        Helper.SelectedButtonOfTodayTab = 0;
-        rv = view.findViewById(R.id.rv);
-        db = new Db_Controller(getActivity(), "", null, 2);
-        db.show_labels();
-        db.show_habits_data();
+        val view = inflater.inflate(R.layout.fragment_habits, container, false)
+        Helper.SelectedButtonOfTodayTab = 0
+        rv = view.findViewById(R.id.rv)
+        dbHelper = DatabaseUtils(requireContext())
 
-        showcaseViewBuilder = ShowcaseViewBuilder.init(requireActivity());
-        prefUtils = new SharedPrefUtils(requireActivity());
-        db.getNightMode();
-      //  tv1 = view.findViewById(R.id.a);
-        tv2 = view.findViewById(R.id.b);
-        floatingActionButton = view.findViewById(R.id.floatingbtn);
-        floatingActionButton.bringToFront();
-        floatingActionButton.setVisibility(View.VISIBLE);
-        if (Helper.habitsdata.size() != 0) {
-           // tv1.setVisibility(View.INVISIBLE);
-            tv2.setVisibility(View.INVISIBLE);
-        } else if (Helper.habitsdata.size() == 0) {
-           // tv1.setVisibility(View.VISIBLE);
-            tv2.setVisibility(View.VISIBLE);
-        }
+        showcaseViewBuilder = init(requireActivity())
+        prefUtils = SharedPrefUtils(requireActivity())
+        //  tv1 = view.findViewById(R.id.a);
+        tvNoHabits = view.findViewById(R.id.b)
+        floatingActionButton = view.findViewById(R.id.floatingbtn)
+        floatingActionButton?.bringToFront()
+        floatingActionButton?.setVisibility(View.VISIBLE)
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!prefUtils.getBool("plus")) {
-                    showcaseFab();
+        floatingActionButton?.setOnClickListener(View.OnClickListener {
+            addNewHabit()
+        })
+
+        return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setDataInList()
+    }
+
+    private fun addNewHabit() {
+        if (!prefUtils!!.getBool("plus")) {
+            showcaseFab()
+        } else {
+            val labelCount = dbHelper?.getLabelsCount()
+            if (labelCount == 0) {
+                Toast.makeText(activity, R.string.please_add_a_label_first, Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                val dateFormat = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
+                val formattedDate = dateFormat.format(date)
+
+                val dialog = Dialog(requireActivity())
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                val dialogView = DialogboxFloatingbuttonBinding.inflate(layoutInflater)
+                dialog.setContentView(dialogView.root)
+
+                val lp = dialog.window!!.attributes
+                lp.dimAmount = 0.9f
+                dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                val window = dialog.window
+                window!!.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT
+                )
+                dialog.window!!.attributes = lp
+
+                if (labelCount == 0) {
+                    dialogView.txt.visibility = View.VISIBLE
+                    dialogView.spinner.visibility = View.GONE
                 } else {
-                    if (Helper.labels_array.size() == 0) {
-                        Toast.makeText(getActivity(), R.string.please_add_a_label_first, Toast.LENGTH_LONG).show();
-                    } else {
-                        final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                        final String formattedDate = df.format(c);
-                        final Dialog d = new Dialog(getActivity());
-                        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        d.setContentView(R.layout.dialogbox_floatingbutton);
-                        Button btndone = d.findViewById(R.id.btndone);
-                        WindowManager.LayoutParams lp = d.getWindow().getAttributes();
-                        lp.dimAmount = 0.9f;
-                        d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                        Window window = d.getWindow();
-                        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-                        d.getWindow().setAttributes(lp);
-
-
-                        final Spinner spinner = d.findViewById(R.id.spinner);
-                        final TextView txt = d.findViewById(R.id.txt);
-                        if (Helper.labels_array.size() == 0) {
-                            txt.setVisibility(View.VISIBLE);
-                            spinner.setVisibility(View.INVISIBLE);
-                        } else {
-                            txt.setVisibility(View.INVISIBLE);
-                            spinner.setVisibility(View.VISIBLE);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Helper.labels_array);
-                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spinner.setAdapter(arrayAdapter);
-
-
-                        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                catagoryselected = adapterView.getItemAtPosition(i).toString();
-//                        if(Helper.isnightmodeon.equals("no")){
-                                ((TextView) adapterView.getChildAt(0)).setTextColor(getResources().getColor(R.color.textcolor));
-//
-//                        }
-//                        else if(Helper.isnightmodeon.equals("yes")){
-//                            ((TextView) adapterView.getChildAt(0)).setTextColor(Color.WHITE);
-//
-//                        }
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-                        Button saveTaskButton = d.findViewById(R.id.saveTaskButton);
-                        final EditText habit = d.findViewById(R.id.habit);
-                        final EditText detail = d.findViewById(R.id.detail);
-
-                        saveTaskButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-
-                                String habit_text = habit.getText().toString();
-                                String detail_text = detail.getText().toString();
-                                //String formattedDate = df.format(c);
-                                try {
-
-                                } catch (SQLiteException e) {
-                                }
-                                if (habit_text.equals("")) {
-
-                                }
-                                db.insert_habits(Helper.habitsdata.size(), formattedDate, habit_text, detail_text, 1, catagoryselected);
-                                db.show_habits_data();
-
-                                Helper.SelectedButtonOfTodayTab = 0;
-                                Intent i = new Intent(getActivity(), MainActivity.class);
-                                startActivity(i);
-                                getActivity().overridePendingTransition(0, 0);
-                                d.dismiss();
-                            }
-
-                        });
-                        spinner.setAdapter(arrayAdapter);
-                        d.show();
-
-                    }
+                    dialogView.txt.visibility = View.GONE
+                    dialogView.spinner.visibility = View.VISIBLE
                 }
-
-            }
-        });
-
-/*//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("ResourceAsColor")
-//            @Override
-//            public void onClick(View view) {
-//                final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-//                final String formattedDate = df.format(c);
-//                View bottomsheetview = null;
-//                final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(),
-//                        R.style.BottomSheetDialogTheme);
-//                bottomsheetview = LayoutInflater.from(getActivity().getApplicationContext()).
-//                            inflate(R.layout.layout_bottom_sheet,
-//                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
-////                if(Helper.isnightmodeon.equals("no")){
-////                    bottomsheetview = LayoutInflater.from(getActivity().getApplicationContext()).
-////                            inflate(R.layout.layout_bottom_sheet,
-////                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
-////                }
-////                else if(Helper.isnightmodeon.equals("yes")){
-////                    bottomsheetview = LayoutInflater.from(getActivity().getApplicationContext()).
-////                            inflate(R.layout.layout_bottom_sheet_nightmode,
-////                                    (RelativeLayout) view.findViewById(R.id.bottomsheetContainer));
-////                }
-//                final Spinner spinner = bottomsheetview.findViewById(R.id.spinner);
-//                final TextView txt=bottomsheetview.findViewById(R.id.txt);
-//                if(Helper.labels_array.size()==0){
-//                    txt.setVisibility(View.VISIBLE);
-//                    spinner.setVisibility(View.INVISIBLE);
-//                }
-//                else{
-//                    txt.setVisibility(View.INVISIBLE);
-//                    spinner.setVisibility(View.VISIBLE);
-//                }
-//
-//
-//                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,Helper.labels_array);
-//                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                spinner.setAdapter(arrayAdapter);
-//
-//
-//                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                        catagoryselected = adapterView.getItemAtPosition(i).toString();
-//                        if(Helper.isnightmodeon.equals("no")){
-//                            ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
-//
-//                        }
-//                        else if(Helper.isnightmodeon.equals("yes")){
-//                            ((TextView) adapterView.getChildAt(0)).setTextColor(Color.WHITE);
-//
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                    }
-//                });
-//
-//                Button saveTaskButton = bottomsheetview.findViewById(R.id.saveTaskButton);
-//                final EditText habit = bottomsheetview.findViewById(R.id.habit);
-//                final EditText detail = bottomsheetview.findViewById(R.id.detail);
-//
-//                saveTaskButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                        String habit_text = habit.getText().toString();
-//                        String detail_text = detail.getText().toString();
-//                        //String formattedDate = df.format(c);
-//                        try {
-//
-//                        } catch (SQLiteException e) {
-//                        }
-//                        if(habit_text.equals("")){
-//
-//                        }
-//                        db.insert_habits(Helper.habitsdata.size(),formattedDate, habit_text, detail_text, catagoryselected);
-//                        db.show_habits_data();
-//
-//                        Helper.SelectedButtonOfTodayTab=0;
-//                        Intent i=new Intent(getActivity(), MainActivity.class);
-//                        startActivity(i);
-//                        getActivity().overridePendingTransition(0,0);
-//                        bottomSheetDialog.dismiss();
-//                    }
-//
-//                });
-//                spinner.setAdapter((SpinnerAdapter) arrayAdapter);
-//                bottomSheetDialog.setContentView(bottomsheetview);
-//                bottomSheetDialog.show();
-//
-//
-//            }
-//        });*/
-        setDataInList();
-        return view;
-
-    }
-
-    private void showcaseFab() {
-//        showcaseViewBuilder.setTargetView(floatingActionButton).setBackgroundOverlayColor(0xcc000000)
-//                .setBgOverlayShape(ShowcaseViewBuilder.ROUND_RECT)
-//                .setRoundRectCornerDirection(ShowcaseViewBuilder.TOP_RIGHT)
-//                .setRoundRectOffset(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics())).setRingColor(0xcc8e8e8e)
-//                .setShowcaseShape(ShowcaseViewBuilder.SHAPE_CIRCLE).setRingWidth(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, getResources().getDisplayMetrics()))
-//                .setMarkerDrawable(getResources().getDrawable(R.drawable.arrow_up), Gravity.LEFT)
-//                .addCustomView(R.layout.fab_description_view, Gravity.LEFT, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, -228, getResources()
-//                        .getDisplayMetrics()), TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()), -300);
-////                    .addCustomView(R.layout.fab_description_view, Gravity.CENTER);
-//
-//        showcaseViewBuilder.show();
-//
-//        showcaseViewBuilder.setClickListenerOnView(R.id.btn, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                prefUtils.setBool("plus", true);
-//                showcaseViewBuilder.hide();
-//            }
-//        });
-        GuideView.Builder guideView=new GuideView.Builder(requireContext())
-                .setContentText("To Start Off, put down a bad habit.")
-                .setTargetView(floatingActionButton)
-                .setDismissType(DismissType.anywhere)
-                .setPointerType(PointerType.arrow)
-                .setGravity(Gravity.center)
-                .setGuideListener(new GuideListener() {
-                    @Override
-                    public void onDismiss(View view) {
-                        prefUtils.setBool("plus", true);
-                    }
-                });
+                val labels = dbHelper?.getAllLabels()!!
+                labels.add(0,Label(-1,"Select a label"))
+                val arrayAdapter = ArrayAdapter(
+                    requireActivity(),
+                    android.R.layout.simple_spinner_item,
+                    labels
+                )
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                dialogView.spinner.adapter = arrayAdapter
 
 
-        guideView.build().show();
+                dialogView.spinner.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            adapterView: AdapterView<*>,
+                            view: View,
+                            i: Int,
+                            l: Long
+                        ) {
+                            if(i!=0){
+                                selectedLabel = labels[i]
+                                (adapterView.getChildAt(0) as TextView).setTextColor(
+                                    resources.getColor(
+                                        R.color.textcolor
+                                    )
+                                )
+                            }
 
-
-    }
-
-    public void setDataInList() {
-        for (int i = 0; i < Helper.habitsdata.size(); i++) {
-            gettingtasks.add(Helper.habitsdata.get(i)[2]);
-            gettingcatagory.add(Helper.habitsdata.get(i)[5]);
-        }
-      if(!Helper.habitsdata.isEmpty()){
-          rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-          new ItemTouchHelper(itemtouchhelper).attachToRecyclerView(rv);
-          adapter = new HabitsAdapter(getActivity(), HabitsFragment.this, db, gettingtasks, gettingcatagory);
-          rv.setAdapter(adapter);
-          rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-      }
-    }
-
-    ItemTouchHelper.SimpleCallback itemtouchhelper = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
-            if (direction == 8) {
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-                builder1.setMessage(R.string.do_you_really_want_to_delete_this);
-                builder1.setCancelable(true);
-
-                builder1.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        int i = viewHolder.getAdapterPosition();
-                        db.delete_habits(i);
-                        for (int j = i + 1; j < Helper.habitsdata.size(); j++) {
-                            db.updateHabitsIdsAfterDeletion(Integer.parseInt(Helper.habitsdata.get(j)[0]));
                         }
-                        Helper.SelectedButtonOfTodayTab = 0;
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        startActivity(intent);
-                        getActivity().overridePendingTransition(0, 0);
-                        dialog.cancel();
+
+                        override fun onNothingSelected(adapterView: AdapterView<*>?) {
+                        }
                     }
-                });
 
-                builder1.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Helper.SelectedButtonOfTodayTab = 0;
-                        Intent i = new Intent(getActivity(), MainActivity.class);
-                        startActivity(i);
-                        getActivity().overridePendingTransition(0, 0);
-                        dialog.cancel();
-                    }
-                });
 
-                AlertDialog alert11 = builder1.create();
-                alert11.show();
+                dialogView.saveTaskButton.setOnClickListener {
+                    val habit_text = dialogView.habit.text.toString()
+                    val detail_text = dialogView.detail.text.toString()
 
+                    dbHelper?.insertHabit(
+                        Habit(
+                            date = formattedDate,
+                            name = habit_text,
+                            description = detail_text,
+                            countAvoided = 0,
+                            countDone = 0,
+                            labelId = selectedLabel?.labelId!!
+                        )
+                    )
+
+                    Helper.SelectedButtonOfTodayTab = 0
+//                    val i = Intent(activity, MainActivity::class.java)
+//                    startActivity(i)
+                    setDataInList()
+                    requireActivity().overridePendingTransition(0, 0)
+                    dialog.dismiss()
+                }
+                dialogView.spinner.adapter = arrayAdapter
+                dialog.show()
+            }
+        }
+    }
+
+    private fun showcaseFab() {
+        val guideView = GuideView.Builder(requireContext())
+            .setContentText(getString(R.string.to_start_off_put_down_a_bad_habit))
+            .setTargetView(floatingActionButton)
+            .setDismissType(DismissType.anywhere)
+            .setPointerType(PointerType.arrow)
+            .setGravity(Gravity.center)
+            .setGuideListener {
+                prefUtils!!.setBool(
+                    "plus",
+                    true
+                )
+            }
+        guideView.build().show()
+    }
+
+    private fun setDataInList() {
+        dbHelper?.getAllHabits()?.let {
+            habitsList = it
+            if (habitsList.isNotEmpty()) {
+                tvNoHabits?.visibility = View.INVISIBLE
+
+                rv?.layoutManager = LinearLayoutManager(activity)
+                ItemTouchHelper(itemtouchhelper).attachToRecyclerView(rv)
+                adapter =
+                    HabitsAdapter(
+                            requireContext(),
+                            dbHelper!!, habitsList
+                        )
+
+                rv!!.adapter = adapter
+                rv!!.layoutManager = LinearLayoutManager(activity)
+
+            } else {
+                tvNoHabits?.visibility = View.VISIBLE
             }
 
-        }
-    };
+        } ?: run { tvNoHabits?.setVisibility(View.VISIBLE) }
 
+    }
+
+    var itemtouchhelper: ItemTouchHelper.SimpleCallback =
+        object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                if (direction == 8) {
+                    val builder1 = AlertDialog.Builder(
+                        context
+                    )
+                    builder1.setMessage(R.string.do_you_really_want_to_delete_this)
+                    builder1.setCancelable(true)
+
+                    builder1.setPositiveButton(
+                        R.string.yes
+                    ) { dialog, id ->
+                        val i = viewHolder.adapterPosition
+                        dbHelper?.deleteHabit(habitsList[i].id)
+                        dbHelper?.deleteAllHabitRecords(habitsList[i].id)
+                        Helper.SelectedButtonOfTodayTab = 0
+                        habitsList.removeAt(i)
+                        adapter?.notifyItemRemoved(i)
+                        adapter?.notifyItemRangeChanged(0,habitsList.size)
+//                        val intent = Intent(activity, MainActivity::class.java)
+//                        startActivity(intent)
+                        activity!!.overridePendingTransition(0, 0)
+                        dialog.cancel()
+                    }
+
+                    builder1.setNegativeButton(
+                        R.string.no
+                    ) { dialog, id ->
+                        Helper.SelectedButtonOfTodayTab = 0
+//                        val i = Intent(activity, MainActivity::class.java)
+//                        startActivity(i)
+                        adapter?.notifyDataSetChanged()
+                        activity!!.overridePendingTransition(0, 0)
+                        dialog.cancel()
+                    }
+
+                    val alert11 = builder1.create()
+                    alert11.show()
+                }
+            }
+        }
 }

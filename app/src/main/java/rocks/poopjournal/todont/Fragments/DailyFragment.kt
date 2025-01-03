@@ -1,247 +1,121 @@
-package rocks.poopjournal.todont.Fragments;
+package rocks.poopjournal.todont.fragments
 
-import static java.util.Calendar.getInstance;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
+import android.graphics.Color
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import rocks.poopjournal.todont.Helper
+import rocks.poopjournal.todont.R
+import rocks.poopjournal.todont.databinding.FragmentDailyBinding
+import rocks.poopjournal.todont.model.HabitRecord
+import rocks.poopjournal.todont.utils.Constants
+import rocks.poopjournal.todont.utils.DatabaseUtils
+import rocks.poopjournal.todont.utils.HabitStatus
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import rocks.poopjournal.todont.fragments.HabitsLogFragment
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+class DailyFragment : Fragment() {
+    private var binding: FragmentDailyBinding? = null
+    private val calendar: Calendar = Calendar.getInstance()
+    private val currentDayCalendar: Calendar = Calendar.getInstance()
+    private var formattedDate: String = ""
+    private var databaseUtils: DatabaseUtils? = null
+    private var habitsTotalCount: Double = 0.0
+    private var avoidedCount: Double = 0.0
+    private var avoidedPercentage: Int = 0
+    private var sharedPreferences: SharedPrefUtils? = null
+    private var initialDate: String? = null
+    private var avoidedHabitRecords: List<String>? = null
 
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentDailyBinding.inflate(inflater, container, false)
+        sharedPreferences = SharedPrefUtils(requireContext())
+        initialDate = sharedPreferences?.getString("InitialDate", "")
+        Helper.SelectedButtonOfLogTab = 1
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
+        databaseUtils = DatabaseUtils(requireContext())
+        val dateFormatter = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
+        formattedDate = dateFormatter.format(calendar.time)
 
-import rocks.poopjournal.todont.Db_Controller;
-import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.R;
-import rocks.poopjournal.todont.databinding.FragmentDailyBinding;
+        binding?.apply {
+            date.text = formattedDate
+            before.setBackgroundResource(R.drawable.ic_backarrow)
+            after.setBackgroundResource(R.drawable.ic_nextarrow)
 
-public class DailyFragment extends Fragment {
-    private FragmentDailyBinding binding;
+            updateHabitStatistics(formattedDate)
 
-    ProgressBar progressBar;
-    Calendar c = getInstance();
-    Calendar d = getInstance();
-    String formattedDate;
-    Db_Controller db;
-    double habitsSize, avoidedSize, doneSize;
-    int avoidedPercentage, donePercentage;
-    SharedPreferences prefs;
-    String checkDate;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentDailyBinding.inflate(inflater, container, false);
-        prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        checkDate = prefs.getString("InitialDate", "");
-        Helper.SelectedButtonOfLogTab = 1;
-        db = new Db_Controller(getActivity(), "", null, 2);
-        db.show_habits_data();
-        final SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        binding.date.setText("" + df.format(c.getTime()));
-        formattedDate = df.format(c.getTime());
-        Helper.getSelecteddate = formattedDate;
-        db.getDailyAvoidedRecord(Helper.getSelecteddate);
-        db.getDailyDoneRecord(Helper.getSelecteddate);
-        habitsSize = Helper.habitsdata.size();
-        avoidedSize = Helper.avoidedlogdata.size();
-        doneSize = Helper.donelogdata.size();
-        avoidedPercentage = (int) ((avoidedSize / habitsSize) * 100);
-        binding.percentage.setText(avoidedPercentage + "% Avoided");
-        Log.d("qqqqqq", "" + avoidedPercentage);
-        if (avoidedPercentage == 100) {
-            binding.progressText.setText((int) avoidedSize + getString(R.string.out_of) + (int) habitsSize + getString(R.string.habits_are_avoided));
-        } else {
-            binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize + getString(R.string.habits_are_avoided_way_to_go));
+            before.setOnClickListener { handleDateChange(-1, dateFormatter) }
+            after.setOnClickListener { handleDateChange(1, dateFormatter) }
+
         }
-        binding.percentage.setText(avoidedPercentage + "% Avoided");
-        binding.before.setBackgroundResource(R.drawable.ic_backarrow);
-        binding.after.setBackgroundResource(R.drawable.ic_nextarrow);
-        if (Helper.SelectedButtonOfLogDailyTab == 0) {
-            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.containerLogDailyFragment, new HabitsLogFragment());
-            ft.commit();
+
+        return binding?.root
+    }
+
+    private fun handleDateChange(dayOffset: Int, dateFormatter: SimpleDateFormat) {
+        calendar.add(Calendar.DATE, dayOffset)
+        formattedDate = dateFormatter.format(calendar.time)
+
+        binding?.apply {
+            date.text = formattedDate
+//            before.isEnabled = formattedDate != initialDate
+//            after.isEnabled = formattedDate != dateFormatter.format(currentDayCalendar.time)
+
+            updateHabitStatistics(formattedDate)
         }
-        funcPieChart(avoidedPercentage);
-        if (binding.date.getText().toString().equals(checkDate)) {
-            binding.before.setEnabled(false);
-            binding.before.setEnabled(false);
+    }
+
+    private fun updateHabitStatistics(date: String) {
+        avoidedHabitRecords = databaseUtils?.getRecordsByDateAndStatus(date, HabitStatus.AVOIDED.value)
+        habitsTotalCount = databaseUtils?.getHabitsCount()?.toDouble() ?: 0.0
+        avoidedCount = avoidedHabitRecords?.size?.toDouble() ?: 0.0
+        avoidedPercentage = if (habitsTotalCount > 0) ((avoidedCount / habitsTotalCount) * 100).toInt() else 0
+
+        binding?.apply {
+            percentage.text = "$avoidedPercentage% "+getString(R.string.avoided)
+            progressText.text = getString(
+                if (avoidedPercentage == 100) R.string.habits_are_avoided else R.string.habits_are_avoided_way_to_go,
+                avoidedCount.toInt(), habitsTotalCount.toInt()
+            )
+            updatePieChart(avoidedPercentage)
         }
-        binding.before.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.before.setBackgroundResource(R.drawable.ic_backarrowpressed);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        binding.before.setBackgroundResource(R.drawable.ic_backarrow);
-                    }
-                }, 100);
-                binding.after.setEnabled(true);
-                c.add(Calendar.DATE, -1);
-                formattedDate = df.format(c.getTime());
-                if (binding.date.getText().toString().equals(checkDate)) {
-                    binding.before.setEnabled(false);
-                } else {
-                    Helper.getSelecteddate = formattedDate;
-                    binding.date.setText("" + formattedDate);
-                    db.getDailyAvoidedRecord(Helper.getSelecteddate);
-                    db.getDailyDoneRecord(Helper.getSelecteddate);
-                    habitsSize = Helper.habitsdata.size();
-                    avoidedSize = Helper.avoidedlogdata.size();
-                    avoidedPercentage = (int) ((avoidedSize / habitsSize) * 100);
-                    if (avoidedPercentage == 100) {
-                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of)  + (int) habitsSize +getString(R.string.habits_are_avoided) );
-                    } else {
-                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of)  + (int) habitsSize +  getString(R.string.habits_are_avoided_way_to_go));
-                    }
-                    binding.percentage.setText(avoidedPercentage + "% Avoided");
-                    funcPieChart(avoidedPercentage);
-                }
-
-
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                if (Helper.SelectedButtonOfLogDailyTab == 0) {
-                    ft.replace(R.id.containerLogDailyFragment, new HabitsLogFragment());
-
-                } else if (Helper.SelectedButtonOfLogDailyTab == 1) {
-                    ft.replace(R.id.containerLogDailyFragment, new AvoidedLogFragment());
-
-                } else if (Helper.SelectedButtonOfLogDailyTab == 2) {
-                    ft.replace(R.id.containerLogDailyFragment, new DoneLogFragment());
-                }
-                ft.commit();
-            }
-        });
-        binding.after.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.after.setBackgroundResource(R.drawable.ic_nextpressed);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        binding.after.setBackgroundResource(R.drawable.ic_nextarrow);
-                    }
-                }, 100);
-                binding.before.setEnabled(true);
-                String currdate = df.format(d.getTime());
-                c.add(Calendar.DATE, +1);
-                formattedDate = df.format(c.getTime());
-                if (binding.date.getText().toString().equals(currdate)) {
-                    binding.after.setEnabled(false);
-                } else {
-                    Helper.getSelecteddate = formattedDate;
-                    binding.date.setText("" + formattedDate);
-                    db.getDailyAvoidedRecord(Helper.getSelecteddate);
-                    db.getDailyDoneRecord(Helper.getSelecteddate);
-                    habitsSize = Helper.habitsdata.size();
-                    avoidedSize = Helper.avoidedlogdata.size();
-                    avoidedPercentage = (int) ((avoidedSize / habitsSize) * 100);
-                    Log.d("qqqqqq", "" + avoidedPercentage);
-                    if (avoidedPercentage == 100) {
-                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize +getString(R.string.habits_are_avoided));
-                    } else {
-                        binding.progressText.setText((int) avoidedSize +getString(R.string.out_of) + (int) habitsSize +  getString(R.string.habits_are_avoided_way_to_go));
-                    }
-                    binding.percentage.setText(avoidedPercentage + "% Avoided");
-                    funcPieChart(avoidedPercentage);
-                }
-
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                if (Helper.SelectedButtonOfLogDailyTab == 0) {
-                    ft.replace(R.id.containerLogDailyFragment, new HabitsLogFragment());
-
-                } else if (Helper.SelectedButtonOfLogDailyTab == 1) {
-                    ft.replace(R.id.containerLogDailyFragment, new AvoidedLogFragment());
-
-                } else if (Helper.SelectedButtonOfLogDailyTab == 2) {
-                    ft.replace(R.id.containerLogDailyFragment, new DoneLogFragment());
-
-                }
-                ft.commit();
-            }
-        });
-        binding.dhabits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                binding.ddone.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.davoided.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.dhabits.setBackgroundResource(R.drawable.continuebutton2);
-
-                Helper.SelectedButtonOfLogDailyTab = 0;
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.containerLogDailyFragment, new HabitsLogFragment());
-                ft.commit();
-            }
-        });
-        binding.davoided.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                binding.dhabits.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.ddone.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.davoided.setBackgroundResource(R.drawable.continuebutton2);
-                Helper.SelectedButtonOfLogDailyTab = 1;
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.containerLogDailyFragment, new AvoidedLogFragment());
-                ft.commit();
-            }
-        });
-        binding.ddone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.dhabits.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.davoided.setBackgroundResource(R.drawable.continuebuttontrans);
-                binding.ddone.setBackgroundResource(R.drawable.continuebutton2);
-                Helper.SelectedButtonOfLogDailyTab = 2;
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.containerLogDailyFragment, new DoneLogFragment());
-                ft.commit();
-            }
-        });
-        return binding.getRoot();
     }
 
 
-    public void funcPieChart(int avoidedPer) {
-        binding.pieChart.setUsePercentValues(true);
-        List<PieEntry> value = new ArrayList<>();
-        value.add(new PieEntry((float) avoidedPer, getString(R.string.avoided_)));
-        value.add(new PieEntry((float) (100.0 - avoidedPer), getString(R.string.habits_)));
-        PieDataSet pieDataSet = new PieDataSet(value, "");
-        pieDataSet.setValueTextColor(Color.WHITE);
-        PieData pieData = new PieData(pieDataSet);
-        binding.pieChart.setData(pieData);
-        pieDataSet.setColors(Color.parseColor("#FFAF01"), Color.parseColor("#26272c"));
-        Legend legend = binding.pieChart.getLegend();
-        legend.setEnabled(false);
-        Description description = new Description();
-        description.setText("");
-        binding.pieChart.setDescription(description);
-        binding.pieChart.setHoleRadius(50f);
-        binding.pieChart.setHoleColor(getResources().getColor(R.color.backgroundcolor));
-        binding.pieChart.setTransparentCircleRadius(50f);
-        binding.pieChart.animateXY(1000, 1000);
-    }
-//#ed8709
 
+    private fun updatePieChart(avoidedPercentage: Int) {
+        binding?.pieChart?.apply {
+            setUsePercentValues(true)
+            val entries = listOf(
+                PieEntry(avoidedPercentage.toFloat(), getString(R.string.avoided)),
+                PieEntry((100 - avoidedPercentage).toFloat(), getString(R.string.habits))
+            )
+            val dataSet = PieDataSet(entries, "").apply {
+                valueTextColor = Color.WHITE
+                setColors(Color.parseColor("#FFAF01"), Color.parseColor("#26272c"))
+            }
+            data = PieData(dataSet)
+            legend.isEnabled = false
+            description = Description().apply { text = "" }
+            holeRadius = 50f
+            setHoleColor(resources.getColor(R.color.backgroundcolor, null))
+            transparentCircleRadius = 50f
+            animateXY(1000, 1000)
+        }
+    }
 }

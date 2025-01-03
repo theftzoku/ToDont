@@ -1,45 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">안 할일</string>
-    <string name="app_name">안 할일</string>
-    <string name="habitswillshowuphere">작성한 습관들이 여기에 표시될껍니다.</string>
-    <string name="puthabit">시작하기 위해서, 가지고 있는 나쁜 습관들을 먼저 적어보세요</string>
-    <string name="addnewlabel">새로운 라벨 추가</string>
-    <string name="addlabel">라벨 먼저 추가해주세요</string>
-    <string name="leastav">가장 적게 회피한 것:</string>
-    <string name="mostav">가장 많이 회피한 것:</string>
-    <string name="settings">설정</string>
-    <string name="labels">라벨</string>
-    <string name="about">대하여</string>
-    <string name="log">기록</string>
+
+    <string-array name="languages">
+        <item>언어를 선택하십시오</item>
+        <item>체코 사람</item>
+        <item>덴마크 말</item>
+        <item>독일 사람</item>
+        <item>영어</item>
+        <item>스페인 사람</item>
+        <item>이탈리아 사람</item>
+        <item>프랑스 국민</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>1월</item>
+            <item>2월</item>
+            <item>3월</item>
+            <item>4월</item>
+            <item>5월</item>
+            <item>6월</item>
+            <item>칠월</item>
+            <item>팔월</item>
+            <item>구월</item>
+            <item>십월</item>
+            <item>십일월</item>
+            <item>12월</item>
+        </string-array>
+
+
+    <string name="delete_habit">이 습관을 삭제 하시겠습니까?</string>
+    <string name="LightMode">Don \'T</string>
+    <string name="onboarding_reverse">반대 할 일 목록</string>
+    <string name="onboarding_bad">당신의 나쁜 습관을 내려 놓으십시오.매일, 십자가</string>
+    <string name="onboarding_gavein">당신이 주신 사람들.그리고 다음</string>
+    <string name="onboarding_freshlist">아침은 새로운 목록으로 시작합니다.</string>
+    <string name="onboarding_continue">계속하다</string>
+    <string name="avoided">피해</string>
+    <string name="done">완료</string>
+    <string name="habits">버릇</string>
     <string name="today">오늘</string>
-    <string name="habits">습관들</string>
-    <string name="done">저지른일</string>
-    <string name="avoided">회피함</string>
-    <string name="d">D</string>
+    <string name="log">통나무</string>
+    <string name="about">에 대한</string>
+    <string name="labels">라벨</string>
+    <string name="settings">설정</string>
+    <string name="mostav">가장 피하는 :</string>
+    <string name="leastav">최소한 피하기 :</string>
+    <string name="addlabel">먼저 레이블을 추가하십시오</string>
+    <string name="addnewlabel">새 레이블을 추가하십시오</string>
+    <string name="addtask">나쁜 습관을 입력하십시오</string>
+    <string name="note">설명</string>
+    <string name="save">구하다</string>
+    <string name="puthabit">시작하려면 나쁜 습관을 내려 놓으십시오</string>
+    <string name="habitswillshowuphere">습관이 여기에 나타날 것입니다</string>
+    <string name="apachelicense">아파치 라이센스 2.0</string>
+    <string name="developer">개발자</string>
+    <string name="contribute">기여하다</string>
+    <string name="translate">번역하다</string>
+    <string name="report">문제를보고하십시오</string>
+    <string name="source">소스를 봅니다</string>
+    <string name="opensourcelicense">오픈 소스 라이센스</string>
+    <string name="appearance">모습</string>
+    <string name="dark">어두운</string>
+    <string name="light">빛</string>
+    <string name="update">업데이트</string>
+    <string name="feather">깃털 아이콘</string>
+    <string name="mitlicence">Mit 라이센스</string>
+    <string name="jetpack">안드로이드 제트 팩</string>
+    <string name="materialspinner">재료 스핀너</string>
+    <string name="followsys">시스템을 따르십시오</string>
+    <string name="nobobutton">노보 부트 턴</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">주니트</string>
+    <string name="eclipse">일식 공개 라이센스 1.0</string>
+    <string name="kotlin">코 틀린</string>
+    <string name="java">자바</string>
+    <string name="gnu">Gnu 일반 공공 라이센스 Ce</string>
+    <string-array name="spinner_array">
+        <item>사회의</item>
+        <item>음식과 음료</item>
+        <item>연구</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">이제 시스템을 따르지 마십시오.</string>
+    <string name="toast_light">지금은 가벼운쪽에 있습니다.</string>
+    <string name="toast_dark">지금은 어두운면에 있습니다.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Don \'T 항목에 새로 추가하십시오</string>
+    <string name="d">디</string>
     <string name="w">W</string>
-    <string name="m">M</string>
-    <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="m">중</string>
+    <string name="y">와이</string>
+    <string name="out_of">"Out"</string>
+    <string name="habits_are_avoided">"습관은 피해요"</string>
+    <string name="habits_are_avoided_way_to_go">"습관을 피하고,가는 길!"</string>
+    <string name="avoided_">피해</string>
+    <string name="habits_">버릇</string>
+    <string name="delete">정말로 이것을 삭제하고 싶습니까?</string>
+    <string name="no">아니요</string>
+    <string name="deletes">정말로 이것을 삭제하고 싶습니까?</string>
+    <string name="yes">예</string>
+    <string name="please_add_a_label_first">먼저 레이블을 추가하십시오</string>
+    <string name="do_you_really_want_to_delete_this">정말로 이것을 삭제하고 싶습니까?</string>
+    <string name="january">1월</string>
+    <string name="february">2월</string>
+    <string name="march">3월</string>
+    <string name="april">4월</string>
+    <string name="may">5월</string>
+    <string name="june">6월</string>
+    <string name="july">칠월</string>
+    <string name="august">팔월</string>
+    <string name="september">구월</string>
+    <string name="october">십월</string>
+    <string name="november">십일월</string>
+    <string name="december">12월</string>
+    <string name="mark_as_done_or_avoided">완료되거나 피하는대로 표시하십시오.</string>
+    <string name="help_make_to_don_t_better">"\'T \"를 더 잘하지 않도록 도와주세요.</string>
+    <string name="todon_t_reminder">Todon \'T 알림</string>
+    <string name="mark_your_todon_t_task">"당신의 Todon N'T Task 표시"</string>
+    <string name="to_start_off_put_down_a_bad_habit">시작하려면 나쁜 습관을 내려 놓으십시오.</string>
+    <string name="view_your_stats">통계를보십시오.</string>
+    <string name="add_label">레이블을 추가하십시오.</string>
+    <string name="permission_required">권한이 필요합니다</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">이 앱은 데이터베이스를 복원하려면 외부 스토리지에 액세스해야합니다.앱 설정 에서이 권한을 활성화하십시오.</string>
+    <string name="open_settings">열기 설정</string>
+    <string name="select_repetition_frequency">반복 주파수를 선택하십시오</string>
+    <string name="once">한 번</string>
+    <string name="daily">일일</string>
+    <string name="weekly">주간</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">정말로 이것을 삭제하고 싶습니까? \ N이 레이블과 관련된 모든 습관도 삭제합니다.</string>
+    <string name="data">데이터</string>
+    <string name="add_daily_notification">매일 알림을 추가하십시오</string>
+    <string name="back_up">백업</string>
+    <string name="restore">복원하다</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

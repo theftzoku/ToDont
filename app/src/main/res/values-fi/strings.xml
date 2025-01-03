@@ -1,37 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">Älä</string>
-    <string name="app_name">Älä</string>
-    <string name="settings">Asetukset</string>
-    <string name="about">Tietoja</string>
-    <string name="log">Loki</string>
+    <string-array name="languages">
+        <item>Valitse Kieli</item>
+        <item>Tšekin</item>
+        <item>Tanskalainen</item>
+        <item>Saksalainen</item>
+        <item>Englanti</item>
+        <item>Espanjalainen</item>
+        <item>Italialainen</item>
+        <item>Ranskalainen</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Tammikuu</item>
+            <item>Helmikuu</item>
+            <item>Maaliskuu</item>
+            <item>Huhtikuu</item>
+            <item>Toukokuu</item>
+            <item>Kesäkuu</item>
+            <item>Heinäkuu</item>
+            <item>Elokuu</item>
+            <item>Syyskuu</item>
+            <item>Lokakuu</item>
+            <item>Marraskuu</item>
+            <item>Joulukuu</item>
+        </string-array>
+
+
+    <string name="delete_habit">Haluatko Varmasti Poistaa Tämän Tavan?</string>
+    <string name="LightMode">Don \'T</string>
+    <string name="onboarding_reverse">Käänteinen Tehtäväluettelo</string>
+    <string name="onboarding_bad">Kirjoita Huonot Tottumuksesi.Joka Päivä, Ristiä</string>
+    <string name="onboarding_gavein">Ulkona Ne, Joihin Annoit.Ja Seuraava</string>
+    <string name="onboarding_freshlist">Aamu Alkaa Tuoreella Luettelolla.</string>
+    <string name="onboarding_continue">Jatkaa</string>
+    <string name="avoided">Vältti</string>
+    <string name="done">Tehty</string>
+    <string name="habits">Tottumukset</string>
     <string name="today">Tänään</string>
-    <string name="avoided">Vältetty</string>
-    <string name="done">Valmis</string>
-    <string name="d">D</string>
-    <string name="w">W</string>
+    <string name="log">Loki</string>
+    <string name="about">Noin</string>
+    <string name="labels">Merkinnät</string>
+    <string name="settings">Asetukset</string>
+    <string name="mostav">Eniten Vältetty:</string>
+    <string name="leastav">Vähiten Vältetty:</string>
+    <string name="addlabel">Lisää Ensin Etiketti</string>
+    <string name="addnewlabel">Lisää Uusi Tarra</string>
+    <string name="addtask">Syötä Huono Tapa</string>
+    <string name="note">Kuvaus</string>
+    <string name="save">Tallentaa</string>
+    <string name="puthabit">To start off, put down a bad habit</string>
+    <string name="habitswillshowuphere">Tapautus Ilmestyy Täällä</string>
+    <string name="apachelicense">Apache -Lisenssi 2.0</string>
+    <string name="developer">Kehittäjä</string>
+    <string name="contribute">Osallistua</string>
+    <string name="translate">Kääntää</string>
+    <string name="report">Ilmoita Ongelma</string>
+    <string name="source">Katsella Lähdettä</string>
+    <string name="opensourcelicense">Avoimen Lähdekoodin Lisenssit</string>
+    <string name="appearance">Esiintyminen</string>
+    <string name="dark">Tumma</string>
+    <string name="light">Valaistus</string>
+    <string name="update">Päivittää</string>
+    <string name="feather">Höyhenkuvakkeet</string>
+    <string name="mitlicence">Mit -Lisenssi</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materiaali</string>
+    <string name="followsys">Seurata Järjestelmää</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public Licence 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu: N Julkinen Lisenssi Ce</string>
+    <string-array name="spinner_array">
+        <item>Sosiaalinen</item>
+        <item>Ruokia Ja Juomia</item>
+        <item>Opinnot</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Älä Seuraa Nyt Järjestelmääsi.</string>
+    <string name="toast_light">Don \'T On Nyt Kevyellä Puolella.</string>
+    <string name="toast_dark">Don \'T On Nyt Pimeällä Puolella.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Lisää Uusi Don \'T -Kohde</string>
+    <string name="d">D -D</string>
+    <string name="w">W -W -</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="out_of">"Out"</string>
+    <string name="habits_are_avoided">"Tapautukset Vältetään"</string>
+    <string name="habits_are_avoided_way_to_go">"Tapautukset Vältetään, Tapa Edetä!"</string>
+    <string name="avoided_">Vältti</string>
+    <string name="habits_">Tottumukset</string>
+    <string name="delete">Haluatko Todella Poistaa Tämän?</string>
+    <string name="no">Ei</string>
+    <string name="deletes">Haluatko Todella Poistaa Tämän?</string>
+    <string name="yes">Kyllä</string>
+    <string name="please_add_a_label_first">Lisää Ensin Etiketti</string>
+    <string name="do_you_really_want_to_delete_this">Haluatko Todella Poistaa Tämän?</string>
+    <string name="january">Tammikuu</string>
+    <string name="february">Helmikuu</string>
+    <string name="march">Maaliskuu</string>
+    <string name="april">Huhtikuu</string>
+    <string name="may">Toukokuu</string>
+    <string name="june">Kesäkuu</string>
+    <string name="july">Heinäkuu</string>
+    <string name="august">Elokuu</string>
+    <string name="september">Syyskuu</string>
+    <string name="october">Lokakuu</string>
+    <string name="november">Marraskuu</string>
+    <string name="december">Joulukuu</string>
+    <string name="mark_as_done_or_avoided">Merkitse Tehty Tai Vältetty.</string>
+    <string name="help_make_to_don_t_better">Auta Tekemään \ "Don \'T \" Parempaa.</string>
+    <string name="todon_t_reminder">Todon -Muistutus</string>
+    <string name="mark_your_todon_t_task">"Merkitse Todon -Tehtävä"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Aloittamalla Laita Huono Tapa.</string>
+    <string name="view_your_stats">Katso Tilastot.</string>
+    <string name="add_label">Lisää Etiketti.</string>
+    <string name="permission_required">Vaaditaan Lupa</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Tämä Sovellus Vaatii Pääsyn Ulkoiseen Tallennustilaan Tietokannan Palauttamiseksi.Ota Tämä Lupa Käyttöön Sovellusasetuksissa.</string>
+    <string name="open_settings">Avaa Asetukset</string>
+    <string name="select_repetition_frequency">Valitse Toistotaajuus</string>
+    <string name="once">Kerran</string>
+    <string name="daily">Päivittäin</string>
+    <string name="weekly">Viikoittain</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Haluatko Todella Poistaa Tämän? \ Nthis Poistaa Myös Kaikki Tähän Etikettiin Liittyvät Tavat.</string>
+    <string name="data">Tiedot</string>
+    <string name="add_daily_notification">Lisää Päivittäinen Ilmoitus</string>
+    <string name="back_up">Tutustua</string>
+    <string name="restore">Palauttaa</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

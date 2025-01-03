@@ -1,31 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">Lass se</string>
-    <string name="app_name">Lass se</string>
+    <string-array name="languages">
+        <item>Vali Keel</item>
+        <item>Tšehhi Keel</item>
+        <item>Taani</item>
+        <item>Sakslane</item>
+        <item>Inglise Keel</item>
+        <item>Hispaania</item>
+        <item>Itaallane</item>
+        <item>Prantsuse</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Jaanuar</item>
+            <item>Veebruar</item>
+            <item>Marssima</item>
+            <item>Aprill</item>
+            <item>Mai</item>
+            <item>Juuni</item>
+            <item>Juuli</item>
+            <item>August</item>
+            <item>September</item>
+            <item>Oktoober</item>
+            <item>November</item>
+            <item>Detsember</item>
+        </string-array>
+
+
+    <string name="delete_habit">Kas Olete Kindel, Et Soovite Selle Harjumuse Kustutada?</string>
+    <string name="LightMode">Mitte</string>
+    <string name="onboarding_reverse">Vastupidine Ülesandeloend</string>
+    <string name="onboarding_bad">Pange Oma Halvad Harjumused Maha.Iga Päev, Rist</string>
+    <string name="onboarding_gavein">Välja Need, Millele Te Järele Andsite.Ja Järgmine</string>
+    <string name="onboarding_freshlist">Hommikul Alustage Värske Nimekirjaga.</string>
+    <string name="onboarding_continue">Jätkuma</string>
+    <string name="avoided">Vältinud</string>
+    <string name="done">Tehtud</string>
+    <string name="habits">Harjumused</string>
+    <string name="today">Täna</string>
+    <string name="log">Logi</string>
+    <string name="about">Ümber</string>
+    <string name="labels">Sildid</string>
+    <string name="settings">Sätted</string>
+    <string name="mostav">Kõige Enam Välditud:</string>
+    <string name="leastav">Vähemalt Välditud:</string>
+    <string name="addlabel">Palun Lisage Kõigepealt Silt</string>
+    <string name="addnewlabel">Lisage Uus Silt</string>
+    <string name="addtask">Sisestama Halba Harjumust</string>
+    <string name="note">Kirjeldus</string>
+    <string name="save">Kokkuhoid</string>
+    <string name="puthabit">Alustuseks Pange Halb Harjumus Maha</string>
+    <string name="habitswillshowuphere">Harjutused Ilmuvad Siin</string>
+    <string name="apachelicense">Apache Litsents 2.0</string>
+    <string name="developer">Arendaja</string>
+    <string name="contribute">Panustama</string>
+    <string name="translate">Tõlkima</string>
+    <string name="report">Probleem Teatama</string>
+    <string name="source">Vaateallikas</string>
+    <string name="opensourcelicense">Avatud Lähtekoodiga Litsentsid</string>
+    <string name="appearance">Välimus</string>
+    <string name="dark">Tume</string>
+    <string name="light">Hele</string>
+    <string name="update">Värskendama</string>
+    <string name="feather">Sulgede Ikoonid</string>
+    <string name="mitlicence">Mit -Litsents</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materjalidepinner</string>
+    <string name="followsys">Jälgi Süsteemi</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Avalik Litsents 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu Üldine Litsents Ce</string>
+    <string-array name="spinner_array">
+        <item>Ühiskondlik</item>
+        <item>Toidud Ja Joogid</item>
+        <item>Uuringud</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Don \'T Nüüd Teie Süsteemi Järgib.</string>
+    <string name="toast_light">Don \'T On Nüüd Kergelt Küljel.</string>
+    <string name="toast_dark">Don \'T On Nüüd Pimedal Küljel.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Lisage Üksus Uus</string>
     <string name="d">D</string>
     <string name="w">W</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
+    <string name="out_of">"Välja"</string>
+    <string name="habits_are_avoided">"Harjutusi Välditakse"</string>
+    <string name="habits_are_avoided_way_to_go">"Harjutatakse Harjumusi, Viis Minna!"</string>
+    <string name="avoided_">Vältinud</string>
+    <string name="habits_">Harjumused</string>
+    <string name="delete">Kas Soovite Selle Tõesti Kustutada?</string>
+    <string name="no">Mitte</string>
+    <string name="deletes">Kas Soovite Selle Tõesti Kustutada?</string>
+    <string name="yes">Jah</string>
+    <string name="please_add_a_label_first">Palun Lisage Kõigepealt Silt</string>
+    <string name="do_you_really_want_to_delete_this">Kas Soovite Selle Tõesti Kustutada?</string>
+    <string name="january">Jaanuar</string>
+    <string name="february">Veebruar</string>
+    <string name="march">Marssima</string>
+    <string name="april">Aprill</string>
+    <string name="may">Mai</string>
+    <string name="june">Juuni</string>
+    <string name="july">Juuli</string>
     <string name="august">August</string>
     <string name="september">September</string>
-    <string name="october">October</string>
+    <string name="october">Oktoober</string>
     <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="december">Detsember</string>
+    <string name="mark_as_done_or_avoided">Märkige Nagu Tehtud Või Välditud.</string>
+    <string name="help_make_to_don_t_better">Aidake Muuta "" T \ "Paremaks.</string>
+    <string name="todon_t_reminder">Todon Ei Mäletata</string>
+    <string name="mark_your_todon_t_task">"Märkige Oma Ülesanne"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Alustuseks Pange Halb Harjumus Maha.</string>
+    <string name="view_your_stats">Vaadake Oma Statistikat.</string>
+    <string name="add_label">Lisage Silt.</string>
+    <string name="permission_required">Vajalik Luba</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">See Rakendus Nõuab Andmebaasi Taastamiseks Juurdepääsu Teie Välisele Salvestusruumile.Luba See Luba Rakenduse Seadetes.</string>
+    <string name="open_settings">Avatud Sätted</string>
+    <string name="select_repetition_frequency">Valige Korduse Sagedus</string>
+    <string name="once">Kord</string>
+    <string name="daily">Iga Päev</string>
+    <string name="weekly">Iganädalane</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Kas Soovite Selle Tõesti Kustutada? \ Nthis Kustutab Ka Kõik Selle Sildiga Seotud Harjumused.</string>
+    <string name="data">Andmed</string>
+    <string name="add_daily_notification">Lisage Igapäevane Teatis</string>
+    <string name="back_up">Varundama</string>
+    <string name="restore">Taastama</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

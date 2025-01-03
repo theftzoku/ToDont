@@ -1,45 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="habitswillshowuphere">Սովորությունները կցուցադրվեն այստեղ:</string>
-    <string name="puthabit">Նախ և առաջ ազատվեք վատ սովորությունից</string>
-    <string name="addnewlabel">Հավելել նոր պիտակ</string>
-    <string name="addlabel">Նախ հավելեք պիտակը</string>
-    <string name="leastav">Ամենից քիչ խուսափում են՝</string>
-    <string name="mostav">Ամենից շատ խուսափում են՝</string>
-    <string name="settings">Կարգավորումներ</string>
-    <string name="labels">Պիտակներ</string>
-    <string name="about">Մասին</string>
-    <string name="log">Մատյան</string>
-    <string name="today">Այսօր</string>
+    <string-array name="languages">
+        <item>Ընտրեք Լեզուն</item>
+        <item>Չեխ</item>
+        <item>Դանիերեն</item>
+        <item>Գերմաներեն</item>
+        <item>Անգլերեն</item>
+        <item>Իսպաներեն</item>
+        <item>Իտալերեն</item>
+        <item>Ֆրանսիական</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Հունվար</item>
+            <item>Փետրվար</item>
+            <item>Մարտ</item>
+            <item>Ապրիլ</item>
+            <item>Մայիս</item>
+            <item>Հունիս</item>
+            <item>Հուլիս</item>
+            <item>Օգոստոս</item>
+            <item>Սեպտեմբեր</item>
+            <item>Հոկտեմբեր</item>
+            <item>Նոյեմբեր</item>
+            <item>Դեկտեմբեր</item>
+        </string-array>
+
+
+    <string name="delete_habit">Համոզված Եք, Որ Ցանկանում Եք Ջնջել Այս Սովորությունը:</string>
+    <string name="LightMode">Չի</string>
+    <string name="onboarding_reverse">Հակադարձ Անելիքների Ցուցակը</string>
+    <string name="onboarding_bad">Ջարդել Ձեր Վատ Սովորությունները:Ամեն Օր, Խաչ</string>
+    <string name="onboarding_gavein">Դուրս Նրանք, Ում Դուք Տվել Եք:Եւ Մյուսը</string>
+    <string name="onboarding_freshlist">Առավոտը Սկսվում Է Թարմ Ցուցակից:</string>
+    <string name="onboarding_continue">Շարունակել</string>
+    <string name="avoided">Խուսափել Է</string>
+    <string name="done">Արված</string>
     <string name="habits">Սովորություններ</string>
-    <string name="done">Պատրաստ է</string>
-    <string name="avoided">Խուսափել</string>
-    <string name="LightMode">To Don\'t</string>
-    <string name="app_name">To Don\'t</string>
-    <string name="d">D</string>
-    <string name="w">W</string>
-    <string name="m">M</string>
-    <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="today">Այսօր</string>
+    <string name="log">Լամպ</string>
+    <string name="about">Մոտավորապես</string>
+    <string name="labels">Պիտակներ</string>
+    <string name="settings">Կարգավորումներ</string>
+    <string name="mostav">Առավել Խուսափել.</string>
+    <string name="leastav">Ամենաքիչը Խուսափելուց.</string>
+    <string name="addlabel">Խնդրում Ենք Նախ Ավելացնել Պիտակը</string>
+    <string name="addnewlabel">Ավելացնել Նոր Պիտակ</string>
+    <string name="addtask">Մուտքագրեք Վատ Սովորություն</string>
+    <string name="note">Նկարագրություն</string>
+    <string name="save">Խնայել</string>
+    <string name="puthabit">Սկսելու Համար Վատ Սովորություն Դրեց</string>
+    <string name="habitswillshowuphere">Այստեղ Կներկայացվեն Սովորությունները</string>
+    <string name="apachelicense">Apache Լիցենզիա 2.0</string>
+    <string name="developer">Մշակող</string>
+    <string name="contribute">Ներդրագրել</string>
+    <string name="translate">Թարգմանել</string>
+    <string name="report">Հաղորդել Խնդրի Մասին</string>
+    <string name="source">Դիտեք Աղբյուրը</string>
+    <string name="opensourcelicense">Բաց Կոդով Լիցենզիաներ</string>
+    <string name="appearance">Արտաքին Տեսք</string>
+    <string name="dark">Մութ</string>
+    <string name="light">Լապտեր</string>
+    <string name="update">Թարմացնել</string>
+    <string name="feather">Փետուր Սրբապատկերներ</string>
+    <string name="mitlicence">Mit Լիցենզիա</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Նյութ</string>
+    <string name="followsys">Հետեւեք Համակարգին</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circlemimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Հասարակական Լիցենզիա 1.0</string>
+    <string name="kotlin">Կուլլլ</string>
+    <string name="java">Ավա</string>
+    <string name="gnu">Gnu Ընդհանուր Հանրային Լիցենզիա Եխ</string>
+    <string-array name="spinner_array">
+        <item>Հասարակական</item>
+        <item>Սնունդ Եւ Խմիչքներ</item>
+        <item>Ուսումնասիրություններ</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Հիմա Չի Հետեւում Ձեր Համակարգին:</string>
+    <string name="toast_light">Հիմա Լույսը Չէ:</string>
+    <string name="toast_dark">Դու Հիմա Մութ Կողմում Չէ:</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Նյութը Ավելացրեք Նորը</string>
+    <string name="d">Հանկարծ</string>
+    <string name="w">Վ</string>
+    <string name="m">Մ</string>
+    <string name="y">Յ</string>
+    <string name="out_of">«Դեմ»</string>
+    <string name="habits_are_avoided">«Սովորական Է Սովորությունները»</string>
+    <string name="habits_are_avoided_way_to_go">«Սովորական Են Սովորությունները, Գնալու Ճանապարհ»:</string>
+    <string name="avoided_">Խուսափել Է</string>
+    <string name="habits_">Սովորություններ</string>
+    <string name="delete">Դուք Իսկապես Ուզում Եք Ջնջել Դա:</string>
+    <string name="no">Ոչ</string>
+    <string name="deletes">Դուք Իսկապես Ուզում Եք Ջնջել Դա:</string>
+    <string name="yes">Այո</string>
+    <string name="please_add_a_label_first">Խնդրում Ենք Նախ Ավելացնել Պիտակը</string>
+    <string name="do_you_really_want_to_delete_this">Դուք Իսկապես Ուզում Եք Ջնջել Դա:</string>
+    <string name="january">Հունվար</string>
+    <string name="february">Փետրվար</string>
+    <string name="march">Մարտ</string>
+    <string name="april">Ապրիլ</string>
+    <string name="may">Մայիս</string>
+    <string name="june">Հունիս</string>
+    <string name="july">Հուլիս</string>
+    <string name="august">Օգոստոս</string>
+    <string name="september">Սեպտեմբեր</string>
+    <string name="october">Հոկտեմբեր</string>
+    <string name="november">Նոյեմբեր</string>
+    <string name="december">Դեկտեմբեր</string>
+    <string name="mark_as_done_or_avoided">Նշեք Ինչպես Արված Կամ Խուսափելուց:</string>
+    <string name="help_make_to_don_t_better">Օգնեք Կատարել \ "Ավելի Լավը Չանել:</string>
+    <string name="todon_t_reminder">Todon\'T Հիշեցում</string>
+    <string name="mark_your_todon_t_task">«Նշեք Ձեր Todon\'T Առաջադրանքը»</string>
+    <string name="to_start_off_put_down_a_bad_habit">Սկսելու Համար Վատ Սովորություն Դրեց:</string>
+    <string name="view_your_stats">Դիտեք Ձեր Վիճակագրությունը:</string>
+    <string name="add_label">Ավելացնել Պիտակը:</string>
+    <string name="permission_required">Պահանջվում Է Թույլտվություն</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Այս Ծրագիրը Պահանջում Է Մուտք Գործել Ձեր Արտաքին Պահեստարան `Տվյալների Բազան Վերականգնելու Համար:Խնդրում Ենք Միացնել Այս Թույլտվությունը Հավելվածի Պարամետրերում:</string>
+    <string name="open_settings">Բաց Պարամետրեր</string>
+    <string name="select_repetition_frequency">Ընտրեք Կրկնության Հաճախականությունը</string>
+    <string name="once">Մի Անգամ</string>
+    <string name="daily">Օրական</string>
+    <string name="weekly">Շաբաթական</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Դուք Իսկապես Ցանկանում Եք Ջնջել Դա: \ Nthis Կջնջի Նաեւ Այս Պիտակի Հետ Կապված Բոլոր Սովորությունները:</string>
+    <string name="data">Տվյալներ</string>
+    <string name="add_daily_notification">Ավելացնել Ամենօրյա Ծանուցում</string>
+    <string name="back_up">Կրկնօրինակում</string>
+    <string name="restore">Վերականգնել</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

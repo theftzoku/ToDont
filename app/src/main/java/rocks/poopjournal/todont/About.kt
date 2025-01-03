@@ -1,234 +1,255 @@
-package rocks.poopjournal.todont;
+package rocks.poopjournal.todont
 
-import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.view.View
+import android.view.View.OnTouchListener
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import smartdevelop.ir.eram.showcaseviewlib.GuideView
+import smartdevelop.ir.eram.showcaseviewlib.config.DismissType
+import smartdevelop.ir.eram.showcaseviewlib.config.Gravity
+import smartdevelop.ir.eram.showcaseviewlib.config.PointerType
 
-import androidx.appcompat.app.AppCompatActivity;
+class About : AppCompatActivity() {
+    var version: TextView? = null
+    private var contributionView: LinearLayout? = null
+    private var prefUtils: SharedPrefUtils? = null
 
-import rocks.poopjournal.todont.utils.SharedPrefUtils;
-import smartdevelop.ir.eram.showcaseviewlib.GuideView;
-import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
-import smartdevelop.ir.eram.showcaseviewlib.config.Gravity;
-import smartdevelop.ir.eram.showcaseviewlib.config.PointerType;
-import smartdevelop.ir.eram.showcaseviewlib.listener.GuideListener;
-
-public class About extends AppCompatActivity {
-    TextView version;
-    private LinearLayout contributionView;
-    private SharedPrefUtils prefUtils;
+    @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("SetTextI18n")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        contributionView=findViewById(R.id.contributionView);
-        version=findViewById(R.id.versiontext);
-        version.setText( BuildConfig.VERSION_NAME +" Beta ");
-
-        prefUtils=new SharedPrefUtils(this);
-        contributionView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if(!prefUtils.getBool(SharedPrefUtils.KEY_CONTRIBUTION_VIEW)){
-                    GuideView.Builder guideView = new GuideView.Builder(About.this)
-                                .setContentText("Help make \"To Don't\" better.")
-                            .setTargetView(contributionView)
-                            .setDismissType(DismissType.anywhere)
-                            .setPointerType(PointerType.arrow)
-                            .setGravity(Gravity.center)
-                            .setGuideListener(new GuideListener() {
-                                @Override
-                                public void onDismiss(View view) {
-                                    prefUtils.setBool(SharedPrefUtils.KEY_CONTRIBUTION_VIEW, true);
-                                }
-                            });
-                    guideView.build().show();
-                    return true;
-                }
-                return false;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_about)
+        contributionView = findViewById(R.id.contributionView)
+        version = findViewById(R.id.versiontext)
+        version?.setText(BuildConfig.VERSION_NAME + " Beta ")
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.insetsController?.let { controller ->
+            controller.hide(WindowInsets.Type.systemBars())
+            controller.systemBarsBehavior =
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+        prefUtils = SharedPrefUtils(this)
+        contributionView?.setOnTouchListener(OnTouchListener { view, motionEvent ->
+            if (!prefUtils!!.getBool(SharedPrefUtils.KEY_CONTRIBUTION_VIEW)) {
+                val guideView = GuideView.Builder(this@About)
+                    .setContentText(this@About.resources.getString(R.string.help_make_to_don_t_better))
+                    .setTargetView(contributionView)
+                    .setDismissType(DismissType.anywhere)
+                    .setPointerType(PointerType.arrow)
+                    .setGravity(Gravity.center)
+                    .setGuideListener {
+                        prefUtils!!.setBool(
+                            SharedPrefUtils.KEY_CONTRIBUTION_VIEW,
+                            true
+                        )
+                    }
+                guideView.build().show()
+                return@OnTouchListener true
             }
-        });
+            false
+        })
 
         //tabdeeli aa gai hai
-}
-    public void contact_codeaquaria(View view) {
-        switch(view.getId()){
-            case R.id.btnmail_codeaquaria:
-                String mailto = "mailto:codeaquaria20@gmail.com";
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse(mailto));
-                try {
-                    startActivity(emailIntent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.btngit_codeaquaria:
-                Uri uri = Uri.parse("https://github.com/arafaatqureshi"); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                break;
-            case R.id.btntwitter_codeaquaria:
-                Uri ui = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326"); // missing 'http://' will cause crashed
-                Intent it = new Intent(Intent.ACTION_VIEW, ui);
-                startActivity(it);
-                break;
-
-        }
     }
-    public void contact_codeaquariatar(View view) {
-        switch(view.getId()){
-            case R.id.btnmail_codeaquariatar:
-                String mailto = "mailto:imamtariq7@gmail.com";
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse(mailto));
-                try {
-                    startActivity(emailIntent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.btngit_codeaquariatar:
-                Uri uri = Uri.parse("https://github.com/theftzoku"); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                break;
-            case R.id.btntwitter_codeaquariatar:
-                Uri ui = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326"); // missing 'http://' will cause crashed
-                Intent it = new Intent(Intent.ACTION_VIEW, ui);
-                startActivity(it);
-                break;
 
-        }
-    }
-    public void contact_marvin(View view) {
-        switch(view.getId()){
-            case R.id.btnmail_crazymarvin:
-                String mailto = "mailto:marvin@poopjournal.rocks";
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse(mailto));
+    fun contact_codeaquaria(view: View) {
+        when (view.id) {
+            R.id.btnmail_codeaquaria -> {
+                val mailto = "mailto:codeaquaria20@gmail.com"
+                val emailIntent = Intent(Intent.ACTION_SENDTO)
+                emailIntent.setData(Uri.parse(mailto))
                 try {
-                    startActivity(emailIntent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show();
+                    startActivity(emailIntent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show()
                 }
-                break;
-            case R.id.btngit_crazymarvin:
-                Uri uri = Uri.parse("https://github.com/Crazy-Marvin"); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                break;
-            case R.id.btntwitter_crazymarvin:
-                Uri u = Uri.parse("https://twitter.com/CrazyMarvinApps"); // missing 'http://' will cause crashed
-                Intent i = new Intent(Intent.ACTION_VIEW, u);
-                startActivity(i);
-                break;
+            }
 
+            R.id.btngit_codeaquaria -> {
+                val uri =
+                    Uri.parse("https://github.com/arafaatqureshi") // missing 'http://' will cause crashed
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
+
+            R.id.btntwitter_codeaquaria -> {
+                val ui =
+                    Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326") // missing 'http://' will cause crashed
+                val it = Intent(Intent.ACTION_VIEW, ui)
+                startActivity(it)
+            }
         }
     }
 
-    public void translate(View view) {
-        Uri u = Uri.parse("https://hosted.weblate.org/projects/todont/");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun contact_codeaquariatar(view: View) {
+        when (view.id) {
+            R.id.btnmail_codeaquariatar -> {
+                val mailto = "mailto:imamtariq7@gmail.com"
+                val emailIntent = Intent(Intent.ACTION_SENDTO)
+                emailIntent.setData(Uri.parse(mailto))
+                try {
+                    startActivity(emailIntent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            R.id.btngit_codeaquariatar -> {
+                val uri =
+                    Uri.parse("https://github.com/theftzoku") // missing 'http://' will cause crashed
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
+
+            R.id.btntwitter_codeaquariatar -> {
+                val ui =
+                    Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326") // missing 'http://' will cause crashed
+                val it = Intent(Intent.ACTION_VIEW, ui)
+                startActivity(it)
+            }
+        }
     }
 
-    public void report(View view) {
-        Uri u = Uri.parse("https://github.com/Crazy-Marvin/ToDont/issues");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun contact_marvin(view: View) {
+        when (view.id) {
+            R.id.btnmail_crazymarvin -> {
+                val mailto = "mailto:marvin@poopjournal.rocks"
+                val emailIntent = Intent(Intent.ACTION_SENDTO)
+                emailIntent.setData(Uri.parse(mailto))
+                try {
+                    startActivity(emailIntent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this, "    Error to open Email    ", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            R.id.btngit_crazymarvin -> {
+                val uri =
+                    Uri.parse("https://github.com/Crazy-Marvin") // missing 'http://' will cause crashed
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
+
+            R.id.btntwitter_crazymarvin -> {
+                val u =
+                    Uri.parse("https://twitter.com/CrazyMarvinApps") // missing 'http://' will cause crashed
+                val i = Intent(Intent.ACTION_VIEW, u)
+                startActivity(i)
+            }
+        }
     }
 
-    public void viewsource(View view) {
-        Uri u = Uri.parse("https://github.com/Crazy-Marvin/ToDont");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun translate(view: View?) {
+        val u = Uri.parse("https://hosted.weblate.org/projects/todont/")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void back(View view) {
-        Intent i = new Intent(About.this, Settings.class);
-        finishAffinity();
-        startActivity(i);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
+    fun report(view: View?) {
+        val u = Uri.parse("https://github.com/Crazy-Marvin/ToDont/issues")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void jetpack(View view) {
-        Uri u = Uri.parse("https://developer.android.com/jetpack");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun viewsource(view: View?) {
+        val u = Uri.parse("https://github.com/Crazy-Marvin/ToDont")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void logoclicked(View view) {
-        Uri u = Uri.parse("https://crazymarvin.com/todont");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun back(view: View?) {
+//        val i = Intent(this@About, Settings::class.java)
+//        finishAffinity()
+//        startActivity(i)
+        finish()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 
-    public void feather(View view) {
-        Uri u = Uri.parse("https://feathericons.com/");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun jetpack(view: View?) {
+        val u = Uri.parse("https://developer.android.com/jetpack")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void apacheee(View view) {
-        Uri u = Uri.parse("https://github.com/Crazy-Marvin/ToDont/blob/development/LICENSE");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
-    }
-    public void spinner(View view) {
-        Uri u = Uri.parse("https://github.com/jaredrummler/MaterialSpinner/blob/master/LICENSE");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun logoclicked(view: View?) {
+        val u = Uri.parse("https://crazymarvin.com/todont")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void nobobutton(View view) {
-        Uri u = Uri.parse("https://github.com/alex31n/NoboButton/blob/master/LICENSE");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
-    }
-    public void cImgButton(View view) {
-        Uri u = Uri.parse("https://github.com/hdodenhof/CircleImageView/blob/master/LICENSE.txt");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
-    }
-    public void MPAndroidChart(View view) {
-        Uri u = Uri.parse("https://github.com/PhilJay/MPAndroidChart/blob/master/LICENSE");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
-    }
-    public void JUnit(View view) {
-        Uri u = Uri.parse("https://junit.org/junit4/license.html");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun feather(view: View?) {
+        val u = Uri.parse("https://feathericons.com/")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
-    public void Kotlin(View view) {
-        Uri u = Uri.parse("https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+    fun apacheee(view: View?) {
+        val u = Uri.parse("https://github.com/Crazy-Marvin/ToDont/blob/development/LICENSE")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
-    public void Java(View view) {
-        Uri u = Uri.parse("http://openjdk.java.net/legal/gplv2+ce.html");
-        Intent i = new Intent(Intent.ACTION_VIEW, u);
-        startActivity(i);
+
+    fun spinner(view: View?) {
+        val u = Uri.parse("https://github.com/jaredrummler/MaterialSpinner/blob/master/LICENSE")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun nobobutton(view: View?) {
+        val u = Uri.parse("https://github.com/alex31n/NoboButton/blob/master/LICENSE")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun cImgButton(view: View?) {
+        val u = Uri.parse("https://github.com/hdodenhof/CircleImageView/blob/master/LICENSE.txt")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun MPAndroidChart(view: View?) {
+        val u = Uri.parse("https://github.com/PhilJay/MPAndroidChart/blob/master/LICENSE")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun JUnit(view: View?) {
+        val u = Uri.parse("https://junit.org/junit4/license.html")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun Kotlin(view: View?) {
+        val u = Uri.parse("https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
+    }
+
+    fun Java(view: View?) {
+        val u = Uri.parse("http://openjdk.java.net/legal/gplv2+ce.html")
+        val i = Intent(Intent.ACTION_VIEW, u)
+        startActivity(i)
     }
 
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent i = new Intent(About.this, Settings.class);
-        finishAffinity();
-        startActivity(i);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    override fun onBackPressed() {
+        super.onBackPressed()
+//        val i = Intent(this@About, Settings::class.java)
+//        finishAffinity()
+//        startActivity(i)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 }

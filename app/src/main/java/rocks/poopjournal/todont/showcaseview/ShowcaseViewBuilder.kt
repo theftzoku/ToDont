@@ -1,293 +1,292 @@
-package rocks.poopjournal.todont.showcaseview;
+package rocks.poopjournal.todont.showcaseview
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.LinearLayout;
+import android.app.Activity
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.drawable.Drawable
+import android.util.AttributeSet
+import android.util.DisplayMetrics
+import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
+import android.view.ViewGroup
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.widget.LinearLayout
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-public class ShowcaseViewBuilder extends View implements View.OnTouchListener {
+class ShowcaseViewBuilder : View, OnTouchListener {
+    private var mActivity: Activity? = null
+    private var mTargetView: View? = null
+    private val mCustomView: MutableList<View> = ArrayList()
+    private val mCustomViewLeftMargins: MutableList<Float> = ArrayList()
+    private val mCustomViewTopMargins: MutableList<Float> = ArrayList()
+    private val mCustomViewRightMargins: MutableList<Float> = ArrayList()
+    private val mCustomViewBottomMargins: MutableList<Float> = ArrayList()
+    private val mCustomViewGravity: MutableList<Int> = ArrayList()
+    private var mCenterX = 0f
+    private var mCenterY = 0f
+    private var mRadius = 0f
+    private var mMarkerDrawable: Drawable? = null
+    private var mMarkerDrawableGravity = 0
+    private var ringColor = 0
+    private var backgroundOverlayColor = 0
+    private var mCustomViewMargin = 0
+    private var mShape = SHAPE_CIRCLE
+    private var mBgOverlayShape = FULL_SCREEN
+    private var mRoundRectCorner = 0
+    private val idsRectMap = HashMap<Rect, Int>()
+    private val idsClickListenerMap = HashMap<Int, OnClickListener?>()
+    private var mHideOnTouchOutside = false
+    private var mRingWidth = 10f
+    private var mShowcaseMargin = 12f
+    private var mRoundRectOffset = 170f
+    private var mMarkerDrawableLeftMargin = 0f
+    private var mMarkerDrawableRightMargin = 0f
+    private var mMarkerDrawableTopMargin = 0f
+    private var mMarkerDrawableBottomMargin = 0f
+    private var tempCanvas: Canvas? = null
+    private var backgroundPaint: Paint? = null
+    private var transparentPaint: Paint? = null
+    private var ringPaint: Paint? = null
+    private var mTargetViewGlobalRect: Rect? = null
 
-    private Activity mActivity;
-    private View mTargetView;
-    private List<View> mCustomView = new ArrayList<>();
-    private List<Float> mCustomViewLeftMargins = new ArrayList<>();
-    private List<Float> mCustomViewTopMargins = new ArrayList<>();
-    private List<Float> mCustomViewRightMargins = new ArrayList<>();
-    private List<Float> mCustomViewBottomMargins = new ArrayList<>();
-    private List<Integer> mCustomViewGravity = new ArrayList<>();
-    private float mCenterX, mCenterY, mRadius;
-    private Drawable mMarkerDrawable;
-    private int mMarkerDrawableGravity;
-    private int ringColor, backgroundOverlayColor;
-    private int mCustomViewMargin, mShape = SHAPE_CIRCLE, mBgOverlayShape = FULL_SCREEN;
-    private int mRoundRectCorner;
-    private HashMap<Rect, Integer> idsRectMap = new HashMap<>();
-    private HashMap<Integer, OnClickListener> idsClickListenerMap = new HashMap<>();
-    private boolean mHideOnTouchOutside;
-    private float mRingWidth = 10, mShowcaseMargin = 12, mRoundRectOffset = 170;
-    private float mMarkerDrawableLeftMargin = 0, mMarkerDrawableRightMargin = 0,
-            mMarkerDrawableTopMargin = 0, mMarkerDrawableBottomMargin = 0;
-    private Canvas tempCanvas;
-    private Paint backgroundPaint, transparentPaint, ringPaint;
-    private Rect mTargetViewGlobalRect;
-    private static final String TAG = "SHOWCASE_VIEW";
-    //Showcase Shapes constants
-    public static final int SHAPE_CIRCLE = 0;   //Default Shape
-    public static final int SHAPE_SKEW = 1;
-    //Bg Overlay Shapes constants
-    public static final int FULL_SCREEN = 2;   //Default Shape
-    public static final int ROUND_RECT = 3;
-    //Round rect corner direction constants
-    public static final int BOTTOM_LEFT = 4;
-    public static final int BOTTOM_RIGHT = 5;
-    public static final int TOP_LEFT = 6;
-    public static final int TOP_RIGHT = 7;
+    private constructor(context: Context) : super(context)
 
-    private ShowcaseViewBuilder(Context context) {
-        super(context);
+    private constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+
+    fun setTargetView(view: View?): ShowcaseViewBuilder {
+        mTargetView = view
+        return this
     }
 
-    private ShowcaseViewBuilder(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
+    private fun calculateRadiusAndCenter() {
+        val width = mTargetView!!.measuredWidth
+        val height = mTargetView!!.measuredHeight
 
-    public static ShowcaseViewBuilder init(Activity activity) {
-        ShowcaseViewBuilder showcaseViewBuilder = new ShowcaseViewBuilder(activity);
-        showcaseViewBuilder.mActivity = activity;
-        showcaseViewBuilder.setClickable(true);
-        return showcaseViewBuilder;
-    }
+        val xy = intArrayOf(0, 0)
+        mTargetView!!.getLocationInWindow(xy)
 
-    public ShowcaseViewBuilder setTargetView(View view) {
-        mTargetView = view;
-        return this;
-    }
+        mCenterX = (xy[0] + (width / 2)).toFloat()
+        mCenterY = (xy[1] + (height / 2)).toFloat()
 
-    private void calculateRadiusAndCenter() {
-        int width = mTargetView.getMeasuredWidth();
-        int height = mTargetView.getMeasuredHeight();
-
-        int[] xy = {0, 0};
-        mTargetView.getLocationInWindow(xy);
-
-        mCenterX = xy[0] + (width / 2);
-        mCenterY = xy[1] + (height / 2);
-
-        if (width > height) {
-            mRadius = 7 * (width) / 12;
+        mRadius = if (width > height) {
+            (7 * (width) / 12).toFloat()
         } else {
-            mRadius = 7 * (height) / 12;
+            (7 * (height) / 12).toFloat()
         }
     }
 
-    public ShowcaseViewBuilder setHideOnTouchOutside(boolean value) {
-        this.mHideOnTouchOutside = value;
-        return this;
+    fun setHideOnTouchOutside(value: Boolean): ShowcaseViewBuilder {
+        this.mHideOnTouchOutside = value
+        return this
     }
 
-    public ShowcaseViewBuilder setMarkerDrawable(Drawable drawable, int gravity) {
-        this.mMarkerDrawable = drawable;
-        this.mMarkerDrawableGravity = gravity;
-        return this;
+    fun setMarkerDrawable(drawable: Drawable?, gravity: Int): ShowcaseViewBuilder {
+        this.mMarkerDrawable = drawable
+        this.mMarkerDrawableGravity = gravity
+        return this
     }
 
-    public ShowcaseViewBuilder setDrawableLeftMargin(float margin) {
-        this.mMarkerDrawableLeftMargin = margin;
-        return this;
+    fun setDrawableLeftMargin(margin: Float): ShowcaseViewBuilder {
+        this.mMarkerDrawableLeftMargin = margin
+        return this
     }
 
-    public ShowcaseViewBuilder setRoundRectOffset(float roundRectOffset) {
-        this.mRoundRectOffset = roundRectOffset;
-        return this;
+    fun setRoundRectOffset(roundRectOffset: Float): ShowcaseViewBuilder {
+        this.mRoundRectOffset = roundRectOffset
+        return this
     }
 
-    public ShowcaseViewBuilder setDrawableRightMargin(float margin) {
-        this.mMarkerDrawableRightMargin = margin;
-        return this;
+    fun setDrawableRightMargin(margin: Float): ShowcaseViewBuilder {
+        this.mMarkerDrawableRightMargin = margin
+        return this
     }
 
-    public ShowcaseViewBuilder setDrawableTopMargin(float margin) {
-        this.mMarkerDrawableTopMargin = margin;
-        return this;
+    fun setDrawableTopMargin(margin: Float): ShowcaseViewBuilder {
+        this.mMarkerDrawableTopMargin = margin
+        return this
     }
 
-    public ShowcaseViewBuilder setDrawableBottomMargin(float margin) {
-        this.mMarkerDrawableBottomMargin = margin;
-        return this;
+    fun setDrawableBottomMargin(margin: Float): ShowcaseViewBuilder {
+        this.mMarkerDrawableBottomMargin = margin
+        return this
     }
 
-    public ShowcaseViewBuilder setShowcaseShape(int shape) {
-        this.mShape = shape;
-        return this;
+    fun setShowcaseShape(shape: Int): ShowcaseViewBuilder {
+        this.mShape = shape
+        return this
     }
 
-    public ShowcaseViewBuilder setBgOverlayShape(int bgOverlayShape) {
-        this.mBgOverlayShape = bgOverlayShape;
-        return this;
+    fun setBgOverlayShape(bgOverlayShape: Int): ShowcaseViewBuilder {
+        this.mBgOverlayShape = bgOverlayShape
+        return this
     }
 
-    public ShowcaseViewBuilder setRoundRectCornerDirection(int roundRectCornerDirection) {
-        this.mRoundRectCorner = roundRectCornerDirection;
-        return this;
+    fun setRoundRectCornerDirection(roundRectCornerDirection: Int): ShowcaseViewBuilder {
+        this.mRoundRectCorner = roundRectCornerDirection
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(int layoutId, int gravity) {
-        View view = LayoutInflater.from(mActivity).inflate(layoutId, null);
-        LinearLayout linearLayout = new LinearLayout(mActivity);
-        linearLayout.addView(view);
-        linearLayout.setGravity(Gravity.CENTER);
+    fun addCustomView(layoutId: Int, gravity: Int): ShowcaseViewBuilder {
+        val view = LayoutInflater.from(mActivity).inflate(layoutId, null)
+        val linearLayout = LinearLayout(mActivity)
+        linearLayout.addView(view)
+        linearLayout.gravity = Gravity.CENTER
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        linearLayout.measure(widthSpec, heightSpec);
-        mCustomView.add(linearLayout);
-        mCustomViewGravity.add(gravity);
-        mCustomViewLeftMargins.add(0f);
-        mCustomViewTopMargins.add(0f);
-        mCustomViewRightMargins.add(0f);
-        mCustomViewBottomMargins.add(0f);
-        return this;
+        linearLayout.measure(widthSpec, heightSpec)
+        mCustomView.add(linearLayout)
+        mCustomViewGravity.add(gravity)
+        mCustomViewLeftMargins.add(0f)
+        mCustomViewTopMargins.add(0f)
+        mCustomViewRightMargins.add(0f)
+        mCustomViewBottomMargins.add(0f)
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(View view, int gravity) {
-        LinearLayout linearLayout = new LinearLayout(mActivity);
-        linearLayout.addView(view);
-        linearLayout.setGravity(Gravity.CENTER);
+    fun addCustomView(view: View?, gravity: Int): ShowcaseViewBuilder {
+        val linearLayout = LinearLayout(mActivity)
+        linearLayout.addView(view)
+        linearLayout.gravity = Gravity.CENTER
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        linearLayout.measure(widthSpec, heightSpec);
-        mCustomView.add(linearLayout);
-        mCustomViewGravity.add(gravity);
-        mCustomViewLeftMargins.add(0f);
-        mCustomViewTopMargins.add(0f);
-        mCustomViewRightMargins.add(0f);
-        mCustomViewBottomMargins.add(0f);
-        return this;
+        linearLayout.measure(widthSpec, heightSpec)
+        mCustomView.add(linearLayout)
+        mCustomViewGravity.add(gravity)
+        mCustomViewLeftMargins.add(0f)
+        mCustomViewTopMargins.add(0f)
+        mCustomViewRightMargins.add(0f)
+        mCustomViewBottomMargins.add(0f)
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(int layoutId, int gravity, float leftMargin, float topMargin, float rightMargin, float bottomMargin) {
-        View view = LayoutInflater.from(mActivity).inflate(layoutId, null);
-        LinearLayout linearLayout = new LinearLayout(mActivity);
-        linearLayout.addView(view);
-        linearLayout.setGravity(Gravity.CENTER);
+    fun addCustomView(
+        layoutId: Int,
+        gravity: Int,
+        leftMargin: Float,
+        topMargin: Float,
+        rightMargin: Float,
+        bottomMargin: Float
+    ): ShowcaseViewBuilder {
+        val view = LayoutInflater.from(mActivity).inflate(layoutId, null)
+        val linearLayout = LinearLayout(mActivity)
+        linearLayout.addView(view)
+        linearLayout.gravity = Gravity.CENTER
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        linearLayout.measure(widthSpec, heightSpec);
-        mCustomView.add(linearLayout);
-        mCustomViewGravity.add(gravity);
-        mCustomViewLeftMargins.add(leftMargin);
-        mCustomViewTopMargins.add(topMargin);
-        mCustomViewRightMargins.add(rightMargin);
-        mCustomViewBottomMargins.add(bottomMargin);
-        return this;
+        linearLayout.measure(widthSpec, heightSpec)
+        mCustomView.add(linearLayout)
+        mCustomViewGravity.add(gravity)
+        mCustomViewLeftMargins.add(leftMargin)
+        mCustomViewTopMargins.add(topMargin)
+        mCustomViewRightMargins.add(rightMargin)
+        mCustomViewBottomMargins.add(bottomMargin)
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(View view, int gravity, float leftMargin, float topMargin, float rightMargin, float bottomMargin) {
-        LinearLayout linearLayout = new LinearLayout(mActivity);
-        linearLayout.addView(view);
-        linearLayout.setGravity(Gravity.CENTER);
+    fun addCustomView(
+        view: View?,
+        gravity: Int,
+        leftMargin: Float,
+        topMargin: Float,
+        rightMargin: Float,
+        bottomMargin: Float
+    ): ShowcaseViewBuilder {
+        val linearLayout = LinearLayout(mActivity)
+        linearLayout.addView(view)
+        linearLayout.gravity = Gravity.CENTER
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        linearLayout.measure(widthSpec, heightSpec);
-        mCustomView.add(linearLayout);
-        mCustomViewGravity.add(gravity);
-        mCustomViewLeftMargins.add(leftMargin);
-        mCustomViewTopMargins.add(topMargin);
-        mCustomViewRightMargins.add(rightMargin);
-        mCustomViewBottomMargins.add(bottomMargin);
-        return this;
+        linearLayout.measure(widthSpec, heightSpec)
+        mCustomView.add(linearLayout)
+        mCustomViewGravity.add(gravity)
+        mCustomViewLeftMargins.add(leftMargin)
+        mCustomViewTopMargins.add(topMargin)
+        mCustomViewRightMargins.add(rightMargin)
+        mCustomViewBottomMargins.add(bottomMargin)
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(View view) {
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+    fun addCustomView(view: View): ShowcaseViewBuilder {
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        view.measure(widthSpec, heightSpec);
-        mCustomView.add(view);
-        mCustomViewGravity.add(0);
-        mCustomViewLeftMargins.add(0f);
-        mCustomViewTopMargins.add(0f);
-        mCustomViewRightMargins.add(0f);
-        mCustomViewBottomMargins.add(0f);
-        return this;
+        view.measure(widthSpec, heightSpec)
+        mCustomView.add(view)
+        mCustomViewGravity.add(0)
+        mCustomViewLeftMargins.add(0f)
+        mCustomViewTopMargins.add(0f)
+        mCustomViewRightMargins.add(0f)
+        mCustomViewBottomMargins.add(0f)
+        return this
     }
 
-    public ShowcaseViewBuilder addCustomView(int layoutId) {
-        final View view = LayoutInflater.from(mActivity).inflate(layoutId, null);
+    fun addCustomView(layoutId: Int): ShowcaseViewBuilder {
+        val view = LayoutInflater.from(mActivity).inflate(layoutId, null)
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        val metrics = DisplayMetrics()
+        mActivity!!.windowManager.defaultDisplay.getMetrics(metrics)
 
-        Rect rect = new Rect();
-        rect.set(0, 0, metrics.widthPixels, metrics.heightPixels);
+        val rect = Rect()
+        rect[0, 0, metrics.widthPixels] = metrics.heightPixels
 
-        int widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY);
-        int heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY);
+        val widthSpec = MeasureSpec.makeMeasureSpec(rect.width(), MeasureSpec.EXACTLY)
+        val heightSpec = MeasureSpec.makeMeasureSpec(rect.height(), MeasureSpec.EXACTLY)
 
-        view.measure(widthSpec, heightSpec);
-        mCustomView.add(view);
-        mCustomViewGravity.add(0);
-        mCustomViewLeftMargins.add(0f);
-        mCustomViewTopMargins.add(0f);
-        mCustomViewRightMargins.add(0f);
-        mCustomViewBottomMargins.add(0f);
-        return this;
+        view.measure(widthSpec, heightSpec)
+        mCustomView.add(view)
+        mCustomViewGravity.add(0)
+        mCustomViewLeftMargins.add(0f)
+        mCustomViewTopMargins.add(0f)
+        mCustomViewRightMargins.add(0f)
+        mCustomViewBottomMargins.add(0f)
+        return this
     }
 
     /**
@@ -296,327 +295,374 @@ public class ShowcaseViewBuilder extends View implements View.OnTouchListener {
      * @param margin
      * @return
      */
-    public ShowcaseViewBuilder setCustomViewMargin(int margin) {
-        this.mCustomViewMargin = margin;
-        return this;
+    fun setCustomViewMargin(margin: Int): ShowcaseViewBuilder {
+        this.mCustomViewMargin = margin
+        return this
     }
 
-    public ShowcaseViewBuilder setRingColor(int color) {
-        this.ringColor = color;
-        return this;
+    fun setRingColor(color: Int): ShowcaseViewBuilder {
+        this.ringColor = color
+        return this
     }
 
-    public ShowcaseViewBuilder setRingWidth(float ringWidth) {
-        this.mRingWidth = ringWidth;
-        return this;
+    fun setRingWidth(ringWidth: Float): ShowcaseViewBuilder {
+        this.mRingWidth = ringWidth
+        return this
     }
 
-    public ShowcaseViewBuilder setShowcaseMargin(float showcaseMargin) {
-        this.mShowcaseMargin = showcaseMargin;
-        return this;
+    fun setShowcaseMargin(showcaseMargin: Float): ShowcaseViewBuilder {
+        this.mShowcaseMargin = showcaseMargin
+        return this
     }
 
-    public ShowcaseViewBuilder setBackgroundOverlayColor(int color) {
-        this.backgroundOverlayColor = color;
-        return this;
+    fun setBackgroundOverlayColor(color: Int): ShowcaseViewBuilder {
+        this.backgroundOverlayColor = color
+        return this
     }
 
-    public void show() {
-        transparentPaint = new Paint();
-        ringPaint = new Paint();
-        backgroundPaint = new Paint();
+    fun show() {
+        transparentPaint = Paint()
+        ringPaint = Paint()
+        backgroundPaint = Paint()
         if (mTargetView != null) {
-            if (mTargetView.getWidth() == 0 || mTargetView.getHeight() == 0) {
-                mTargetView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        invalidate();
-                        addShowcaseView();
-                        mTargetView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            if (mTargetView!!.width == 0 || mTargetView!!.height == 0) {
+                mTargetView!!.viewTreeObserver.addOnGlobalLayoutListener(object :
+                    OnGlobalLayoutListener {
+                    override fun onGlobalLayout() {
+                        invalidate()
+                        addShowcaseView()
+                        mTargetView!!.viewTreeObserver.removeGlobalOnLayoutListener(this)
                     }
-                });
+                })
             } else {
-                invalidate();
-                addShowcaseView();
+                invalidate()
+                addShowcaseView()
             }
         }
-        setOnTouchListener(this);
+        setOnTouchListener(this)
     }
 
-    private void addShowcaseView() {
-        ((ViewGroup) mActivity.getWindow().getDecorView()).addView(this);
+    private fun addShowcaseView() {
+        (mActivity!!.window.decorView as ViewGroup).addView(this)
     }
 
-    public void hide() {
-        mCustomView.clear();
-        mCustomViewGravity.clear();
-        mCustomViewLeftMargins.clear();
-        mCustomViewRightMargins.clear();
-        mCustomViewTopMargins.clear();
-        mCustomViewBottomMargins.clear();
-        idsClickListenerMap.clear();
-        idsRectMap.clear();
-        mHideOnTouchOutside = false;
-        ((ViewGroup) mActivity.getWindow().getDecorView()).removeView(this);
+    fun hide() {
+        mCustomView.clear()
+        mCustomViewGravity.clear()
+        mCustomViewLeftMargins.clear()
+        mCustomViewRightMargins.clear()
+        mCustomViewTopMargins.clear()
+        mCustomViewBottomMargins.clear()
+        idsClickListenerMap.clear()
+        idsRectMap.clear()
+        mHideOnTouchOutside = false
+        (mActivity!!.window.decorView as ViewGroup).removeView(this)
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
+    override fun onDraw(canvas: Canvas) {
         if (mTargetView != null) {
-            setShowcase(canvas);
-            drawMarkerDrawable(canvas);
-            addCustomView(canvas);
+            setShowcase(canvas)
+            drawMarkerDrawable(canvas)
+            addCustomView(canvas)
         }
-        super.onDraw(canvas);
+        super.onDraw(canvas)
     }
 
-    private void drawMarkerDrawable(Canvas canvas) {
+    private fun drawMarkerDrawable(canvas: Canvas) {
         if (mMarkerDrawable != null) {
-            switch (mMarkerDrawableGravity) {
-                case Gravity.LEFT:
-                case Gravity.START:
-                    mMarkerDrawable.setBounds((int) (mCenterX + mMarkerDrawableLeftMargin - mRadius - mMarkerDrawable.getMinimumWidth() - mRingWidth - 10),
-                            (int) (mCenterY + mMarkerDrawableTopMargin - mMarkerDrawable.getMinimumHeight()),
-                            (int) (mCenterX + mMarkerDrawableLeftMargin - mRadius - mRingWidth - 10), (int) (mCenterY + mMarkerDrawableTopMargin));
-                    break;
+            when (mMarkerDrawableGravity) {
+                Gravity.LEFT, Gravity.START -> mMarkerDrawable!!.setBounds(
+                    (mCenterX + mMarkerDrawableLeftMargin - mRadius - mMarkerDrawable!!.minimumWidth - mRingWidth - 10).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin - mMarkerDrawable!!.minimumHeight).toInt(),
+                    (mCenterX + mMarkerDrawableLeftMargin - mRadius - mRingWidth - 10).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin).toInt()
+                )
 
-                case Gravity.TOP:
-                    mMarkerDrawable.setBounds((int) (mCenterX + mMarkerDrawableLeftMargin - mMarkerDrawable.getMinimumWidth()),
-                            (int) (mCenterY + mMarkerDrawableTopMargin - mRadius - mMarkerDrawable.getMinimumHeight() - mRingWidth - 10),
-                            (int) (mCenterX + mMarkerDrawableLeftMargin), (int) (mCenterY + mMarkerDrawableTopMargin - mRadius - mRingWidth - 10));
-                    break;
+                Gravity.TOP -> mMarkerDrawable!!.setBounds(
+                    (mCenterX + mMarkerDrawableLeftMargin - mMarkerDrawable!!.minimumWidth).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin - mRadius - mMarkerDrawable!!.minimumHeight - mRingWidth - 10).toInt(),
+                    (mCenterX + mMarkerDrawableLeftMargin).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin - mRadius - mRingWidth - 10).toInt()
+                )
 
-                case Gravity.RIGHT:
-                case Gravity.END:
-                    mMarkerDrawable.setBounds((int) (mCenterX + mMarkerDrawableLeftMargin + mRadius + mRingWidth + 10),
-                            (int) (mCenterY + mMarkerDrawableTopMargin - mMarkerDrawable.getMinimumHeight()),
-                            (int) (mCenterX + mMarkerDrawableLeftMargin + mRadius + mMarkerDrawable.getMinimumWidth() + mRingWidth + 10),
-                            (int) (mCenterY + mMarkerDrawableTopMargin));
-                    break;
+                Gravity.RIGHT, Gravity.END -> mMarkerDrawable!!.setBounds(
+                    (mCenterX + mMarkerDrawableLeftMargin + mRadius + mRingWidth + 10).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin - mMarkerDrawable!!.minimumHeight).toInt(),
+                    (mCenterX + mMarkerDrawableLeftMargin + mRadius + mMarkerDrawable!!.minimumWidth + mRingWidth + 10).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin).toInt()
+                )
 
-                case Gravity.BOTTOM:
-                    mMarkerDrawable.setBounds((int) (mCenterX + mMarkerDrawableLeftMargin - mMarkerDrawable.getMinimumWidth()),
-                            (int) (mCenterY + mMarkerDrawableTopMargin + mRadius + mRingWidth + 10), (int) (mCenterX + mMarkerDrawableLeftMargin),
-                            (int) (mCenterY + mMarkerDrawableTopMargin + mRadius + mMarkerDrawable.getMinimumHeight() + mRingWidth + 10));
-                    break;
+                Gravity.BOTTOM -> mMarkerDrawable!!.setBounds(
+                    (mCenterX + mMarkerDrawableLeftMargin - mMarkerDrawable!!.minimumWidth).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin + mRadius + mRingWidth + 10).toInt(),
+                    (mCenterX + mMarkerDrawableLeftMargin).toInt(),
+                    (mCenterY + mMarkerDrawableTopMargin + mRadius + mMarkerDrawable!!.minimumHeight + mRingWidth + 10).toInt()
+                )
             }
 
-            mMarkerDrawable.draw(canvas);
+            mMarkerDrawable!!.draw(canvas)
         } else {
-            Log.d(TAG, "No marker drawable defined");
+            Log.d(TAG, "No marker drawable defined")
         }
     }
 
-    private void addCustomView(Canvas canvas) {
-        if (mCustomView.size() != 0) {
-            for (int i = 0; i < mCustomView.size(); i++) {
-                float cy = mCustomView.get(i).getMeasuredHeight() / 2, cx = mCustomView.get(i).getMeasuredWidth() / 2;
-                float diffY, diffX;
-                float marginTop = mCustomViewTopMargins.get(i);
-                float marginLeft = mCustomViewLeftMargins.get(i);
-                float marginRight = mCustomViewRightMargins.get(i);
-                float marginBottom = mCustomViewBottomMargins.get(i);
-                mTargetViewGlobalRect = new Rect();
-                mTargetView.getGlobalVisibleRect(mTargetViewGlobalRect);
-                View view = mCustomView.get(i);
-                switch (mCustomViewGravity.get(i)) {
-                    case Gravity.START:
-                    case Gravity.LEFT:
-                        diffY = mCenterY - cy;
-                        diffX = mCenterX - cx;
+    private fun addCustomView(canvas: Canvas) {
+        if (mCustomView.size != 0) {
+            for (i in mCustomView.indices) {
+                val cy = (mCustomView[i].measuredHeight / 2).toFloat()
+                val cx = (mCustomView[i].measuredWidth / 2).toFloat()
+                var diffY: Float
+                var diffX: Float
+                val marginTop = mCustomViewTopMargins[i]
+                val marginLeft = mCustomViewLeftMargins[i]
+                val marginRight = mCustomViewRightMargins[i]
+                val marginBottom = mCustomViewBottomMargins[i]
+                mTargetViewGlobalRect = Rect()
+                mTargetView!!.getGlobalVisibleRect(mTargetViewGlobalRect)
+                val view = mCustomView[i]
+                when (mCustomViewGravity[i]) {
+                    Gravity.START, Gravity.LEFT -> {
+                        diffY = mCenterY - cy
+                        diffX = mCenterX - cx
                         if (diffX < 0) {
-                            view.layout(0, 0, (int) (mCenterX - view.getMeasuredWidth() - 2 * marginRight),
-                                    (int) (mCustomView.get(i).getMeasuredHeight() + 2 * (diffY + marginTop)));
+                            view.layout(
+                                0, 0, (mCenterX - view.measuredWidth - 2 * marginRight).toInt(),
+                                (mCustomView[i].measuredHeight + 2 * (diffY + marginTop)).toInt()
+                            )
                         } else {
-                            view.layout((int) diffX, 0, (int) (view.getMeasuredWidth() - diffX - 2 * marginRight),
-                                    (int) (mCustomView.get(i).getMeasuredHeight() + 2 * (diffY + marginTop)));
+                            view.layout(
+                                diffX.toInt(),
+                                0,
+                                (view.measuredWidth - diffX - 2 * marginRight).toInt(),
+                                (mCustomView[i].measuredHeight + 2 * (diffY + marginTop)).toInt()
+                            )
                         }
-                        break;
+                    }
 
-                    case Gravity.TOP:
-                        diffY = mCenterY - cy - 2 * mTargetView.getMeasuredHeight();
-                        view.layout((int) (-marginLeft), 0, (int) (view.getMeasuredWidth() + marginLeft),
-                                (int) (mCustomView.get(i).getMeasuredHeight() + 2 * (diffY + marginTop)));
-                        break;
+                    Gravity.TOP -> {
+                        diffY = mCenterY - cy - 2 * mTargetView!!.measuredHeight
+                        view.layout(
+                            (-marginLeft).toInt(), 0, (view.measuredWidth + marginLeft).toInt(),
+                            (mCustomView[i].measuredHeight + 2 * (diffY + marginTop)).toInt()
+                        )
+                    }
 
-                    case Gravity.END:
-                    case Gravity.RIGHT:
-                        diffY = mCenterY - cy;
-                        view.layout(-2 * mTargetViewGlobalRect.right, 0,
-                                (int) (view.getMeasuredWidth() + 4 * marginLeft), (int) (mCustomView.get(i).getMeasuredHeight() + 2 * (diffY + marginTop)));
-                        break;
+                    Gravity.END, Gravity.RIGHT -> {
+                        diffY = mCenterY - cy
+                        view.layout(
+                            -2 * mTargetViewGlobalRect!!.right,
+                            0,
+                            (view.measuredWidth + 4 * marginLeft).toInt(),
+                            (mCustomView[i].measuredHeight + 2 * (diffY + marginTop)).toInt()
+                        )
+                    }
 
-                    case Gravity.BOTTOM:
-                        diffY = mCenterY - cy + 2 * mTargetView.getMeasuredHeight();
-                        view.layout((int) (-marginLeft), 0, (int) (view.getMeasuredWidth() + marginLeft),
-                                (int) (mCustomView.get(i).getMeasuredHeight() + 2 * (diffY + marginTop)));
-                        break;
+                    Gravity.BOTTOM -> {
+                        diffY = mCenterY - cy + 2 * mTargetView!!.measuredHeight
+                        view.layout(
+                            (-marginLeft).toInt(), 0, (view.measuredWidth + marginLeft).toInt(),
+                            (mCustomView[i].measuredHeight + 2 * (diffY + marginTop)).toInt()
+                        )
+                    }
 
-                    default:
-                        mCustomView.get(i).layout(0, 0, mCustomView.get(i).getMeasuredWidth(), mCustomView.get(i).getMeasuredHeight());
+                    else -> mCustomView[i].layout(
+                        0,
+                        0,
+                        mCustomView[i].measuredWidth,
+                        mCustomView[i].measuredHeight
+                    )
                 }
-                mCustomView.get(i).draw(canvas);
+                mCustomView[i].draw(canvas)
             }
         } else {
-            Log.d(TAG, "No Custom View defined");
+            Log.d(TAG, "No Custom View defined")
         }
     }
 
-    private ArrayList<View> getAllChildren(View v) {
-        if (!(v instanceof ViewGroup)) {
-            ArrayList<View> viewArrayList = new ArrayList<>();
-            viewArrayList.add(v);
-            return viewArrayList;
+    private fun getAllChildren(v: View): ArrayList<View> {
+        if (v !is ViewGroup) {
+            val viewArrayList = ArrayList<View>()
+            viewArrayList.add(v)
+            return viewArrayList
         }
 
-        ArrayList<View> result = new ArrayList<>();
+        val result = ArrayList<View>()
 
-        ViewGroup viewGroup = (ViewGroup) v;
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            View child = viewGroup.getChildAt(i);
-            ArrayList<View> viewArrayList = new ArrayList<>();
-            viewArrayList.add(v);
-            viewArrayList.addAll(getAllChildren(child));
+        val viewGroup = v
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            val viewArrayList = ArrayList<View>()
+            viewArrayList.add(v)
+            viewArrayList.addAll(getAllChildren(child))
 
-            result.addAll(viewArrayList);
+            result.addAll(viewArrayList)
         }
-        return result;
+        return result
     }
 
-    private void setShowcase(Canvas canvas) {
-        calculateRadiusAndCenter();
-        Bitmap bitmap = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
-        tempCanvas = new Canvas(bitmap);
+    private fun setShowcase(canvas: Canvas) {
+        calculateRadiusAndCenter()
+        val bitmap = Bitmap.createBitmap(canvas.width, canvas.height, Bitmap.Config.ARGB_8888)
+        tempCanvas = Canvas(bitmap)
 
-        backgroundPaint.setColor(backgroundOverlayColor);
-        backgroundPaint.setAntiAlias(true);
+        backgroundPaint!!.color = backgroundOverlayColor
+        backgroundPaint!!.isAntiAlias = true
 
-        transparentPaint.setColor(getResources().getColor(android.R.color.transparent));
-        transparentPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        transparentPaint.setAntiAlias(true);
+        transparentPaint!!.color = resources.getColor(android.R.color.transparent)
+        transparentPaint!!.setXfermode(PorterDuffXfermode(PorterDuff.Mode.CLEAR))
+        transparentPaint!!.isAntiAlias = true
 
-        ringPaint.setColor(ringColor);
-        ringPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.ADD));
-        ringPaint.setAntiAlias(true);
+        ringPaint!!.color = ringColor
+        ringPaint!!.setXfermode(PorterDuffXfermode(PorterDuff.Mode.ADD))
+        ringPaint!!.isAntiAlias = true
 
         if (mBgOverlayShape == ROUND_RECT) {
-            RectF oval = new RectF();
-            switch (mRoundRectCorner) {
-                case BOTTOM_LEFT:
-                    oval.set(-mRoundRectOffset, -tempCanvas.getHeight(), 2 * tempCanvas.getWidth() + mRoundRectOffset, tempCanvas.getHeight());
-                    tempCanvas.drawArc(oval, 90F, 90F, true, backgroundPaint);
-                    break;
+            val oval = RectF()
+            when (mRoundRectCorner) {
+                BOTTOM_LEFT -> {
+                    oval[-mRoundRectOffset, -tempCanvas!!.height.toFloat(), 2 * tempCanvas!!.width + mRoundRectOffset] =
+                        tempCanvas!!.height.toFloat()
+                    tempCanvas!!.drawArc(oval, 90f, 90f, true, backgroundPaint!!)
+                }
 
-                case BOTTOM_RIGHT:
-                    oval.set(-tempCanvas.getWidth() - mRoundRectOffset, -tempCanvas.getHeight(), tempCanvas.getWidth() + mRoundRectOffset, tempCanvas.getHeight());
-                    tempCanvas.drawArc(oval, 360F, 90F, true, backgroundPaint);
-                    break;
+                BOTTOM_RIGHT -> {
+                    oval[-tempCanvas!!.width - mRoundRectOffset, -tempCanvas!!.height.toFloat(), tempCanvas!!.width + mRoundRectOffset] =
+                        tempCanvas!!.height.toFloat()
+                    tempCanvas!!.drawArc(oval, 360f, 90f, true, backgroundPaint!!)
+                }
 
-                case TOP_LEFT:
-                    oval.set(-mRoundRectOffset, 0, 2 * tempCanvas.getWidth() + mRoundRectOffset, 2 * tempCanvas.getHeight());
-                    tempCanvas.drawArc(oval, 180F, 90F, true, backgroundPaint);
-                    break;
+                TOP_LEFT -> {
+                    oval[-mRoundRectOffset, 0f, 2 * tempCanvas!!.width + mRoundRectOffset] =
+                        (2 * tempCanvas!!.height).toFloat()
+                    tempCanvas!!.drawArc(oval, 180f, 90f, true, backgroundPaint!!)
+                }
 
-                case TOP_RIGHT:
-                    oval.set(-tempCanvas.getWidth() - mRoundRectOffset, 0, tempCanvas.getWidth() + mRoundRectOffset, 2 * tempCanvas.getHeight());
-                    tempCanvas.drawArc(oval, 270F, 90F, true, backgroundPaint);
-                    break;
+                TOP_RIGHT -> {
+                    oval[-tempCanvas!!.width - mRoundRectOffset, 0f, tempCanvas!!.width + mRoundRectOffset] =
+                        (2 * tempCanvas!!.height).toFloat()
+                    tempCanvas!!.drawArc(oval, 270f, 90f, true, backgroundPaint!!)
+                }
 
-                default:
-                    oval.set(-mRoundRectOffset, -tempCanvas.getHeight(), 2 * tempCanvas.getWidth() + mRoundRectOffset, tempCanvas.getHeight());
-                    tempCanvas.drawArc(oval, 90F, 90F, true, backgroundPaint);
-                    break;
+                else -> {
+                    oval[-mRoundRectOffset, -tempCanvas!!.height.toFloat(), 2 * tempCanvas!!.width + mRoundRectOffset] =
+                        tempCanvas!!.height.toFloat()
+                    tempCanvas!!.drawArc(oval, 90f, 90f, true, backgroundPaint!!)
+                }
             }
         } else {
-            tempCanvas.drawRect(0, 0, tempCanvas.getWidth(), tempCanvas.getHeight(), backgroundPaint);
+            tempCanvas!!.drawRect(
+                0f, 0f, tempCanvas!!.width.toFloat(), tempCanvas!!.height.toFloat(),
+                backgroundPaint!!
+            )
         }
 
         if (mShape == SHAPE_SKEW) {
-            Rect r = new Rect();
-            Rect ring = new Rect();
-            mTargetView.getGlobalVisibleRect(r);
-            mTargetView.getGlobalVisibleRect(ring);
+            val r = Rect()
+            val ring = Rect()
+            mTargetView!!.getGlobalVisibleRect(r)
+            mTargetView!!.getGlobalVisibleRect(ring)
             //Showcase rect
-            r.top -= mShowcaseMargin;
-            r.left -= mShowcaseMargin;
-            r.right += mShowcaseMargin;
-            r.bottom += mShowcaseMargin;
+            r.top = (r.top - mShowcaseMargin).toInt()
+            r.left = (r.left - mShowcaseMargin).toInt()
+            r.right = (r.right + mShowcaseMargin).toInt()
+            r.bottom = (r.bottom + mShowcaseMargin).toInt()
             //Showcase ring rect
-            ring.top -= mShowcaseMargin + mRingWidth;
-            ring.left -= mShowcaseMargin + mRingWidth;
-            ring.right += mShowcaseMargin + mRingWidth;
-            ring.bottom += mShowcaseMargin + mRingWidth;
-            tempCanvas.drawRect(ring, ringPaint);
-            tempCanvas.drawRect(r, transparentPaint);
+            ring.top = (ring.top - (mShowcaseMargin + mRingWidth)).toInt()
+            ring.left = (ring.left - (mShowcaseMargin + mRingWidth)).toInt()
+            ring.right = (ring.right + (mShowcaseMargin + mRingWidth)).toInt()
+            ring.bottom = (ring.bottom + (mShowcaseMargin + mRingWidth)).toInt()
+            tempCanvas!!.drawRect(ring, ringPaint!!)
+            tempCanvas!!.drawRect(r, transparentPaint!!)
         } else {
-            tempCanvas.drawCircle(mCenterX, mCenterY, mRadius + mRingWidth, ringPaint);
-            tempCanvas.drawCircle(mCenterX, mCenterY, mRadius, transparentPaint);
+            tempCanvas!!.drawCircle(mCenterX, mCenterY, mRadius + mRingWidth, ringPaint!!)
+            tempCanvas!!.drawCircle(mCenterX, mCenterY, mRadius, transparentPaint!!)
         }
 
-        canvas.drawBitmap(bitmap, 0, 0, new Paint());
+        canvas.drawBitmap(bitmap, 0f, 0f, Paint())
     }
 
-    public void setClickListenerOnView(int id, final OnClickListener clickListener) {
-        idsClickListenerMap.put(id, clickListener);
+    fun setClickListenerOnView(id: Int, clickListener: OnClickListener?) {
+        idsClickListenerMap[id] = clickListener
     }
 
-    private int getAbsoluteLeft(View myView) {
+    private fun getAbsoluteLeft(myView: View?): Int {
         if (myView == null) {
-            return 0;
+            return 0
         }
-        if (myView.getParent() == myView.getRootView())
-            return myView.getLeft();
-        else
-            return myView.getLeft() + getAbsoluteLeft((View) myView.getParent());
+        return if (myView.parent === myView.rootView) myView.left
+        else myView.left + getAbsoluteLeft(myView.parent as View)
     }
 
-    private int getAbsoluteTop(View myView) {
+    private fun getAbsoluteTop(myView: View?): Int {
         if (myView == null) {
-            return 0;
+            return 0
         }
-        if (myView.getParent() == myView.getRootView())
-            return myView.getTop();
-        else
-            return myView.getTop() + getAbsoluteTop((View) myView.getParent());
+        return if (myView.parent === myView.rootView) myView.top
+        else myView.top + getAbsoluteTop(myView.parent as View)
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (idsRectMap.isEmpty()) {
-            for (View parentView : mCustomView) {
-                List<View> childrenViews = getAllChildren(parentView);
-                for (final View view : childrenViews) {
-                    Rect rect = new Rect();
-                    rect.set(getAbsoluteLeft(view), getAbsoluteTop(view),
-                            getAbsoluteLeft(view) + view.getMeasuredWidth(), getAbsoluteTop(view) + view.getMeasuredHeight());
-                    if (view.getId() > 0) {
-                        idsRectMap.put(rect, view.getId());
+            for (parentView in mCustomView) {
+                val childrenViews: List<View> = getAllChildren(parentView)
+                for (view in childrenViews) {
+                    val rect = Rect()
+                    rect[getAbsoluteLeft(view), getAbsoluteTop(view), getAbsoluteLeft(view) + view.measuredWidth] =
+                        getAbsoluteTop(view) + view.measuredHeight
+                    if (view.id > 0) {
+                        idsRectMap[rect] = view.id
                     }
                 }
             }
         }
 
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            float X = event.getX();
-            float Y = event.getY();
-            Object[] keys = idsRectMap.keySet().toArray();
-            for (int i = 0; i < idsRectMap.size(); i++) {
-                Rect r = (Rect) keys[i];
-                if (r.contains((int) X, (int) Y)) {
-                    int id = idsRectMap.get(r);
-                    if (idsClickListenerMap.get(id) != null) {
-                        idsClickListenerMap.get(id).onClick(v);
-                        return true;
+        if (event.action == MotionEvent.ACTION_UP) {
+            val X = event.x
+            val Y = event.y
+            val keys: Array<Any> = idsRectMap.keys.toTypedArray()
+            for (i in 0 until idsRectMap.size) {
+                val r = keys[i] as Rect
+                if (r.contains(X.toInt(), Y.toInt())) {
+                    val id = idsRectMap[r]!!
+                    if (idsClickListenerMap[id] != null) {
+                        idsClickListenerMap[id]!!.onClick(v)
+                        return true
                     }
                 }
             }
 
             if (mHideOnTouchOutside) {
-                hide();
-                return true;
+                hide()
+                return true
             }
         }
-        return false;
+        return false
+    }
+
+    companion object {
+        private const val TAG = "SHOWCASE_VIEW"
+
+        //Showcase Shapes constants
+        const val SHAPE_CIRCLE: Int = 0 //Default Shape
+        const val SHAPE_SKEW: Int = 1
+
+        //Bg Overlay Shapes constants
+        const val FULL_SCREEN: Int = 2 //Default Shape
+        const val ROUND_RECT: Int = 3
+
+        //Round rect corner direction constants
+        const val BOTTOM_LEFT: Int = 4
+        const val BOTTOM_RIGHT: Int = 5
+        const val TOP_LEFT: Int = 6
+        const val TOP_RIGHT: Int = 7
+
+        @JvmStatic
+        fun init(activity: Activity): ShowcaseViewBuilder {
+            val showcaseViewBuilder = ShowcaseViewBuilder(activity)
+            showcaseViewBuilder.mActivity = activity
+            showcaseViewBuilder.isClickable = true
+            return showcaseViewBuilder
+        }
     }
 }
 

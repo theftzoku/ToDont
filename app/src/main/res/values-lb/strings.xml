@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Wielt D\'Sprooch</item>
+        <item>Tschechesch</item>
+        <item>Dänesch</item>
+        <item>Däitsch</item>
+        <item>Englesch</item>
+        <item>Spuenesch</item>
+        <item>Italienesch</item>
+        <item>Franséisch</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Januar</item>
+            <item>Februar</item>
+            <item>Mäerz</item>
+            <item>Abrëll</item>
+            <item>Mee</item>
+            <item>Juni</item>
+            <item>Juli</item>
+            <item>August</item>
+            <item>September</item>
+            <item>Oktober</item>
+            <item>November</item>
+            <item>Dezember</item>
+        </string-array>
+
+
+    <string name="delete_habit">Sidd Dir Sécher, Datt Dir Dës Gewunnecht Läsche Wëllt?</string>
+    <string name="LightMode">Ze Maachen Net</string>
+    <string name="onboarding_reverse">Der Ëmgedréint Fir Lëscht</string>
+    <string name="onboarding_bad">Jotéiert Är Schlecht Gewunnechten Erof.All Dag, Kräiz</string>
+    <string name="onboarding_gavein">Eraus Deen Dir Opginn Hutt.An Déi Nächst</string>
+    <string name="onboarding_freshlist">De Moien Fänkt Mat Der Frëscher Lëscht Un.</string>
+    <string name="onboarding_continue">Weidergitt</string>
+    <string name="avoided">Vermeit</string>
+    <string name="done">Verdataktioun</string>
+    <string name="habits">Gewunnecht</string>
+    <string name="today">Haut</string>
+    <string name="log">Aloggenloggen</string>
+    <string name="about">Iwwer</string>
+    <string name="labels">Etebrauch</string>
+    <string name="settings">Astellunge</string>
+    <string name="mostav">Meescht Vermeit:</string>
+    <string name="leastav">Mannst Vermeit:</string>
+    <string name="addlabel">Füügt W.E.G. E Label</string>
+    <string name="addnewlabel">Füügt Neie Label</string>
+    <string name="addtask">Gitt Schlecht Gewunnecht</string>
+    <string name="note">Broessdatsch</string>
+    <string name="save">Spuerwäit</string>
+    <string name="puthabit">Fir Unzefänken, Setzt Eng Schlecht Gewunnecht Un</string>
+    <string name="habitswillshowuphere">Gewunnechten Weisen Hei</string>
+    <string name="apachelicense">Apache Lizenz 2.0</string>
+    <string name="developer">Entwéckler</string>
+    <string name="contribute">Bäidroen</string>
+    <string name="translate">Iwwersetzen</string>
+    <string name="report">Bericht E Problem</string>
+    <string name="source">View Quell</string>
+    <string name="opensourcelicense">Open-Quell Lizenzen</string>
+    <string name="appearance">Ergesetzung</string>
+    <string name="dark">Donkidn</string>
+    <string name="light">Liicht</string>
+    <string name="update">Olaangs</string>
+    <string name="feather">Fieder Symboler</string>
+    <string name="mitlicence">Mit Lizenz</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialpinner</string>
+    <string name="followsys">Followsystem</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Crossallimare</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Mee Junit</string>
+    <string name="eclipse">Sonnendäischtert Ëffentlech Lizenz 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Ëffentlech Lizenz Ce</string>
+    <string-array name="spinner_array">
+        <item>Sozias</item>
+        <item>Liewensmëttel A Gedrénks</item>
+        <item>Studien Sin</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Fir Net Elo Ze Folgen.</string>
+    <string name="toast_light">Zu Don \'T Ass Elo Op Der Liichter Säit.</string>
+    <string name="toast_dark">Zu Don \'T Ass Elo Op Der Däischterer Säit.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Füügt Nei Zu Don \'T Artikel</string>
+    <string name="d">D</string>
+    <string name="w">W-W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">" Aus "</string>
+    <string name="habits_are_avoided">"Gewunnechten Vermeit"</string>
+    <string name="habits_are_avoided_way_to_go">"Gewunnechten Vermeit, Wee Fir Ze Goen!"</string>
+    <string name="avoided_">Vermeit</string>
+    <string name="habits_">Gewunnecht</string>
+    <string name="delete">Wëllt Dir Wierklech Dëst Läschen?</string>
+    <string name="no">Nee</string>
+    <string name="deletes">Wëllt Dir Wierklech Dëst Läschen?</string>
+    <string name="yes">Jo</string>
+    <string name="please_add_a_label_first">Füügt W.E.G. E Label</string>
+    <string name="do_you_really_want_to_delete_this">Wëllt Dir Wierklech Dëst Läschen?</string>
+    <string name="january">Januar</string>
+    <string name="february">Februar</string>
+    <string name="march">Mäerz</string>
+    <string name="april">Abrëll</string>
+    <string name="may">Mee</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">August</string>
+    <string name="september">September</string>
+    <string name="october">Oktober</string>
+    <string name="november">November</string>
+    <string name="december">Dezember</string>
+    <string name="mark_as_done_or_avoided">Markéiert Wéi Gemaach Oder Vermeit Ginn.</string>
+    <string name="help_make_to_don_t_better">Hëlleft Et Ze Maachen \ "Bis Don \" Besser.</string>
+    <string name="todon_t_reminder">Todon \'T Erënnerung</string>
+    <string name="mark_your_todon_t_task">"Markéiert Är Todon Net Aufgab"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Unzefänken, Setzt Eng Schlecht Gewunnecht Erof.</string>
+    <string name="view_your_stats">Gesinn Är Statistiken.</string>
+    <string name="add_label">Füügt Label.</string>
+    <string name="permission_required">Zougrëffs-</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Dës App Brauch Zougang Zu Ärem Externen Späichere Fir D\'Datebank Ze Restauréieren.Aktivéiert Dës Erlaabnis Dës Erlaabnis An Den App Astellungen.</string>
+    <string name="open_settings">Oppen Astellungen</string>
+    <string name="select_repetition_frequency">Wielt Widderhuelung Frequenz</string>
+    <string name="once">Eemol</string>
+    <string name="daily">Am Dag</string>
+    <string name="weekly">Wëherspicht</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Wëllt Dir Heizoullbaren Dëst Läschen? ~ Ntts Dur Och All Gewunnecht Déi Mat Dësem Kader Läscht.</string>
+    <string name="data">Donnéeën</string>
+    <string name="add_daily_notification">Füügt Deeglech Notifikatioun</string>
+    <string name="back_up">Zréckkomm</string>
+    <string name="restore">Erëmzekréien</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

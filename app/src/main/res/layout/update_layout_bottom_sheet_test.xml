@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/tvHabitName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -34,7 +34,7 @@
 
         <!-- Delete Icon -->
         <ImageButton
-            android:id="@+id/deleteButton"
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
         android:id="@+id/counterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleText"
+        android:layout_below="@+id/tvHabitName"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Avoided"
+                android:text="@string/avoided"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp" />
 
@@ -77,7 +77,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/avoidedMinusButton"
+                    android:id="@+id/btnDecAvoidedCount"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:backgroundTint="@android:color/darker_gray"
@@ -85,7 +85,7 @@
                     android:textColor="@color/textcolor" />
 
                 <TextView
-                    android:id="@+id/avoidedCount"
+                    android:id="@+id/tvAvoidedCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -95,7 +95,7 @@
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/avoidedPlusButton"
+                    android:id="@+id/btnIncrAvoidedCount"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:backgroundTint="@android:color/darker_gray"
@@ -122,7 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Done"
+                android:text="@string/done"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp" />
 
@@ -134,7 +134,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/doneMinusButton"
+                    android:id="@+id/btnDecDoneCount"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:backgroundTint="@android:color/darker_gray"
@@ -142,7 +142,7 @@
                     android:textColor="@color/textcolor" />
 
                 <TextView
-                    android:id="@+id/doneCount"
+                    android:id="@+id/tvDoneCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -153,7 +153,7 @@
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/donePlusButton"
+                    android:id="@+id/btnIncDoneCount"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:backgroundTint="@android:color/darker_gray"
@@ -166,7 +166,7 @@
 
     <!-- Placeholder Text (Lorem ipsum) -->
     <TextView
-        android:id="@+id/details"
+        android:id="@+id/tvHabitDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/counterLayout"
@@ -177,30 +177,30 @@
 
     <!-- Social Button -->
     <ImageButton
-        android:id="@+id/tagButton"
+        android:id="@+id/btnLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/cvTag"
-        android:layout_alignBottom="@id/cvTag"
+        android:layout_alignTop="@+id/cvLabel"
+        android:layout_alignBottom="@id/cvLabel"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"
         android:src="@drawable/frame__6_" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvTag"
+        android:id="@+id/cvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/details"
+        android:layout_below="@id/tvHabitDescription"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@id/tagButton"
+        android:layout_toEndOf="@id/btnLabel"
         app:cardBackgroundColor="#1fff6701"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp">
 
         <TextView
-            android:id="@+id/tvTag"
+            android:id="@+id/tvLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -217,19 +217,19 @@
         android:id="@+id/tvNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/notificationButton"
-        android:layout_alignBottom="@id/notificationButton"
-        android:layout_toEndOf="@id/tagButton"
+        android:layout_alignTop="@+id/btnNotification"
+        android:layout_alignBottom="@id/btnNotification"
+        android:layout_toEndOf="@id/btnLabel"
         android:layout_marginStart="8dp"
         android:gravity="center"
         android:textColor="@color/textcolor"
-        android:text="Add daily notification"
+        android:text="@string/add_daily_notification"
         />
     <ImageButton
-        android:id="@+id/notificationButton"
+        android:id="@+id/btnNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cvTag"
+        android:layout_below="@+id/cvLabel"
         android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"

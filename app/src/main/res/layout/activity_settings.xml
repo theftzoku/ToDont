@@ -25,7 +25,7 @@
             android:background="@drawable/ic_back"
             android:elevation="6dp"
             android:gravity="bottom"
-            android:onClick="backbtn" />
+            android:onClick="backBtn" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
 
             android:gravity="bottom"
             android:onClick="changeMode"
-            android:text="Data"
+            android:text="@string/data"
             android:textColor="@color/red"
             android:textSize="16sp"
 
@@ -192,10 +192,11 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/backUpButton"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:onClick="backbtn"
+
 
             android:layout_height="wrap_content">
             <Button
@@ -214,7 +215,7 @@
                 android:layout_marginLeft="20dp"
                 android:elevation="6dp"
                 android:gravity="center_vertical"
-                android:text="Back up"
+                android:text="@string/back_up"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp"
 
@@ -258,7 +259,7 @@
                 android:layout_marginLeft="20dp"
                 android:elevation="6dp"
                 android:gravity="center_vertical"
-                android:text="Restore"
+                android:text="@string/restore"
                 android:textColor="@color/textcolor"
                 android:textSize="16sp"
 
@@ -288,7 +289,7 @@
 
             android:gravity="bottom"
             android:onClick="changeMode"
-            android:text="About"
+            android:text="@string/about"
             android:textColor="@color/red"
             android:textSize="16sp"
 

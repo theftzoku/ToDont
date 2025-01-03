@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".Labels">
+    tools:context=".LabelsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -28,7 +28,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="0.01"
                 android:background="@drawable/ic_back"
-                android:onClick="backbtnclicked" />
+                android:onClick="backBtnClicked" />
             <TextView
                 android:id="@+id/toolbartext"
                 android:layout_width="wrap_content"

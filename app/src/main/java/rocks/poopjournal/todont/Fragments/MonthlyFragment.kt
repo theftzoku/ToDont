@@ -1,375 +1,196 @@
-package rocks.poopjournal.todont.Fragments;
+package rocks.poopjournal.todont.fragments
 
-import static java.util.Calendar.getInstance;
+import android.graphics.Color
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.annotation.IntegerRes
+import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import rocks.poopjournal.todont.R
+import rocks.poopjournal.todont.utils.Constants
+import rocks.poopjournal.todont.utils.DatabaseUtils
+import rocks.poopjournal.todont.utils.SharedPrefUtils
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+class MonthlyFragment : Fragment() {
+    private lateinit var calendar: Calendar
+    private lateinit var dbHelper: DatabaseUtils
+    private lateinit var dateFormatter: SimpleDateFormat
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+    private lateinit var pieChart: PieChart
+    private lateinit var dateText: TextView
+    private lateinit var yearText: TextView
+    private lateinit var mostAvoidedText: TextView
+    private lateinit var leastAvoidedText: TextView
+    private lateinit var dateRangeText: TextView
+    private lateinit var btnBefore: Button
+    private lateinit var btnAfter: Button
 
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
+    private var currentMonth: String = ""
+    private var habitsSize: Double = 0.0
+    private var avoidedSize: Double = 0.0
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_monthly, container, false)
+        initViews(view)
+        setupInitialData()
+        setupListeners()
+        return view
+    }
 
-import rocks.poopjournal.todont.Db_Controller;
-import rocks.poopjournal.todont.Helper;
-import rocks.poopjournal.todont.R;
+    private fun initViews(view: View) {
+        dbHelper = DatabaseUtils(requireContext())
+        dateFormatter = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
 
-public class MonthlyFragment extends Fragment {
-    Calendar c = getInstance();
-    Calendar d = getInstance();
-    Calendar e = getInstance();
-    SimpleDateFormat df;
-    Db_Controller db;
-    TextView date, year, mostavoided, leastavoided, daterange;
-    Button btnbefore, btnafter;
-    String formattedDate;
-    String getmostAvoidedHabit;
-    SharedPreferences prefs;
-    String checkDate;
-    PieChart pieChart;
-    String curmonth;
-    String[] splitteddate;
-    String b_month;
-    int b_year;
-    double habitsSize, avoidedSize;
+        pieChart = view.findViewById(R.id.pieChart)
+        dateText = view.findViewById(R.id.date)
+        yearText = view.findViewById(R.id.year)
+        mostAvoidedText = view.findViewById(R.id.mostavoided)
+        leastAvoidedText = view.findViewById(R.id.leastavoided)
+        dateRangeText = view.findViewById(R.id.daterange)
+        btnBefore = view.findViewById(R.id.before)
+        btnAfter = view.findViewById(R.id.after)
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_monthly, container, false);
-        db = new Db_Controller(getActivity(), "", null, 2);
-        df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        pieChart = view.findViewById(R.id.pieChart);
-        checkDate = prefs.getString("InitialDate", "");
-        Helper.SelectedButtonOfLogTab = 2;
-        date = view.findViewById(R.id.date);
-        year = view.findViewById(R.id.year);
-        pieChart = view.findViewById(R.id.pieChart);
-        btnbefore = view.findViewById(R.id.before);
-        btnafter = view.findViewById(R.id.after);
-        btnbefore.setBackgroundResource(R.drawable.ic_backarrow);
-        btnafter.setBackgroundResource(R.drawable.ic_nextarrow);
-        daterange = view.findViewById(R.id.daterange);
-        mostavoided = view.findViewById(R.id.mostavoided);
-        leastavoided = view.findViewById(R.id.leastavoided);
-        db.show_habits_data();
-        final String cur_date = df.format(c.getTime());
-        splitteddate = cur_date.split("-");
-        setMonth(splitteddate[1]);
-        b_year = Integer.parseInt(splitteddate[0]);
-        date.setText("" + curmonth);
-        year.setText("" + splitteddate[0]);
-        String newDate = splitteddate[0] + "-" + splitteddate[1] + "-01";
-        String newDate1 = splitteddate[0] + "-" + splitteddate[1] + "-31";
-        Log.d("splitteddate333 ", "" + newDate + " * " + newDate1);
-        String avoided = db.getMonthlyAvoidedData(newDate, newDate1);
-        String done = db.getMonthlyDoneData(newDate, newDate1);
-        mostavoided.setText("" + avoided);
-        leastavoided.setText("" + done);
-        habitsSize = Helper.habitsdata.size() * 30;
-        avoidedSize = Helper.avoidedmonthlydata.size();
-        double per = (avoidedSize / habitsSize) * 100;
-        Log.d("percentage", "per : " + per + " monthly" + Helper.avoidedmonthlydata.size() + "total" + Helper.habitsdata.size());
-        funcPieChart((int) per);
-        String[] checkdatea = checkDate.split("-");
-        setMonth(checkdatea[1]);
-        if (year.getText().toString().equals(checkdatea[0]) && date.getText().toString().equals(curmonth)) {
-            btnbefore.setEnabled(false);
+        btnBefore.setBackgroundResource(R.drawable.ic_backarrow)
+        btnAfter.setBackgroundResource(R.drawable.ic_nextarrow)
+    }
+
+    private fun setupInitialData() {
+        calendar = Calendar.getInstance()
+        val currentDate = dateFormatter.format(calendar.time).split("-")
+        currentMonth = getMonthName(currentDate[1])
+        val currentYear = currentDate[0]
+
+        dateText.text = currentMonth
+        yearText.text = currentYear
+
+        val monthStart = "${currentYear}-${currentDate[1]}-01"
+        val monthEnd = "${currentYear}-${currentDate[1]}-31"
+
+        habitsSize = (dbHelper.getHabitsCount() * 30).toDouble()
+        avoidedSize = dbHelper.getMonthlyAvoidedDataList(monthStart, monthEnd).size.toDouble()
+        val percentageAvoided = (avoidedSize / habitsSize) * 100
+
+        dbHelper.getMonthlyAvoidedData(monthStart, monthEnd).apply {
+          if(this.isNotEmpty()){
+              mostAvoidedText.text = dbHelper.getHabitById(this.toInt())?.name
+              mostAvoidedText.visibility = View.VISIBLE
+          }else{
+              mostAvoidedText.visibility = View.GONE
+          }
+
         }
-        else{
-            btnbefore.setEnabled(true);
-            btnafter.setEnabled(true);
-        }
-        btnafter.setEnabled(!year.getText().toString().equals(splitteddate[0]) || !date.getText().toString().equals(curmonth));
-
-        btnbefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnafter.setEnabled(true);
-                btnbefore.setBackgroundResource(R.drawable.ic_backarrowpressed);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnbefore.setBackgroundResource(R.drawable.ic_backarrow);
-                    }
-                }, 100);
-                String[] checkdatearray = checkDate.split("-");
-                b_year = Integer.parseInt(year.getText().toString());
-                setBeforeMonth(date.getText().toString());
-                Log.d("hehehe", "" + checkdatearray[0]);
-                Log.d("hehehe2", "" + checkdatearray[1]);
-                if ((year.getText().toString()).equals(checkdatearray[0])) {
-                    if ((b_month.equals("-" + checkdatearray[1] + "-"))) {
-                        btnbefore.setEnabled(false);
-                    }
-                }
-                if (curmonth.equals("December")) {
-                    b_year--;
-                }
-                date.setText("" + curmonth);
-                year.setText("" + b_year);
-                String newDate = b_year + b_month + "01";
-                String newDate1 = b_year + b_month + "31";
-                Log.d("sssssssss", "" + newDate + " * " + newDate1);
-                String avoided = db.getMonthlyAvoidedData(newDate, newDate1);
-                String done = db.getMonthlyDoneData(newDate, newDate1);
-                mostavoided.setText("" + avoided);
-                leastavoided.setText("" + done);
-                habitsSize = Helper.habitsdata.size() * 30;
-                avoidedSize = Helper.avoidedmonthlydata.size();
-                double per = (avoidedSize / habitsSize) * 100;
-                Log.d("percentage", "per : " + per + " monthly" + Helper.avoidedmonthlydata.size() + "total" + Helper.habitsdata.size());
-                funcPieChart((int) per);
+        dbHelper.getMonthlyDoneData(monthStart, monthEnd).apply {
+            if(this.isNotEmpty()){
+                leastAvoidedText.text =dbHelper.getHabitById(this.toInt())?.name
+                leastAvoidedText.visibility = View.VISIBLE
+            }else{
+                leastAvoidedText.visibility = View.GONE
             }
-        });
-        btnafter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("currenttttClick", "" + curmonth);
-                btnbefore.setEnabled(true);
-                btnafter.setBackgroundResource(R.drawable.ic_nextpressed);
-                new
-                        Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        btnafter.setBackgroundResource(R.drawable.ic_nextarrow);
-                    }
-                }, 100);
-                String currdate = df.format(d.getTime());
-                String[] currdatearray = currdate.split("-");
-                b_year = Integer.parseInt(year.getText().toString());
-                Log.d("currenttttdate", "" + date.getText().toString());
-                setAfterMonth(date.getText().toString());
-                Log.d("currenttttAfterMethod", "" + curmonth);
-                Log.d("hehehe", "" + currdatearray[0]);
-                Log.d("hehehe2", "" + currdatearray[1]);
-                if ((year.getText().toString()).equals(currdatearray[0])) {
-                    Log.d("nnn", "curr : " + currdatearray[0] + " year : " + year.getText().toString());
-                    if ((b_month.equals("-" + currdatearray[1] + "-"))) {
-                        btnafter.setEnabled(false);
-                    }
-                }
-                if (curmonth.equals("January")) {
-                    b_year++;
-                }
-                date.setText("" + curmonth);
-                year.setText("" + b_year);
-                String newDate = b_year + b_month + "01";
-                String newDate1 = b_year + b_month + "31";
-                Log.d("sssssssss", "" + newDate + " * " + newDate1);
-                String avoided = db.getMonthlyAvoidedData(newDate, newDate1);
-                String done = db.getMonthlyDoneData(newDate, newDate1);
-                mostavoided.setText("" + avoided);
-                leastavoided.setText("" +done);
-                habitsSize = Helper.habitsdata.size() * 30;
-                avoidedSize = Helper.avoidedmonthlydata.size();
-                double per = (avoidedSize / habitsSize) * 100;
-                Log.d("percentage", "per : " + per + " monthly" + Helper.avoidedmonthlydata.size() + "total" + Helper.habitsdata.size());
-                funcPieChart((int) per);
+        }
+        setupPieChart(percentageAvoided.toInt())
+    }
+
+    private fun setupListeners() {
+        btnBefore.setOnClickListener {
+            updateMonthData(isNext = false)
+        }
+        btnAfter.setOnClickListener {
+            updateMonthData(isNext = true)
+        }
+    }
+
+    private fun updateMonthData(isNext: Boolean) {
+        val currentMonthIndex = calendar.get(Calendar.MONTH)
+        calendar.set(Calendar.MONTH, if (isNext) currentMonthIndex + 1 else currentMonthIndex - 1)
+
+        val newMonth = calendar.get(Calendar.MONTH) + 1 // 0-based index
+        val newYear = calendar.get(Calendar.YEAR)
+
+        currentMonth = getMonthName(newMonth.toString().padStart(2, '0'))
+        dateText.text = currentMonth
+        yearText.text = newYear.toString()
+
+        val monthStart = "${newYear}-${newMonth.toString().padStart(2, '0')}-01"
+        val monthEnd = "${newYear}-${newMonth.toString().padStart(2, '0')}-31"
+
+        dbHelper.getMonthlyAvoidedData(monthStart, monthEnd).apply {
+            if(this.isNotEmpty()){
+                mostAvoidedText.text = dbHelper.getHabitById(this.toInt())?.name
+                mostAvoidedText.visibility = View.VISIBLE
+            }else{
+                mostAvoidedText.visibility = View.GONE
             }
-        });
 
-        return view;
+        }
+        dbHelper.getMonthlyDoneData(monthStart, monthEnd).apply {
+            if(this.isNotEmpty()){
+                leastAvoidedText.text =dbHelper.getHabitById(this.toInt())?.name
+                leastAvoidedText.visibility = View.VISIBLE
+            }else{
+                leastAvoidedText.visibility = View.GONE
+            }
+        }
+
+        avoidedSize = dbHelper.getMonthlyAvoidedDataList(monthStart, monthEnd).size.toDouble()
+        val percentageAvoided = (avoidedSize / habitsSize) * 100
+
+        setupPieChart(percentageAvoided.toInt())
     }
 
-    public void setMonth(String s) {
-        switch (s) {
-            case "01":
-                curmonth = getString(R.string.january);
-                break;
-            case "02":
-                curmonth = getString(R.string.february);
-                break;
-            case "03":
-                curmonth = getString(R.string.march);
-                break;
-            case "04":
-                curmonth = getString(R.string.april);
-                break;
-            case "05":
-                curmonth = getString(R.string.may);
-                break;
-            case "06":
-                curmonth = getString(R.string.june);
-                break;
-            case "07":
-                curmonth = getString(R.string.july);
-                break;
-            case "08":
-                curmonth = getString(R.string.august);
-                break;
-            case "09":
-                curmonth = getString(R.string.september);
-                break;
-            case "10":
-                curmonth = getString(R.string.october);
-                break;
-            case "11":
-                curmonth = getString(R.string.november);
-                break;
-            case "12":
-                curmonth = getString(R.string.december);
-                break;
-            default:
-                curmonth = "";
-                break;
+    private fun setupPieChart(avoidedPercentage: Int) {
+        val pieEntries = listOf(
+            PieEntry(avoidedPercentage.toFloat(), getString(R.string.avoided)),
+            PieEntry((100 - avoidedPercentage).toFloat(), getString(R.string.habits))
+        )
 
+        val pieDataSet = PieDataSet(pieEntries, "").apply {
+            setColors(
+                Color.parseColor("#FFAF01"),
+                Color.parseColor("#26272c")
+            )
+            valueTextColor = Color.WHITE
+        }
 
+        pieChart.data = PieData(pieDataSet).apply {
+            setValueTextColor(Color.WHITE)
+        }
+
+        pieChart.apply {
+            legend.isEnabled = false
+            description = Description().apply { text = "" }
+            holeRadius = 50f
+            setHoleColor(requireContext().getColor(R.color.backgroundcolor))
+            transparentCircleRadius = 50f
+            animateXY(1000, 1000)
         }
     }
 
-    public void setBeforeMonth(String s) {
-        switch (s) {
-            case "January":
-                curmonth = "December";
-                b_month = "-12-";
-                break;
-            case "February":
-                curmonth = "January";
-                b_month = "-01-";
-                break;
-            case "March":
-                curmonth = "February";
-                b_month = "-02-";
-                break;
-            case "April":
-                curmonth = "March";
-                b_month = "-03-";
-                break;
-            case "May":
-                curmonth = "April";
-                b_month = "-04-";
-                break;
-            case "June":
-                curmonth = "May";
-                b_month = "-05-";
-                break;
-            case "July":
-                curmonth = "June";
-                b_month = "-06-";
-                break;
-            case "August":
-                curmonth = "July";
-                b_month = "-07-";
-                break;
-            case "September":
-                curmonth = "August";
-                b_month = "-08-";
-                break;
-            case "October":
-                curmonth = "September";
-                b_month = "-09-";
-                break;
-            case "November":
-                curmonth = "October";
-                b_month = "-10-";
-                break;
-            case "December":
-                curmonth = "November";
-                b_month = "-11-";
-                break;
-            default:
-                curmonth = "";
-                break;
-        }
-
+    private fun getMonthName(monthNumber: String): String {
+        return resources.getStringArray(R.array.month_names)[monthNumber.toInt() - 1]
     }
 
-    public void setAfterMonth(String s) {
-        switch (s) {
-            case "December":
-                curmonth = "January";
-                b_month = "-01-";
-                break;
-            case "January":
-                curmonth = "February";
-                b_month = "-02-";
-                break;
-            case "February":
-                curmonth = "March";
-                b_month = "-03-";
-                break;
-            case "March":
-                curmonth = "April";
-                b_month = "-04-";
-                break;
-            case "April":
-                curmonth = "May";
-                b_month = "-05-";
-                break;
-            case "May":
-                curmonth = "June";
-                b_month = "-06-";
-                break;
-            case "June":
-                curmonth = "July";
-                b_month = "-07-";
-                break;
-            case "July":
-                curmonth = "August";
-                b_month = "-08-";
-                break;
-            case "August":
-                curmonth = "September";
-                b_month = "-09-";
-                break;
-            case "September":
-                curmonth = "October";
-                b_month = "-10-";
-                break;
-            case "October":
-                curmonth = "November";
-                b_month = "-11-";
-                break;
-            case "November":
-                curmonth = "December";
-                b_month = "-12-";
-                break;
-            default:
-                curmonth = "";
-                break;
-        }
-
+    private fun getTodayDate(): String {
+        var date: Date = Calendar.getInstance().time
+        val dateFormat: SimpleDateFormat = SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault())
+        var formattedDate: String = dateFormat.format(date)
+        //Calendar.getInstance().timeInMillis.toString()
+        return formattedDate
     }
 
-    public void funcPieChart(int avoidedPer) {
-        pieChart.setUsePercentValues(true);
-        List<PieEntry> value = new ArrayList<>();
-        value.add(new PieEntry((float) avoidedPer, "Avoided"));
-        value.add(new PieEntry((float) (100.0 - avoidedPer), "Habits"));
-        PieDataSet pieDataSet = new PieDataSet(value, "");
-        pieDataSet.setValueTextColor(Color.WHITE);
-        PieData pieData = new PieData(pieDataSet);
-        pieChart.setData(pieData);
-        pieDataSet.setColors(Color.parseColor("#FFAF01"), Color.parseColor("#26272c"));
-        Legend legend = pieChart.getLegend();
-        legend.setEnabled(false);
-        Description description = new Description();
-        description.setText("");
-        pieChart.setDescription(description);
-        pieChart.setHoleRadius(50f);
-        pieChart.setHoleColor(getResources().getColor(R.color.backgroundcolor));
-        pieChart.setTransparentCircleRadius(50f);
-        pieChart.animateXY(1000, 1000);
-    }
+
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482351116174",
+    "project_id": "donot-9a3f5",
+    "storage_bucket": "donot-9a3f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482351116174:android:317ccd348147e90ad93edf",
+        "android_client_info": {
+          "package_name": "rocks.poopjournal.todont"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgWNMgF30civuxn0HguESde8FSaCjo8tY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
