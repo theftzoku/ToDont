@@ -27,6 +27,8 @@ class About : AppCompatActivity() {
     private var contributionView: LinearLayout? = null
     private var prefUtils: SharedPrefUtils? = null
 
+
+
     @RequiresApi(Build.VERSION_CODES.R)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
