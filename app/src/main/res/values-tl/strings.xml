@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>Piliin Ang Wika</item>
+        <item>Czech</item>
+        <item>Danish</item>
+        <item>Aleman</item>
+        <item>English</item>
+        <item>Espanyol</item>
+        <item>Italyano</item>
+        <item>Pranses</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Enero</item>
+            <item>Pebrero</item>
+            <item>Marso</item>
+            <item>Abril</item>
+            <item>Mayo</item>
+            <item>Hunyo</item>
+            <item>Hulyo</item>
+            <item>Agosto</item>
+            <item>Setyembre</item>
+            <item>Oktubre</item>
+            <item>Nobyembre</item>
+            <item>Disyembre</item>
+        </string-array>
+
+
+    <string name="delete_habit">Sigurado Ka Bang Nais Mong Tanggalin Ang Ugali Na Ito?</string>
+    <string name="LightMode">Upang Hindi</string>
+    <string name="onboarding_reverse">Ang Reverse-Do List</string>
+    <string name="onboarding_bad">Jot Down Ang Iyong Masamang Gawi.Araw -Araw, Tumawid</string>
+    <string name="onboarding_gavein">Out Ang Mga Ibinigay Mo Sa.At Ang Susunod</string>
+    <string name="onboarding_freshlist">Magsimula Ang Umaga Sa Sariwang Listahan.</string>
+    <string name="onboarding_continue">Magpatuloy</string>
+    <string name="avoided">Iwasan</string>
+    <string name="done">Tapos Na</string>
+    <string name="habits">Mga Gawi</string>
+    <string name="today">Ngayon</string>
+    <string name="log">Mag -Log</string>
+    <string name="about">Tungkol Sa</string>
+    <string name="labels">Mga Label</string>
+    <string name="settings">Mga Setting</string>
+    <string name="mostav">Pinaka Iwasan:</string>
+    <string name="leastav">Hindi Bababa Sa Naiwasan:</string>
+    <string name="addlabel">Mangyaring Magdagdag Ng Isang Label Muna</string>
+    <string name="addnewlabel">Magdagdag Ng Bagong Label</string>
+    <string name="addtask">Ipasok Ang Masamang Ugali</string>
+    <string name="note">Paglalarawan</string>
+    <string name="save">I -Save</string>
+    <string name="puthabit">Upang Magsimula, Maglagay Ng Isang Masamang Ugali</string>
+    <string name="habitswillshowuphere">Ang Mga Gawi Ay Lalabas Dito</string>
+    <string name="apachelicense">Apache Lisensya 2.0</string>
+    <string name="developer">Developer</string>
+    <string name="contribute">Mag -Ambag</string>
+    <string name="translate">Isalin</string>
+    <string name="report">Mag -Ulat Ng Isang Problema</string>
+    <string name="source">Tingnan Ang Pinagmulan</string>
+    <string name="opensourcelicense">Open-Source Lisensya</string>
+    <string name="appearance">Hitsura</string>
+    <string name="dark">Madilim</string>
+    <string name="light">Ilaw</string>
+    <string name="update">I -Update</string>
+    <string name="feather">Mga Icon Ng Feather</string>
+    <string name="mitlicence">Lisensya Ng Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Sundin Ang System</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public Lisensya 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Public Lisensya Ce</string>
+    <string-array name="spinner_array">
+        <item>Panlipunan</item>
+        <item>Pagkain At Inumin</item>
+        <item>Pag -Aaral</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Upang Hindi Ngayon Ay Sumusunod Sa Iyong System.</string>
+    <string name="toast_light">Ang Don Ay Nasa Light Side Ngayon.</string>
+    <string name="toast_dark">Ang Don Ay Nasa Madilim Na Bahagi Ngayon.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Magdagdag Ng Bago Sa Item Na Hindi</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Out Of"</string>
+    <string name="habits_are_avoided">"Ang Mga Gawi Ay Maiiwasan"</string>
+    <string name="habits_are_avoided_way_to_go">"Ang Mga Gawi Ay Maiiwasan, Paraan Upang Pumunta!"</string>
+    <string name="avoided_">Iwasan</string>
+    <string name="habits_">Mga Gawi</string>
+    <string name="delete">Nais Mo Bang Tanggalin Ito?</string>
+    <string name="no">Hindi</string>
+    <string name="deletes">Nais Mo Bang Tanggalin Ito?</string>
+    <string name="yes">Oo</string>
+    <string name="please_add_a_label_first">Mangyaring Magdagdag Ng Isang Label Muna</string>
+    <string name="do_you_really_want_to_delete_this">Nais Mo Bang Tanggalin Ito?</string>
+    <string name="january">Enero</string>
+    <string name="february">Pebrero</string>
+    <string name="march">Marso</string>
+    <string name="april">Abril</string>
+    <string name="may">Mayo</string>
+    <string name="june">Hunyo</string>
+    <string name="july">Hulyo</string>
+    <string name="august">Agosto</string>
+    <string name="september">Setyembre</string>
+    <string name="october">Oktubre</string>
+    <string name="november">Nobyembre</string>
+    <string name="december">Disyembre</string>
+    <string name="mark_as_done_or_avoided">Markahan Tulad Ng Tapos O Maiiwasan.</string>
+    <string name="help_make_to_don_t_better">Tulungan Na Gumawa Ng \ "Upang Hindi Mas Mahusay.</string>
+    <string name="todon_t_reminder">Paalala Ni Todon</string>
+    <string name="mark_your_todon_t_task">"Markahan Ang Iyong Todon'T Task"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Upang Magsimula, Maglagay Ng Isang Masamang Ugali.</string>
+    <string name="view_your_stats">Tingnan Ang Iyong Mga Istatistika.</string>
+    <string name="add_label">Magdagdag Ng Label.</string>
+    <string name="permission_required">Kinakailangan Ng Pahintulot</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Ang App Na Ito Ay Nangangailangan Ng Pag -Access Sa Iyong Panlabas Na Imbakan Upang Maibalik Ang Database.Mangyaring Paganahin Ang Pahintulot Na Ito Sa Mga Setting Ng App.</string>
+    <string name="open_settings">Buksan Ang Mga Setting</string>
+    <string name="select_repetition_frequency">Piliin Ang Dalas Ng Pag -Uulit</string>
+    <string name="once">Minsan</string>
+    <string name="daily">Araw -Araw</string>
+    <string name="weekly">Lingguhan</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Nais Mo Bang Tanggalin Ito?</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Magdagdag Ng Pang -Araw -Araw Na Abiso</string>
+    <string name="back_up">I -Back Up</string>
+    <string name="restore">Ibalik</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

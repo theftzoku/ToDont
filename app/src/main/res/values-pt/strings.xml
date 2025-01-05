@@ -1,82 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="labels">Etiquetas</string>
-    <string name="onboarding_bad">Anote os seus hábitos maus. Todos os dias, cruze</string>
-    <string name="onboarding_gavein">aqueles a quem cedeu. E o próximo</string>
-    <string name="onboarding_freshlist">manhã comece com a nova lista.</string>
-    <string name="log">Registo</string>
-    <string name="about">Sobre</string>
-    <string name="settings">Configurações</string>
-    <string name="mostav">Mais evitados:</string>
-    <string name="leastav">Menos evitados:</string>
-    <string name="addlabel">Por favor, adicione uma etiqueta primeiro</string>
-    <string name="addnewlabel">Adicionar nova etiqueta</string>
-    <string name="addtask">Digite a tarefa</string>
-    <string name="app_name">To Don\'t</string>
-    <string name="LightMode">To Don\'t</string>
-    <string name="onboarding_reverse">A lista inversa de afazeres</string>
-    <string name="avoided">Evitado</string>
-    <string name="done">Concluído</string>
+
+    <string-array name="languages">
+        <item>Selecione O Idioma</item>
+        <item>Czech</item>
+        <item>Dinamarquês</item>
+        <item>German</item>
+        <item>Inglês</item>
+        <item>Spanish</item>
+        <item>Italian</item>
+        <item>French</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Janeiro</item>
+            <item>Fevereiro</item>
+            <item>Marchar</item>
+            <item>Abril</item>
+            <item>Poderia</item>
+            <item>Junho</item>
+            <item>Julho</item>
+            <item>Agosto</item>
+            <item>Setembro</item>
+            <item>Outubro</item>
+            <item>Novembro</item>
+            <item>Dezembro</item>
+        </string-array>
+
+
+    <string name="delete_habit">Tem Certeza De Que Deseja Excluir Esse Hábito?</string>
+    <string name="LightMode">Para Não Fazer</string>
+    <string name="onboarding_reverse">A Lista De Tarefas Reversas</string>
+    <string name="onboarding_bad">Anote Seus Maus Hábitos.Todos Os Dias, Cruze</string>
+    <string name="onboarding_gavein">Fora Daqueles Que Você Deu.E O Próximo</string>
+    <string name="onboarding_freshlist">Manhã Começa Com A Nova Lista.</string>
+    <string name="onboarding_continue">Continuar</string>
+    <string name="avoided">Avoided</string>
+    <string name="done">Done</string>
     <string name="habits">Hábitos</string>
     <string name="today">Hoje</string>
-    <string name="onboarding_continue">Continuar</string>
-    <string name="note">Nota</string>
-    <string name="developer">Programador</string>
-    <string name="source">Ver fonte</string>
-    <string name="jetpack">Android Jetpack</string>
-    <string name="materialspinner">MaterialSpinner</string>
-    <string name="circleimg">CircleImageView</string>
-    <string name="mpandroidchart">MPAndroidChart</string>
-    <string name="junit">JUnit</string>
-    <string name="toast_light">To Don\'t está claro agora.</string>
-    <string name="toast_dark">To Don\'t está escuro agora.</string>
-    # Here are the non-translateable strings
-    <string name="contentDescription_FAB">Adicionar novo item para não fazer</string>
-    <string name="save">Gravar</string>
-    <string name="puthabit">Para começar, abandone um mau hábito</string>
-    <string name="habitswillshowuphere">Os hábitos aparecerão aqui</string>
+    <string name="log">Registro</string>
+    <string name="about">Sobre</string>
+    <string name="labels">Rótulos</string>
+    <string name="settings">Configurações</string>
+    <string name="mostav">Mais Evitado:</string>
+    <string name="leastav">Menos Evitado:</string>
+    <string name="addlabel">Por Favor, Adicione Um Rótulo Primeiro</string>
+    <string name="addnewlabel">Adicione Nova Etiqueta</string>
+    <string name="addtask">Entre No Mau Hábito</string>
+    <string name="note">Descrição</string>
+    <string name="save">Salvar</string>
+    <string name="puthabit">Para Começar, Abaixe Um Mau Hábito</string>
+    <string name="habitswillshowuphere">Os Hábitos Aparecerão Aqui</string>
     <string name="apachelicense">Licença Apache 2.0</string>
-    <string name="contribute">Contribuidor</string>
+    <string name="developer">Developer</string>
+    <string name="contribute">Contribuir</string>
     <string name="translate">Traduzir</string>
-    <string name="report">Informar um problema</string>
-    <string name="opensourcelicense">Licenças open source</string>
+    <string name="report">Relatar Um Problema</string>
+    <string name="source">Exibir Fonte</string>
+    <string name="opensourcelicense">Licenças De Código Aberto</string>
     <string name="appearance">Aparência</string>
-    <string name="dark">Escuro</string>
-    <string name="light">Claro</string>
+    <string name="dark">Dark</string>
+    <string name="light">Luz</string>
     <string name="update">Atualizar</string>
-    <string name="feather">Ícones de penas</string>
-    <string name="mitlicence">Licença MIT</string>
-    <string name="followsys">Sistema</string>
-    <string name="nobobutton">NoboButton</string>
-    <string name="eclipse">Licença pública Eclipse 1.0</string>
-    <string name="kotlin">JUnit</string>
+    <string name="feather">Ícones De Penas</string>
+    <string name="mitlicence">Mit Licença</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Siga O Sistema</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Licença Pública Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
-    <string name="gnu">Licença Pública Geral GNU</string>
-    <string name="toast_system">To Don\'t agora segue o seu sistema.</string>
+    <string name="gnu">Gnu Licença Pública Geral Ce</string>
+    <string-array name="spinner_array">
+        <item>Social</item>
+        <item>Alimentos E Bebidas</item>
+        <item>Estudos</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Não Agora Segue Seu Sistema.</string>
+    <string name="toast_light">Não Está Do Lado Da Luz Agora.</string>
+    <string name="toast_dark">Não Está Do Lado Sombrio Agora.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Adicione Novo Ao Item Não</string>
     <string name="d">D</string>
-    <string name="w">W</string>
+    <string name="w">C</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
+    <string name="out_of">" Fora De "</string>
+    <string name="habits_are_avoided">"Hábitos São Evitados"</string>
+    <string name="habits_are_avoided_way_to_go">"Os Hábitos São Evitados, Caminho A Percorrer!"</string>
     <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="habits_">Hábitos</string>
+    <string name="delete">Você Realmente Quer Excluir Isso?</string>
+    <string name="no">Não</string>
+    <string name="deletes">Você Realmente Quer Excluir Isso?</string>
+    <string name="yes">Sim</string>
+    <string name="please_add_a_label_first">Por Favor, Adicione Um Rótulo Primeiro</string>
+    <string name="do_you_really_want_to_delete_this">Você Realmente Quer Excluir Isso?</string>
+    <string name="january">Janeiro</string>
+    <string name="february">Fevereiro</string>
+    <string name="march">Marchar</string>
+    <string name="april">Abril</string>
+    <string name="may">Poderia</string>
+    <string name="june">Junho</string>
+    <string name="july">Julho</string>
+    <string name="august">Agosto</string>
+    <string name="september">Setembro</string>
+    <string name="october">Outubro</string>
+    <string name="november">Novembro</string>
+    <string name="december">Dezembro</string>
+    <string name="mark_as_done_or_avoided">Mark Como Feito Ou Evitado.</string>
+    <string name="help_make_to_don_t_better">Ajude A Melhorar "A Não Ser Melhor.</string>
+    <string name="todon_t_reminder">Todon \'T Lembrando</string>
+    <string name="mark_your_todon_t_task">"Marque Sua Tarefa Para Não Ter"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Para Começar, Abaixe Um Mau Hábito.</string>
+    <string name="view_your_stats">Veja Suas Estatísticas.</string>
+    <string name="add_label">Adicionar Rótulo.</string>
+    <string name="permission_required">Permissão Necessária</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Este Aplicativo Requer Acesso Ao Seu Armazenamento Externo Para Restaurar O Banco De Dados.Ative Esta Permissão Nas Configurações Do Aplicativo.</string>
+    <string name="open_settings">Abra As Configurações</string>
+    <string name="select_repetition_frequency">Selecione A Frequência De Repetição</string>
+    <string name="once">Uma Vez</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Semanalmente</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Você Realmente Deseja Excluir Isso? \ Neste Também Excluirá Todos Os Hábitos Relacionados A Esse Rótulo.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Adicione Notificação Diária</string>
+    <string name="back_up">Backup</string>
+    <string name="restore">Restaurar</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

@@ -1,44 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="habitswillshowuphere">Gewoontes zullen hier getoond worden.</string>
-    <string name="puthabit">Om te beginnen, geef je een slechte gewoonte op</string>
-    <string name="addnewlabel">Nieuw label toevoegen</string>
-    <string name="addlabel">Gelieve eerst een label toe te voegen</string>
-    <string name="leastav">Minst vermeden:</string>
-    <string name="mostav">Meest vermeden:</string>
-    <string name="settings">Instellingen</string>
-    <string name="labels">Labels</string>
-    <string name="about">Over</string>
-    <string name="log">Log</string>
-    <string name="today">Vandaag</string>
-    <string name="habits">Gewoontes</string>
-    <string name="done">Gedaan</string>
+    <string-array name="languages">
+        <item>Selecteer Taal</item>
+        <item>Tsjechisch</item>
+        <item>Deens</item>
+        <item>Duits</item>
+        <item>Engels</item>
+        <item>Spaans</item>
+        <item>Italiaans</item>
+        <item>Frans</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Januari</item>
+            <item>Februari</item>
+            <item>Maart</item>
+            <item>April</item>
+            <item>Kunnen</item>
+            <item>Juni</item>
+            <item>Juli</item>
+            <item>Augustus</item>
+            <item>September</item>
+            <item>Oktober</item>
+            <item>November</item>
+            <item>December</item>
+        </string-array>
+
+
+    <string name="delete_habit">Weet Je Zeker Dat Je Deze Gewoonte Wilt Verwijderen?</string>
+    <string name="LightMode">Om Niet Te Doen</string>
+    <string name="onboarding_reverse">De Omgekeerde Takenlijst</string>
+    <string name="onboarding_bad">Noteer Je Slechte Gewoonten.Kruis Elke Dag</string>
+    <string name="onboarding_gavein">Uit Degenen Waaraan U Heeft Gegeven.En De Volgende</string>
+    <string name="onboarding_freshlist">De Ochtend Begint Met De Nieuwe Lijst.</string>
+    <string name="onboarding_continue">Doorgaan</string>
     <string name="avoided">Vermeden</string>
-    <string name="app_name">Wat je niet moet doen</string>
+    <string name="done">Klaar</string>
+    <string name="habits">Gebruiken</string>
+    <string name="today">Vandaag</string>
+    <string name="log">Aanroepen</string>
+    <string name="about">Over</string>
+    <string name="labels">Labels</string>
+    <string name="settings">Instellingen</string>
+    <string name="mostav">Meest Vermeden:</string>
+    <string name="leastav">Minst Vermeden:</string>
+    <string name="addlabel">Voeg Eerst Een Label Toe</string>
+    <string name="addnewlabel">Voeg Een Nieuw Label Toe</string>
+    <string name="addtask">Betreed Een Slechte Gewoonte</string>
+    <string name="note">Beschrijving</string>
+    <string name="save">Redden</string>
+    <string name="puthabit">Om Te Beginnen, Leg Je Een Slechte Gewoonte Neer</string>
+    <string name="habitswillshowuphere">Gewoonten Zullen Hier Verschijnen</string>
+    <string name="apachelicense">Apache License 2.0</string>
+    <string name="developer">Ontwikkelaar</string>
+    <string name="contribute">Bijdragen</string>
+    <string name="translate">Vertalen</string>
+    <string name="report">Meld Een Probleem</string>
+    <string name="source">Bekijk Bron</string>
+    <string name="opensourcelicense">Open-Source Licenties</string>
+    <string name="appearance">Verschijning</string>
+    <string name="dark">Donker</string>
+    <string name="light">Licht</string>
+    <string name="update">Update</string>
+    <string name="feather">Veerpictogrammen</string>
+    <string name="mitlicence">Mit -Licentie</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materiaalspinner</string>
+    <string name="followsys">Volg Het Systeem</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Public License Ce</string>
+    <string-array name="spinner_array">
+        <item>Sociaal</item>
+        <item>Voedsel En Drankjes</item>
+        <item>Bestuderen</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Om Nu Niet Uw Systeem Te Volgen.</string>
+    <string name="toast_light">Om Niet Aan De Lichte Kant Te Staan.</string>
+    <string name="toast_dark">Om Niet Aan De Donkere Kant Te Zijn.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Voeg Nieuw Toe Aan Don \'T -Item</string>
     <string name="d">D</string>
     <string name="w">W</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
+    <string name="out_of">"Uit"</string>
+    <string name="habits_are_avoided">"Gewoonten Worden Vermeden"</string>
+    <string name="habits_are_avoided_way_to_go">"Gewoonten Worden Vermeden, Manier Om Te Gaan!"</string>
+    <string name="avoided_">Vermeden</string>
+    <string name="habits_">Gebruiken</string>
+    <string name="delete">Wil Je Dit Echt Verwijderen?</string>
+    <string name="no">Nee</string>
+    <string name="deletes">Wil Je Dit Echt Verwijderen?</string>
+    <string name="yes">Ja</string>
+    <string name="please_add_a_label_first">Voeg Eerst Een Label Toe</string>
+    <string name="do_you_really_want_to_delete_this">Wil Je Dit Echt Verwijderen?</string>
+    <string name="january">Januari</string>
+    <string name="february">Februari</string>
+    <string name="march">Maart</string>
     <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
+    <string name="may">Kunnen</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">Augustus</string>
     <string name="september">September</string>
-    <string name="october">October</string>
+    <string name="october">Oktober</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Markeer Zoals Gedaan Of Vermeden.</string>
+    <string name="help_make_to_don_t_better">Help \ "Om Niet Beter Te Maken.</string>
+    <string name="todon_t_reminder">Todon \'T Herinnering</string>
+    <string name="mark_your_todon_t_task">"Markeer Je Taak Niet"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Om Te Beginnen, Leg Je Een Slechte Gewoonte Neer.</string>
+    <string name="view_your_stats">Bekijk Uw Statistieken.</string>
+    <string name="add_label">Label Toevoegen.</string>
+    <string name="permission_required">Toestemming Vereist</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Deze App Vereist Toegang Tot Uw Externe Opslag Om De Database Te Herstellen.Schakel Deze Toestemming In De App -Instellingen In.</string>
+    <string name="open_settings">Open Instellingen</string>
+    <string name="select_repetition_frequency">Selecteer Herhalingsfrequentie</string>
+    <string name="once">Eenmaal</string>
+    <string name="daily">Dagelijks</string>
+    <string name="weekly">Wekelijks</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Wil Je Dit Echt Verwijderen? \ Ndis Zal Ook Alle Gewoonten Die Verband Houden Met Dit Label Verwijderen.</string>
+    <string name="data">Gegevens</string>
+    <string name="add_daily_notification">Voeg Dagelijkse Melding Toe</string>
+    <string name="back_up">Back -Up</string>
+    <string name="restore">Herstellen</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

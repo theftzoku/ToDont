@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">To Don\'t</string>
+    <string name="app_name" translatable="false">To Don\'t</string>
     <string-array name="languages">
         <item>Select Language</item>
         <item>Czech</item>
@@ -11,6 +11,24 @@
         <item>Italian</item>
         <item>French</item>
     </string-array>
+
+        <string-array name="month_names">
+            <item>January</item>
+            <item>February</item>
+            <item>March</item>
+            <item>April</item>
+            <item>May</item>
+            <item>June</item>
+            <item>July</item>
+            <item>August</item>
+            <item>September</item>
+            <item>October</item>
+            <item>November</item>
+            <item>December</item>
+        </string-array>
+
+
+    <string name="delete_habit">Are you sure you want to delete this habit?</string>
     <string name="LightMode">To Don\'t</string>
     <string name="onboarding_reverse">The reverse to-do list</string>
     <string name="onboarding_bad">Jot down your bad habits. Every day, cross</string>
@@ -29,8 +47,8 @@
     <string name="leastav">Least avoided:</string>
     <string name="addlabel">Please add a label first</string>
     <string name="addnewlabel">Add new label</string>
-    <string name="addtask">Enter task</string>
-    <string name="note">Note</string>
+    <string name="addtask">Enter Bad Habit</string>
+    <string name="note">Description</string>
     <string name="save">Save</string>
     <string name="puthabit">To start off, put down a bad habit</string>
     <string name="habitswillshowuphere">Habits will show up here</string>
@@ -100,4 +118,25 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="mark_as_done_or_avoided">Mark as done or avoided.</string>
+    <string name="help_make_to_don_t_better">Help make \"To Don\'t\" better.</string>
+    <string name="todon_t_reminder">ToDon\'t Reminder</string>
+    <string name="mark_your_todon_t_task">"Mark your ToDon't task "</string>
+    <string name="to_start_off_put_down_a_bad_habit">To Start Off, put down a bad habit.</string>
+    <string name="view_your_stats">View your stats.</string>
+    <string name="add_label">Add Label.</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">This app requires access to your external storage to restore the database. Please enable this permission in the app settings.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="select_repetition_frequency">Select Repetition Frequency</string>
+    <string name="once">Once</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Do you really want to delete this?\nThis will also delete all habits related to this label.</string>
+    <string name="data">Data</string>
+    <string name="add_daily_notification">Add daily notification</string>
+    <string name="back_up">Back up</string>
+    <string name="restore">Restore</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

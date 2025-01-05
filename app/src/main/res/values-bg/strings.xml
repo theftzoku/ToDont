@@ -1,31 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">Лягайте</string>
-    <string name="app_name">Лягайте</string>
-    <string name="d">D</string>
+    <string-array name="languages">
+        <item>Изберете Език</item>
+        <item>Чех</item>
+        <item>Датски</item>
+        <item>Немски</item>
+        <item>Английски</item>
+        <item>Испански</item>
+        <item>Италиански</item>
+        <item>Френски</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Януари</item>
+            <item>Февруари</item>
+            <item>Март</item>
+            <item>Април</item>
+            <item>Може</item>
+            <item>Юни</item>
+            <item>Юли</item>
+            <item>Август</item>
+            <item>Септември</item>
+            <item>Октомври</item>
+            <item>Ноември</item>
+            <item>Декември</item>
+        </string-array>
+
+
+    <string name="delete_habit">Сигурни Ли Сте, Че Искате Да Изтриете Този Навик?</string>
+    <string name="LightMode">Да Не \'T</string>
+    <string name="onboarding_reverse">Списъкът С Обратни Задачи</string>
+    <string name="onboarding_bad">Запишете Лошите Си Навици.Всеки Ден, Кръст</string>
+    <string name="onboarding_gavein">От Тези, На Които Сте Се Отказали.И Следващия</string>
+    <string name="onboarding_freshlist">Сутрин Започнете С Списъка Fresh.</string>
+    <string name="onboarding_continue">Продължете</string>
+    <string name="avoided">Избягва Се</string>
+    <string name="done">Готово</string>
+    <string name="habits">Навици</string>
+    <string name="today">Днес</string>
+    <string name="log">Log</string>
+    <string name="about">Около</string>
+    <string name="labels">Етикети</string>
+    <string name="settings">Настройки</string>
+    <string name="mostav">Повечето Избягват:</string>
+    <string name="leastav">Най -Малко Избягва:</string>
+    <string name="addlabel">Моля, Първо Добавете Етикет</string>
+    <string name="addnewlabel">Добавете Нов Етикет</string>
+    <string name="addtask">Въведете Лош Навик</string>
+    <string name="note">Описание</string>
+    <string name="save">Запазете</string>
+    <string name="puthabit">За Да Започнете, Оставете Лош Навик</string>
+    <string name="habitswillshowuphere">Тук Ще Се Появят Навици</string>
+    <string name="apachelicense">Апач Лиценз 2.0</string>
+    <string name="developer">Разработчик</string>
+    <string name="contribute">Допринасяйте</string>
+    <string name="translate">Превод</string>
+    <string name="report">Докладвайте За Проблем</string>
+    <string name="source">Преглед На Източника</string>
+    <string name="opensourcelicense">Лицензи С Отворен Код</string>
+    <string name="appearance">Външен Вид</string>
+    <string name="dark">Тъмно</string>
+    <string name="light">Светлина</string>
+    <string name="update">Актуализация</string>
+    <string name="feather">Feather Icons</string>
+    <string name="mitlicence">MIT License</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Следвайте Системата</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">Котлин</string>
+    <string name="java">Ява</string>
+    <string name="gnu">Gnu Обща Публична Лицензия Ce</string>
+    <string-array name="spinner_array">
+        <item>Социални</item>
+        <item>Храни И Напитки</item>
+        <item>Изследвания</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Да Не Се Следва Сега Следва Вашата Система.</string>
+    <string name="toast_light">Да Не Е На Светлинната Страна Сега.</string>
+    <string name="toast_dark">Да Не Се Замисля Сега Е На Тъмната Страна.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Добавете Нов Към Елемента Don \'T</string>
+    <string name="d">Г</string>
     <string name="w">W</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="out_of">"Извън"</string>
+    <string name="habits_are_avoided">"Навиците Се Избягват"</string>
+    <string name="habits_are_avoided_way_to_go">"Навиците Се Избягват, Начин Да Тръгнем!"</string>
+    <string name="avoided_">Избягва Се</string>
+    <string name="habits_">Навици</string>
+    <string name="delete">Наистина Ли Искате Да Изтриете Това?</string>
+    <string name="no">Не</string>
+    <string name="deletes">Наистина Ли Искате Да Изтриете Това?</string>
+    <string name="yes">Да</string>
+    <string name="please_add_a_label_first">Моля, Първо Добавете Етикет</string>
+    <string name="do_you_really_want_to_delete_this">Наистина Ли Искате Да Изтриете Това?</string>
+    <string name="january">Януари</string>
+    <string name="february">Февруари</string>
+    <string name="march">Март</string>
+    <string name="april">Април</string>
+    <string name="may">Може</string>
+    <string name="june">Юни</string>
+    <string name="july">Юли</string>
+    <string name="august">Август</string>
+    <string name="september">Септември</string>
+    <string name="october">Октомври</string>
+    <string name="november">Ноември</string>
+    <string name="december">Декември</string>
+    <string name="mark_as_done_or_avoided">Маркирайте, Както Е Направено Или Избягвано.</string>
+    <string name="help_make_to_don_t_better">Помогнете Да Направите \ "Да Не \'T \" По -Добре.</string>
+    <string name="todon_t_reminder">Тодон \'Не Напомняне</string>
+    <string name="mark_your_todon_t_task">"Маркирайте Вашата Задача" Не Е На Todon "</string>
+    <string name="to_start_off_put_down_a_bad_habit">За Да Започнете, Оставете Лош Навик.</string>
+    <string name="view_your_stats">Вижте Статистиката Си.</string>
+    <string name="add_label">Добавете Етикета.</string>
+    <string name="permission_required">Необходимо Е Разрешение</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Това Приложение Изисква Достъп До Външното Ви Съхранение, За Да Възстановите Базата Данни.Моля, Активирайте Това Разрешение В Настройките На Приложението.</string>
+    <string name="open_settings">Отворени Настройки</string>
+    <string name="select_repetition_frequency">Изберете Честота На Повторение</string>
+    <string name="once">Веднъж</string>
+    <string name="daily">Ежедневно</string>
+    <string name="weekly">Седмично</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Наистина Ли Искате Да Изтриете Това? \ Nthis Също Ще Изтриете Всички Навици, Свързани С Този Етикет.</string>
+    <string name="data">Данни</string>
+    <string name="add_daily_notification">Добавете Ежедневно Известие</string>
+    <string name="back_up">Резервно Копие</string>
+    <string name="restore">Възстановяване</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

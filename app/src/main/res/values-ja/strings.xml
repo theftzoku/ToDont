@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>言語を選択します</item>
+        <item>チェコ</item>
+        <item>デンマーク語</item>
+        <item>ドイツ語</item>
+        <item>英語</item>
+        <item>スペイン語</item>
+        <item>イタリア語</item>
+        <item>フランス語</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>1月</item>
+            <item>2月</item>
+            <item>行進</item>
+            <item>4月</item>
+            <item>5月</item>
+            <item>6月</item>
+            <item>7月</item>
+            <item>8月</item>
+            <item>9月</item>
+            <item>10月</item>
+            <item>11月</item>
+            <item>12月</item>
+        </string-array>
+
+
+    <string name="delete_habit">この習慣を削除したいですか？</string>
+    <string name="LightMode">Don \'Tに</string>
+    <string name="onboarding_reverse">逆To-Doリスト</string>
+    <string name="onboarding_bad">あなたの悪い習慣を書き留めてください。毎日、十字架</string>
+    <string name="onboarding_gavein">あなたが与えたものを出してください。そして次の</string>
+    <string name="onboarding_freshlist">朝は新鮮なリストから始めます。</string>
+    <string name="onboarding_continue">続く</string>
+    <string name="avoided">避けた</string>
+    <string name="done">終わり</string>
+    <string name="habits">習慣</string>
+    <string name="today">今日</string>
+    <string name="log">ログ</string>
+    <string name="about">について</string>
+    <string name="labels">ラベル</string>
+    <string name="settings">設定</string>
+    <string name="mostav">ほとんど避けられた：</string>
+    <string name="leastav">少なくとも回避：</string>
+    <string name="addlabel">最初にラベルを追加してください</string>
+    <string name="addnewlabel">新しいラベルを追加します</string>
+    <string name="addtask">悪い習慣を入力してください</string>
+    <string name="note">説明</string>
+    <string name="save">保存</string>
+    <string name="puthabit">まず、悪い習慣を置いてください</string>
+    <string name="habitswillshowuphere">習慣はここに現れます</string>
+    <string name="apachelicense">Apacheライセンス2.0</string>
+    <string name="developer">開発者</string>
+    <string name="contribute">貢献する</string>
+    <string name="translate">翻訳する</string>
+    <string name="report">問題を報告します</string>
+    <string name="source">ソースを表示します</string>
+    <string name="opensourcelicense">オープンソースライセンス</string>
+    <string name="appearance">外観</string>
+    <string name="dark">暗い</string>
+    <string name="light">ライト</string>
+    <string name="update">アップデート</string>
+    <string name="feather">フェザーアイコン</string>
+    <string name="mitlicence">Mitライセンス</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">システムをフォローします</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circlemageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">ジュニット</string>
+    <string name="eclipse">Eclipse Public License 1.0</string>
+    <string name="kotlin">コトリン</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu一般公開ライセンスCe</string>
+    <string-array name="spinner_array">
+        <item>社交</item>
+        <item>食べ物と飲み物</item>
+        <item>研究</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">これでシステムに従うことができません。</string>
+    <string name="toast_light">今は明るい側にありません。</string>
+    <string name="toast_dark">今は暗い側にいない。</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Don \'Tアイテムに新規を追加します</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">M</string>
+    <string name="y">Y</string>
+    <string name="out_of">"Out Of"</string>
+    <string name="habits_are_avoided">「習慣は避けられます」</string>
+    <string name="habits_are_avoided_way_to_go">「習慣は避けられます、行く方法！」</string>
+    <string name="avoided_">避けた</string>
+    <string name="habits_">習慣</string>
+    <string name="delete">本当にこれを削除したいですか？</string>
+    <string name="no">いいえ</string>
+    <string name="deletes">本当にこれを削除したいですか？</string>
+    <string name="yes">はい</string>
+    <string name="please_add_a_label_first">最初にラベルを追加してください</string>
+    <string name="do_you_really_want_to_delete_this">本当にこれを削除したいですか？</string>
+    <string name="january">1月</string>
+    <string name="february">2月</string>
+    <string name="march">行進</string>
+    <string name="april">4月</string>
+    <string name="may">5月</string>
+    <string name="june">6月</string>
+    <string name="july">7月</string>
+    <string name="august">8月</string>
+    <string name="september">9月</string>
+    <string name="october">10月</string>
+    <string name="november">11月</string>
+    <string name="december">12月</string>
+    <string name="mark_as_done_or_avoided">完了または回避されたとマークします。</string>
+    <string name="help_make_to_don_t_better">\「T \」をより良くするのを手伝ってください。</string>
+    <string name="todon_t_reminder">Todon \'Tリマインダー</string>
+    <string name="mark_your_todon_t_task">「あなたの服をマークしないタスク」</string>
+    <string name="to_start_off_put_down_a_bad_habit">まず、悪い習慣を置いてください。</string>
+    <string name="view_your_stats">統計を表示します。</string>
+    <string name="add_label">ラベルを追加します。</string>
+    <string name="permission_required">許可が必要です</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">このアプリでは、データベースを復元するために外部ストレージにアクセスする必要があります。アプリの設定でこの許可を有効にしてください。</string>
+    <string name="open_settings">設定を開く</string>
+    <string name="select_repetition_frequency">繰り返し頻度を選択します</string>
+    <string name="once">一度</string>
+    <string name="daily">毎日</string>
+    <string name="weekly">毎週</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">これを本当に削除したいですか？\ N Thisは、このラベルに関連するすべての習慣も削除します。</string>
+    <string name="data">データ</string>
+    <string name="add_daily_notification">毎日の通知を追加します</string>
+    <string name="back_up">バックアップ</string>
+    <string name="restore">復元する</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

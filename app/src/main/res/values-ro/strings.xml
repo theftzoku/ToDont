@@ -1,31 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">Lăsați-o</string>
-    <string name="app_name">Lăsați-o</string>
-    <string name="d">D</string>
+
+    <string-array name="languages">
+        <item>Selectați Limba</item>
+        <item>Ceh</item>
+        <item>Danez</item>
+        <item>German</item>
+        <item>Engleză</item>
+        <item>Spaniolă</item>
+        <item>Italian</item>
+        <item>Franceză</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Ianuarie</item>
+            <item>Februarie</item>
+            <item>Martie</item>
+            <item>Aprilie</item>
+            <item>Mai</item>
+            <item>Iunie</item>
+            <item>Iulie</item>
+            <item>August</item>
+            <item>Septembrie</item>
+            <item>Octombrie</item>
+            <item>Noiembrie</item>
+            <item>Decembrie</item>
+        </string-array>
+
+
+    <string name="delete_habit">Ești Sigur Că Vrei Să Ștergi Acest Obicei?</string>
+    <string name="LightMode">A Nu \'T</string>
+    <string name="onboarding_reverse">Lista Inversă De A Face</string>
+    <string name="onboarding_bad">Notează -Ți Obiceiurile Proaste.În Fiecare Zi, Încrucișat</string>
+    <string name="onboarding_gavein">În Afară De Cei Pe Care I -Ai Cedat.Și Următorul</string>
+    <string name="onboarding_freshlist">Dimineața Începe Cu Lista Proaspătă.</string>
+    <string name="onboarding_continue">Continua</string>
+    <string name="avoided">Evitat</string>
+    <string name="done">Făcut</string>
+    <string name="habits">Obiceiuri</string>
+    <string name="today">Astăzi</string>
+    <string name="log">Jurnal</string>
+    <string name="about">Despre</string>
+    <string name="labels">Etichete</string>
+    <string name="settings">Setări</string>
+    <string name="mostav">Cel Mai Evitat:</string>
+    <string name="leastav">Cel Mai Puțin Evitat:</string>
+    <string name="addlabel">Vă Rugăm Să Adăugați Mai Întâi O Etichetă</string>
+    <string name="addnewlabel">Adăugați O Nouă Etichetă</string>
+    <string name="addtask">Intră Prost Obicei</string>
+    <string name="note">Descriere</string>
+    <string name="save">Salva</string>
+    <string name="puthabit">Pentru A Începe, Puneți Un Obicei Prost</string>
+    <string name="habitswillshowuphere">Obiceiurile Vor Apărea Aici</string>
+    <string name="apachelicense">Licență Apache 2.0</string>
+    <string name="developer">Dezvoltator</string>
+    <string name="contribute">Contribui</string>
+    <string name="translate">Traduce</string>
+    <string name="report">Raportați O Problemă</string>
+    <string name="source">Vizualizați Sursa</string>
+    <string name="opensourcelicense">Licențe Open-Source</string>
+    <string name="appearance">Aspect</string>
+    <string name="dark">Întuneric</string>
+    <string name="light">Aprinde</string>
+    <string name="update">Actualizare</string>
+    <string name="feather">Pictograme De Pene</string>
+    <string name="mitlicence">Licență Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">Urmați Sistemul</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circlemageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Licență Publică Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Licență Publică Generală Gnu Ce</string>
+    <string-array name="spinner_array">
+        <item>Social</item>
+        <item>Alimente Și Băuturi</item>
+        <item>Studii</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Pentru A Nu -Ți Urmă Acum Sistemul.</string>
+    <string name="toast_light">A Nu \'T Este Pe Partea Ușoară Acum.</string>
+    <string name="toast_dark">A Nu Fi Acum Pe Partea Întunecată.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Adăugați Nou La Elementul Don \'T</string>
+    <string name="d">D.</string>
     <string name="w">W</string>
     <string name="m">M</string>
-    <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
+    <string name="y">Y.</string>
+    <string name="out_of">"Din"</string>
+    <string name="habits_are_avoided">„Obiceiurile Sunt Evitate”</string>
+    <string name="habits_are_avoided_way_to_go">"Obiceiurile Sunt Evitate, Calea De Urmat!"</string>
+    <string name="avoided_">Evitat</string>
+    <string name="habits_">Obiceiuri</string>
+    <string name="delete">Chiar Vrei Să Ștergi Asta?</string>
+    <string name="no">Nu</string>
+    <string name="deletes">Chiar Vrei Să Ștergi Asta?</string>
+    <string name="yes">Da</string>
+    <string name="please_add_a_label_first">Vă Rugăm Să Adăugați Mai Întâi O Etichetă</string>
+    <string name="do_you_really_want_to_delete_this">Chiar Vrei Să Ștergi Asta?</string>
+    <string name="january">Ianuarie</string>
+    <string name="february">Februarie</string>
+    <string name="march">Martie</string>
+    <string name="april">Aprilie</string>
+    <string name="may">Mai</string>
+    <string name="june">Iunie</string>
+    <string name="july">Iulie</string>
     <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="september">Septembrie</string>
+    <string name="october">Octombrie</string>
+    <string name="november">Noiembrie</string>
+    <string name="december">Decembrie</string>
+    <string name="mark_as_done_or_avoided">Marcați Ca Fiind Făcut Sau Evitat.</string>
+    <string name="help_make_to_don_t_better">Ajutați Să Faceți Mai Bine \ "A Nu \'T \".</string>
+    <string name="todon_t_reminder">Todon \'T Memento</string>
+    <string name="mark_your_todon_t_task">„Marcați -Vă Sarcina Nu Este”</string>
+    <string name="to_start_off_put_down_a_bad_habit">Pentru A Începe, Puneți Un Obicei Prost.</string>
+    <string name="view_your_stats">Vizualizați Statisticile.</string>
+    <string name="add_label">Adăugați Etichetă.</string>
+    <string name="permission_required">Permisiunea Necesară</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Această Aplicație Necesită Acces La Stocarea Dvs. Externă Pentru A Restabili Baza De Date.Vă Rugăm Să Activați Această Permisiune În Setările Aplicației.</string>
+    <string name="open_settings">Setări Deschise</string>
+    <string name="select_repetition_frequency">Selectați Frecvența De Repetare</string>
+    <string name="once">Dată</string>
+    <string name="daily">Zilnic</string>
+    <string name="weekly">Săptămânal</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Chiar Doriți Să Ștergeți Acest Lucru?</string>
+    <string name="data">Date</string>
+    <string name="add_daily_notification">Adăugați Notificări Zilnice</string>
+    <string name="back_up">Înapoi</string>
+    <string name="restore">Restabili</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

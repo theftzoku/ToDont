@@ -64,7 +64,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_weight="0.01"
                         android:background="@drawable/ic_menu"
-                        android:onClick="mysettings"
+                        android:onClick="mySettings"
                         />
                 </LinearLayout>
 

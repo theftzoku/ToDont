@@ -1,29 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
+
+    <string-array name="languages">
+        <item>Chọn Ngôn Ngữ</item>
+        <item>Séc</item>
+        <item>Đan Mạch</item>
+        <item>Đức</item>
+        <item>Tiếng Anh</item>
+        <item>Tiếng Tây Ban Nha</item>
+        <item>Ý</item>
+        <item>Tiếng Pháp</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>Tháng Một</item>
+            <item>Tháng Hai</item>
+            <item>Bước Đều</item>
+            <item>Tháng Tư</item>
+            <item>Có Thể</item>
+            <item>Tháng Sáu</item>
+            <item>Tháng Bảy</item>
+            <item>Tháng Tám</item>
+            <item>Tháng 9</item>
+            <item>Tháng Mười</item>
+            <item>Tháng Mười Một</item>
+            <item>Tháng 12</item>
+        </string-array>
+
+
+    <string name="delete_habit">Bạn Có Chắc Là Bạn Muốn Xóa Thói Quen Này?</string>
+    <string name="LightMode">Để Don \'T</string>
+    <string name="onboarding_reverse">Danh Sách Việc Cần Làm Ngược Lại</string>
+    <string name="onboarding_bad">Ghi Lại Những Thói Quen Xấu Của Bạn.Mỗi Ngày, Chéo</string>
+    <string name="onboarding_gavein">Ra Những Người Bạn Đã Đưa Ra.Và Tiếp Theo</string>
+    <string name="onboarding_freshlist">Buổi Sáng Bắt Đầu Với Danh Sách Mới.</string>
+    <string name="onboarding_continue">Tiếp Tục</string>
+    <string name="avoided">Tránh</string>
+    <string name="done">Xong</string>
+    <string name="habits">Thói Quen</string>
+    <string name="today">Hôm Nay</string>
+    <string name="log">Đăng Nhập</string>
+    <string name="about">Về</string>
+    <string name="labels">Nhãn</string>
+    <string name="settings">Cài Đặt</string>
+    <string name="mostav">Tránh Nhất:</string>
+    <string name="leastav">Ít Tránh Nhất:</string>
+    <string name="addlabel">Vui Lòng Thêm Nhãn Trước</string>
+    <string name="addnewlabel">Thêm Nhãn Mới</string>
+    <string name="addtask">Nhập Thói Quen Xấu</string>
+    <string name="note">Sự Miêu Tả</string>
+    <string name="save">Cứu</string>
+    <string name="puthabit">Để Bắt Đầu, Hãy Đặt Một Thói Quen Xấu</string>
+    <string name="habitswillshowuphere">Thói Quen Sẽ Xuất Hiện Ở Đây</string>
+    <string name="apachelicense">Giấy Phép Apache 2.0</string>
+    <string name="developer">Nhà Phát Triển</string>
+    <string name="contribute">Đóng Góp</string>
+    <string name="translate">Dịch</string>
+    <string name="report">Báo Cáo Một Vấn Đề</string>
+    <string name="source">Xem Nguồn</string>
+    <string name="opensourcelicense">Giấy Phép Nguồn Mở</string>
+    <string name="appearance">Vẻ Bề Ngoài</string>
+    <string name="dark">Tối Tăm</string>
+    <string name="light">Ánh Sáng</string>
+    <string name="update">Cập Nhật</string>
+    <string name="feather">Biểu Tượng Lông Vũ</string>
+    <string name="mitlicence">Giấy Phép Mit</string>
+    <string name="jetpack">Máy Bay Phản Lực Android</string>
+    <string name="materialspinner">Vật Liệuspinner</string>
+    <string name="followsys">Theo Hệ Thống</string>
+    <string name="nobobutton">Nobobutton</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">Junit</string>
+    <string name="eclipse">Giấy Phép Công Cộng Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">Gnu General Public Giấy Phép Ce</string>
+    <string-array name="spinner_array">
+        <item>Xã Hội</item>
+        <item>Thực Phẩm Và Đồ Uống</item>
+        <item>Nghiên Cứu</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">Bây Giờ Để Không Theo Hệ Thống Của Bạn.</string>
+    <string name="toast_light">Bây Giờ Để Không Ở Phía Ánh Sáng Bây Giờ.</string>
+    <string name="toast_dark">Bây Giờ Để Không Phải Là Mặt Tối.</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">Thêm Mới Vào Mục Không</string>
     <string name="d">D</string>
     <string name="w">W</string>
     <string name="m">M</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="out_of">"Ra Khỏi"</string>
+    <string name="habits_are_avoided">"Thói Quen Được Tránh"</string>
+    <string name="habits_are_avoided_way_to_go">"Thói Quen Được Tránh, Cách Để Đi!"</string>
+    <string name="avoided_">Tránh</string>
+    <string name="habits_">Thói Quen</string>
+    <string name="delete">Bạn Có Thực Sự Muốn Xóa Cái Này?</string>
+    <string name="no">Không</string>
+    <string name="deletes">Bạn Có Thực Sự Muốn Xóa Cái Này?</string>
+    <string name="yes">Đúng</string>
+    <string name="please_add_a_label_first">Vui Lòng Thêm Nhãn Trước</string>
+    <string name="do_you_really_want_to_delete_this">Bạn Có Thực Sự Muốn Xóa Cái Này?</string>
+    <string name="january">Tháng Một</string>
+    <string name="february">Tháng Hai</string>
+    <string name="march">Bước Đều</string>
+    <string name="april">Tháng Tư</string>
+    <string name="may">Có Thể</string>
+    <string name="june">Tháng Sáu</string>
+    <string name="july">Tháng Bảy</string>
+    <string name="august">Tháng Tám</string>
+    <string name="september">Tháng 9</string>
+    <string name="october">Tháng Mười</string>
+    <string name="november">Tháng Mười Một</string>
+    <string name="december">Tháng 12</string>
+    <string name="mark_as_done_or_avoided">Đánh Dấu Như Đã Làm Hoặc Tránh.</string>
+    <string name="help_make_to_don_t_better">Giúp Làm Cho \ "Để Don \'T \" Tốt Hơn.</string>
+    <string name="todon_t_reminder">Todon \'T Nhắc Nhở</string>
+    <string name="mark_your_todon_t_task">"Đánh Dấu Nhiệm Vụ Todon'T Của Bạn"</string>
+    <string name="to_start_off_put_down_a_bad_habit">Để Bắt Đầu, Đặt Một Thói Quen Xấu.</string>
+    <string name="view_your_stats">Xem Số Liệu Thống Kê Của Bạn.</string>
+    <string name="add_label">Thêm Nhãn.</string>
+    <string name="permission_required">Cần Có Sự Cho Phép</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">Ứng Dụng Này Yêu Cầu Truy Cập Vào Bộ Nhớ Ngoài Của Bạn Để Khôi Phục Cơ Sở Dữ Liệu.Vui Lòng Cho Phép Quyền Này Trong Cài Đặt Ứng Dụng.</string>
+    <string name="open_settings">Mở Cài Đặt</string>
+    <string name="select_repetition_frequency">Chọn Tần Số Lặp Lại</string>
+    <string name="once">Một Lần</string>
+    <string name="daily">Hằng Ngày</string>
+    <string name="weekly">Hàng Tuần</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">Bạn Có Thực Sự Muốn Xóa Điều Này Không? \ Nthis Cũng Sẽ Xóa Tất Cả Các Thói Quen Liên Quan Đến Nhãn Này.</string>
+    <string name="data">Dữ Liệu</string>
+    <string name="add_daily_notification">Thêm Thông Báo Hàng Ngày</string>
+    <string name="back_up">Hỗ Trợ</string>
+    <string name="restore">Khôi Phục</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

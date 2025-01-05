@@ -1,31 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="LightMode">نہ کریں</string>
-    <string name="app_name">نہ کریں</string>
-    <string name="d">D</string>
-    <string name="w">W</string>
-    <string name="m">M</string>
+
+    <string-array name="languages">
+        <item>زبان منتخب کریں</item>
+        <item>چیک</item>
+        <item>ڈینش</item>
+        <item>جرمن</item>
+        <item>انگریزی</item>
+        <item>ہسپانوی</item>
+        <item>Italian</item>
+        <item>فرانسیسی</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>جنوری</item>
+            <item>فروری</item>
+            <item>مارچ</item>
+            <item>اپریل</item>
+            <item>مئی</item>
+            <item>جون</item>
+            <item>جولائی</item>
+            <item>اگست</item>
+            <item>ستمبر</item>
+            <item>اکتوبر</item>
+            <item>نومبر</item>
+            <item>دسمبر</item>
+        </string-array>
+
+
+    <string name="delete_habit">کیا آپ واقعی اس عادت کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="LightMode">To Don \'T</string>
+    <string name="onboarding_reverse">ریورس ٹو ڈو لسٹ</string>
+    <string name="onboarding_bad">اپنی بری عادتوں کو لکھ دیں۔ہر دن ، کراس</string>
+    <string name="onboarding_gavein">ان لوگوں سے باہر جو آپ نے دیا تھا۔اور اگلا</string>
+    <string name="onboarding_freshlist">صبح کی تازہ فہرست کے ساتھ شروع کریں۔</string>
+    <string name="onboarding_continue">جاری رکھیں</string>
+    <string name="avoided">گریز کیا</string>
+    <string name="done">کیا</string>
+    <string name="habits">عادات</string>
+    <string name="today">آج</string>
+    <string name="log">لاگ</string>
+    <string name="about">کے بارے میں</string>
+    <string name="labels">لیبل</string>
+    <string name="settings">ترتیبات</string>
+    <string name="mostav">Most avoided:</string>
+    <string name="leastav">کم از کم گریز:</string>
+    <string name="addlabel">براہ کرم پہلے ایک لیبل شامل کریں</string>
+    <string name="addnewlabel">Add new label</string>
+    <string name="addtask">Enter Bad Habit</string>
+    <string name="note">تفصیل</string>
+    <string name="save">بچت کریں</string>
+    <string name="puthabit">شروع کرنے کے لئے ، بری عادت ڈالیں</string>
+    <string name="habitswillshowuphere">عادات یہاں ظاہر ہوں گی</string>
+    <string name="apachelicense">اپاچی لائسنس 2.0</string>
+    <string name="developer">ڈویلپر</string>
+    <string name="contribute">شراکت کریں</string>
+    <string name="translate">ترجمہ کریں</string>
+    <string name="report">کسی مسئلے کی اطلاع دیں</string>
+    <string name="source">ماخذ دیکھیں</string>
+    <string name="opensourcelicense">اوپن سورس لائسنس</string>
+    <string name="appearance">ظاہری شکل</string>
+    <string name="dark">تاریک</string>
+    <string name="light">روشنی</string>
+    <string name="update">تازہ کاری</string>
+    <string name="feather">پنکھ کی شبیہیں</string>
+    <string name="mitlicence">ایم آئی ٹی لائسنس</string>
+    <string name="jetpack">اینڈروئیڈ جیٹ پیک</string>
+    <string name="materialspinner">میٹریل اسپنر</string>
+    <string name="followsys">سسٹم پر عمل کریں</string>
+    <string name="nobobutton">نوبوٹن</string>
+    <string name="circleimg">سرکل میج ویو</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">جونیٹ</string>
+    <string name="eclipse">چاند گرہن پبلک لائسنس 1.0</string>
+    <string name="kotlin">کوٹلن</string>
+    <string name="java">جاوا</string>
+    <string name="gnu">Gnu جنرل پبلک لائسنس عیسوی</string>
+    <string-array name="spinner_array">
+        <item>معاشرتی</item>
+        <item>کھانے پینے اور مشروبات</item>
+        <item>مطالعات</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">اب آپ کے سسٹم کی پیروی نہیں کریں گے۔</string>
+    <string name="toast_light">ڈان \'اب روشنی کی طرف ہے۔</string>
+    <string name="toast_dark">ڈان \'اب اندھیرے کی طرف ہے۔</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">ڈان \'ٹی آئٹم میں نیا شامل کریں</string>
+    <string name="d">ڈی</string>
+    <string name="w">ڈبلیو</string>
+    <string name="m">م</string>
     <string name="y">Y</string>
-    <string name="out_of">" out of "</string>
-    <string name="habits_are_avoided">" habits are avoided"</string>
-    <string name="habits_are_avoided_way_to_go">" habits are avoided, way to go!"</string>
-    <string name="avoided_">Avoided</string>
-    <string name="habits_">Habits</string>
-    <string name="no">No</string>
-    <string name="deletes">Do you really want to delete this?</string>
-    <string name="yes">Yes</string>
-    <string name="please_add_a_label_first">Please Add a Label First</string>
-    <string name="do_you_really_want_to_delete_this">Do you really want to delete this?</string>
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
+    <string name="out_of">"باہر"</string>
+    <string name="habits_are_avoided">"عادات سے گریز کیا جاتا ہے"</string>
+    <string name="habits_are_avoided_way_to_go">"عادات سے گریز کیا جاتا ہے ، جانے کا راستہ!"</string>
+    <string name="avoided_">گریز کیا</string>
+    <string name="habits_">عادات</string>
+    <string name="delete">کیا آپ واقعی اس کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="no">نہیں</string>
+    <string name="deletes">کیا آپ واقعی اس کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="yes">ہاں</string>
+    <string name="please_add_a_label_first">براہ کرم پہلے ایک لیبل شامل کریں</string>
+    <string name="do_you_really_want_to_delete_this">کیا آپ واقعی اس کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="january">جنوری</string>
+    <string name="february">فروری</string>
+    <string name="march">مارچ</string>
+    <string name="april">اپریل</string>
+    <string name="may">مئی</string>
+    <string name="june">جون</string>
+    <string name="july">جولائی</string>
+    <string name="august">اگست</string>
+    <string name="september">ستمبر</string>
+    <string name="october">اکتوبر</string>
+    <string name="november">نومبر</string>
+    <string name="december">دسمبر</string>
+    <string name="mark_as_done_or_avoided">جیسا کہ کیا گیا ہے یا سے گریز کیا ہے۔</string>
+    <string name="help_make_to_don_t_better">بہتر بنانے میں مدد کریں \ "ڈان \'T \" بہتر بنائیں۔</string>
+    <string name="todon_t_reminder">ٹوڈن \'ٹی یاد دہانی</string>
+    <string name="mark_your_todon_t_task">"اپنے ٹڈون ٹاسک کو نشان زد کریں"</string>
+    <string name="to_start_off_put_down_a_bad_habit">شروع کرنے کے لئے ، بری عادت ڈالیں۔</string>
+    <string name="view_your_stats">اپنے اعدادوشمار دیکھیں۔</string>
+    <string name="add_label">لیبل شامل کریں۔</string>
+    <string name="permission_required">اجازت درکار ہے</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">اس ایپ کو ڈیٹا بیس کو بحال کرنے کے لئے آپ کے بیرونی اسٹوریج تک رسائی کی ضرورت ہے۔براہ کرم ایپ کی ترتیبات میں اس اجازت کو قابل بنائیں۔</string>
+    <string name="open_settings">کھلی ترتیبات</string>
+    <string name="select_repetition_frequency">تکرار کی فریکوئنسی منتخب کریں</string>
+    <string name="once">ایک بار</string>
+    <string name="daily">روزانہ</string>
+    <string name="weekly">ہفتہ وار</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">کیا آپ واقعی اس کو حذف کرنا چاہتے ہیں؟ \ N اس لیبل سے متعلق تمام عادات کو بھی حذف کردے گا۔</string>
+    <string name="data">ڈیٹا</string>
+    <string name="add_daily_notification">روزانہ نوٹیفکیشن شامل کریں</string>
+    <string name="back_up">بیک اپ</string>
+    <string name="restore">بحال کریں</string>
+    <string name="dracula">Dracula</string>
+
 </resources>

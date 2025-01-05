@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string-array name="languages">
+        <item>เลือกภาษา</item>
+        <item>ภาษาเช็ก</item>
+        <item>เกี่ยวกับเดนมาร์ก</item>
+        <item>ชาวเยอรมัน</item>
+        <item>ภาษาอังกฤษ</item>
+        <item>เกี่ยวกับภาษาสเปน</item>
+        <item>อิตาลี</item>
+        <item>ภาษาฝรั่งเศส</item>
+    </string-array>
+
+        <string-array name="month_names">
+            <item>มกราคม</item>
+            <item>กุมภาพันธ์</item>
+            <item>มีนาคม</item>
+            <item>เมษายน</item>
+            <item>อาจ</item>
+            <item>มิถุนายน</item>
+            <item>กรกฎาคม</item>
+            <item>สิงหาคม</item>
+            <item>กันยายน</item>
+            <item>ตุลาคม</item>
+            <item>พฤศจิกายน</item>
+            <item>ธันวาคม</item>
+        </string-array>
+
+
+    <string name="delete_habit">แน่ใจหรือว่าต้องการลบนิสัยนี้?</string>
+    <string name="LightMode">เพื่อไม่ \'T</string>
+    <string name="onboarding_reverse">รายการสิ่งที่ต้องทำย้อนกลับ</string>
+    <string name="onboarding_bad">จดนิสัยที่ไม่ดีของคุณลงทุกวันข้าม</string>
+    <string name="onboarding_gavein">สิ่งที่คุณมอบให้และต่อไป</string>
+    <string name="onboarding_freshlist">เริ่มตอนเช้าด้วยรายการใหม่</string>
+    <string name="onboarding_continue">ดำเนินการต่อ</string>
+    <string name="avoided">หลีกเลี่ยง</string>
+    <string name="done">เสร็จแล้ว</string>
+    <string name="habits">นิสัย</string>
+    <string name="today">วันนี้</string>
+    <string name="log">บันทึก</string>
+    <string name="about">เกี่ยวกับ</string>
+    <string name="labels">ฉลาก</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="mostav">หลีกเลี่ยงมากที่สุด:</string>
+    <string name="leastav">หลีกเลี่ยงน้อยที่สุด:</string>
+    <string name="addlabel">กรุณาเพิ่มฉลากก่อน</string>
+    <string name="addnewlabel">เพิ่มฉลากใหม่</string>
+    <string name="addtask">เข้าสู่นิสัยที่ไม่ดี</string>
+    <string name="note">คำอธิบาย</string>
+    <string name="save">บันทึก</string>
+    <string name="puthabit">ในการเริ่มต้นให้วางนิสัยที่ไม่ดี</string>
+    <string name="habitswillshowuphere">นิสัยจะปรากฏขึ้นที่นี่</string>
+    <string name="apachelicense">ใบอนุญาต Apache 2.0</string>
+    <string name="developer">ผู้พัฒนา</string>
+    <string name="contribute">มีส่วนช่วย</string>
+    <string name="translate">แปล</string>
+    <string name="report">รายงานปัญหา</string>
+    <string name="source">ดูแหล่งที่มา</string>
+    <string name="opensourcelicense">ใบอนุญาตโอเพนซอร์ซ</string>
+    <string name="appearance">รูปร่าง</string>
+    <string name="dark">มืด</string>
+    <string name="light">แสงสว่าง</string>
+    <string name="update">อัปเดต</string>
+    <string name="feather">ไอคอนขนนก</string>
+    <string name="mitlicence">ใบอนุญาต Mit</string>
+    <string name="jetpack">Android Jetpack</string>
+    <string name="materialspinner">Materialspinner</string>
+    <string name="followsys">ติดตามระบบ</string>
+    <string name="nobobutton">ชาวนอโบโบทตัน</string>
+    <string name="circleimg">Circleimageview</string>
+    <string name="mpandroidchart">Mpandroidchart</string>
+    <string name="junit">จูท</string>
+    <string name="eclipse">ใบอนุญาตสาธารณะ Eclipse 1.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">ชวา</string>
+    <string name="gnu">Gnu ทั่วไปใบอนุญาตสาธารณะ Ce</string>
+    <string-array name="spinner_array">
+        <item>ทางสังคม</item>
+        <item>อาหารและเครื่องดื่ม</item>
+        <item>การศึกษา</item>
+    </string-array>
+    # Toasts
+    <string name="toast_system">หากต้องการไม่ติดตามระบบของคุณ</string>
+    <string name="toast_light">เพื่อไม่ให้อยู่ด้านแสงสว่างในขณะนี้</string>
+    <string name="toast_dark">ในตอนนี้ไม่ได้อยู่ที่ด้านมืดแล้ว</string>
+    # Here are the non-translateable strings
+
+    # Here are the contentDescription strings (for impaired users) starting with "contentDescription_"
+    <string name="contentDescription_FAB">เพิ่มใหม่ลงในรายการ Don \'t</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="m">ม.</string>
+    <string name="y">Y</string>
+    <string name="out_of">"ออกจาก"</string>
+    <string name="habits_are_avoided">"หลีกเลี่ยงนิสัย"</string>
+    <string name="habits_are_avoided_way_to_go">"หลีกเลี่ยงนิสัยทางไป!"</string>
+    <string name="avoided_">หลีกเลี่ยง</string>
+    <string name="habits_">นิสัย</string>
+    <string name="delete">คุณต้องการลบสิ่งนี้หรือไม่?</string>
+    <string name="no">เลขที่</string>
+    <string name="deletes">คุณต้องการลบสิ่งนี้หรือไม่?</string>
+    <string name="yes">ใช่</string>
+    <string name="please_add_a_label_first">กรุณาเพิ่มฉลากก่อน</string>
+    <string name="do_you_really_want_to_delete_this">คุณต้องการลบสิ่งนี้หรือไม่?</string>
+    <string name="january">มกราคม</string>
+    <string name="february">กุมภาพันธ์</string>
+    <string name="march">มีนาคม</string>
+    <string name="april">เมษายน</string>
+    <string name="may">อาจ</string>
+    <string name="june">มิถุนายน</string>
+    <string name="july">กรกฎาคม</string>
+    <string name="august">สิงหาคม</string>
+    <string name="september">กันยายน</string>
+    <string name="october">ตุลาคม</string>
+    <string name="november">พฤศจิกายน</string>
+    <string name="december">ธันวาคม</string>
+    <string name="mark_as_done_or_avoided">ทำเครื่องหมายว่าทำหรือหลีกเลี่ยง</string>
+    <string name="help_make_to_don_t_better">ช่วยทำให้ \ "เพื่อไม่ \'T \" ดีขึ้น</string>
+    <string name="todon_t_reminder">การเตือนความจำ</string>
+    <string name="mark_your_todon_t_task">"ทำเครื่องหมายงานของคุณไม่ได้"</string>
+    <string name="to_start_off_put_down_a_bad_habit">ในการเริ่มต้นให้วางนิสัยที่ไม่ดี</string>
+    <string name="view_your_stats">ดูสถิติของคุณ</string>
+    <string name="add_label">เพิ่มฉลาก</string>
+    <string name="permission_required">ต้องได้รับอนุญาต</string>
+    <string name="this_app_requires_access_to_your_external_storage_to_restore_the_database_please_enable_this_permission_in_the_app_settings">แอพนี้ต้องการการเข้าถึงที่เก็บข้อมูลภายนอกของคุณเพื่อกู้คืนฐานข้อมูลโปรดเปิดใช้งานการอนุญาตนี้ในการตั้งค่าแอป</string>
+    <string name="open_settings">เปิดการตั้งค่า</string>
+    <string name="select_repetition_frequency">เลือกความถี่การทำซ้ำ</string>
+    <string name="once">ครั้งหนึ่ง</string>
+    <string name="daily">รายวัน</string>
+    <string name="weekly">รายสัปดาห์</string>
+    <string name="do_you_really_want_to_delete_this_this_will_also_delete_all_habits_related_to_this_label">คุณต้องการลบสิ่งนี้จริงหรือไม่ \ N ซึ่งจะลบนิสัยทั้งหมดที่เกี่ยวข้องกับฉลากนี้</string>
+    <string name="data">ข้อมูล</string>
+    <string name="add_daily_notification">เพิ่มการแจ้งเตือนรายวัน</string>
+    <string name="back_up">สำรอง</string>
+    <string name="restore">คืนค่า</string>
+    <string name="dracula">Dracula</string>
+
+</resources>

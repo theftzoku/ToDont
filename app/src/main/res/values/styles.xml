@@ -17,7 +17,10 @@
 
         <item name="android:typeface">sans</item>
     </style>
-
+    <style name="MyDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMinor">75%</item>
+    </style>
     <style name="Medium.Text" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/comfortaa_light</item>
@@ -64,5 +67,7 @@
     <style name="NightSpinnerTextColor">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+
 
 </resources>

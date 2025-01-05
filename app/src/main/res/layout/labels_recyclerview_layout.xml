@@ -17,7 +17,7 @@
         >
 
         <Button
-            android:id="@+id/labelsbtn"
+            android:id="@+id/btnLabel"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_gravity="top"
