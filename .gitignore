@@ -94,3 +94,6 @@ lint/tmp/
 # Android Profiling
 *.hprof
 *.dm
+
+# Kotlin
+.kotlin/sessions/
